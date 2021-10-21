@@ -1,0 +1,50 @@
+{
+    "name": "skillshare/formatphp",
+    "type": "library",
+    "description": "Internationalize PHP apps. This library provides an API to format dates, numbers, and strings, including pluralization and handling translations.",
+    "keywords": [
+        "intl",
+        "i18n",
+        "internationalization",
+        "locale",
+        "localization",
+        "globalization",
+        "format",
+        "formatting",
+        "translate",
+        "translation"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4 || ^8"
+    },
+    "require-dev": {
+        "ramsey/devtools": "^1.7"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "captainhook": {
+            "force-install": true
+        },
+        "ramsey/conventional-commits": {
+            "configFile": "conventional-commits.json"
+        },
+        "ramsey/devtools": {
+            "command-prefix": "dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "FormatPHP\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FormatPHP\\Test\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
