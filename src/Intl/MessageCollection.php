@@ -22,8 +22,11 @@ declare(strict_types=1);
 
 namespace FormatPHP\Intl;
 
+use FormatPHP\Exception\MessageNotFound;
 use IteratorAggregate;
 use Ramsey\Collection\AbstractCollection;
+
+use function sprintf;
 
 /**
  * FormatPHP collection of Message instances
@@ -41,21 +44,17 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
     /**
      * Looks up and returns a message for the given ID and locale
      *
-     * This method returns `null` if it cannot find a message for this ID in the
-     * given locale.
+     * @throws MessageNotFound
      */
-    public function getMessage(string $id, Locale $locale): ?string
+    public function getMessage(string $id, Locale $locale): string
     {
-        $message = $this->findMessage($id, $locale);
-
-        if ($message !== null) {
-            return $message->getMessage();
-        }
-
-        return null;
+        return $this->findMessage($id, $locale)->getMessage();
     }
 
-    private function findMessage(string $id, Locale $locale): ?Message
+    /**
+     * @throws MessageNotFound
+     */
+    private function findMessage(string $id, Locale $locale): Message
     {
         foreach ($this as $message) {
             if ($message->getId() === $id && $message->getLocale()->getId() === $locale->getId()) {
@@ -63,6 +62,6 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
             }
         }
 
-        return null;
+        throw new MessageNotFound(sprintf('Could not find message with ID "%s".', $id));
     }
 }

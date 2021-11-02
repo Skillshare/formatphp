@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Intl;
 
+use FormatPHP\Exception\MessageNotFound;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\Message;
 use FormatPHP\Intl\MessageCollection;
@@ -40,7 +41,7 @@ class MessageCollectionTest extends TestCase
         );
     }
 
-    public function testGetMessageReturnsNullWhenMessageNotFound(): void
+    public function testGetMessageThrowsExceptionWhenMessageNotFound(): void
     {
         $locale = $this->mockery(Locale::class, [
             'getId' => 'en-US',
@@ -48,6 +49,9 @@ class MessageCollectionTest extends TestCase
 
         $collection = new MessageCollection();
 
-        $this->assertNull($collection->getMessage('foobar', $locale));
+        $this->expectException(MessageNotFound::class);
+        $this->expectExceptionMessage('Could not find message with ID "foobar".');
+
+        $collection->getMessage('foobar', $locale);
     }
 }
