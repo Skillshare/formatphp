@@ -24,10 +24,6 @@ namespace FormatPHP;
 
 use FormatPHP\Extractor\IdInterpolator;
 
-use function is_array;
-use function is_string;
-use function sprintf;
-
 /**
  * FormatPHP internationalization and localization
  */
@@ -35,46 +31,13 @@ class Intl implements Intl\Config, Intl\Formatters
 {
     private Intl\Locale $locale;
     private Intl\MessageCollection $messages;
-    private ?Intl\Locale $defaultLocale = null;
+    private ?Intl\Locale $defaultLocale;
 
-    /**
-     * @param Intl\Locale | string $locale
-     * @param Intl\MessageCollection | iterable<Intl\Message> $messages
-     * @param Intl\Locale | string | null $defaultLocale
-     *
-     * @throws Exception\InvalidArgument
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
-     */
-    public function __construct($locale, iterable $messages, $defaultLocale = null)
-    {
-        $locale = is_string($locale) ? new Locale($locale) : $locale;
-        $messages = is_array($messages) ? new Intl\MessageCollection($messages) : $messages;
-        $defaultLocale = is_string($defaultLocale) ? new Locale($defaultLocale) : $defaultLocale;
-
-        if (!$locale instanceof Intl\Locale) {
-            throw new Exception\InvalidArgument(sprintf(
-                'Locale must be an instance of %s or a string locale.',
-                Intl\Locale::class,
-            ));
-        }
-
-        if (!$messages instanceof Intl\MessageCollection) {
-            throw new Exception\InvalidArgument(sprintf(
-                'Messages must be an instance of %s or an array of %s objects.',
-                Intl\MessageCollection::class,
-                Intl\Message::class,
-            ));
-        }
-
-        /** @phpstan-ignore-next-line */
-        if ($defaultLocale !== null && !($defaultLocale instanceof Intl\Locale)) {
-            throw new Exception\InvalidArgument(sprintf(
-                'Default locale must be an instance of %s, a string locale, or null.',
-                Intl\Locale::class,
-            ));
-        }
-
+    public function __construct(
+        Intl\Locale $locale,
+        Intl\MessageCollection $messages,
+        ?Intl\Locale $defaultLocale = null
+    ) {
         $this->locale = $locale;
         $this->messages = $messages;
         $this->defaultLocale = $defaultLocale;
