@@ -16,7 +16,11 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.4 || ^8"
+        "php": "^7.4 || ^8",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ramsey/collection": "^1.2",
+        "yiisoft/i18n": "^1.0"
     },
     "require-dev": {
         "ramsey/devtools": "^1.7"
