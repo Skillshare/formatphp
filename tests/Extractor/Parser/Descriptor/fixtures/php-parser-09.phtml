@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>An HTML page</title>
+</head>
+<body>
+
+    <p>This file is .phtml, so the PHP parser should parse it as PHP code.</p>
+
+    <div>
+        <p><?php echo $internationalization->formatMessage(['id' => 'welcome', 'defaultMessage' => 'Welcome!']); ?></p>
+    </div>
+
+    <div>
+        <p><?php echo $internationalization->formatMessage(['id' => 'goodbye', 'defaultMessage' => 'Goodbye!']); ?></p>
+    </div>
+
+</body>
+</html>
