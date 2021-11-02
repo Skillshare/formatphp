@@ -20,18 +20,21 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Intl;
+
+use IteratorAggregate;
+use Ramsey\Collection\AbstractCollection;
 
 /**
- * An example class to act as a starting point for developing your library
+ * FormatPHP collection of Descriptor instances
+ *
+ * @extends AbstractCollection<Descriptor>
+ * @implements IteratorAggregate<array-key, Descriptor>
  */
-class Example
+final class DescriptorCollection extends AbstractCollection implements IteratorAggregate
 {
-    /**
-     * Returns a greeting statement using the provided name
-     */
-    public function greet(string $name = 'World'): string
+    public function getType(): string
     {
-        return "Hello, {$name}!";
+        return Descriptor::class;
     }
 }
