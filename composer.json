@@ -20,6 +20,7 @@
         "ext-intl": "*",
         "ext-json": "*",
         "ramsey/collection": "^1.2",
+        "webmozart/glob": "^4.4",
         "yiisoft/i18n": "^1.0"
     },
     "require-dev": {

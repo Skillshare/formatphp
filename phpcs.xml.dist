@@ -8,6 +8,8 @@
     <file>./src</file>
     <file>./tests</file>
 
+    <exclude-pattern>*/tests/*/fixtures/*</exclude-pattern>
+
     <rule ref="Ramsey"/>
 
 </ruleset>
