@@ -30,35 +30,41 @@ class Descriptor implements Intl\ExtendedDescriptor
     private ?string $defaultMessage;
     private ?string $description;
     private ?string $id;
-    private ?string $file;
-    private ?int $start;
-    private ?int $end;
-    private ?int $line;
-    private ?int $col;
+    private ?string $sourceFile;
+    private ?int $sourceStartOffset;
+    private ?int $sourceEndOffset;
+    private ?int $sourceLine;
 
     /**
      * @var array<string, string>
      */
     private array $metadata = [];
 
+    /**
+     * @param string | null $id The descriptor identifier
+     * @param string | null $defaultMessage The default message for the descriptor
+     * @param string | null $description A description to give translators more context/information about this message
+     * @param string | null $sourceFile The source file in which the descriptor appears
+     * @param int | null $sourceStartOffset The string offset in the source file where the descriptor begins
+     * @param int | null $sourceEndOffset The string offset in the source file where the descriptor ends
+     * @param int | null $sourceLine The line number in the source file where the descriptor begins
+     */
     public function __construct(
         ?string $id = null,
         ?string $defaultMessage = null,
         ?string $description = null,
-        ?string $file = null,
-        ?int $start = null,
-        ?int $end = null,
-        ?int $line = null,
-        ?int $col = null
+        ?string $sourceFile = null,
+        ?int $sourceStartOffset = null,
+        ?int $sourceEndOffset = null,
+        ?int $sourceLine = null
     ) {
         $this->id = $id;
         $this->defaultMessage = $defaultMessage;
         $this->description = $description;
-        $this->file = $file;
-        $this->start = $start;
-        $this->end = $end;
-        $this->line = $line;
-        $this->col = $col;
+        $this->sourceFile = $sourceFile;
+        $this->sourceStartOffset = $sourceStartOffset;
+        $this->sourceEndOffset = $sourceEndOffset;
+        $this->sourceLine = $sourceLine;
     }
 
     public function getDefaultMessage(): ?string
@@ -81,46 +87,40 @@ class Descriptor implements Intl\ExtendedDescriptor
         $this->id = $id;
     }
 
-    public function getFile(): ?string
+    public function getSourceFile(): ?string
     {
-        return $this->file;
+        return $this->sourceFile;
     }
 
-    public function getStart(): ?int
+    public function getSourceStartOffset(): ?int
     {
-        return $this->start;
+        return $this->sourceStartOffset;
     }
 
-    public function getEnd(): ?int
+    public function getSourceEndOffset(): ?int
     {
-        return $this->end;
+        return $this->sourceEndOffset;
     }
 
-    public function getLine(): ?int
+    public function getSourceLine(): ?int
     {
-        return $this->line;
-    }
-
-    public function getCol(): ?int
-    {
-        return $this->col;
+        return $this->sourceLine;
     }
 
     /**
-     * @return array{defaultMessage: string | null, description: string | null, id: string | null, file: string | null, start: int | null, end: int | null, line: int | null, meta: array<string, string>, col: int | null}
+     * @return array{defaultMessage: string | null, description: string | null, id: string | null, file: string | null, start: int | null, end: int | null, line: int | null, meta: array<string, string>}
      */
     public function toArray(): array
     {
         return [
-            'col' => $this->col,
             'defaultMessage' => $this->defaultMessage,
             'description' => $this->description,
-            'end' => $this->end,
-            'file' => $this->file,
+            'end' => $this->sourceEndOffset,
+            'file' => $this->sourceFile,
             'id' => $this->id,
-            'line' => $this->line,
+            'line' => $this->sourceLine,
             'meta' => $this->metadata,
-            'start' => $this->start,
+            'start' => $this->sourceStartOffset,
         ];
     }
 

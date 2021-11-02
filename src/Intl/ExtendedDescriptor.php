@@ -30,29 +30,24 @@ interface ExtendedDescriptor extends Descriptor
     /**
      * Returns the filename where the descriptor appears
      */
-    public function getFile(): ?string;
+    public function getSourceFile(): ?string;
 
     /**
      * Returns the file code string offset of the first character where the
      * descriptor appears
      */
-    public function getStart(): ?int;
+    public function getSourceStartOffset(): ?int;
 
     /**
      * Returns the file code string offset of the last character where the
      * descriptor appears
      */
-    public function getEnd(): ?int;
+    public function getSourceEndOffset(): ?int;
 
     /**
      * Returns the line number on which the descriptor starts
      */
-    public function getLine(): ?int;
-
-    /**
-     * Returns the line's column number in which the descriptor starts
-     */
-    public function getCol(): ?int;
+    public function getSourceLine(): ?int;
 
     /**
      * Sets metadata related to this descriptor

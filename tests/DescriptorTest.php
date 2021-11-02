@@ -15,15 +15,13 @@ class DescriptorTest extends TestCase
         $this->assertNull($descriptor->getDefaultMessage());
         $this->assertNull($descriptor->getDescription());
         $this->assertNull($descriptor->getId());
-        $this->assertNull($descriptor->getFile());
-        $this->assertNull($descriptor->getStart());
-        $this->assertNull($descriptor->getEnd());
-        $this->assertNull($descriptor->getLine());
-        $this->assertNull($descriptor->getCol());
+        $this->assertNull($descriptor->getSourceFile());
+        $this->assertNull($descriptor->getSourceStartOffset());
+        $this->assertNull($descriptor->getSourceEndOffset());
+        $this->assertNull($descriptor->getSourceLine());
         $this->assertSame([], $descriptor->getMetadata());
         $this->assertSame(
             [
-                'col' => null,
                 'defaultMessage' => null,
                 'description' => null,
                 'end' => null,
@@ -47,7 +45,6 @@ class DescriptorTest extends TestCase
             482,
             529,
             34,
-            5,
         );
 
         $descriptor->setMetadata(['foo' => 'bar']);
@@ -55,15 +52,13 @@ class DescriptorTest extends TestCase
         $this->assertSame('This is the default message', $descriptor->getDefaultMessage());
         $this->assertSame('Translate this message using our guidelines', $descriptor->getDescription());
         $this->assertSame('foobar', $descriptor->getId());
-        $this->assertSame('/path/to/file.php', $descriptor->getFile());
-        $this->assertSame(482, $descriptor->getStart());
-        $this->assertSame(529, $descriptor->getEnd());
-        $this->assertSame(34, $descriptor->getLine());
-        $this->assertSame(5, $descriptor->getCol());
+        $this->assertSame('/path/to/file.php', $descriptor->getSourceFile());
+        $this->assertSame(482, $descriptor->getSourceStartOffset());
+        $this->assertSame(529, $descriptor->getSourceEndOffset());
+        $this->assertSame(34, $descriptor->getSourceLine());
         $this->assertSame(['foo' => 'bar'], $descriptor->getMetadata());
         $this->assertSame(
             [
-                'col' => 5,
                 'defaultMessage' => 'This is the default message',
                 'description' => 'Translate this message using our guidelines',
                 'end' => 529,
