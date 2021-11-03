@@ -36,6 +36,7 @@ use FormatPHP\Util\Globber;
 use FormatPHP\Writer\Formatter\FormatPHP;
 use FormatPHP\Writer\Formatter\Formatter;
 use FormatPHP\Writer\Formatter\Simple;
+use FormatPHP\Writer\Formatter\Smartling;
 use LogicException;
 use Psr\Log\LoggerInterface;
 
@@ -187,6 +188,8 @@ class MessageExtractor
         switch (strtolower($format)) {
             case 'simple':
                 return new Simple();
+            case 'smartling':
+                return new Smartling();
             case 'formatjs':
             case 'formatphp':
                 return new FormatPHP();
