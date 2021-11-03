@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace FormatPHP\Test\Extractor\Parser\Descriptor;
 
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
+use FormatPHP\Extractor\Parser\Error;
 use FormatPHP\Intl;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\File;
+
+use function sprintf;
 
 class PhpParserTest extends TestCase
 {
@@ -15,6 +18,7 @@ class PhpParserTest extends TestCase
     {
         $parser = new PhpParser(new File(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-01.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -32,12 +36,14 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[0]->toArray(),
         );
+        $this->assertSame([], $receivedErrors);
     }
 
     public function testParse02(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage', 'bar'], 'intl');
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-02.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -46,19 +52,30 @@ class PhpParserTest extends TestCase
             [
                 'defaultMessage' => 'How are you?',
                 'description' => null,
-                'end' => 635,
+                'end' => 824,
                 'file' => __DIR__ . '/fixtures/php-parser-02.php',
                 'id' => 'greeting.question',
-                'line' => 28,
+                'line' => 37,
                 'meta' => [
                     'some' => 'thing',
                     'another' => 'meta-value',
+                    'more' => 'details',
+                    'and' => 'more',
                     'another_property' => 'some_value',
                     'and-still-more' => 'a-value',
                 ],
-                'start' => 536,
+                'start' => 725,
             ],
             $descriptors[0]->toArray(),
+        );
+        $this->assertSame(
+            [
+                'Descriptor argument must be an array on line 32 in ' . __DIR__ . '/fixtures/php-parser-02.php',
+                'Pragma contains data that could not be parsed: "some:thing this should not be captured '
+                    . 'another:meta-value also not captured" on line 2 in ' . __DIR__ . '/fixtures/php-parser-02.php',
+                'Pragma found without a value on line 8 in ' . __DIR__ . '/fixtures/php-parser-02.php',
+            ],
+            $receivedErrors,
         );
     }
 
@@ -66,6 +83,7 @@ class PhpParserTest extends TestCase
     {
         $parser = new PhpParser(new File(), ['formatMessage', 'translate']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-03.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -83,20 +101,37 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[0]->toArray(),
         );
+        $this->assertSame(
+            [
+                'Descriptor argument must be an array on line 8 in ' . __DIR__ . '/fixtures/php-parser-03.php',
+            ],
+            $receivedErrors,
+        );
     }
 
     public function testParse04(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage', 'translate', 'translate2', 'translate3']);
+        $parser = new PhpParser(new File(), ['formatMessage', 'translate', 'translate3']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-04.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertCount(0, $descriptors);
+        $this->assertSame(
+            [
+                'Descriptor argument must be an array on line 29 in ' . __DIR__ . '/fixtures/php-parser-04.php',
+                'Descriptor argument must have at least one of id, defaultMessage, or description on line 32 in '
+                    . __DIR__ . '/fixtures/php-parser-04.php',
+                'Descriptor argument must be an array on line 40 in ' . __DIR__ . '/fixtures/php-parser-04.php',
+            ],
+            $receivedErrors,
+        );
     }
 
     public function testParse05(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage'], 'invalid.pragma');
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-05.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -114,12 +149,14 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[0]->toArray(),
         );
+        $this->assertSame([], $receivedErrors);
     }
 
     public function testParse06(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage'], 'intl');
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-06.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -137,12 +174,14 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[0]->toArray(),
         );
+        $this->assertSame([], $receivedErrors);
     }
 
     public function testParse07WithoutPreservingWhitespace(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-07.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -160,12 +199,14 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[0]->toArray(),
         );
+        $this->assertSame([], $receivedErrors);
     }
 
     public function testParse07PreservingWhitespace(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage'], null, true);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-07.php');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -184,20 +225,24 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[0]->toArray(),
         );
+        $this->assertSame([], $receivedErrors);
     }
 
     public function testParse08(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-08.txt');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertCount(0, $descriptors);
+        $this->assertSame([], $receivedErrors);
     }
 
     public function testParse09(): void
     {
         $parser = new PhpParser(new File(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-09.phtml');
+        $receivedErrors = $this->compileErrors($parser->getErrors());
 
         $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
         $this->assertCount(2, $descriptors);
@@ -229,5 +274,27 @@ class PhpParserTest extends TestCase
             ],
             $descriptors[1]->toArray(),
         );
+        $this->assertSame(
+            [
+                'Descriptor argument must be present on line 18 in ' . __DIR__ . '/fixtures/php-parser-09.phtml',
+            ],
+            $receivedErrors,
+        );
+    }
+
+    /**
+     * @param Error[] $errors
+     *
+     * @return string[]
+     */
+    private function compileErrors(array $errors): array
+    {
+        $receivedErrors = [];
+
+        foreach ($errors as $error) {
+            $receivedErrors[] = sprintf('%s on line %d in %s', $error->message, $error->sourceLine, $error->sourceFile);
+        }
+
+        return $receivedErrors;
     }
 }

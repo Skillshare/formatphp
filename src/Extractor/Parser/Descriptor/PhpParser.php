@@ -25,6 +25,7 @@ namespace FormatPHP\Extractor\Parser\Descriptor;
 use FormatPHP\Exception\UnableToProcessFile;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\Parser\DescriptorParser;
+use FormatPHP\Extractor\Parser\Error;
 use FormatPHP\Intl\DescriptorCollection;
 use FormatPHP\Intl\ExtendedDescriptor;
 use FormatPHP\Util\File;
@@ -35,6 +36,7 @@ use PhpParser\NodeTraverser;
 use PhpParser\Parser;
 use PhpParser\Parser\Php7 as Php7Parser;
 
+use function array_merge;
 use function assert;
 use function count;
 use function in_array;
@@ -60,6 +62,11 @@ class PhpParser implements DescriptorParser
      * @var string[]
      */
     private array $functionNames;
+
+    /**
+     * @var Error[]
+     */
+    private array $errors = [];
 
     /**
      * @param string[] $functionNames Function names from which to parse
@@ -119,13 +126,26 @@ class PhpParser implements DescriptorParser
 
         $pragmaCollector = null;
         if ($this->pragma !== null) {
-            $pragmaCollector = new PragmaCollectorVisitor($this->pragma);
+            $pragmaCollector = new PragmaCollectorVisitor($filePath, $this->pragma);
             $traverser->addVisitor($pragmaCollector);
         }
 
         $traverser->traverse($statements);
 
+        $this->errors = $descriptorCollector->getErrors();
+        if ($pragmaCollector !== null) {
+            $this->errors = array_merge($this->errors, $pragmaCollector->getErrors());
+        }
+
         return $this->applyMetadata($descriptorCollector->getDescriptors(), $pragmaCollector);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
     }
 
     private function applyMetadata(

@@ -22,21 +22,27 @@ declare(strict_types=1);
 
 namespace FormatPHP\Extractor\Parser;
 
-use FormatPHP\Exception\UnableToProcessFile;
-use FormatPHP\Intl\DescriptorCollection;
+use Throwable;
 
 /**
- * Parses message descriptors from application source code files
+ * An error that occurred while parsing application source code
  */
-interface DescriptorParser
+final class Error
 {
-    /**
-     * @throws UnableToProcessFile
-     */
-    public function parse(string $filePath): DescriptorCollection;
+    public string $message;
+    public string $sourceFile;
+    public int $sourceLine;
+    public ?Throwable $exception;
 
-    /**
-     * @return Error[]
-     */
-    public function getErrors(): array;
+    public function __construct(
+        string $message,
+        string $sourceFile,
+        int $sourceLine,
+        ?Throwable $exception = null
+    ) {
+        $this->message = $message;
+        $this->sourceFile = $sourceFile;
+        $this->sourceLine = $sourceLine;
+        $this->exception = $exception;
+    }
 }

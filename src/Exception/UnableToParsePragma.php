@@ -20,23 +20,13 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Extractor\Parser;
+namespace FormatPHP\Exception;
 
-use FormatPHP\Exception\UnableToProcessFile;
-use FormatPHP\Intl\DescriptorCollection;
+use RuntimeException;
 
 /**
- * Parses message descriptors from application source code files
+ * Thrown when we are unable to parse pragma metadata from source code
  */
-interface DescriptorParser
+class UnableToParsePragma extends RuntimeException implements FormatPHPException
 {
-    /**
-     * @throws UnableToProcessFile
-     */
-    public function parse(string $filePath): DescriptorCollection;
-
-    /**
-     * @return Error[]
-     */
-    public function getErrors(): array;
 }

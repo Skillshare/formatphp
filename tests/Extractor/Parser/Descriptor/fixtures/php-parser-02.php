@@ -5,6 +5,15 @@
 
 use FormatPHP\Intl;
 
+/**
+ * The following pragma annotation is empty on purpose
+ *
+ * @intl
+ *
+ * Just some sample comment text here.
+ * @intl more:details and:more
+ * More comments not part of the pragma.
+ */
 class Foo
 {
     private Intl $intl;

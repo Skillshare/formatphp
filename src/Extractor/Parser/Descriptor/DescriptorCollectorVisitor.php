@@ -25,11 +25,12 @@ namespace FormatPHP\Extractor\Parser\Descriptor;
 use FormatPHP\Descriptor;
 use FormatPHP\Exception\InvalidArgument;
 use FormatPHP\Exception\UnableToGenerateMessageId;
+use FormatPHP\Exception\UnableToParseDescriptor;
 use FormatPHP\Extractor\IdInterpolator;
+use FormatPHP\Extractor\Parser\Error;
 use FormatPHP\Intl\Descriptor as IntlDescriptor;
 use FormatPHP\Intl\DescriptorCollection;
 use PhpParser\Node;
-use PhpParser\NodeAbstract;
 use PhpParser\NodeVisitorAbstract;
 
 use function assert;
@@ -47,6 +48,11 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     private bool $preserveWhitespace;
     private IdInterpolator $idInterpolator;
     private string $idInterpolatorPattern;
+
+    /**
+     * @var Error[]
+     */
+    private array $errors = [];
 
     /**
      * @var string[]
@@ -71,9 +77,22 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
         $this->idInterpolatorPattern = $idInterpolatorPattern;
     }
 
+    /**
+     * Returns a collection of descriptors we were able to extract from the nodes
+     */
     public function getDescriptors(): DescriptorCollection
     {
         return $this->descriptors;
+    }
+
+    /**
+     * Returns an array of message formatting errors
+     *
+     * @return Error[]
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
     }
 
     /**
@@ -84,57 +103,82 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
      */
     public function enterNode(Node $node)
     {
-        if (!$node instanceof Node\Expr\MethodCall && !$node instanceof Node\Expr\FuncCall) {
-            return null;
-        }
-
-        if (!$node->name instanceof Node\Identifier && !$node->name instanceof Node\Name) {
-            return null;
-        }
-
-        $functionName = $this->parseFunctionName($node->name);
-
-        if ($this->isFunctionForParsing($functionName)) {
-            $descriptor = $node->getArgs()[0] ?? null;
-
-            if ($descriptor === null) {
-                return null;
-            }
-
-            if (!$descriptor->value instanceof Node\Expr\Array_) {
-                return null;
-            }
-
-            $parsedDescriptor = $this->parseDescriptor($descriptor);
-            if ($parsedDescriptor !== null) {
-                $this->descriptors[] = $this->ensureId($parsedDescriptor);
-            }
+        if ($this->isNamedFunction($node)) {
+            assert($node instanceof Node\Expr\MethodCall || $node instanceof Node\Expr\FuncCall);
+            $this->parseFunction($node);
         }
 
         return null;
     }
 
-    private function parseDescriptor(Node\Arg $descriptorArgument): ?IntlDescriptor
+    private function isNamedFunction(Node $node): bool
     {
-        /** @var array{id?: string, defaultMessage?: string, description?: string} $properties */
-        $properties = [];
-
-        assert($descriptorArgument->value instanceof Node\Expr\Array_);
-
-        foreach ($descriptorArgument->value->items as $item) {
-            if (!$this->isValidDescriptorItem($item)) {
-                continue;
-            }
-
-            assert($item !== null);
-            assert($item->key instanceof Node\Scalar\String_);
-            assert($item->value instanceof Node\Scalar\String_);
-
-            $properties[$item->key->value] = $item->value->value;
+        if (!$node instanceof Node\Expr\MethodCall && !$node instanceof Node\Expr\FuncCall) {
+            return false;
         }
 
+        return $node->name instanceof Node\Identifier || $node->name instanceof Node\Name;
+    }
+
+    /**
+     * @param Node\Expr\MethodCall | Node\Expr\FuncCall $node
+     *
+     * @throws InvalidArgument
+     * @throws UnableToGenerateMessageId
+     */
+    private function parseFunction(Node $node): void
+    {
+        assert($node->name instanceof Node\Identifier || $node->name instanceof Node\Name);
+        $functionName = $this->parseFunctionName($node->name);
+
+        if (!$this->isFunctionForParsing($functionName)) {
+            return;
+        }
+
+        try {
+            $descriptor = $this->parseDescriptorArgument($node->getArgs()[0] ?? null);
+            $this->descriptors[] = $this->ensureId($descriptor);
+        } catch (UnableToParseDescriptor $exception) {
+            $this->errors[] = new Error($exception->getMessage(), $this->filePath, $node->getStartLine(), $exception);
+        }
+    }
+
+    /**
+     * @param Node\Identifier | Node\Name $node
+     */
+    private function parseFunctionName(Node $node): string
+    {
+        if ($node instanceof Node\Identifier) {
+            return $node->name;
+        }
+
+        return $node->getLast();
+    }
+
+    private function isFunctionForParsing(string $name): bool
+    {
+        return in_array($name, $this->functionNames);
+    }
+
+    /**
+     * @throws UnableToParseDescriptor
+     */
+    private function parseDescriptorArgument(?Node\Arg $descriptorArgument): IntlDescriptor
+    {
+        if ($descriptorArgument === null) {
+            throw new UnableToParseDescriptor('Descriptor argument must be present');
+        }
+
+        if (!$descriptorArgument->value instanceof Node\Expr\Array_) {
+            throw new UnableToParseDescriptor('Descriptor argument must be an array');
+        }
+
+        $properties = $this->parseDescriptorProperties($descriptorArgument->value);
+
         if (!isset($properties['id']) && !isset($properties['defaultMessage']) && !isset($properties['description'])) {
-            return null;
+            throw new UnableToParseDescriptor(
+                'Descriptor argument must have at least one of id, defaultMessage, or description',
+            );
         }
 
         return new Descriptor(
@@ -149,20 +193,25 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @param Node\Identifier | Node\Name $node
+     * @return array<string, string>
      */
-    private function parseFunctionName(NodeAbstract $node): string
+    private function parseDescriptorProperties(Node\Expr\Array_ $descriptor): array
     {
-        if ($node instanceof Node\Identifier) {
-            return $node->name;
+        $properties = [];
+
+        foreach ($descriptor->items as $item) {
+            if (!$this->isValidDescriptorItem($item)) {
+                continue;
+            }
+
+            assert($item !== null);
+            assert($item->key instanceof Node\Scalar\String_);
+            assert($item->value instanceof Node\Scalar\String_);
+
+            $properties[$item->key->value] = $item->value->value;
         }
 
-        return $node->getLast();
-    }
-
-    private function isFunctionForParsing(string $name): bool
-    {
-        return in_array($name, $this->functionNames);
+        return $properties;
     }
 
     private function isValidDescriptorItem(?Node\Expr\ArrayItem $item): bool
