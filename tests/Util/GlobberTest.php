@@ -82,16 +82,12 @@ class GlobberTest extends TestCase
             ->with('/path/to/other/folder/**/*')
             ->andReturn($pathsFound['/path/to/other/folder']);
 
-        $this->assertSame(
-            $expected,
-            $globber->find(
-                array_keys($pathsFound),
-                [
-                    '/path/to/other/folder/foo',
-                    'baz/**/*.json',
-                ],
-            ),
-        );
+        $returnedPaths = [];
+        foreach ($globber->find(array_keys($pathsFound), ['/path/to/other/folder/foo', 'baz/**/*.json']) as $result) {
+            $returnedPaths[] = $result;
+        }
+
+        $this->assertEquals($expected, $returnedPaths);
     }
 
     public function testGlob(): void

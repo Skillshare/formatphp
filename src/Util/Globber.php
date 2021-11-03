@@ -22,11 +22,9 @@ declare(strict_types=1);
 
 namespace FormatPHP\Util;
 
+use Generator;
 use Webmozart\Glob\Glob;
 
-use function array_filter;
-use function array_merge;
-use function array_values;
 use function strpos;
 
 /**
@@ -44,30 +42,29 @@ class Globber
     }
 
     /**
-     * Returns an array of files matching the provided glob patterns, optionally
+     * Returns files matching the provided glob patterns, optionally
      * filtered by the "ignore" glob patterns
      *
      * @param string[] $globs
      * @param string[] $ignoreGlobs
      *
-     * @return string[]
+     * @return Generator<string>
      */
-    public function find(array $globs, array $ignoreGlobs): array
+    public function find(array $globs, array $ignoreGlobs): Generator
     {
-        $filePaths = [];
-
         foreach ($globs as $glob) {
-            $filePaths = array_merge($filePaths, $this->glob($this->formatGlob($glob)));
-        }
+            foreach ($this->glob($this->formatGlob($glob)) as $path) {
+                if ($this->shouldIgnore($path, $ignoreGlobs)) {
+                    continue;
+                }
 
-        if ($ignoreGlobs !== []) {
-            $filePaths = $this->filterIgnores($filePaths, $ignoreGlobs);
-        }
+                if ($this->fileUtility->isDirectory($path)) {
+                    continue;
+                }
 
-        return array_values(array_filter(
-            $filePaths,
-            fn (string $path): bool => !$this->fileUtility->isDirectory($path),
-        ));
+                yield $path;
+            }
+        }
     }
 
     /**
@@ -79,26 +76,17 @@ class Globber
     }
 
     /**
-     * @param string[] $filePaths
      * @param string[] $ignores
-     *
-     * @return string[]
      */
-    private function filterIgnores(array $filePaths, array $ignores): array
+    private function shouldIgnore(string $path, array $ignores): bool
     {
-        $filteredPaths = [];
-
-        foreach ($filePaths as $path) {
-            foreach ($ignores as $ignore) {
-                if (Glob::match($path, $this->formatGlob($ignore))) {
-                    continue 2;
-                }
+        foreach ($ignores as $ignore) {
+            if (Glob::match($path, $this->formatGlob($ignore))) {
+                return true;
             }
-
-            $filteredPaths[] = $path;
         }
 
-        return $filteredPaths;
+        return false;
     }
 
     private function formatGlob(string $glob): string
