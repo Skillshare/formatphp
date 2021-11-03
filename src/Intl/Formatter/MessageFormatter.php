@@ -41,6 +41,13 @@ use function trim;
  */
 final class MessageFormatter
 {
+    private Config $config;
+
+    public function __construct(Config $config)
+    {
+        $this->config = $config;
+    }
+
     /**
      * Returns a translated string for the given descriptor ID
      *
@@ -54,11 +61,11 @@ final class MessageFormatter
      *
      * @throws InvalidArgument
      */
-    public static function format(Config $config, IntlDescriptor $descriptor, array $values = []): string
+    public function format(IntlDescriptor $descriptor, array $values = []): string
     {
         return (string) IntlMessageFormatter::formatMessage(
-            $config->getLocale()->getId(),
-            self::getMessage($config, $descriptor),
+            $this->config->getLocale()->getId(),
+            $this->getMessage($descriptor),
             $values,
         );
     }
@@ -66,12 +73,12 @@ final class MessageFormatter
     /**
      * @throws InvalidArgument
      */
-    private static function buildMessageId(IntlDescriptor $descriptor, Config $config): string
+    private function buildMessageId(IntlDescriptor $descriptor): string
     {
         try {
             $messageId = (new IdInterpolator())->generateId(
                 $descriptor,
-                $config->getIdInterpolatorPattern(),
+                $this->config->getIdInterpolatorPattern(),
             );
         } catch (UnableToGenerateMessageId $exception) {
             $messageId = '';
@@ -83,12 +90,12 @@ final class MessageFormatter
     /**
      * @throws InvalidArgument
      */
-    private static function getMessage(Config $config, IntlDescriptor $descriptor): string
+    private function getMessage(IntlDescriptor $descriptor): string
     {
-        $messageId = self::buildMessageId($descriptor, $config);
+        $messageId = $this->buildMessageId($descriptor);
 
         try {
-            return self::lookupMessage($config, $messageId);
+            return $this->lookupMessage($messageId);
         } catch (MessageNotFound $exception) {
             if ($descriptor->getDefaultMessage() !== null) {
                 return trim((string) preg_replace('/\n\s*/', ' ', (string) $descriptor->getDefaultMessage()));
@@ -101,8 +108,10 @@ final class MessageFormatter
     /**
      * @throws MessageNotFound
      */
-    private static function lookupMessage(Config $config, string $messageId): string
+    private function lookupMessage(string $messageId): string
     {
+        $config = $this->config;
+
         try {
             return $config->getMessages()->getMessage($messageId, $config->getLocale());
         } catch (MessageNotFound $exception) {

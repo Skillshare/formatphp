@@ -76,6 +76,8 @@ class Intl implements Intl\Config, Intl\Formatters
             $descriptor['description'] ?? null,
         );
 
-        return Intl\Formatter\MessageFormatter::format($this, $descriptorInstance, $values);
+        $formatter = new Intl\Formatter\MessageFormatter($this);
+
+        return $formatter->format($descriptorInstance, $values);
     }
 }

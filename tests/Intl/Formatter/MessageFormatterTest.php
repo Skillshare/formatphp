@@ -77,9 +77,11 @@ class MessageFormatterTest extends TestCase
             'getIdInterpolatorPattern' => IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN,
         ]);
 
+        $formatter = new MessageFormatter($config);
+
         $this->assertSame(
             $expected,
-            MessageFormatter::format($config, $descriptor, $replacements),
+            $formatter->format($descriptor, $replacements),
         );
     }
 
