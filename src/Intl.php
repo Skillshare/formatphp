@@ -68,8 +68,14 @@ class Intl implements Intl\Config, Intl\Formatters
      *
      * @inheritdoc
      */
-    public function formatMessage(array $descriptor, ?array $values = null): string
+    public function formatMessage(array $descriptor, array $values = []): string
     {
-        return Intl\Formatter\MessageFormatter::format($this, $descriptor, $values);
+        $descriptorInstance = new Descriptor(
+            $descriptor['id'] ?? null,
+            $descriptor['defaultMessage'] ?? null,
+            $descriptor['description'] ?? null,
+        );
+
+        return Intl\Formatter\MessageFormatter::format($this, $descriptorInstance, $values);
     }
 }

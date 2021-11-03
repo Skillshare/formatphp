@@ -22,7 +22,6 @@ declare(strict_types=1);
 
 namespace FormatPHP\Intl\Formatter;
 
-use FormatPHP\Descriptor;
 use FormatPHP\Exception\InvalidArgument;
 use FormatPHP\Exception\MessageNotFound;
 use FormatPHP\Exception\UnableToGenerateMessageId;
@@ -31,8 +30,6 @@ use FormatPHP\Intl\Config;
 use FormatPHP\Intl\Descriptor as IntlDescriptor;
 use MessageFormatter as IntlMessageFormatter;
 
-use function is_array;
-use function is_object;
 use function preg_replace;
 use function sprintf;
 use function trim;
@@ -53,19 +50,16 @@ final class MessageFormatter
      * If we cannot find the given ID in the configured messages, we will use
      * the descriptor's defaultMessage, if provided.
      *
-     * @param IntlDescriptor | array{id?: string, defaultMessage?: string, description?: string} $descriptor
-     * @param object | array<array-key, int | float | string> | null $values
+     * @param array<array-key, int | float | string> $values
      *
      * @throws InvalidArgument
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
-    public static function format(Config $config, $descriptor, $values = null): string
+    public static function format(Config $config, IntlDescriptor $descriptor, array $values = []): string
     {
         return (string) IntlMessageFormatter::formatMessage(
             $config->getLocale()->getId(),
             self::getMessage($config, $descriptor),
-            self::buildMessageValues($values),
+            $values,
         );
     }
 
@@ -87,77 +81,17 @@ final class MessageFormatter
     }
 
     /**
-     * @param IntlDescriptor | array{id?: string, defaultMessage?: string, description?: string} | mixed $descriptor
-     *
      * @throws InvalidArgument
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
-    private static function buildDescriptor($descriptor): IntlDescriptor
+    private static function getMessage(Config $config, IntlDescriptor $descriptor): string
     {
-        if ($descriptor instanceof IntlDescriptor) {
-            return $descriptor;
-        }
-
-        if (is_object($descriptor)) {
-            $descriptor = (array) $descriptor;
-        }
-
-        if (!is_array($descriptor)) {
-            throw new InvalidArgument(sprintf(
-                'Descriptor must be a %s, array, or object with public properties.',
-                IntlDescriptor::class,
-            ));
-        }
-
-        return new Descriptor(
-            isset($descriptor['id']) ? (string) $descriptor['id'] : null,
-            isset($descriptor['defaultMessage']) ? (string) $descriptor['defaultMessage'] : null,
-            isset($descriptor['description']) ? (string) $descriptor['description'] : null,
-        );
-    }
-
-    /**
-     * @param object | array<array-key, int | float | string> | mixed | null $values
-     *
-     * @return mixed[]
-     *
-     * @throws InvalidArgument
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
-     */
-    private static function buildMessageValues($values): array
-    {
-        if (is_object($values)) {
-            $values = (array) $values;
-        }
-
-        if (!is_array($values) && $values !== null) {
-            throw new InvalidArgument(
-                'Values must be an array, an object with public properties, or null.',
-            );
-        }
-
-        return $values ?? [];
-    }
-
-    /**
-     * @param IntlDescriptor | array{id?: string, defaultMessage?: string, description?: string} $descriptor
-     *
-     * @throws InvalidArgument
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
-     */
-    private static function getMessage(Config $config, $descriptor): string
-    {
-        $messageDescriptor = self::buildDescriptor($descriptor);
-        $messageId = self::buildMessageId($messageDescriptor, $config);
+        $messageId = self::buildMessageId($descriptor, $config);
 
         try {
             return self::lookupMessage($config, $messageId);
         } catch (MessageNotFound $exception) {
-            if ($messageDescriptor->getDefaultMessage() !== null) {
-                return trim((string) preg_replace('/\n\s*/', ' ', (string) $messageDescriptor->getDefaultMessage()));
+            if ($descriptor->getDefaultMessage() !== null) {
+                return trim((string) preg_replace('/\n\s*/', ' ', (string) $descriptor->getDefaultMessage()));
             }
         }
 

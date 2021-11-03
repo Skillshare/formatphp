@@ -37,7 +37,7 @@ interface Formatters
      * the descriptor's defaultMessage, if provided.
      *
      * @param array{id?: string, defaultMessage?: string, description?: string} $descriptor
-     * @param array<array-key, int | float | string> | null $values
+     * @param array<array-key, int | float | string> $values
      */
-    public function formatMessage(array $descriptor, ?array $values = null): string;
+    public function formatMessage(array $descriptor, array $values = []): string;
 }
