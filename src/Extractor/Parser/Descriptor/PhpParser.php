@@ -156,9 +156,11 @@ class PhpParser implements DescriptorParser
             return $descriptors;
         }
 
+        $metadata = $pragmaCollector->getMetadata();
+
         foreach ($descriptors as $descriptor) {
             if ($descriptor instanceof ExtendedDescriptor) {
-                $descriptor->setMetadata($pragmaCollector->getMetadata());
+                $descriptor->setMetadata($metadata);
             }
         }
 
