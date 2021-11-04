@@ -22,39 +22,22 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
-use FormatPHP\Intl\LocaleInterface;
-
 /**
- * FormatPHP translation message
+ * FormatPHP formatter methods
  */
-class Message implements MessageInterface
+interface FormatterInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
+    /**
+     * Returns a translated string for the given descriptor ID
+     *
+     * If the descriptor does not have an ID, we will use a combination of the
+     * defaultMessage and description to create an ID.
+     *
+     * If we cannot find the given ID in the configured messages, we will use
+     * the descriptor's defaultMessage, if provided.
+     *
+     * @param array{id?: string, defaultMessage?: string, description?: string} $descriptor
+     * @param array<array-key, int | float | string> $values
+     */
+    public function formatMessage(array $descriptor, array $values = []): string;
 }

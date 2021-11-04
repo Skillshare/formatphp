@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Extractor\Parser\Descriptor;
 
+use FormatPHP\DescriptorInterface;
+use FormatPHP\ExtendedDescriptorInterface;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
-use FormatPHP\Extractor\Parser\Error;
-use FormatPHP\Intl;
+use FormatPHP\Extractor\Parser\ParserError;
 use FormatPHP\Test\TestCase;
-use FormatPHP\Util\File;
+use FormatPHP\Util\FileSystemHelper;
 
 use function sprintf;
 
@@ -16,13 +17,13 @@ class PhpParserTest extends TestCase
 {
     public function testParse01(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage']);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-01.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => 'This is a default message',
@@ -41,18 +42,18 @@ class PhpParserTest extends TestCase
 
     public function testParse02(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage', 'bar'], 'intl');
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage', 'bar'], 'intl');
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-02.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => 'How are you?',
                 'description' => null,
-                'end' => 824,
+                'end' => 839,
                 'file' => __DIR__ . '/fixtures/php-parser-02.php',
                 'id' => 'greeting.question',
                 'line' => 37,
@@ -64,7 +65,7 @@ class PhpParserTest extends TestCase
                     'another_property' => 'some_value',
                     'and-still-more' => 'a-value',
                 ],
-                'start' => 725,
+                'start' => 740,
             ],
             $descriptors[0]->toArray(),
         );
@@ -81,23 +82,23 @@ class PhpParserTest extends TestCase
 
     public function testParse03(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage', 'translate']);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage', 'translate']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-03.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => 'Hello!',
                 'description' => null,
-                'end' => 310,
+                'end' => 320,
                 'file' => __DIR__ . '/fixtures/php-parser-03.php',
                 'id' => 'OpKKos',
                 'line' => 14,
                 'meta' => [],
-                'start' => 274,
+                'start' => 284,
             ],
             $descriptors[0]->toArray(),
         );
@@ -111,7 +112,7 @@ class PhpParserTest extends TestCase
 
     public function testParse04(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage', 'translate', 'translate3']);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage', 'translate', 'translate3']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-04.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
@@ -129,13 +130,13 @@ class PhpParserTest extends TestCase
 
     public function testParse05(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage'], 'invalid.pragma');
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage'], 'invalid.pragma');
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-05.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => 'This is a default message',
@@ -154,13 +155,13 @@ class PhpParserTest extends TestCase
 
     public function testParse06(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage'], 'intl');
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage'], 'intl');
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-06.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => 'This is a default message',
@@ -179,13 +180,13 @@ class PhpParserTest extends TestCase
 
     public function testParse07WithoutPreservingWhitespace(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage']);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-07.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
@@ -204,13 +205,13 @@ class PhpParserTest extends TestCase
 
     public function testParse07PreservingWhitespace(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage'], null, true);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage'], null, true);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-07.php');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
         $this->assertSame(
             [
                 'defaultMessage' => "\nYou have {numPhotos, plural,\n    =0 {no photos.}\n"
@@ -230,7 +231,7 @@ class PhpParserTest extends TestCase
 
     public function testParse08(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage']);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-08.txt');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
@@ -240,14 +241,14 @@ class PhpParserTest extends TestCase
 
     public function testParse09(): void
     {
-        $parser = new PhpParser(new File(), ['formatMessage']);
+        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
         $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-09.phtml');
         $receivedErrors = $this->compileErrors($parser->getErrors());
 
-        $this->assertContainsOnlyInstancesOf(Intl\Descriptor::class, $descriptors);
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(2, $descriptors);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[0]);
-        $this->assertInstanceOf(Intl\ExtendedDescriptor::class, $descriptors[1]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[1]);
         $this->assertSame(
             [
                 'defaultMessage' => 'Welcome!',
@@ -283,7 +284,7 @@ class PhpParserTest extends TestCase
     }
 
     /**
-     * @param Error[] $errors
+     * @param ParserError[] $errors
      *
      * @return string[]
      */

@@ -20,41 +20,23 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Extractor\Parser;
 
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Exception\UnableToProcessFileException;
 
 /**
- * FormatPHP translation message
+ * Parses message descriptors from application source code files
  */
-class Message implements MessageInterface
+interface DescriptorParserInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
+    /**
+     * @throws UnableToProcessFileException
+     */
+    public function parse(string $filePath): DescriptorCollection;
 
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
+    /**
+     * @return ParserError[]
+     */
+    public function getErrors(): array;
 }

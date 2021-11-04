@@ -23,13 +23,13 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor\Parser\Descriptor;
 
 use FormatPHP\Descriptor;
-use FormatPHP\Exception\InvalidArgument;
-use FormatPHP\Exception\UnableToGenerateMessageId;
-use FormatPHP\Exception\UnableToParseDescriptor;
+use FormatPHP\DescriptorCollection;
+use FormatPHP\DescriptorInterface;
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToGenerateMessageIdException;
+use FormatPHP\Exception\UnableToParseDescriptorException;
 use FormatPHP\Extractor\IdInterpolator;
-use FormatPHP\Extractor\Parser\Error;
-use FormatPHP\Intl\Descriptor as IntlDescriptor;
-use FormatPHP\Intl\DescriptorCollection;
+use FormatPHP\Extractor\Parser\ParserError;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
 
@@ -50,7 +50,7 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     private string $idInterpolatorPattern;
 
     /**
-     * @var Error[]
+     * @var ParserError[]
      */
     private array $errors = [];
 
@@ -88,7 +88,7 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     /**
      * Returns an array of message formatting errors
      *
-     * @return Error[]
+     * @return ParserError[]
      */
     public function getErrors(): array
     {
@@ -98,8 +98,8 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     /**
      * @return int | Node | null
      *
-     * @throws InvalidArgument
-     * @throws UnableToGenerateMessageId
+     * @throws InvalidArgumentException
+     * @throws UnableToGenerateMessageIdException
      */
     public function enterNode(Node $node)
     {
@@ -123,8 +123,8 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     /**
      * @param Node\Expr\MethodCall | Node\Expr\FuncCall $node
      *
-     * @throws InvalidArgument
-     * @throws UnableToGenerateMessageId
+     * @throws InvalidArgumentException
+     * @throws UnableToGenerateMessageIdException
      */
     private function parseFunction(Node $node): void
     {
@@ -138,8 +138,13 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
         try {
             $descriptor = $this->parseDescriptorArgument($node->getArgs()[0] ?? null);
             $this->descriptors[] = $this->ensureId($descriptor);
-        } catch (UnableToParseDescriptor $exception) {
-            $this->errors[] = new Error($exception->getMessage(), $this->filePath, $node->getStartLine(), $exception);
+        } catch (UnableToParseDescriptorException $exception) {
+            $this->errors[] = new ParserError(
+                $exception->getMessage(),
+                $this->filePath,
+                $node->getStartLine(),
+                $exception,
+            );
         }
     }
 
@@ -161,22 +166,22 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @throws UnableToParseDescriptor
+     * @throws UnableToParseDescriptorException
      */
-    private function parseDescriptorArgument(?Node\Arg $descriptorArgument): IntlDescriptor
+    private function parseDescriptorArgument(?Node\Arg $descriptorArgument): DescriptorInterface
     {
         if ($descriptorArgument === null) {
-            throw new UnableToParseDescriptor('Descriptor argument must be present');
+            throw new UnableToParseDescriptorException('Descriptor argument must be present');
         }
 
         if (!$descriptorArgument->value instanceof Node\Expr\Array_) {
-            throw new UnableToParseDescriptor('Descriptor argument must be an array');
+            throw new UnableToParseDescriptorException('Descriptor argument must be an array');
         }
 
         $properties = $this->parseDescriptorProperties($descriptorArgument->value);
 
         if (!isset($properties['id']) && !isset($properties['defaultMessage']) && !isset($properties['description'])) {
-            throw new UnableToParseDescriptor(
+            throw new UnableToParseDescriptorException(
                 'Descriptor argument must have at least one of id, defaultMessage, or description',
             );
         }
@@ -235,10 +240,10 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @throws InvalidArgument
-     * @throws UnableToGenerateMessageId
+     * @throws InvalidArgumentException
+     * @throws UnableToGenerateMessageIdException
      */
-    private function ensureId(IntlDescriptor $descriptor): IntlDescriptor
+    private function ensureId(DescriptorInterface $descriptor): DescriptorInterface
     {
         $descriptor->setId($this->idInterpolator->generateId($descriptor, $this->idInterpolatorPattern));
 

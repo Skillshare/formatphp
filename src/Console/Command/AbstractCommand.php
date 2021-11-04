@@ -20,41 +20,13 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Console\Command;
 
-use FormatPHP\Intl\LocaleInterface;
+use Symfony\Component\Console\Command\Command as SymfonyConsoleCommand;
 
 /**
- * FormatPHP translation message
+ * Common command functionality for FormatPHP console commands
  */
-class Message implements MessageInterface
+abstract class AbstractCommand extends SymfonyConsoleCommand
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
 }

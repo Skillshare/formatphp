@@ -1,9 +1,9 @@
 <?php
 
-use FormatPHP\Intl;
+use FormatPHP\FormatPHP;
 
 function translate(array $descriptor): string {
-    $intl = new Intl('en', []);
+    $intl = new FormatPHP('en', []);
 
     return $intl->formatMessage($descriptor);
 }

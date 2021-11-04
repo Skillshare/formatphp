@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace FormatPHP\Test\Util;
 
 use FormatPHP\Test\TestCase;
-use FormatPHP\Util\File;
+use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\Globber;
 
 use function array_keys;
@@ -44,7 +44,7 @@ class GlobberTest extends TestCase
             ],
         ];
 
-        $file = $this->mockery(File::class);
+        $file = $this->mockery(FileSystemHelper::class);
 
         $file->shouldReceive('getCurrentWorkingDirectory')->andReturn('/path/to/folder/');
         $file->shouldReceive('isDirectory')->with('/path/to/folder/**/*.json')->andReturnFalse();
@@ -92,7 +92,7 @@ class GlobberTest extends TestCase
 
     public function testGlob(): void
     {
-        $globber = new Globber($this->mockery(File::class));
+        $globber = new Globber($this->mockery(FileSystemHelper::class));
 
         $this->assertContainsOnly('string', $globber->glob(__DIR__ . '/**/*Test.php'));
     }

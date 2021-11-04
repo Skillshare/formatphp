@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace FormatPHP\Test\Extractor;
 
 use FormatPHP\Descriptor;
-use FormatPHP\Exception\InvalidArgument;
-use FormatPHP\Exception\UnableToGenerateMessageId;
+use FormatPHP\DescriptorInterface;
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToGenerateMessageIdException;
 use FormatPHP\Extractor\IdInterpolator;
-use FormatPHP\Intl\Descriptor as IntlDescriptor;
 use FormatPHP\Test\TestCase;
 
 class IdInterpolatorTest extends TestCase
@@ -16,7 +16,7 @@ class IdInterpolatorTest extends TestCase
     /**
      * @dataProvider generateIdProvider
      */
-    public function testGenerateId(IntlDescriptor $descriptor, ?string $pattern, string $expectedId): void
+    public function testGenerateId(DescriptorInterface $descriptor, ?string $pattern, string $expectedId): void
     {
         $idInterpolator = new IdInterpolator();
 
@@ -28,7 +28,7 @@ class IdInterpolatorTest extends TestCase
     }
 
     /**
-     * @return array<array{descriptor: IntlDescriptor, pattern: string | null, expectedId: string}>
+     * @return array<array{descriptor: DescriptorInterface, pattern: string | null, expectedId: string}>
      */
     public function generateIdProvider(): array
     {
@@ -85,7 +85,7 @@ class IdInterpolatorTest extends TestCase
     {
         $idInterpolator = new IdInterpolator();
 
-        $this->expectException(UnableToGenerateMessageId::class);
+        $this->expectException(UnableToGenerateMessageIdException::class);
         $this->expectExceptionMessage(
             'To auto-generate a message ID, the message descriptor must '
             . 'have a default message and, optionally, a description.',
@@ -98,7 +98,7 @@ class IdInterpolatorTest extends TestCase
     {
         $idInterpolator = new IdInterpolator();
 
-        $this->expectException(InvalidArgument::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'Pattern is not a valid ID interpolation pattern: "[sha256:something:base64:6]".',
         );
@@ -110,7 +110,7 @@ class IdInterpolatorTest extends TestCase
     {
         $idInterpolator = new IdInterpolator();
 
-        $this->expectException(InvalidArgument::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'Unknown or unsupported hashing algorithm: "foobar".',
         );
@@ -122,7 +122,7 @@ class IdInterpolatorTest extends TestCase
     {
         $idInterpolator = new IdInterpolator();
 
-        $this->expectException(InvalidArgument::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'Unknown or unsupported encoding algorithm: "baz".',
         );

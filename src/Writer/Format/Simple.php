@@ -20,41 +20,35 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Writer\Format;
 
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Writer\FormatInterface;
 
 /**
- * FormatPHP translation message
+ * A simple formatter for FormatPHP, producing message key-value pairs
+ *
+ * This follows the same format as the simple formatter for FormatJS:
+ *
+ * ```json
+ * {
+ *   "my.message": "This is a message for translation."
+ * }
+ * ```
  */
-class Message implements MessageInterface
+class Simple implements FormatInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
+    /**
+     * @inheritdoc
+     */
+    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array
     {
-        return $this->id;
-    }
+        $simple = [];
+        foreach ($collection as $item) {
+            $simple[(string) $item->getId()] = $item->getDefaultMessage();
+        }
 
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
+        return $simple;
     }
 }

@@ -22,11 +22,11 @@ declare(strict_types=1);
 
 namespace FormatPHP\Console\Command;
 
-use FormatPHP\Exception\UnableToProcessFile;
+use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\MessageExtractor;
 use FormatPHP\Extractor\MessageExtractorOptions;
-use FormatPHP\Util\File;
+use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
 use Psr\Log\LogLevel;
@@ -44,10 +44,8 @@ use function getcwd;
 
 /**
  * Provides the `formatphp extract` command
- *
- * @internal
  */
-class ExtractCommand extends Command
+class ExtractCommand extends AbstractCommand
 {
     private const DEFAULT_FUNCTION_NAMES = ['formatMessage'];
 
@@ -163,7 +161,7 @@ class ExtractCommand extends Command
 
     /**
      * @throws InvalidArgumentException
-     * @throws UnableToProcessFile
+     * @throws UnableToProcessFileException
      * @throws LogicException
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -175,8 +173,8 @@ class ExtractCommand extends Command
         $extractor = new MessageExtractor(
             $options,
             new ConsoleLogger($output, self::LOG_VERBOSITY_MAPPING, self::LOG_FORMAT_MAPPING),
-            new Globber(new File()),
-            new File(),
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
         );
 
         $extractor->process($files);

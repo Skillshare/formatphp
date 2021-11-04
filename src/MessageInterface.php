@@ -27,34 +27,20 @@ use FormatPHP\Intl\LocaleInterface;
 /**
  * FormatPHP translation message
  */
-class Message implements MessageInterface
+interface MessageInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
+    /**
+     * Returns the message identifier
+     */
+    public function getId(): string;
 
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
+    /**
+     * Returns the message locale
+     */
+    public function getLocale(): LocaleInterface;
 
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
+    /**
+     * Returns the string translation message
+     */
+    public function getMessage(): string;
 }

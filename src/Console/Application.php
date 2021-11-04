@@ -26,7 +26,7 @@ use FormatPHP\Console\Command\ExtractCommand;
 use Symfony\Component\Console\Application as SymfonyConsoleApplication;
 
 /**
- * @internal
+ * FormatPHP console application
  */
 class Application extends SymfonyConsoleApplication
 {

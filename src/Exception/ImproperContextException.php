@@ -20,41 +20,16 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Exception;
 
-use FormatPHP\Intl\LocaleInterface;
+use LogicException;
 
 /**
- * FormatPHP translation message
+ * Thrown when a method is called in the wrong context
+ *
+ * For example, if a method is called while the script is running in a Web SAPI
+ * context when the method should only be called in a CLI SAPI context.
  */
-class Message implements MessageInterface
+class ImproperContextException extends LogicException implements FormatPHPExceptionInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
 }
