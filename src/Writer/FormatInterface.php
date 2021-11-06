@@ -20,41 +20,15 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Writer;
 
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Extractor\MessageExtractorOptions;
 
-/**
- * FormatPHP translation message
- */
-class Message implements MessageInterface
+interface FormatInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
+    /**
+     * @return mixed[]
+     */
+    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array;
 }

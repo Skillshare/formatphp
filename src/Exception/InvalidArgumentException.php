@@ -20,41 +20,13 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Exception;
 
-use FormatPHP\Intl\LocaleInterface;
+use InvalidArgumentException as PhpInvalidArgumentException;
 
 /**
- * FormatPHP translation message
+ * Thrown when encountering an invalid method argument
  */
-class Message implements MessageInterface
+class InvalidArgumentException extends PhpInvalidArgumentException implements FormatPHPExceptionInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
 }

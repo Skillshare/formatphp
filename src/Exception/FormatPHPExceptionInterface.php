@@ -20,41 +20,17 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Exception;
 
-use FormatPHP\Intl\LocaleInterface;
+use Throwable;
 
 /**
- * FormatPHP translation message
+ * Base exception for FormatPHP
+ *
+ * All exceptions that FormatPHP throws implement the FormatPHPException
+ * interface. This helps applications using FormatPHP to catch and handle
+ * its exceptions.
  */
-class Message implements MessageInterface
+interface FormatPHPExceptionInterface extends Throwable
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
 }

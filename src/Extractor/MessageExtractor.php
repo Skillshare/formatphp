@@ -23,20 +23,20 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor;
 
 use Closure;
-use FormatPHP\Exception\FormatPHPException;
-use FormatPHP\Exception\ImproperContext;
-use FormatPHP\Exception\InvalidArgument;
-use FormatPHP\Exception\UnableToProcessFile;
-use FormatPHP\Exception\UnableToWriteFile;
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Exception\FormatPHPExceptionInterface;
+use FormatPHP\Exception\ImproperContextException;
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
-use FormatPHP\Extractor\Parser\DescriptorParser;
-use FormatPHP\Intl\DescriptorCollection;
-use FormatPHP\Util\File;
+use FormatPHP\Extractor\Parser\DescriptorParserInterface;
+use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\Globber;
-use FormatPHP\Writer\Formatter\FormatPHP;
-use FormatPHP\Writer\Formatter\Formatter;
-use FormatPHP\Writer\Formatter\Simple;
-use FormatPHP\Writer\Formatter\Smartling;
+use FormatPHP\Writer\Format\FormatPHP;
+use FormatPHP\Writer\Format\Simple;
+use FormatPHP\Writer\Format\Smartling;
+use FormatPHP\Writer\FormatInterface;
 use LogicException;
 use Psr\Log\LoggerInterface;
 
@@ -49,6 +49,7 @@ use function is_callable;
 use function is_resource;
 use function json_encode;
 use function preg_replace;
+use function sprintf;
 use function strtolower;
 
 use const JSON_PRETTY_PRINT;
@@ -62,13 +63,13 @@ class MessageExtractor
 {
     private const JSON_ENCODE_FLAGS = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
 
-    private File $file;
+    private FileSystemHelper $file;
     private Globber $globber;
     private LoggerInterface $logger;
     private MessageExtractorOptions $options;
 
     /**
-     * @var DescriptorParser[]
+     * @var DescriptorParserInterface[]
      */
     private array $parsers;
 
@@ -79,7 +80,7 @@ class MessageExtractor
         MessageExtractorOptions $options,
         LoggerInterface $logger,
         Globber $globber,
-        File $file
+        FileSystemHelper $file
     ) {
         $this->options = $options;
         $this->logger = $logger;
@@ -93,15 +94,15 @@ class MessageExtractor
      *
      * @param string[] $files
      *
-     * @throws UnableToProcessFile
-     * @throws UnableToWriteFile
-     * @throws InvalidArgument
+     * @throws UnableToProcessFileException
+     * @throws UnableToWriteFileException
+     * @throws InvalidArgumentException
      */
     public function process(array $files): void
     {
         try {
             $formatter = $this->getFormatter($this->options->format);
-        } catch (FormatPHPException $exception) {
+        } catch (FormatPHPExceptionInterface $exception) {
             $this->logger->error($exception->getMessage(), ['exception' => $exception]);
 
             return;
@@ -116,7 +117,7 @@ class MessageExtractor
 
             try {
                 $descriptors = $this->parse($descriptors, $path);
-            } catch (UnableToProcessFile $exception) {
+            } catch (UnableToProcessFileException $exception) {
                 if ($this->options->throws === true) {
                     throw $exception;
                 }
@@ -135,7 +136,7 @@ class MessageExtractor
     }
 
     /**
-     * @throws UnableToProcessFile
+     * @throws UnableToProcessFileException
      */
     private function parse(DescriptorCollection $descriptors, string $filePath): DescriptorCollection
     {
@@ -148,7 +149,7 @@ class MessageExtractor
     }
 
     /**
-     * @return DescriptorParser[]
+     * @return DescriptorParserInterface[]
      *
      * @throws LogicException
      */
@@ -176,8 +177,8 @@ class MessageExtractor
     /**
      * @return callable(DescriptorCollection,MessageExtractorOptions):array<mixed>
      *
-     * @throws ImproperContext
-     * @throws InvalidArgument
+     * @throws ImproperContextException
+     * @throws InvalidArgumentException
      */
     private function getFormatter(?string $format): callable
     {
@@ -195,7 +196,7 @@ class MessageExtractor
                 return new FormatPHP();
         }
 
-        if (class_exists($format) && is_a($format, Formatter::class, true)) {
+        if (class_exists($format) && is_a($format, FormatInterface::class, true)) {
             $formatter = new $format();
         } else {
             /** @var Closure(DescriptorCollection,MessageExtractorOptions):array<mixed> | null $formatter */
@@ -206,12 +207,13 @@ class MessageExtractor
             return $formatter;
         }
 
-        throw new InvalidArgument(
+        throw new InvalidArgumentException(sprintf(
             'The format provided is not a known format, an instance of '
-            . 'FormatPHP\\Writer\\Formatter\\Formatter, or a callable of the '
-            . 'shape `callable(\\FormatPHP\\Intl\\DescriptorCollection,'
-            . '\\FormatPHP\\Extractor\\MessageExtractorOptions):array<mixed>`.',
-        );
+            . '%s, or a callable of the shape `callable(%s,%s):array<mixed>`.',
+            FormatInterface::class,
+            DescriptorCollection::class,
+            MessageExtractorOptions::class,
+        ));
     }
 
     /**
@@ -234,8 +236,8 @@ class MessageExtractor
     }
 
     /**
-     * @throws UnableToWriteFile
-     * @throws InvalidArgument
+     * @throws UnableToWriteFileException
+     * @throws InvalidArgumentException
      */
     private function writeOutput(string $output): void
     {

@@ -22,12 +22,12 @@ declare(strict_types=1);
 
 namespace FormatPHP\Extractor;
 
-use FormatPHP\Intl\Config;
+use FormatPHP\ConfigInterface;
 
 /**
  * IdInterpolator options
  *
- * @see Config::getIdInterpolatorPattern()
+ * @see ConfigInterface::getIdInterpolatorPattern()
  */
 class IdInterpolatorOptions
 {

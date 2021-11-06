@@ -23,10 +23,10 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor;
 
 use Closure;
-use FormatPHP\Exception\InvalidArgument;
-use FormatPHP\Exception\UnableToGenerateMessageId;
-use FormatPHP\Intl\Config;
-use FormatPHP\Intl\Descriptor;
+use FormatPHP\ConfigInterface;
+use FormatPHP\DescriptorInterface;
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToGenerateMessageIdException;
 
 use function base64_encode;
 use function bin2hex;
@@ -46,7 +46,7 @@ use function trim;
 /**
  * IdInterpolator supports generation of message descriptor IDs
  *
- * @see Config::getIdInterpolatorPattern()
+ * @see ConfigInterface::getIdInterpolatorPattern()
  */
 class IdInterpolator
 {
@@ -62,13 +62,13 @@ class IdInterpolator
      * If the message descriptor does not have a default message, we cannot
      * generate an ID, so we throw `UnableToGenerateMessageId`.
      *
-     * @see Config::getIdInterpolatorPattern()
+     * @see ConfigInterface::getIdInterpolatorPattern()
      *
-     * @throws InvalidArgument
-     * @throws UnableToGenerateMessageId
+     * @throws InvalidArgumentException
+     * @throws UnableToGenerateMessageIdException
      */
     public function generateId(
-        Descriptor $descriptor,
+        DescriptorInterface $descriptor,
         string $idInterpolationPattern = self::DEFAULT_ID_INTERPOLATION_PATTERN
     ): string {
         if ($descriptor->getId() !== null) {
@@ -79,7 +79,7 @@ class IdInterpolator
         $options = $this->parsePattern($idInterpolationPattern);
 
         if (!in_array($options->hashingAlgorithm, hash_algos())) {
-            throw new InvalidArgument(sprintf(
+            throw new InvalidArgumentException(sprintf(
                 'Unknown or unsupported hashing algorithm: "%s".',
                 $options->hashingAlgorithm,
             ));
@@ -94,7 +94,7 @@ class IdInterpolator
     /**
      * @return Closure(string):string
      *
-     * @throws InvalidArgument
+     * @throws InvalidArgumentException
      */
     private function getEncoder(string $encodingType): Closure
     {
@@ -107,13 +107,13 @@ class IdInterpolator
                 return fn (string $data): string => bin2hex($data);
         }
 
-        throw new InvalidArgument(sprintf('Unknown or unsupported encoding algorithm: "%s".', $encodingType));
+        throw new InvalidArgumentException(sprintf('Unknown or unsupported encoding algorithm: "%s".', $encodingType));
     }
 
     /**
-     * @throws UnableToGenerateMessageId
+     * @throws UnableToGenerateMessageIdException
      */
-    private function buildContentHash(Descriptor $descriptor): string
+    private function buildContentHash(DescriptorInterface $descriptor): string
     {
         $data = '';
 
@@ -126,7 +126,7 @@ class IdInterpolator
         }
 
         if ($data === '') {
-            throw new UnableToGenerateMessageId(
+            throw new UnableToGenerateMessageIdException(
                 'To auto-generate a message ID, the message descriptor must '
                 . 'have a default message and, optionally, a description.',
             );
@@ -136,14 +136,16 @@ class IdInterpolator
     }
 
     /**
-     * @throws InvalidArgument
+     * @throws InvalidArgumentException
      */
     private function parsePattern(string $pattern): IdInterpolatorOptions
     {
         preg_match(self::PATTERN_MATCHER, $pattern, $matches);
 
         if (count($matches) !== 4) {
-            throw new InvalidArgument(sprintf('Pattern is not a valid ID interpolation pattern: "%s".', $pattern));
+            throw new InvalidArgumentException(
+                sprintf('Pattern is not a valid ID interpolation pattern: "%s".', $pattern),
+            );
         }
 
         return new IdInterpolatorOptions($matches[1], $matches[2], (int) $matches[3]);

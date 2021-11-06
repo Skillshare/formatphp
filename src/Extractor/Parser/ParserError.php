@@ -20,41 +20,29 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Extractor\Parser;
 
-use FormatPHP\Intl\LocaleInterface;
+use Throwable;
 
 /**
- * FormatPHP translation message
+ * An error that occurred while parsing application source code
  */
-class Message implements MessageInterface
+class ParserError
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
+    public string $message;
+    public string $sourceFile;
+    public int $sourceLine;
+    public ?Throwable $exception;
 
     public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
+        string $message,
+        string $sourceFile,
+        int $sourceLine,
+        ?Throwable $exception = null
     ) {
-        $this->locale = $locale;
-        $this->id = $id;
         $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
+        $this->sourceFile = $sourceFile;
+        $this->sourceLine = $sourceLine;
+        $this->exception = $exception;
     }
 }

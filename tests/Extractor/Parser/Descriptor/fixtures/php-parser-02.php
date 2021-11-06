@@ -3,7 +3,7 @@
  * @intl some:thing this should not be captured another:meta-value also not captured
  */
 
-use FormatPHP\Intl;
+use FormatPHP\FormatPHP;
 
 /**
  * The following pragma annotation is empty on purpose
@@ -16,14 +16,14 @@ use FormatPHP\Intl;
  */
 class Foo
 {
-    private Intl $intl;
+    private FormatPHP $intl;
 
     /**
      * @intl another_property:some_value
      */
     public function __construct()
     {
-        $this->intl = new Intl('en', []);
+        $this->intl = new FormatPHP('en', []);
     }
 
     public function bar(array $descriptor): string

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-use FormatPHP\Intl\DescriptorCollection;
+use FormatPHP\DescriptorCollection;
 
 /**
  * @return array<string, array{translation: string}>

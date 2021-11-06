@@ -22,13 +22,13 @@ declare(strict_types=1);
 
 namespace FormatPHP\Extractor\Parser\Descriptor;
 
-use FormatPHP\Exception\UnableToProcessFile;
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\ExtendedDescriptorInterface;
 use FormatPHP\Extractor\IdInterpolator;
-use FormatPHP\Extractor\Parser\DescriptorParser;
-use FormatPHP\Extractor\Parser\Error;
-use FormatPHP\Intl\DescriptorCollection;
-use FormatPHP\Intl\ExtendedDescriptor;
-use FormatPHP\Util\File;
+use FormatPHP\Extractor\Parser\DescriptorParserInterface;
+use FormatPHP\Extractor\Parser\ParserError;
+use FormatPHP\Util\FileSystemHelper;
 use LogicException;
 use PhpParser\Lexer;
 use PhpParser\Lexer\Emulative;
@@ -47,11 +47,11 @@ use const PATHINFO_EXTENSION;
 /**
  * Parses message descriptors from application PHP source code files
  */
-class PhpParser implements DescriptorParser
+class PhpParser implements DescriptorParserInterface
 {
     private const PHP_PATH_EXTENSIONS = ['php', 'phtml'];
 
-    private File $file;
+    private FileSystemHelper $file;
     private Lexer $lexer;
     private Parser $parser;
     private ?string $pragma;
@@ -64,7 +64,7 @@ class PhpParser implements DescriptorParser
     private array $functionNames;
 
     /**
-     * @var Error[]
+     * @var ParserError[]
      */
     private array $errors = [];
 
@@ -75,7 +75,7 @@ class PhpParser implements DescriptorParser
      * @throws LogicException
      */
     public function __construct(
-        File $file,
+        FileSystemHelper $file,
         array $functionNames = [],
         ?string $pragma = null,
         bool $preserveWhitespace = false,
@@ -103,7 +103,7 @@ class PhpParser implements DescriptorParser
     }
 
     /**
-     * @throws UnableToProcessFile
+     * @throws UnableToProcessFileException
      */
     public function parse(string $filePath): DescriptorCollection
     {
@@ -159,7 +159,7 @@ class PhpParser implements DescriptorParser
         $metadata = $pragmaCollector->getMetadata();
 
         foreach ($descriptors as $descriptor) {
-            if ($descriptor instanceof ExtendedDescriptor) {
+            if ($descriptor instanceof ExtendedDescriptorInterface) {
                 $descriptor->setMetadata($metadata);
             }
         }

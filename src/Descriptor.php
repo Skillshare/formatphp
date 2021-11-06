@@ -25,7 +25,7 @@ namespace FormatPHP;
 /**
  * FormatPHP descriptor
  */
-class Descriptor implements Intl\ExtendedDescriptor
+class Descriptor implements ExtendedDescriptorInterface
 {
     private ?string $defaultMessage;
     private ?string $description;

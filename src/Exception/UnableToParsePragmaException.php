@@ -20,41 +20,13 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Exception;
 
-use FormatPHP\Intl\LocaleInterface;
+use RuntimeException;
 
 /**
- * FormatPHP translation message
+ * Thrown when we are unable to parse pragma metadata from source code
  */
-class Message implements MessageInterface
+class UnableToParsePragmaException extends RuntimeException implements FormatPHPExceptionInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
 }

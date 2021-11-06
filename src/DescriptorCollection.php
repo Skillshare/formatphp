@@ -22,39 +22,19 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
-use FormatPHP\Intl\LocaleInterface;
+use IteratorAggregate;
+use Ramsey\Collection\AbstractCollection;
 
 /**
- * FormatPHP translation message
+ * FormatPHP collection of Descriptor instances
+ *
+ * @extends AbstractCollection<DescriptorInterface>
+ * @implements IteratorAggregate<array-key, DescriptorInterface>
  */
-class Message implements MessageInterface
+final class DescriptorCollection extends AbstractCollection implements IteratorAggregate
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
-
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
+    public function getType(): string
     {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
+        return DescriptorInterface::class;
     }
 }

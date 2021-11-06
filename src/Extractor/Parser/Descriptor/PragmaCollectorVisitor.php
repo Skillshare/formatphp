@@ -22,9 +22,9 @@ declare(strict_types=1);
 
 namespace FormatPHP\Extractor\Parser\Descriptor;
 
-use FormatPHP\Exception\FormatPHPException;
-use FormatPHP\Exception\UnableToParsePragma;
-use FormatPHP\Extractor\Parser\Error;
+use FormatPHP\Exception\FormatPHPExceptionInterface;
+use FormatPHP\Exception\UnableToParsePragmaException;
+use FormatPHP\Extractor\Parser\ParserError;
 use PhpParser\Comment;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
@@ -52,7 +52,7 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
     private ?string $pragmaName;
 
     /**
-     * @var Error[]
+     * @var ParserError[]
      */
     private array $errors = [];
 
@@ -75,7 +75,7 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
     /**
      * Returns an array of metadata errors
      *
-     * @return Error[]
+     * @return ParserError[]
      */
     public function getErrors(): array
     {
@@ -112,8 +112,8 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
         foreach ($matches[1] as $metadata) {
             try {
                 $this->parseMetadata($metadata);
-            } catch (FormatPHPException $exception) {
-                $this->errors[] = new Error(
+            } catch (FormatPHPExceptionInterface $exception) {
+                $this->errors[] = new ParserError(
                     $exception->getMessage(),
                     $this->filePath,
                     $comment->getStartLine(),
@@ -124,14 +124,14 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
     }
 
     /**
-     * @throws UnableToParsePragma
+     * @throws UnableToParsePragmaException
      */
     private function parseMetadata(string $metadata): void
     {
         $metadata = trim($metadata);
 
         if ($metadata === '') {
-            throw new UnableToParsePragma('Pragma found without a value');
+            throw new UnableToParsePragmaException('Pragma found without a value');
         }
 
         // We want to check whether the parsed metadata matches the original
@@ -150,7 +150,7 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
         }
 
         if ($comparePreparsed !== $compareParsed) {
-            throw new UnableToParsePragma(sprintf(
+            throw new UnableToParsePragmaException(sprintf(
                 'Pragma contains data that could not be parsed: "%s"',
                 $metadata,
             ));

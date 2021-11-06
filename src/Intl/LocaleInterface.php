@@ -20,41 +20,25 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
-
-use FormatPHP\Intl\LocaleInterface;
+namespace FormatPHP\Intl;
 
 /**
- * FormatPHP translation message
+ * FormatPHP locale
  */
-class Message implements MessageInterface
+interface LocaleInterface
 {
-    private string $id;
-    private LocaleInterface $locale;
-    private string $message;
+    /**
+     * Returns the identifier for this locale (i.e., "en," "pt-BR," etc.)
+     *
+     * The identifier is also known as a language tag.
+     */
+    public function getId(): string;
 
-    public function __construct(
-        LocaleInterface $locale,
-        string $id,
-        string $message
-    ) {
-        $this->locale = $locale;
-        $this->id = $id;
-        $this->message = $message;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessage(): string
-    {
-        return $this->message;
-    }
+    /**
+     * Returns a suitable fallback locale for this locale
+     *
+     * For example, if this locale is "en-US," a suitable fallback locale might
+     * be "en."
+     */
+    public function getFallbackLocale(): self;
 }

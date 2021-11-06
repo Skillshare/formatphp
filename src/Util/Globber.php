@@ -29,14 +29,12 @@ use function strpos;
 
 /**
  * Find files using glob patterns
- *
- * @internal
  */
 class Globber
 {
-    private File $fileUtility;
+    private FileSystemHelper $fileUtility;
 
-    public function __construct(File $fileUtility)
+    public function __construct(FileSystemHelper $fileUtility)
     {
         $this->fileUtility = $fileUtility;
     }

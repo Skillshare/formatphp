@@ -22,23 +22,36 @@ declare(strict_types=1);
 
 namespace FormatPHP\Intl;
 
+use FormatPHP\Exception\InvalidArgumentException;
+use InvalidArgumentException as PhpInvalidArgumentException;
+use Yiisoft\I18n\Locale as YiiLocale;
+
 /**
  * FormatPHP locale
  */
-interface Locale
+class Locale implements LocaleInterface
 {
-    /**
-     * Returns the identifier for this locale (i.e., "en," "pt-BR," etc.)
-     *
-     * The identifier is also known as a language tag.
-     */
-    public function getId(): string;
+    private YiiLocale $locale;
 
     /**
-     * Returns a suitable fallback locale for this locale
-     *
-     * For example, if this locale is "en-US," a suitable fallback locale might
-     * be "en."
+     * @throws InvalidArgumentException
      */
-    public function getFallbackLocale(): self;
+    public function __construct(string $locale)
+    {
+        try {
+            $this->locale = new YiiLocale($locale);
+        } catch (PhpInvalidArgumentException $exception) {
+            throw new InvalidArgumentException($exception->getMessage(), (int) $exception->getCode(), $exception);
+        }
+    }
+
+    public function getId(): string
+    {
+        return $this->locale->asString();
+    }
+
+    public function getFallbackLocale(): LocaleInterface
+    {
+        return new self($this->locale->fallbackLocale()->asString());
+    }
 }
