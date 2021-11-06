@@ -23,8 +23,8 @@
         "psr/log": "^2",
         "ramsey/collection": "^1.2",
         "symfony/console": "^5.3",
-        "webmozart/glob": "^4.4",
-        "yiisoft/i18n": "^1.0"
+        "symfony/polyfill-php80": "^1.23",
+        "webmozart/glob": "^4.4"
     },
     "require-dev": {
         "ramsey/devtools": "^1.7"

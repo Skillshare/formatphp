@@ -62,7 +62,7 @@ class MessageFormat
     public function format(DescriptorInterface $descriptor, array $values = []): string
     {
         return (string) PhpMessageFormatter::formatMessage(
-            $this->config->getLocale()->getId(),
+            (string) $this->config->getLocale()->baseName(),
             $this->getMessage($descriptor),
             $values,
         );
@@ -114,7 +114,11 @@ class MessageFormat
             return $config->getMessages()->getMessage($messageId, $config->getLocale());
         } catch (MessageNotFoundException $exception) {
             try {
-                return $config->getMessages()->getMessage($messageId, $config->getLocale()->getFallbackLocale());
+                // Try falling back to a locale made up of just the language.
+                return $config->getMessages()->getMessage(
+                    $messageId,
+                    new Locale((string) $config->getLocale()->language()),
+                );
             } catch (MessageNotFoundException $exception) {
                 $defaultLocale = $config->getDefaultLocale();
                 if ($defaultLocale !== null) {

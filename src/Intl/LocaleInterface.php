@@ -23,22 +23,84 @@ declare(strict_types=1);
 namespace FormatPHP\Intl;
 
 /**
- * FormatPHP locale
+ * An ECMA-402 locale identifier
+ *
+ * This defines an interface for PHP that conforms to Intl.Locale defined in the
+ * ECMAScript 2022 Internationalization API Specification (ECMA-402 9th Edition).
+ *
+ * @link https://tc39.es/ecma402/#locale-objects
  */
 interface LocaleInterface
 {
     /**
-     * Returns the identifier for this locale (i.e., "en," "pt-BR," etc.)
-     *
-     * The identifier is also known as a language tag.
+     * Returns a substring of this locale that provides basic locale information
      */
-    public function getId(): string;
+    public function baseName(): ?string;
 
     /**
-     * Returns a suitable fallback locale for this locale
-     *
-     * For example, if this locale is "en-US," a suitable fallback locale might
-     * be "en."
+     * Returns this locale's calendar era
      */
-    public function getFallbackLocale(): self;
+    public function calendar(): ?string;
+
+    /**
+     * Returns whether case is accounted for in this locale's collation rules
+     *
+     * @psalm-return "upper" | "lower" | "false" | null
+     */
+    public function caseFirst(): ?string;
+
+    /**
+     * Returns this locale's collation type
+     */
+    public function collation(): ?string;
+
+    /**
+     * Returns this locale's time-keeping convention
+     *
+     * @psalm-return "h11" | "h12" | "h23" | "h24" | null
+     */
+    public function hourCycle(): ?string;
+
+    /**
+     * Returns this locale's language
+     */
+    public function language(): ?string;
+
+    /**
+     * Using the existing values set on this locale instance, returns the most
+     * likely values that can be determined for language, script, and region
+     */
+    public function maximize(): LocaleInterface;
+
+    /**
+     * Removes any information from the locale that would be added by calling
+     * maximize()
+     */
+    public function minimize(): LocaleInterface;
+
+    /**
+     * Returns this locale's numeral system
+     */
+    public function numberingSystem(): ?string;
+
+    /**
+     * Returns whether this locale has special collation handling for
+     * numeric strings
+     */
+    public function numeric(): bool;
+
+    /**
+     * Returns this locale's region
+     */
+    public function region(): ?string;
+
+    /**
+     * Returns this locale's script used for writing
+     */
+    public function script(): ?string;
+
+    /**
+     * Returns the full string identifier for this locale
+     */
+    public function toString(): string;
 }
