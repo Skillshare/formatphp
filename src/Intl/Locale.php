@@ -29,6 +29,7 @@ use Locale as PhpLocale;
 use function array_filter;
 use function array_values;
 use function implode;
+use function is_bool;
 use function sprintf;
 use function str_starts_with;
 use function strlen;
@@ -42,7 +43,72 @@ class Locale implements LocaleInterface
     private const UNDEFINED_LOCALE = 'und';
 
     /**
-     * @var array{language: string | null, script: string | null, region: string | null, variants: array<string>, keywords: array<string, string>, grandfathered: string | null}
+     * PHP's canonicalization (through ICU) converts calendar values to those
+     * on the "left" of this map. For ECMA-402 compliance, we convert them back
+     * to the values on the "right."
+     *
+     * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar
+     */
+    private const CALENDAR_MAP = [
+        'ethiopic-amete-alem' => 'ethioaa',
+        'gregorian' => 'gregory',
+    ];
+
+    /**
+     * PHP's canonicalization (through ICU) converts colcasefirst values to those
+     * on the "left" of this map. For ECMA-402 compliance, we convert them back
+     * to the values on the "right."
+     *
+     * The "false" in this map is intentionally a string value and not boolean.
+     *
+     * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/caseFirst
+     */
+    private const CASE_FIRST_MAP = [
+        'no' => 'false',
+    ];
+
+    /**
+     * PHP's canonicalization (through ICU) converts collation values to those
+     * on the "left" of this map. For ECMA-402 compliance, we convert them back
+     * to the values on the "right."
+     *
+     * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation
+     */
+    private const COLLATION_MAP = [
+        'dictionary' => 'dict',
+        'gb2312han' => 'gb2312',
+        'phonebook' => 'phonebk',
+        'traditional' => 'trad',
+    ];
+
+    /**
+     * PHP's canonicalization (through ICU) converts numbers values to those
+     * on the "left" of this map. For ECMA-402 compliance, we convert them back
+     * to the values on the "right."
+     *
+     * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numberingSystem
+     */
+    private const NUMBERING_SYSTEM_MAP = [
+        'traditional' => 'traditio',
+    ];
+
+    /**
+     * PHP's canonicalization (through ICU) converts colnumeric values to those
+     * on the "left" of this map. For ECMA-402 compliance, we convert them back
+     * to the values on the "right."
+     *
+     * These are intentionally string values and not boolean.
+     *
+     * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numeric
+     */
+    private const NUMERIC_MAP = [
+        'yes' => 'true',
+        'no' => 'false',
+    ];
+
+    /**
+     * @var array{language: string | null, script: string | null, region: string | null, variants: array<string>,
+     *     keywords: array<string, string>, grandfathered: string | null}
      */
     private array $parsedLocale;
 
@@ -82,67 +148,22 @@ class Locale implements LocaleInterface
     {
         $calendar = $this->parsedLocale['keywords']['calendar'] ?? null;
 
-        // Ensure return values conform to the expected values for ECMA-402.
-        switch ($this->parsedLocale['keywords']['calendar'] ?? null) {
-            case 'ethiopic-amete-alem':
-                $value = 'ethioaa';
-
-                break;
-            case 'gregorian':
-                $value = 'gregory';
-
-                break;
-            default:
-                $value = $calendar;
-
-                break;
-        }
-
-        return $value;
+        return self::CALENDAR_MAP[$calendar] ?? $calendar;
     }
 
     public function caseFirst(): ?string
     {
         $colcasefirst = $this->parsedLocale['keywords']['colcasefirst'] ?? null;
 
-        // ECMA-402 expects the string "false," instead of "no."
-        if ($colcasefirst === 'no') {
-            return 'false';
-        }
-
-        /** @var "upper" | "lower" | null */
-        return $colcasefirst;
+        /** @var "false" | "upper" | "lower" | null */
+        return self::CASE_FIRST_MAP[$colcasefirst] ?? $colcasefirst;
     }
 
     public function collation(): ?string
     {
         $collation = $this->parsedLocale['keywords']['collation'] ?? null;
 
-        // Ensure return values conform to the expected values for ECMA-402.
-        switch ($collation) {
-            case 'dictionary':
-                $value = 'dict';
-
-                break;
-            case 'gb2312han':
-                $value = 'gb2312';
-
-                break;
-            case 'phonebook':
-                $value = 'phonebk';
-
-                break;
-            case 'traditional':
-                $value = 'trad';
-
-                break;
-            default:
-                $value = $collation;
-
-                break;
-        }
-
-        return $value;
+        return self::COLLATION_MAP[$collation] ?? $collation;
     }
 
     public function hourCycle(): ?string
@@ -180,12 +201,7 @@ class Locale implements LocaleInterface
     {
         $numbers = $this->parsedLocale['keywords']['numbers'] ?? null;
 
-        // ECMA-402 expects "traditio," instead of "traditional."
-        if ($numbers === 'traditional') {
-            return 'traditio';
-        }
-
-        return $numbers;
+        return self::NUMBERING_SYSTEM_MAP[$numbers] ?? $numbers;
     }
 
     public function numeric(): bool
@@ -208,10 +224,10 @@ class Locale implements LocaleInterface
         $locale = (string) $this->baseName();
 
         $keywords = '';
-        foreach ($this->parsedLocale['keywords'] as $keyword => $value) {
-            $keyAndValue = $this->getUnicodeKeywordWithValue($keyword, $value);
-            if ($keyAndValue[1] !== null) {
-                $keywords .= "-$keyAndValue[0]-$keyAndValue[1]";
+        foreach ($this->parsedLocale['keywords'] as $keyword => $defaultValue) {
+            [$key, $value] = $this->getUnicodeKeywordWithValue($keyword, $defaultValue);
+            if ($value() !== null) {
+                $keywords .= "-$key-" . (string) $value();
             }
         }
 
@@ -224,102 +240,56 @@ class Locale implements LocaleInterface
 
     private function applyOptions(LocaleOptions $options): void
     {
-        if ($options->calendar !== null) {
-            $this->parsedLocale['keywords']['calendar'] = $options->calendar;
+        $baseProperties = [
+            'language' => $options->language,
+            'script' => $options->script,
+            'region' => $options->region,
+        ];
+
+        $keywords = [
+            'calendar' => $options->calendar,
+            'colcasefirst' => $options->caseFirst,
+            'collation' => $options->collation,
+            'hours' => $options->hourCycle,
+            'numbers' => $options->numberingSystem,
+            'colnumeric' => is_bool($options->numeric) ? ($options->numeric ? 'yes' : 'no') : null,
+        ];
+
+        $isNotNull = fn (?string $value): bool => $value !== null;
+        $baseProperties = array_filter($baseProperties, $isNotNull);
+        $keywords = array_filter($keywords, $isNotNull);
+
+        foreach ($baseProperties as $key => $value) {
+            $this->parsedLocale[$key] = $value;
         }
 
-        if ($options->caseFirst !== null) {
-            $this->parsedLocale['keywords']['colcasefirst'] = $options->caseFirst;
-        }
-
-        if ($options->collation !== null) {
-            $this->parsedLocale['keywords']['collation'] = $options->collation;
-        }
-
-        if ($options->hourCycle !== null) {
-            $this->parsedLocale['keywords']['hours'] = $options->hourCycle;
-        }
-
-        if ($options->language !== null) {
-            $this->parsedLocale['language'] = $options->language;
-        }
-
-        if ($options->numberingSystem !== null) {
-            $this->parsedLocale['keywords']['numbers'] = $options->numberingSystem;
-        }
-
-        if ($options->numeric !== null) {
-            $this->parsedLocale['keywords']['colnumeric'] = $options->numeric ? 'yes' : 'no';
-        }
-
-        if ($options->region !== null) {
-            $this->parsedLocale['region'] = $options->region;
-        }
-
-        if ($options->script !== null) {
-            $this->parsedLocale['script'] = $options->script;
+        foreach ($keywords as $key => $value) {
+            $this->parsedLocale['keywords'][$key] = (string) $value;
         }
     }
 
     /**
-     * @return array{0: string, 1: string | null}
+     * @return array{0: string, 1: callable}
      */
     private function getUnicodeKeywordWithValue(string $keyword, string $defaultValue): array
     {
-        switch ($keyword) {
-            case 'calendar':
-                $keywordAndValue = ['ca', $this->calendar()];
+        $keywordValueMap = [
+            'calendar' => ['ca', fn (): ?string => $this->calendar()],
+            'colcasefirst' => ['kf', fn (): ?string => $this->caseFirst()],
+            'collation' => ['co', fn (): ?string => $this->collation()],
+            'hours' => ['hc', fn (): ?string => $this->hourCycle()],
+            'numbers' => ['nu', fn (): ?string => $this->numberingSystem()],
+            'colnumeric' => ['kn', fn (): ?string => $this->numericValue()],
+        ];
 
-                break;
-            case 'colcasefirst':
-                $keywordAndValue = ['kf', $this->caseFirst()];
-
-                break;
-            case 'collation':
-                $keywordAndValue = ['co', $this->collation()];
-
-                break;
-            case 'hours':
-                $keywordAndValue = ['hc', $this->hourCycle()];
-
-                break;
-            case 'numbers':
-                $keywordAndValue = ['nu', $this->numberingSystem()];
-
-                break;
-            case 'colnumeric':
-                $keywordAndValue = ['kn', $this->numericValue()];
-
-                break;
-            default:
-                $keywordAndValue = [$keyword, $defaultValue];
-
-                break;
-        }
-
-        return $keywordAndValue;
+        return $keywordValueMap[$keyword] ?? [$keyword, fn (): string => $defaultValue];
     }
 
     private function numericValue(): ?string
     {
         $colnumeric = $this->parsedLocale['keywords']['colnumeric'] ?? null;
 
-        switch ($colnumeric) {
-            case 'yes':
-                $value = 'true';
-
-                break;
-            case 'no':
-                $value = 'false';
-
-                break;
-            default:
-                $value = $colnumeric;
-
-                break;
-        }
-
-        return $value;
+        return self::NUMERIC_MAP[$colnumeric] ?? $colnumeric;
     }
 
     /**
