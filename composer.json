@@ -22,6 +22,7 @@
         "nikic/php-parser": "^4.13",
         "psr/log": "^2",
         "ramsey/collection": "^1.2",
+        "symfony/console": "^5.3",
         "webmozart/glob": "^4.4",
         "yiisoft/i18n": "^1.0"
     },
@@ -53,5 +54,8 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "bin": [
+        "bin/formatphp"
+    ]
 }
