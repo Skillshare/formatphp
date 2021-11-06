@@ -44,14 +44,7 @@ class Locale implements LocaleInterface
     /**
      * @var array{language: string | null, script: string | null, region: string | null, variants: array<string>, keywords: array<string, string>, grandfathered: string | null}
      */
-    private array $parsedLocale = [
-        'language' => null,
-        'script' => null,
-        'region' => null,
-        'variants' => [],
-        'keywords' => [],
-        'grandfathered' => null,
-    ];
+    private array $parsedLocale;
 
     /**
      * @throws InvalidArgumentException
@@ -62,32 +55,7 @@ class Locale implements LocaleInterface
             $locale = PhpLocale::getDefault();
         }
 
-        $canonicalizedLocale = PhpLocale::canonicalize($locale);
-
-        /** @var array{language?: string, script?: string, region?: string, grandfathered?: string} $parsed */
-        $parsed = PhpLocale::parseLocale($canonicalizedLocale);
-        if ($parsed === []) {
-            throw new InvalidArgumentException(sprintf('Unable to parse "%s" as a valid locale string', $locale));
-        }
-
-        /** @var array<string, string> $keywords */
-        $keywords = PhpLocale::getKeywords($canonicalizedLocale) ?: [];
-        $variants = [];
-
-        foreach ($parsed as $key => $value) {
-            if (!str_starts_with($key, 'variant')) {
-                continue;
-            }
-
-            $variants[] = $value;
-        }
-
-        $this->parsedLocale['language'] = $parsed['language'] ?? self::UNDEFINED_LOCALE;
-        $this->parsedLocale['script'] = $parsed['script'] ?? null;
-        $this->parsedLocale['region'] = $parsed['region'] ?? null;
-        $this->parsedLocale['grandfathered'] = $parsed['grandfathered'] ?? null;
-        $this->parsedLocale['variants'] = $variants;
-        $this->parsedLocale['keywords'] = $keywords;
+        $this->parsedLocale = $this->parseLocale($locale);
 
         if ($options !== null) {
             $this->applyOptions($options);
@@ -112,43 +80,69 @@ class Locale implements LocaleInterface
 
     public function calendar(): ?string
     {
+        $calendar = $this->parsedLocale['keywords']['calendar'] ?? null;
+
         // Ensure return values conform to the expected values for ECMA-402.
         switch ($this->parsedLocale['keywords']['calendar'] ?? null) {
             case 'ethiopic-amete-alem':
-                return 'ethioaa';
+                $value = 'ethioaa';
+
+                break;
             case 'gregorian':
-                return 'gregory';
+                $value = 'gregory';
+
+                break;
+            default:
+                $value = $calendar;
+
+                break;
         }
 
-        return $this->parsedLocale['keywords']['calendar'] ?? null;
+        return $value;
     }
 
     public function caseFirst(): ?string
     {
+        $colcasefirst = $this->parsedLocale['keywords']['colcasefirst'] ?? null;
+
         // ECMA-402 expects the string "false," instead of "no."
-        if (($this->parsedLocale['keywords']['colcasefirst'] ?? null) === 'no') {
+        if ($colcasefirst === 'no') {
             return 'false';
         }
 
         /** @var "upper" | "lower" | null */
-        return $this->parsedLocale['keywords']['colcasefirst'] ?? null;
+        return $colcasefirst;
     }
 
     public function collation(): ?string
     {
+        $collation = $this->parsedLocale['keywords']['collation'] ?? null;
+
         // Ensure return values conform to the expected values for ECMA-402.
-        switch ($this->parsedLocale['keywords']['collation'] ?? null) {
+        switch ($collation) {
             case 'dictionary':
-                return 'dict';
+                $value = 'dict';
+
+                break;
             case 'gb2312han':
-                return 'gb2312';
+                $value = 'gb2312';
+
+                break;
             case 'phonebook':
-                return 'phonebk';
+                $value = 'phonebk';
+
+                break;
             case 'traditional':
-                return 'trad';
+                $value = 'trad';
+
+                break;
+            default:
+                $value = $collation;
+
+                break;
         }
 
-        return $this->parsedLocale['keywords']['collation'] ?? null;
+        return $value;
     }
 
     public function hourCycle(): ?string
@@ -184,12 +178,14 @@ class Locale implements LocaleInterface
 
     public function numberingSystem(): ?string
     {
+        $numbers = $this->parsedLocale['keywords']['numbers'] ?? null;
+
         // ECMA-402 expects "traditio," instead of "traditional."
-        if (($this->parsedLocale['keywords']['numbers'] ?? null) === 'traditional') {
+        if ($numbers === 'traditional') {
             return 'traditio';
         }
 
-        return $this->parsedLocale['keywords']['numbers'] ?? null;
+        return $numbers;
     }
 
     public function numeric(): bool
@@ -272,20 +268,36 @@ class Locale implements LocaleInterface
     {
         switch ($keyword) {
             case 'calendar':
-                return ['ca', $this->calendar()];
+                $keywordAndValue = ['ca', $this->calendar()];
+
+                break;
             case 'colcasefirst':
-                return ['kf', $this->caseFirst()];
+                $keywordAndValue = ['kf', $this->caseFirst()];
+
+                break;
             case 'collation':
-                return ['co', $this->collation()];
+                $keywordAndValue = ['co', $this->collation()];
+
+                break;
             case 'hours':
-                return ['hc', $this->hourCycle()];
+                $keywordAndValue = ['hc', $this->hourCycle()];
+
+                break;
             case 'numbers':
-                return ['nu', $this->numberingSystem()];
+                $keywordAndValue = ['nu', $this->numberingSystem()];
+
+                break;
             case 'colnumeric':
-                return ['kn', $this->numericValue()];
+                $keywordAndValue = ['kn', $this->numericValue()];
+
+                break;
+            default:
+                $keywordAndValue = [$keyword, $defaultValue];
+
+                break;
         }
 
-        return [$keyword, $defaultValue];
+        return $keywordAndValue;
     }
 
     private function numericValue(): ?string
@@ -294,11 +306,57 @@ class Locale implements LocaleInterface
 
         switch ($colnumeric) {
             case 'yes':
-                return 'true';
+                $value = 'true';
+
+                break;
             case 'no':
-                return 'false';
+                $value = 'false';
+
+                break;
+            default:
+                $value = $colnumeric;
+
+                break;
         }
 
-        return null;
+        return $value;
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     *
+     * @psalm-return array{language: string | null, script: string | null, region: string | null, variants: array<string>, keywords: array<string, string>, grandfathered: string | null}
+     */
+    private function parseLocale(string $locale): array
+    {
+        $canonicalizedLocale = PhpLocale::canonicalize($locale);
+
+        /** @var array{language?: string, script?: string, region?: string, grandfathered?: string} $parsed */
+        $parsed = PhpLocale::parseLocale($canonicalizedLocale);
+
+        if ($parsed === []) {
+            throw new InvalidArgumentException(sprintf('Unable to parse "%s" as a valid locale string', $locale));
+        }
+
+        $variants = [];
+        foreach ($parsed as $key => $value) {
+            if (!str_starts_with($key, 'variant')) {
+                continue;
+            }
+
+            $variants[] = $value;
+        }
+
+        /** @var array<string, string> $keywords */
+        $keywords = PhpLocale::getKeywords($canonicalizedLocale) ?: [];
+
+        return [
+            'language' => $parsed['language'] ?? self::UNDEFINED_LOCALE,
+            'script' => $parsed['script'] ?? null,
+            'region' => $parsed['region'] ?? null,
+            'grandfathered' => $parsed['grandfathered'] ?? null,
+            'variants' => $variants,
+            'keywords' => $keywords,
+        ];
     }
 }

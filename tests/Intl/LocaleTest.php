@@ -181,7 +181,7 @@ class LocaleTest extends TestCase
         $locale = new Locale('en-US@colnumeric=foo');
 
         $this->assertFalse($locale->numeric());
-        $this->assertSame('en-US', $locale->toString());
+        $this->assertSame('en-US-u-kn-foo', $locale->toString());
     }
 
     public function testPassesThroughUnknownKeyword(): void
