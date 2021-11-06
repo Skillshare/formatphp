@@ -19,6 +19,7 @@
         "php": "^7.4 || ^8",
         "ext-intl": "*",
         "ext-json": "*",
+        "nikic/php-parser": "^4.13",
         "ramsey/collection": "^1.2",
         "webmozart/glob": "^4.4",
         "yiisoft/i18n": "^1.0"

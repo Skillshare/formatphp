@@ -1,0 +1,10 @@
+This file is .txt, so the PHP parser will not parse it as PHP code, which is the
+point of this test.
+
+<?php
+
+$internationalization->formatMessage([
+    'id' => 'aTestId',
+    'defaultMessage' => 'This is a default message',
+    'description' => 'A simple description of a fixture for testing purposes.',
+]);
