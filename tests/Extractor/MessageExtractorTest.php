@@ -140,6 +140,48 @@ class MessageExtractorTest extends TestCase
         );
     }
 
+    public function testProcessWithSmartlingFormatterName(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->additionalFunctionNames = ['formatMessage'];
+        $options->format = 'smartling';
+
+        $extractor = new MessageExtractor($options, $logger, new Globber(new File()), new File());
+
+        ob_start();
+        $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.php']);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'smartling' => [
+                    'string_format' => 'icu',
+                    'translate_paths' => [
+                        [
+                            'instruction' => '*/description',
+                            'key' => '{*}/message',
+                            'path' => '*/message',
+                        ],
+                    ],
+                    'variants_enabled' => true,
+                ],
+                'aTestId' => [
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                    'message' => 'This is a default message',
+                ],
+                'photos.count' => [
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                    'message' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                ],
+            ],
+            $messages,
+        );
+    }
+
     public function testProcessWithCustomFormatterClass(): void
     {
         $logger = new NullLogger();
