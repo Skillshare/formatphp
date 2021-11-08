@@ -9,7 +9,6 @@ use FormatPHP\Descriptor;
 use FormatPHP\Exception\MessageNotFoundException;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Intl\Locale;
-use FormatPHP\Intl\LocaleFactory;
 use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
 
@@ -30,7 +29,6 @@ class MessageCollectionTest extends TestCase
         $config = $this->mockery(ConfigInterface::class, [
             'getDefaultLocale' => null,
             'getLocale' => $locale,
-            'getLocaleFactory' => new LocaleFactory(),
         ]);
 
         $message = $this->mockery(MessageInterface::class, [
@@ -51,7 +49,6 @@ class MessageCollectionTest extends TestCase
         $config = $this->mockery(ConfigInterface::class, [
             'getDefaultLocale' => null,
             'getLocale' => $locale,
-            'getLocaleFactory' => new LocaleFactory(),
         ]);
 
         $collection = new MessageCollection($config);
@@ -67,7 +64,6 @@ class MessageCollectionTest extends TestCase
         $config = $this->mockery(ConfigInterface::class, [
             'getDefaultLocale' => null,
             'getLocale' => new Locale('en'),
-            'getLocaleFactory' => new LocaleFactory(),
             'getIdInterpolatorPattern' => IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN,
         ]);
 

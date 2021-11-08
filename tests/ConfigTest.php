@@ -7,7 +7,6 @@ namespace FormatPHP\Test;
 use FormatPHP\Config;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Intl\Locale;
-use FormatPHP\Intl\LocaleFactory;
 
 class ConfigTest extends TestCase
 {
@@ -19,7 +18,6 @@ class ConfigTest extends TestCase
 
         $this->assertSame($locale, $config->getLocale());
         $this->assertSame($defaultLocale, $config->getDefaultLocale());
-        $this->assertInstanceOf(LocaleFactory::class, $config->getLocaleFactory());
         $this->assertSame(IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN, $config->getIdInterpolatorPattern());
     }
 }

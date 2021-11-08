@@ -26,14 +26,9 @@ use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\MessageNotFoundException;
 use FormatPHP\Exception\UnableToGenerateMessageIdException;
 use FormatPHP\Extractor\IdInterpolator;
-use FormatPHP\Intl\LocaleInterface;
 use IteratorAggregate;
 use Ramsey\Collection\AbstractCollection;
 
-use function array_filter;
-use function array_unique;
-use function array_values;
-use function implode;
 use function preg_replace;
 use function sprintf;
 use function trim;
@@ -61,6 +56,20 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
     public function getType(): string
     {
         return MessageInterface::class;
+    }
+
+    /**
+     * @throws \Ramsey\Collection\Exception\InvalidArgumentException
+     *
+     * @inheritDoc
+     */
+    public function offsetSet($offset, $value): void
+    {
+        if ($value instanceof MessageInterface) {
+            $offset = $value->getId();
+        }
+
+        parent::offsetSet($offset, $value);
     }
 
     /**
@@ -98,36 +107,17 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
      */
     private function lookupMessage(string $messageId): MessageInterface
     {
-        $lookupLocale = $this->config->getLocale();
-        $localeFactory = $this->config->getLocaleFactory();
+        $message = $this[$messageId] ?? null;
 
-        foreach ($this->getFallbackLocales($lookupLocale) as $locale) {
-            try {
-                return $this->findMessage($messageId, $localeFactory($locale));
-            } catch (MessageNotFoundException $exception) {
-                continue;
-            }
+        if ($message === null) {
+            throw new MessageNotFoundException(sprintf(
+                'Unable to find message with ID "%s" for locale "%s"',
+                $messageId,
+                $this->config->getLocale()->toString(),
+            ));
         }
 
-        throw new MessageNotFoundException(sprintf(
-            'Unable to find message with ID "%s" for locale "%s"',
-            $messageId,
-            $lookupLocale->toString(),
-        ));
-    }
-
-    /**
-     * @throws MessageNotFoundException
-     */
-    private function findMessage(string $id, LocaleInterface $locale): MessageInterface
-    {
-        foreach ($this as $message) {
-            if ($message->getId() === $id && $message->getLocale()->toString() === $locale->toString()) {
-                return $message;
-            }
-        }
-
-        throw new MessageNotFoundException(sprintf('Could not find message with ID "%s".', $id));
+        return $message;
     }
 
     /**
@@ -145,25 +135,6 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
         }
 
         return $messageId;
-    }
-
-    /**
-     * @return string[]
-     */
-    private function getFallbackLocales(LocaleInterface $locale): array
-    {
-        $defaultLocale = $this->config->getDefaultLocale();
-
-        $fallbacks = [
-            $locale->toString(),
-            $locale->baseName(),
-            implode('-', array_filter([$locale->language(), $locale->region()])),
-            $locale->language(),
-            $defaultLocale ? $defaultLocale->toString() : null,
-        ];
-
-        /** @var string[] */
-        return array_values(array_unique(array_filter($fallbacks)));
     }
 
     private function cleanMessage(string $message): string

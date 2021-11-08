@@ -23,8 +23,6 @@ declare(strict_types=1);
 namespace FormatPHP;
 
 use FormatPHP\Extractor\IdInterpolator;
-use FormatPHP\Intl\LocaleFactory;
-use FormatPHP\Intl\LocaleFactoryInterface;
 use FormatPHP\Intl\LocaleInterface;
 
 /**
@@ -59,10 +57,5 @@ class Config implements ConfigInterface
     public function getLocale(): LocaleInterface
     {
         return $this->locale;
-    }
-
-    public function getLocaleFactory(): LocaleFactoryInterface
-    {
-        return new LocaleFactory();
     }
 }
