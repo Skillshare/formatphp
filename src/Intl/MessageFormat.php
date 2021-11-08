@@ -52,7 +52,8 @@ class MessageFormat implements MessageFormatInterface
     {
         try {
             $formatter = new PhpMessageFormatter((string) $this->locale->baseName(), $pattern);
-            $format = $formatter->format($values);
+
+            return (string) $formatter->format($values);
         } catch (PhpIntlException $exception) {
             throw new UnableToFormatMessageException(
                 sprintf(
@@ -64,7 +65,5 @@ class MessageFormat implements MessageFormatInterface
                 $exception,
             );
         }
-
-        return (string) $format;
     }
 }
