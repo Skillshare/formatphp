@@ -22,12 +22,16 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
+use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\MessageNotFoundException;
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\Exception\UnableToGenerateMessageIdException;
+use FormatPHP\Extractor\IdInterpolator;
 use IteratorAggregate;
 use Ramsey\Collection\AbstractCollection;
 
+use function preg_replace;
 use function sprintf;
+use function trim;
 
 /**
  * FormatPHP collection of Message instances
@@ -37,9 +41,35 @@ use function sprintf;
  */
 final class MessageCollection extends AbstractCollection implements IteratorAggregate
 {
+    private ConfigInterface $config;
+
+    /**
+     * @param array<array-key, MessageInterface> $data
+     */
+    public function __construct(ConfigInterface $config, array $data = [])
+    {
+        parent::__construct($data);
+
+        $this->config = $config;
+    }
+
     public function getType(): string
     {
         return MessageInterface::class;
+    }
+
+    /**
+     * @throws \Ramsey\Collection\Exception\InvalidArgumentException
+     *
+     * @inheritDoc
+     */
+    public function offsetSet($offset, $value): void
+    {
+        if ($value instanceof MessageInterface) {
+            $offset = $value->getId();
+        }
+
+        parent::offsetSet($offset, $value);
     }
 
     /**
@@ -47,22 +77,68 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
      *
      * @throws MessageNotFoundException
      */
-    public function getMessage(string $id, LocaleInterface $locale): string
+    public function getMessageById(string $id): string
     {
-        return $this->findMessage($id, $locale)->getMessage();
+        return $this->cleanMessage($this->lookupMessage($id)->getMessage());
+    }
+
+    /**
+     * Looks up and returns a message for the given Descriptor and locale
+     *
+     * @throws InvalidArgumentException
+     */
+    public function getMessageByDescriptor(DescriptorInterface $descriptor): string
+    {
+        $messageId = $this->buildMessageId($descriptor);
+
+        try {
+            return $this->getMessageById($messageId);
+        } catch (MessageNotFoundException $exception) {
+            if ($descriptor->getDefaultMessage() !== null) {
+                return $this->cleanMessage((string) $descriptor->getDefaultMessage());
+            }
+        }
+
+        return $messageId;
     }
 
     /**
      * @throws MessageNotFoundException
      */
-    private function findMessage(string $id, LocaleInterface $locale): MessageInterface
+    private function lookupMessage(string $messageId): MessageInterface
     {
-        foreach ($this as $message) {
-            if ($message->getId() === $id && $message->getLocale()->baseName() === $locale->baseName()) {
-                return $message;
-            }
+        $message = $this[$messageId] ?? null;
+
+        if ($message === null) {
+            throw new MessageNotFoundException(sprintf(
+                'Unable to find message with ID "%s" for locale "%s"',
+                $messageId,
+                $this->config->getLocale()->toString(),
+            ));
         }
 
-        throw new MessageNotFoundException(sprintf('Could not find message with ID "%s".', $id));
+        return $message;
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    private function buildMessageId(DescriptorInterface $descriptor): string
+    {
+        try {
+            $messageId = (new IdInterpolator())->generateId(
+                $descriptor,
+                $this->config->getIdInterpolatorPattern(),
+            );
+        } catch (UnableToGenerateMessageIdException $exception) {
+            $messageId = '';
+        }
+
+        return $messageId;
+    }
+
+    private function cleanMessage(string $message): string
+    {
+        return trim((string) preg_replace('/\n\s*/', ' ', $message));
     }
 }

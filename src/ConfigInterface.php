@@ -72,9 +72,4 @@ interface ConfigInterface
      * Returns locale to use for translation and localization
      */
     public function getLocale(): LocaleInterface;
-
-    /**
-     * Returns a collection of translation messages
-     */
-    public function getMessages(): MessageCollection;
 }

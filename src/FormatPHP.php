@@ -22,63 +22,43 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
-use FormatPHP\Extractor\IdInterpolator;
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\Intl\MessageFormat;
 
 /**
  * FormatPHP internationalization and localization
  */
-class FormatPHP implements ConfigInterface, FormatterInterface
+class FormatPHP implements FormatterInterface
 {
-    private LocaleInterface $locale;
+    private ConfigInterface $config;
     private MessageCollection $messages;
-    private ?LocaleInterface $defaultLocale;
+    private MessageFormat $messageFormat;
 
+    /**
+     * @throws Exception\InvalidArgumentException
+     */
     public function __construct(
-        LocaleInterface $locale,
-        MessageCollection $messages,
-        ?LocaleInterface $defaultLocale = null
+        ConfigInterface $config,
+        MessageCollection $messages
     ) {
-        $this->locale = $locale;
+        $this->config = $config;
         $this->messages = $messages;
-        $this->defaultLocale = $defaultLocale;
-    }
-
-    public function getDefaultLocale(): ?LocaleInterface
-    {
-        return $this->defaultLocale;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
-    }
-
-    public function getMessages(): MessageCollection
-    {
-        return $this->messages;
-    }
-
-    public function getIdInterpolatorPattern(): string
-    {
-        return IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN;
+        $this->messageFormat = new MessageFormat($config->getLocale());
     }
 
     /**
      * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatMessageException
      *
      * @inheritdoc
      */
     public function formatMessage(array $descriptor, array $values = []): string
     {
-        $descriptorInstance = new Descriptor(
+        $messagePattern = $this->messages->getMessageByDescriptor(new Descriptor(
             $descriptor['id'] ?? null,
             $descriptor['defaultMessage'] ?? null,
             $descriptor['description'] ?? null,
-        );
+        ));
 
-        $formatter = new Intl\MessageFormat($this);
-
-        return $formatter->format($descriptorInstance, $values);
+        return $this->messageFormat->format($messagePattern, $values);
     }
 }

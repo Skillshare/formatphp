@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Intl;
 
-use FormatPHP\ConfigInterface;
+use FormatPHP\Config;
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorInterface;
-use FormatPHP\Extractor\IdInterpolator;
+use FormatPHP\Exception\UnableToFormatMessageException;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
+use FormatPHP\MessageInterface;
 use FormatPHP\Test\TestCase;
 
 class MessageFormatTest extends TestCase
@@ -26,36 +27,30 @@ class MessageFormatTest extends TestCase
             . '{petCount, plural, =0 {no pets} =1 {a pet} other {# pets} }.',
     ];
 
-    private const TRANSLATION_MESSAGES_FR = [
-        'myMessage' => 'Nous sommes aujourd\'hui le {ts, date, ::yyyyMMdd}',
-        'foo' => 'Une chaîne de traduction sans message par défaut',
-        'bar' => 'Salut!',
-        'baz' => 'Je ne sais pas quoi écrire ici.',
-        'z2BIsL' => 'Que fais-tu ce week-end?',
-        'KBErIh' => 'La dernière fois que j\'ai vérifié, {gender, select, male {il avait} female {elle avait} '
-            . 'other {ils avaient} } {petCount, plural, =0 {no animaux} =1 {un animal de compagnie} other '
-            . '{# animaux de compagnie} }.',
-    ];
-
-    private ?MessageCollection $messageCollection = null;
+    /**
+     * @var MessageInterface[]
+     */
+    private array $messagesEn = [];
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $messages = new MessageCollection();
         $localeEn = new Locale('en');
-        $localeFr = new Locale('fr');
 
         foreach (self::TRANSLATION_MESSAGES_EN as $id => $value) {
-            $messages[] = new Message($localeEn, $id, $value);
+            $this->messagesEn[] = new Message($localeEn, $id, $value);
         }
+    }
 
-        foreach (self::TRANSLATION_MESSAGES_FR as $id => $value) {
-            $messages[] = new Message($localeFr, $id, $value);
-        }
+    public function testFormatThrowsExceptionWhenUnableToFormatMessage(): void
+    {
+        $formatter = new MessageFormat(new Locale('en'));
 
-        $this->messageCollection = $messages;
+        $this->expectException(UnableToFormatMessageException::class);
+        $this->expectExceptionMessage('Unable to format message with pattern "" for locale "en"');
+
+        $formatter->format('');
     }
 
     /**
@@ -67,21 +62,15 @@ class MessageFormatTest extends TestCase
         Locale $locale,
         DescriptorInterface $descriptor,
         string $expected,
-        array $replacements = [],
-        ?Locale $defaultLocale = null
+        array $replacements = []
     ): void {
-        $config = $this->mockery(ConfigInterface::class, [
-            'getDefaultLocale' => $defaultLocale,
-            'getLocale' => $locale,
-            'getMessages' => $this->messageCollection,
-            'getIdInterpolatorPattern' => IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN,
-        ]);
-
-        $formatter = new MessageFormat($config);
+        $config = new Config($locale);
+        $formatter = new MessageFormat($locale);
+        $messages = new MessageCollection($config, $this->messagesEn);
 
         $this->assertSame(
             $expected,
-            $formatter->format($descriptor, $replacements),
+            $formatter->format($messages->getMessageByDescriptor($descriptor), $replacements),
         );
     }
 
@@ -91,13 +80,10 @@ class MessageFormatTest extends TestCase
     public function formatProvider(): array
     {
         $localeEn = new Locale('en');
-        $localeEnGb = new Locale('en-GB');
-        $localeFr = new Locale('fr');
-        $localeFrCa = new Locale('fr-CA');
         $localeFoo = new Locale('foo');
 
         $descriptors = [
-            'empty' => new Descriptor(),
+            'empty' => new Descriptor('messageId'),
             'full' => new Descriptor(
                 'myMessage',
                 'Today is {ts, date, ::yyyyMMdd}',
@@ -106,6 +92,7 @@ class MessageFormatTest extends TestCase
             'id only' => new Descriptor('foo'),
             'id with defaultMessage' => new Descriptor('bar', 'Howdy!'),
             'id with description' => new Descriptor('baz', null, 'There is not default message for this one'),
+            'id not found' => new Descriptor('idNotFound', 'Default message should be returned'),
             'defaultMessage only' => new Descriptor(null, 'What are you doing this weekend?'),
             'complicated pattern' => new Descriptor(
                 null,
@@ -125,29 +112,24 @@ class MessageFormatTest extends TestCase
                     EOM,
                 'This is a more complicated message pattern.',
             ),
-            'description only' => new Descriptor(
-                null,
-                null,
-                'This description has no default message, so it shouldn\'t find a message.',
-            ),
         ];
 
         return [
             [
                 'locale' => $localeEn,
                 'descriptor' => $descriptors['empty'],
-                'expected' => '',
+                'expected' => 'messageId',
             ],
             [
-                'locale' => $localeFr,
+                'locale' => $localeEn,
                 'descriptor' => $descriptors['full'],
-                'expected' => 'Nous sommes aujourd\'hui le 25/10/2021',
+                'expected' => 'Today is 10/25/2021',
                 'replacements' => ['ts' => 1635204852], // Mon, 25 Oct 2021 23:34:12 +0000
             ],
             [
-                'locale' => $localeFrCa,
+                'locale' => $localeEn,
                 'descriptor' => $descriptors['id only'],
-                'expected' => 'Une chaîne de traduction sans message par défaut',
+                'expected' => 'A translation string with no default message',
             ],
             [
                 'locale' => $localeFoo,
@@ -155,14 +137,19 @@ class MessageFormatTest extends TestCase
                 'expected' => 'Howdy!',
             ],
             [
-                'locale' => $localeEnGb,
+                'locale' => $localeEn,
                 'descriptor' => $descriptors['id with description'],
                 'expected' => 'I don\'t know what to write here.',
             ],
             [
-                'locale' => $localeFr,
+                'locale' => $localeEn,
+                'descriptor' => $descriptors['id not found'],
+                'expected' => 'Default message should be returned',
+            ],
+            [
+                'locale' => $localeEn,
                 'descriptor' => $descriptors['defaultMessage only'],
-                'expected' => 'Que fais-tu ce week-end?',
+                'expected' => 'What are you doing this weekend?',
             ],
             [
                 'locale' => $localeEn,
@@ -177,22 +164,10 @@ class MessageFormatTest extends TestCase
                 'replacements' => ['gender' => 'non-binary', 'petCount' => 1],
             ],
             [
-                'locale' => $localeFrCa,
-                'descriptor' => (object) $descriptors['complicated pattern'],
-                'expected' => 'La dernière fois que j\'ai vérifié, elle avait 2 animaux de compagnie.',
-                'replacements' => ['gender' => 'female', 'petCount' => 2],
-            ],
-            [
-                'locale' => $localeEn,
-                'descriptor' => $descriptors['description only'],
-                'expected' => '',
-            ],
-            [
                 'locale' => $localeFoo,
                 'descriptor' => $descriptors['complicated pattern'],
-                'expected' => 'La dernière fois que j\'ai vérifié, ils avaient no animaux.',
-                'replacements' => ['gender' => 'he', 'petCount' => 0],
-                'defaultLocale' => $localeFr,
+                'expected' => 'Last time I checked, he had no pets.',
+                'replacements' => ['gender' => 'male', 'petCount' => 0],
             ],
             [
                 'locale' => $localeEn,
