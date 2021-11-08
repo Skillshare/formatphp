@@ -4,34 +4,210 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Intl;
 
+use BadMethodCallException;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Intl\Locale;
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\Intl\LocaleOptions;
 use FormatPHP\Test\TestCase;
+use Locale as PhpLocale;
 
 class LocaleTest extends TestCase
 {
-    public function testGetId(): void
-    {
-        $locale = new Locale('pt-BR');
-
-        $this->assertSame('pt-BR', $locale->getId());
-    }
-
-    public function testGetFallbackLocale(): void
-    {
-        $locale = new Locale('pt-BR');
-        $fallbackLocale = $locale->getFallbackLocale();
-
-        $this->assertInstanceOf(LocaleInterface::class, $fallbackLocale);
-        $this->assertSame('pt', $fallbackLocale->getId());
-    }
-
     public function testExceptionWhenLocaleIsInvalid(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('f-oo-bar is not valid BCP 47 formatted locale string.');
+        $this->expectExceptionMessage('Unable to parse "f-oo-bar" as a valid locale string');
 
         new Locale('f-oo-bar');
+    }
+
+    public function testLocaleWithEverythingAsPartOfTheIdentifier(): void
+    {
+        $localeString = 'zh-cmn-Hans-CN-boont-u-kf-lower-co-trad-kn-false-ca-buddhist-nu-latn-hc-h24';
+
+        $locale = new Locale($localeString);
+
+        $this->assertSame('cmn-Hans-CN-BOONT', $locale->baseName());
+        $this->assertSame('cmn', $locale->language());
+        $this->assertSame('CN', $locale->region());
+        $this->assertSame('Hans', $locale->script());
+        $this->assertSame('trad', $locale->collation());
+        $this->assertSame('lower', $locale->caseFirst());
+        $this->assertFalse($locale->numeric());
+        $this->assertSame('buddhist', $locale->calendar());
+        $this->assertSame('latn', $locale->numberingSystem());
+        $this->assertSame('h24', $locale->hourCycle());
+        $this->assertSame(
+            'cmn-Hans-CN-BOONT-u-ca-buddhist-kf-lower-co-trad-kn-false-hc-h24-nu-latn',
+            $locale->toString(),
+        );
+    }
+
+    public function testLocaleWithEverythingAsPartOfTheOptions(): void
+    {
+        $locale = new Locale('en-latn-CA-boont', new LocaleOptions(
+            'buddhist',
+            'lower',
+            'emoji',
+            'h24',
+            'cmn',
+            'latn',
+            false,
+            'CN',
+            'Hans',
+        ));
+
+        $this->assertSame(
+            'cmn-Hans-CN-BOONT-u-ca-buddhist-kf-lower-co-emoji-hc-h24-nu-latn-kn-false',
+            $locale->toString(),
+        );
+    }
+
+    public function testLocaleWithEmptyLanguage(): void
+    {
+        $locale = new Locale(
+            'en-Latn-US-variant',
+            new LocaleOptions(null, null, null, null, ''),
+        );
+
+        $this->assertSame('', $locale->baseName());
+    }
+
+    public function testLocaleWithOnlyLanguage(): void
+    {
+        $locale = new Locale('en');
+
+        $this->assertSame('en', $locale->baseName());
+        $this->assertSame('en', $locale->language());
+        $this->assertNull($locale->region());
+        $this->assertNull($locale->script());
+        $this->assertNull($locale->collation());
+        $this->assertNull($locale->caseFirst());
+        $this->assertFalse($locale->numeric());
+        $this->assertNull($locale->calendar());
+        $this->assertNull($locale->numberingSystem());
+        $this->assertNull($locale->hourCycle());
+    }
+
+    public function testLocaleWithUndefinedLocale(): void
+    {
+        $defaultLocale = new Locale(PhpLocale::getDefault());
+        $undefinedLocale = new Locale('und');
+
+        $this->assertSame($defaultLocale->toString(), $undefinedLocale->toString());
+    }
+
+    public function testBaseNameWithMultipleVariants(): void
+    {
+        $locale = new Locale('en-US-variant1-variant2-variant3');
+
+        $this->assertSame('en-US-VARIANT1-VARIANT2-VARIANT3', $locale->baseName());
+    }
+
+    public function testCalendarReturnsEthioaa(): void
+    {
+        $locale = new Locale('en-US@calendar=ethiopic-amete-alem');
+
+        $this->assertSame('ethioaa', $locale->calendar());
+        $this->assertSame('en-US-u-ca-ethioaa', $locale->toString());
+    }
+
+    public function testCalendarReturnsGregory(): void
+    {
+        $locale = new Locale('en-US@calendar=gregorian');
+
+        $this->assertSame('gregory', $locale->calendar());
+        $this->assertSame('en-US-u-ca-gregory', $locale->toString());
+    }
+
+    public function testCaseFirstReturnsStringFalse(): void
+    {
+        $locale = new Locale('en-US@colcasefirst=no');
+
+        $this->assertSame('false', $locale->caseFirst());
+        $this->assertSame('en-US-u-kf-false', $locale->toString());
+    }
+
+    public function testCollationReturnsDict(): void
+    {
+        $locale = new Locale('en-US@collation=dictionary');
+
+        $this->assertSame('dict', $locale->collation());
+        $this->assertSame('en-US-u-co-dict', $locale->toString());
+    }
+
+    public function testCollationReturnsGb2312(): void
+    {
+        $locale = new Locale('en-US@collation=gb2312han');
+
+        $this->assertSame('gb2312', $locale->collation());
+        $this->assertSame('en-US-u-co-gb2312', $locale->toString());
+    }
+
+    public function testCollationReturnsPhonebk(): void
+    {
+        $locale = new Locale('en-US@collation=phonebook');
+
+        $this->assertSame('phonebk', $locale->collation());
+        $this->assertSame('en-US-u-co-phonebk', $locale->toString());
+    }
+
+    public function testCollationReturnsTraditio(): void
+    {
+        $locale = new Locale('en-US@numbers=traditional');
+
+        $this->assertSame('traditio', $locale->numberingSystem());
+        $this->assertSame('en-US-u-nu-traditio', $locale->toString());
+    }
+
+    public function testNumericWithYes(): void
+    {
+        $locale = new Locale('en-US@colnumeric=yes');
+
+        $this->assertTrue($locale->numeric());
+        $this->assertSame('en-US-u-kn-true', $locale->toString());
+    }
+
+    public function testNumericWithNo(): void
+    {
+        $locale = new Locale('en-US@colnumeric=no');
+
+        $this->assertFalse($locale->numeric());
+        $this->assertSame('en-US-u-kn-false', $locale->toString());
+    }
+
+    public function testNumericWithInvalidValue(): void
+    {
+        $locale = new Locale('en-US@colnumeric=foo');
+
+        $this->assertFalse($locale->numeric());
+        $this->assertSame('en-US-u-kn-foo', $locale->toString());
+    }
+
+    public function testPassesThroughUnknownKeyword(): void
+    {
+        $locale = new Locale('en-US-u-ka-noignore');
+
+        $this->assertSame('en-US-u-colalternate-non-ignorable', $locale->toString());
+    }
+
+    public function testMaximizeThrowsException(): void
+    {
+        $locale = new Locale('en-US');
+
+        $this->expectException(BadMethodCallException::class);
+        $this->expectExceptionMessage('Method not implemented');
+
+        $locale->maximize();
+    }
+
+    public function testMinimizeThrowsException(): void
+    {
+        $locale = new Locale('en-US');
+
+        $this->expectException(BadMethodCallException::class);
+        $this->expectExceptionMessage('Method not implemented');
+
+        $locale->minimize();
     }
 }

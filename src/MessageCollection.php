@@ -58,7 +58,7 @@ final class MessageCollection extends AbstractCollection implements IteratorAggr
     private function findMessage(string $id, LocaleInterface $locale): MessageInterface
     {
         foreach ($this as $message) {
-            if ($message->getId() === $id && $message->getLocale()->getId() === $locale->getId()) {
+            if ($message->getId() === $id && $message->getLocale()->baseName() === $locale->baseName()) {
                 return $message;
             }
         }

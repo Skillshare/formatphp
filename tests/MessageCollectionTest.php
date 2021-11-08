@@ -21,13 +21,13 @@ class MessageCollectionTest extends TestCase
     public function testGetMessageFindsAndReturnsMessage(): void
     {
         $locale = $this->mockery(LocaleInterface::class, [
-            'getId' => 'en-US',
+            'baseName' => 'en-US',
         ]);
 
         $message = $this->mockery(MessageInterface::class, [
             'getId' => 'foobar',
             'getLocale' => $this->mockery(LocaleInterface::class, [
-                'getId' => 'en-US',
+                'baseName' => 'en-US',
             ]),
             'getMessage' => 'This is a message',
         ]);
@@ -43,7 +43,7 @@ class MessageCollectionTest extends TestCase
     public function testGetMessageThrowsExceptionWhenMessageNotFound(): void
     {
         $locale = $this->mockery(LocaleInterface::class, [
-            'getId' => 'en-US',
+            'baseName' => 'en-US',
         ]);
 
         $collection = new MessageCollection();
