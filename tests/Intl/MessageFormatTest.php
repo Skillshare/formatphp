@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Intl;
 
-use FormatPHP\ConfigInterface;
+use FormatPHP\Config;
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorInterface;
-use FormatPHP\Extractor\IdInterpolator;
+use FormatPHP\Exception\UnableToFormatMessageException;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
+use FormatPHP\MessageInterface;
 use FormatPHP\Test\TestCase;
 
 class MessageFormatTest extends TestCase
@@ -37,13 +38,16 @@ class MessageFormatTest extends TestCase
             . '{# animaux de compagnie} }.',
     ];
 
-    private ?MessageCollection $messageCollection = null;
+    /**
+     * @var MessageInterface[]
+     */
+    private array $messages = [];
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $messages = new MessageCollection();
+        $messages = [];
         $localeEn = new Locale('en');
         $localeFr = new Locale('fr');
 
@@ -55,7 +59,17 @@ class MessageFormatTest extends TestCase
             $messages[] = new Message($localeFr, $id, $value);
         }
 
-        $this->messageCollection = $messages;
+        $this->messages = $messages;
+    }
+
+    public function testFormatThrowsExceptionWhenUnableToFormatMessage(): void
+    {
+        $formatter = new MessageFormat(new Locale('en'));
+
+        $this->expectException(UnableToFormatMessageException::class);
+        $this->expectExceptionMessage('Unable to format message with pattern "" for locale "en"');
+
+        $formatter->format('');
     }
 
     /**
@@ -70,18 +84,13 @@ class MessageFormatTest extends TestCase
         array $replacements = [],
         ?Locale $defaultLocale = null
     ): void {
-        $config = $this->mockery(ConfigInterface::class, [
-            'getDefaultLocale' => $defaultLocale,
-            'getLocale' => $locale,
-            'getMessages' => $this->messageCollection,
-            'getIdInterpolatorPattern' => IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN,
-        ]);
-
-        $formatter = new MessageFormat($config);
+        $config = new Config($locale, $defaultLocale);
+        $messages = new MessageCollection($config, $this->messages);
+        $formatter = new MessageFormat($locale);
 
         $this->assertSame(
             $expected,
-            $formatter->format($descriptor, $replacements),
+            $formatter->format($messages->getMessageByDescriptor($descriptor), $replacements),
         );
     }
 
@@ -97,7 +106,7 @@ class MessageFormatTest extends TestCase
         $localeFoo = new Locale('foo');
 
         $descriptors = [
-            'empty' => new Descriptor(),
+            'empty' => new Descriptor('messageId'),
             'full' => new Descriptor(
                 'myMessage',
                 'Today is {ts, date, ::yyyyMMdd}',
@@ -125,18 +134,13 @@ class MessageFormatTest extends TestCase
                     EOM,
                 'This is a more complicated message pattern.',
             ),
-            'description only' => new Descriptor(
-                null,
-                null,
-                'This description has no default message, so it shouldn\'t find a message.',
-            ),
         ];
 
         return [
             [
                 'locale' => $localeEn,
                 'descriptor' => $descriptors['empty'],
-                'expected' => '',
+                'expected' => 'messageId',
             ],
             [
                 'locale' => $localeFr,
@@ -181,11 +185,6 @@ class MessageFormatTest extends TestCase
                 'descriptor' => (object) $descriptors['complicated pattern'],
                 'expected' => 'La dernière fois que j\'ai vérifié, elle avait 2 animaux de compagnie.',
                 'replacements' => ['gender' => 'female', 'petCount' => 2],
-            ],
-            [
-                'locale' => $localeEn,
-                'descriptor' => $descriptors['description only'],
-                'expected' => '',
             ],
             [
                 'locale' => $localeFoo,

@@ -24,6 +24,7 @@ namespace FormatPHP;
 
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\IdInterpolatorOptions;
+use FormatPHP\Intl\LocaleFactoryInterface;
 use FormatPHP\Intl\LocaleInterface;
 
 /**
@@ -74,7 +75,7 @@ interface ConfigInterface
     public function getLocale(): LocaleInterface;
 
     /**
-     * Returns a collection of translation messages
+     * Returns a factory to use for creating locale instances
      */
-    public function getMessages(): MessageCollection;
+    public function getLocaleFactory(): LocaleFactoryInterface;
 }

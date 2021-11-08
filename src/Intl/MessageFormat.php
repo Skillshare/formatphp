@@ -22,111 +22,49 @@ declare(strict_types=1);
 
 namespace FormatPHP\Intl;
 
-use FormatPHP\ConfigInterface;
-use FormatPHP\DescriptorInterface;
 use FormatPHP\Exception\InvalidArgumentException;
-use FormatPHP\Exception\MessageNotFoundException;
-use FormatPHP\Exception\UnableToGenerateMessageIdException;
-use FormatPHP\Extractor\IdInterpolator;
+use FormatPHP\Exception\UnableToFormatMessageException;
+use IntlException as PhpIntlException;
+use Locale as PhpLocale;
 use MessageFormatter as PhpMessageFormatter;
 
-use function preg_replace;
 use function sprintf;
-use function trim;
 
 /**
- * Formats a message using {@link https://unicode-org.github.io/icu/userguide/format_parse/messages/ ICU Message syntax}
+ * Formats an ICU message format pattern
  */
-class MessageFormat
+class MessageFormat implements MessageFormatInterface
 {
-    private ConfigInterface $config;
-
-    public function __construct(ConfigInterface $config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * Returns a translated string for the given descriptor ID
-     *
-     * If the descriptor does not have an ID, we will use a combination of the
-     * defaultMessage and description to create an ID.
-     *
-     * If we cannot find the given ID in the configured messages, we will use
-     * the descriptor's defaultMessage, if provided.
-     *
-     * @param array<array-key, int | float | string> $values
-     *
-     * @throws InvalidArgumentException
-     */
-    public function format(DescriptorInterface $descriptor, array $values = []): string
-    {
-        return (string) PhpMessageFormatter::formatMessage(
-            (string) $this->config->getLocale()->baseName(),
-            $this->getMessage($descriptor),
-            $values,
-        );
-    }
+    private LocaleInterface $locale;
 
     /**
      * @throws InvalidArgumentException
      */
-    private function buildMessageId(DescriptorInterface $descriptor): string
+    public function __construct(?LocaleInterface $locale = null)
+    {
+        $this->locale = $locale ?? new Locale(PhpLocale::getDefault());
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function format(string $pattern, array $values = []): string
     {
         try {
-            $messageId = (new IdInterpolator())->generateId(
-                $descriptor,
-                $this->config->getIdInterpolatorPattern(),
+            $formatter = new PhpMessageFormatter((string) $this->locale->baseName(), $pattern);
+            $format = $formatter->format($values);
+        } catch (PhpIntlException $exception) {
+            throw new UnableToFormatMessageException(
+                sprintf(
+                    'Unable to format message with pattern "%s" for locale "%s"',
+                    $pattern,
+                    (string) $this->locale->baseName(),
+                ),
+                (int) $exception->getCode(),
+                $exception,
             );
-        } catch (UnableToGenerateMessageIdException $exception) {
-            $messageId = '';
         }
 
-        return $messageId;
-    }
-
-    /**
-     * @throws InvalidArgumentException
-     */
-    private function getMessage(DescriptorInterface $descriptor): string
-    {
-        $messageId = $this->buildMessageId($descriptor);
-
-        try {
-            return $this->lookupMessage($messageId);
-        } catch (MessageNotFoundException $exception) {
-            if ($descriptor->getDefaultMessage() !== null) {
-                return trim((string) preg_replace('/\n\s*/', ' ', (string) $descriptor->getDefaultMessage()));
-            }
-        }
-
-        return $messageId;
-    }
-
-    /**
-     * @throws MessageNotFoundException
-     */
-    private function lookupMessage(string $messageId): string
-    {
-        $config = $this->config;
-
-        try {
-            return $config->getMessages()->getMessage($messageId, $config->getLocale());
-        } catch (MessageNotFoundException $exception) {
-            try {
-                // Try falling back to a locale made up of just the language.
-                return $config->getMessages()->getMessage(
-                    $messageId,
-                    new Locale((string) $config->getLocale()->language()),
-                );
-            } catch (MessageNotFoundException $exception) {
-                $defaultLocale = $config->getDefaultLocale();
-                if ($defaultLocale !== null) {
-                    return $config->getMessages()->getMessage($messageId, $defaultLocale);
-                }
-            }
-        }
-
-        throw new MessageNotFoundException(sprintf('Unable to look up message with ID "%s".', $messageId));
+        return (string) $format;
     }
 }
