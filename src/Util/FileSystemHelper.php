@@ -27,6 +27,7 @@ use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Exception\UnableToWriteFileException;
+use JsonException;
 
 use function file_get_contents;
 use function file_put_contents;
@@ -39,9 +40,14 @@ use function is_dir;
 use function is_readable;
 use function is_resource;
 use function is_string;
+use function json_decode;
+use function realpath;
 use function sprintf;
 use function strlen;
 
+use const JSON_BIGINT_AS_STRING;
+use const JSON_INVALID_UTF8_SUBSTITUTE;
+use const JSON_THROW_ON_ERROR;
 use const PHP_SAPI;
 
 /**
@@ -49,6 +55,8 @@ use const PHP_SAPI;
  */
 class FileSystemHelper
 {
+    private const JSON_DECODE_FLAGS = JSON_BIGINT_AS_STRING | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR;
+
     private static ?string $currentWorkingDir = null;
 
     /**
@@ -76,6 +84,27 @@ class FileSystemHelper
         }
 
         return $contents;
+    }
+
+    /**
+     * @return array<array-key, mixed>
+     *
+     * @throws UnableToProcessFileException
+     */
+    public function getJsonContents(string $filePath): array
+    {
+        $contents = $this->getContents($filePath);
+
+        try {
+            /** @var array<array-key, mixed> */
+            return @json_decode($contents, true, 512, self::JSON_DECODE_FLAGS);
+        } catch (JsonException $exception) {
+            throw new UnableToProcessFileException(
+                sprintf('Unable to decode the JSON in the file "%s"', $filePath),
+                (int) $exception->getCode(),
+                $exception,
+            );
+        }
     }
 
     /**
@@ -108,6 +137,23 @@ class FileSystemHelper
         if ($bytes === false) {
             throw new UnableToWriteFileException(sprintf('Unable to write contents to file "%s".', $file));
         }
+    }
+
+    /**
+     * @throws InvalidArgumentException
+     */
+    public function getRealPath(string $path): string
+    {
+        $realpath = @realpath($path);
+
+        if ($realpath === false) {
+            throw new InvalidArgumentException(sprintf(
+                'Unable to find or access the path at "%s"',
+                $path,
+            ));
+        }
+
+        return $realpath;
     }
 
     /**
