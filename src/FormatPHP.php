@@ -29,7 +29,6 @@ use FormatPHP\Intl\MessageFormat;
  */
 class FormatPHP implements FormatterInterface
 {
-    private ConfigInterface $config;
     private MessageCollection $messages;
     private MessageFormat $messageFormat;
 
@@ -40,7 +39,6 @@ class FormatPHP implements FormatterInterface
         ConfigInterface $config,
         MessageCollection $messages
     ) {
-        $this->config = $config;
         $this->messages = $messages;
         $this->messageFormat = new MessageFormat($config->getLocale());
     }

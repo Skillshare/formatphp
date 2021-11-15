@@ -7,11 +7,11 @@ namespace FormatPHP\Test;
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\LocaleNotFoundException;
+use FormatPHP\Format\Reader\FormatPHPReader;
+use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Intl\Locale;
 use FormatPHP\MessageInterface;
 use FormatPHP\MessageLoader;
-use FormatPHP\Reader\Format\FormatPHP;
-use FormatPHP\Reader\FormatInterface;
 
 use function sprintf;
 
@@ -28,7 +28,7 @@ class MessageLoaderTest extends TestCase
         new MessageLoader(
             __FILE__,
             new Config(new Locale('en')),
-            $this->mockery(FormatInterface::class),
+            $this->mockery(ReaderInterface::class),
         );
     }
 
@@ -40,7 +40,7 @@ class MessageLoaderTest extends TestCase
         $loader = new MessageLoader(
             __DIR__ . '/fixtures/locales',
             new Config($locale),
-            $this->mockery(FormatInterface::class),
+            $this->mockery(ReaderInterface::class),
         );
 
         $this->expectException(LocaleNotFoundException::class);
@@ -59,7 +59,7 @@ class MessageLoaderTest extends TestCase
         $loader = new MessageLoader(
             __DIR__ . '/fixtures/locales',
             new Config($locale, $defaultLocale),
-            new FormatPHP(),
+            new FormatPHPReader(),
         );
 
         $collection = $loader->loadMessages();
@@ -79,7 +79,7 @@ class MessageLoaderTest extends TestCase
         $loader = new MessageLoader(
             __DIR__ . '/fixtures/locales',
             new Config($locale, $defaultLocale),
-            new FormatPHP(),
+            new FormatPHPReader(),
         );
 
         $collection = $loader->loadMessages();

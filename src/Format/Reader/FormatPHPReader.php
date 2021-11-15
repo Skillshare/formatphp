@@ -20,16 +20,16 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Reader\Format;
+namespace FormatPHP\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
-use FormatPHP\Reader\FormatInterface;
 
-use function assert;
 use function gettype;
 use function is_array;
 use function is_string;
@@ -39,9 +39,9 @@ use function sprintf;
  * Returns a MessageCollection parsed from JSON-decoded data that was written
  * using Writer\Format\FormatPHP
  *
- * @see \FormatPHP\Writer\Format\FormatPHP
+ * @see FormatPHPWriter
  */
-class FormatPHP implements FormatInterface
+class FormatPHPReader implements ReaderInterface
 {
     /**
      * @inheritdoc
@@ -50,11 +50,12 @@ class FormatPHP implements FormatInterface
     {
         $messages = new MessageCollection($config);
 
+        /**
+         * @var string $messageId
+         * @var array{defaultMessage: string} $message
+         */
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
-            assert(is_string($messageId));
-            assert(isset($message['defaultMessage']));
-            assert(is_string($message['defaultMessage']));
 
             $messages[] = new Message($localeResolved, $messageId, $message['defaultMessage']);
         }
@@ -67,8 +68,6 @@ class FormatPHP implements FormatInterface
      * @param mixed $message
      *
      * @throws InvalidMessageShapeException
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
     private function validateShape($messageId, $message): void
     {

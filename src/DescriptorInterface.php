@@ -57,7 +57,7 @@ interface DescriptorInterface
     /**
      * Returns an array representation of the descriptor
      *
-     * @return array<string, string | int | array | null>
+     * @return array<string, string | int | mixed[] | null>
      */
     public function toArray(): array;
 }

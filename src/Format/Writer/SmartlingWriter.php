@@ -20,11 +20,12 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Writer\Format;
+namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
-use FormatPHP\Writer\FormatInterface;
+use FormatPHP\Format\Reader\SmartlingReader;
+use FormatPHP\Format\WriterInterface;
 
 /**
  * Smartling formatter for FormatPHP
@@ -53,8 +54,9 @@ use FormatPHP\Writer\FormatInterface;
  * ```
  *
  * @link https://help.smartling.com/hc/en-us/articles/360008000733 Smartling JSON Format
+ * @see SmartlingReader
  */
-class Smartling implements FormatInterface
+class SmartlingWriter implements WriterInterface
 {
     /**
      * @inheritdoc

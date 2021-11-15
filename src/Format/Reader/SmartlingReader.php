@@ -20,16 +20,16 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Reader\Format;
+namespace FormatPHP\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\SmartlingWriter;
 use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
-use FormatPHP\Reader\FormatInterface;
 
-use function assert;
 use function gettype;
 use function is_array;
 use function is_string;
@@ -39,9 +39,9 @@ use function sprintf;
  * Returns a MessageCollection parsed from JSON-decoded data that was written
  * using Writer\Format\Smartling
  *
- * @see \FormatPHP\Writer\Format\Smartling
+ * @see SmartlingWriter
  */
-class Smartling implements FormatInterface
+class SmartlingReader implements ReaderInterface
 {
     /**
      * @inheritdoc
@@ -52,11 +52,12 @@ class Smartling implements FormatInterface
 
         unset($data['smartling']);
 
+        /**
+         * @var string $messageId
+         * @var array{message: string} $message
+         */
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
-            assert(is_string($messageId));
-            assert(isset($message['message']));
-            assert(is_string($message['message']));
 
             $messages[] = new Message($localeResolved, $messageId, $message['message']);
         }
@@ -69,8 +70,6 @@ class Smartling implements FormatInterface
      * @param mixed $message
      *
      * @throws InvalidMessageShapeException
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
     private function validateShape($messageId, $message): void
     {

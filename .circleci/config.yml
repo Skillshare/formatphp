@@ -2,13 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/php:8.0
+      - image: cimg/php:7.4
 
     steps:
       - checkout
       - run: |
           sudo apt update
-          sudo apt install php-intl php-pcov
+          sudo apt install php7.4-intl php7.4-pcov
 
       # Install Composer dependencies.
       - restore_cache:

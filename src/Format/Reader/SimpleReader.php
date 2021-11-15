@@ -20,14 +20,15 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Reader\Format;
+namespace FormatPHP\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
-use FormatPHP\Reader\FormatInterface;
 
 use function assert;
 use function gettype;
@@ -38,9 +39,9 @@ use function sprintf;
  * Returns a MessageCollection parsed from JSON-decoded data that was written
  * using Writer\Format\Simple
  *
- * @see \FormatPHP\Writer\Format\Simple
+ * @see SimpleWriter
  */
-class Simple implements FormatInterface
+class SimpleReader implements ReaderInterface
 {
     /**
      * @inheritdoc
@@ -65,8 +66,6 @@ class Simple implements FormatInterface
      * @param mixed $message
      *
      * @throws InvalidMessageShapeException
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
     private function validateShape($messageId, $message): void
     {

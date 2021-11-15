@@ -277,7 +277,7 @@ class MessageExtractorTest extends TestCase
         $logger = $this->mockery(LoggerInterface::class);
         $logger->shouldReceive('error')->withArgs(function (string $message): bool {
             $expected = 'The format provided is not a known format, an instance of '
-            . 'FormatPHP\\Writer\\FormatInterface, or a callable of the '
+            . 'FormatPHP\\Format\\WriterInterface, or a callable of the '
             . 'shape `callable(FormatPHP\\DescriptorCollection,'
             . 'FormatPHP\\Extractor\\MessageExtractorOptions):array<mixed>`.';
 

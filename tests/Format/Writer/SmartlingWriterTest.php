@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Test\Writer\Format;
+namespace FormatPHP\Test\Format\Writer;
 
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\Writer\SmartlingWriter;
 use FormatPHP\Test\TestCase;
-use FormatPHP\Writer\Format\Smartling;
 
-class SmartlingTest extends TestCase
+class SmartlingWriterTest extends TestCase
 {
     public function testFormatter(): void
     {
@@ -21,7 +21,7 @@ class SmartlingTest extends TestCase
         $collection->add(new Descriptor('bar', 'some message'));
         $collection->add(new Descriptor('baz', 'another message', 'a description'));
 
-        $formatter = new Smartling();
+        $formatter = new SmartlingWriter();
 
         $this->assertSame(
             [

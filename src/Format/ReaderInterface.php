@@ -20,7 +20,7 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Reader;
+namespace FormatPHP\Format;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
@@ -30,7 +30,7 @@ use FormatPHP\MessageCollection;
 /**
  * Returns a collection of messages parsed from JSON-decoded message data
  */
-interface FormatInterface
+interface ReaderInterface
 {
     /**
      * @param array<array-key, mixed> $data An arbitrary array of JSON-decoded

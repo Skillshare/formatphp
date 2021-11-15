@@ -26,9 +26,9 @@ use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Exception\LocaleNotFoundException;
 use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\LocaleInterface;
-use FormatPHP\Reader\FormatInterface;
 use FormatPHP\Util\FileSystemHelper;
 
 use function array_filter;
@@ -46,7 +46,7 @@ final class MessageLoader
 {
     private Config $config;
     private FileSystemHelper $fileSystemHelper;
-    private FormatInterface $formatReader;
+    private ReaderInterface $formatReader;
     private string $messagesDirectory;
 
     /**
@@ -55,7 +55,7 @@ final class MessageLoader
     public function __construct(
         string $messagesDirectory,
         Config $config,
-        FormatInterface $formatReader,
+        ReaderInterface $formatReader,
         ?FileSystemHelper $fileSystemHelper = null
     ) {
         $this->config = $config;
