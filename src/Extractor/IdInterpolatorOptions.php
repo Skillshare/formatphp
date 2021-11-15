@@ -22,12 +22,10 @@ declare(strict_types=1);
 
 namespace FormatPHP\Extractor;
 
-use FormatPHP\ConfigInterface;
-
 /**
  * IdInterpolator options
  *
- * @see ConfigInterface::getIdInterpolatorPattern()
+ * @see IdInterpolator
  */
 class IdInterpolatorOptions
 {
@@ -35,8 +33,19 @@ class IdInterpolatorOptions
     private const DEFAULT_ENCODING_ALGORITHM = 'base64';
     private const DEFAULT_LENGTH = 6;
 
+    /**
+     * The hashing algorithm to use when creating the ID
+     */
     public string $hashingAlgorithm;
+
+    /**
+     * The encoding algorithm to use to encode the ID
+     */
     public string $encodingAlgorithm;
+
+    /**
+     * The length of the ID; if the generated ID is longer than this, it will be truncated
+     */
     public int $length;
 
     public function __construct(

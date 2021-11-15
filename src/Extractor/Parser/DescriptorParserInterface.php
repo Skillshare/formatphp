@@ -24,6 +24,7 @@ namespace FormatPHP\Extractor\Parser;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\Extractor\MessageExtractorOptions;
 
 /**
  * Parses message descriptors from application source code files
@@ -31,12 +32,18 @@ use FormatPHP\Exception\UnableToProcessFileException;
 interface DescriptorParserInterface
 {
     /**
+     * Returns a collection of descriptors parsed from a source code file
+     *
+     * @param string $filePath The path to the source code file to parse
+     * @param MessageExtractorOptions $options Options to apply to message extraction
+     * @param ParserErrorCollection $errors Errors encountered during extraction
+     *     (add any additional errors that occur to this collection)
+     *
      * @throws UnableToProcessFileException
      */
-    public function parse(string $filePath): DescriptorCollection;
-
-    /**
-     * @return ParserError[]
-     */
-    public function getErrors(): array;
+    public function __invoke(
+        string $filePath,
+        MessageExtractorOptions $options,
+        ParserErrorCollection $errors
+    ): DescriptorCollection;
 }

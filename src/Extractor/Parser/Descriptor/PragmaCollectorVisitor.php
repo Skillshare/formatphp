@@ -25,6 +25,7 @@ namespace FormatPHP\Extractor\Parser\Descriptor;
 use FormatPHP\Exception\FormatPHPExceptionInterface;
 use FormatPHP\Exception\UnableToParsePragmaException;
 use FormatPHP\Extractor\Parser\ParserError;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use PhpParser\Comment;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
@@ -50,15 +51,12 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
 
     private string $filePath;
     private ?string $pragmaName;
+    private ParserErrorCollection $errors;
 
-    /**
-     * @var ParserError[]
-     */
-    private array $errors = [];
-
-    public function __construct(string $filePath, string $pragmaName)
+    public function __construct(string $filePath, string $pragmaName, ParserErrorCollection $errors)
     {
         $this->filePath = $filePath;
+        $this->errors = $errors;
 
         preg_match('/^[a-z0-9_\-]+$/i', $pragmaName, $nameMatches);
         $this->pragmaName = $nameMatches[0] ?? null;
@@ -70,16 +68,6 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
     public function getMetadata(): array
     {
         return $this->parsedPragma;
-    }
-
-    /**
-     * Returns an array of metadata errors
-     *
-     * @return ParserError[]
-     */
-    public function getErrors(): array
-    {
-        return $this->errors;
     }
 
     /**

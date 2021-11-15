@@ -23,11 +23,10 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor\Parser\Descriptor;
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\ExtendedDescriptorInterface;
-use FormatPHP\Extractor\IdInterpolator;
+use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
-use FormatPHP\Extractor\Parser\ParserError;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Util\FileSystemHelper;
 use LogicException;
 use PhpParser\Lexer;
@@ -36,7 +35,6 @@ use PhpParser\NodeTraverser;
 use PhpParser\Parser;
 use PhpParser\Parser\Php7 as Php7Parser;
 
-use function array_merge;
 use function assert;
 use function count;
 use function in_array;
@@ -54,38 +52,13 @@ class PhpParser implements DescriptorParserInterface
     private FileSystemHelper $file;
     private Lexer $lexer;
     private Parser $parser;
-    private ?string $pragma;
-    private bool $preserveWhitespace;
-    private string $idInterpolatorPattern;
 
     /**
-     * @var string[]
-     */
-    private array $functionNames;
-
-    /**
-     * @var ParserError[]
-     */
-    private array $errors = [];
-
-    /**
-     * @param string[] $functionNames Function names from which to parse
-     *     descriptors from source code
-     *
      * @throws LogicException
      */
-    public function __construct(
-        FileSystemHelper $file,
-        array $functionNames = [],
-        ?string $pragma = null,
-        bool $preserveWhitespace = false,
-        string $idInterpolatorPattern = IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN
-    ) {
+    public function __construct(FileSystemHelper $file)
+    {
         $this->file = $file;
-        $this->functionNames = $functionNames;
-        $this->pragma = $pragma;
-        $this->preserveWhitespace = $preserveWhitespace;
-        $this->idInterpolatorPattern = $idInterpolatorPattern;
 
         $this->lexer = new Emulative([
             'usedAttributes' => [
@@ -102,11 +75,11 @@ class PhpParser implements DescriptorParserInterface
         $this->parser = new Php7Parser($this->lexer);
     }
 
-    /**
-     * @throws UnableToProcessFileException
-     */
-    public function parse(string $filePath): DescriptorCollection
-    {
+    public function __invoke(
+        string $filePath,
+        MessageExtractorOptions $options,
+        ParserErrorCollection $errors
+    ): DescriptorCollection {
         if (!$this->isPhpFile($filePath)) {
             return new DescriptorCollection();
         }
@@ -116,36 +89,24 @@ class PhpParser implements DescriptorParserInterface
 
         $descriptorCollector = new DescriptorCollectorVisitor(
             $filePath,
-            $this->functionNames,
-            $this->preserveWhitespace,
-            $this->idInterpolatorPattern,
+            $errors,
+            $options->functionNames,
+            $options->preserveWhitespace,
+            $options->idInterpolationPattern,
         );
 
         $traverser = new NodeTraverser();
         $traverser->addVisitor($descriptorCollector);
 
         $pragmaCollector = null;
-        if ($this->pragma !== null) {
-            $pragmaCollector = new PragmaCollectorVisitor($filePath, $this->pragma);
+        if ($options->pragma !== null) {
+            $pragmaCollector = new PragmaCollectorVisitor($filePath, $options->pragma, $errors);
             $traverser->addVisitor($pragmaCollector);
         }
 
         $traverser->traverse($statements);
 
-        $this->errors = $descriptorCollector->getErrors();
-        if ($pragmaCollector !== null) {
-            $this->errors = array_merge($this->errors, $pragmaCollector->getErrors());
-        }
-
         return $this->applyMetadata($descriptorCollector->getDescriptors(), $pragmaCollector);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getErrors(): array
-    {
-        return $this->errors;
     }
 
     private function applyMetadata(

@@ -31,6 +31,7 @@ use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Format\Writer\SmartlingWriter;
@@ -67,11 +68,7 @@ class MessageExtractor
     private Globber $globber;
     private LoggerInterface $logger;
     private MessageExtractorOptions $options;
-
-    /**
-     * @var DescriptorParserInterface[]
-     */
-    private array $parsers;
+    private ParserErrorCollection $errors;
 
     /**
      * @throws LogicException
@@ -86,7 +83,7 @@ class MessageExtractor
         $this->logger = $logger;
         $this->globber = $globber;
         $this->file = $file;
-        $this->parsers = $this->loadParsers();
+        $this->errors = new ParserErrorCollection();
     }
 
     /**
@@ -135,14 +132,19 @@ class MessageExtractor
         $this->writeOutput($this->prepareOutput($formatter, $descriptors));
     }
 
+    public function getErrors(): ParserErrorCollection
+    {
+        return $this->errors;
+    }
+
     /**
      * @throws UnableToProcessFileException
      */
     private function parse(DescriptorCollection $descriptors, string $filePath): DescriptorCollection
     {
-        foreach ($this->parsers as $parser) {
+        foreach ($this->getDescriptorParsers() as $parser) {
             /** @var DescriptorCollection $descriptors */
-            $descriptors = $descriptors->merge($parser->parse($filePath));
+            $descriptors = $descriptors->merge($parser($filePath, $this->options, $this->errors));
         }
 
         return $descriptors;
@@ -153,10 +155,13 @@ class MessageExtractor
      *
      * @throws LogicException
      */
-    private function loadParsers(): array
+    private function getDescriptorParsers(): array
     {
         $parsers = [];
-        $parsers[] = $this->getPhpParser();
+
+        foreach ($this->options->parsers as $parser) {
+            $parsers[] = $this->loadDescriptorParser($parser);
+        }
 
         return $parsers;
     }
@@ -164,14 +169,36 @@ class MessageExtractor
     /**
      * @throws LogicException
      */
-    private function getPhpParser(): PhpParser
+    private function loadDescriptorParser(string $parserNameOrScript): DescriptorParserInterface
     {
-        return new PhpParser(
-            $this->file,
-            $this->options->additionalFunctionNames,
-            $this->options->pragma,
-            $this->options->preserveWhitespace,
-        );
+        switch (strtolower($parserNameOrScript)) {
+            case 'php':
+                return new PhpParser($this->file);
+        }
+
+        if (class_exists($parserNameOrScript) && is_a($parserNameOrScript, DescriptorParserInterface::class, true)) {
+            $parser = new $parserNameOrScript();
+        } else {
+            /** @var Closure(string,MessageExtractorOptions,ParserErrorCollection):DescriptorCollection | null $parser */
+            $parser = $this->file->loadClosureFromScript($parserNameOrScript);
+        }
+
+        if ($parser instanceof DescriptorParserInterface) {
+            return $parser;
+        }
+
+        if (is_callable($parser)) {
+            return $this->createInvokableDescriptorParser($parser);
+        }
+
+        throw new InvalidArgumentException(sprintf(
+            'The parser provided is not a known descriptor parser, an instance of '
+            . '%s, or a callable of the shape `callable(string,%s,%s):%s`.',
+            DescriptorParserInterface::class,
+            MessageExtractorOptions::class,
+            ParserErrorCollection::class,
+            DescriptorCollection::class,
+        ));
     }
 
     /**
@@ -255,5 +282,26 @@ class MessageExtractor
         assert(is_resource($stream));
 
         $this->file->writeContents($stream, $output);
+    }
+
+    private function createInvokableDescriptorParser(callable $parser): DescriptorParserInterface
+    {
+        return new class ($parser) implements DescriptorParserInterface {
+            private Closure $parser;
+
+            public function __construct(callable $parser)
+            {
+                $this->parser = Closure::fromCallable($parser);
+            }
+
+            public function __invoke(
+                string $filePath,
+                MessageExtractorOptions $options,
+                ParserErrorCollection $errors
+            ): DescriptorCollection {
+                /** @var DescriptorCollection */
+                return ($this->parser)($filePath, $options, $errors);
+            }
+        };
     }
 }

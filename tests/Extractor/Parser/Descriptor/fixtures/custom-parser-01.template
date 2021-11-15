@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <title>An HTML page</title>
+</head>
+<body>
+
+    <p>This is made to look like mustache, but it's not really.</p>
+
+    <div>
+        <p>{{#formatMessage   |     customWelcome}}Custom Welcome!{{/formatMessage}}</p>
+    </div>
+
+    <div>{{#formatMessage |idWithoutMessage}}{{/formatMessage}}</div>
+
+    <div>
+        <p>{{#formatMessage|customGoodbye}}Custom Goodbye!{{/formatMessage}}</p>
+    </div>
+
+    <div>{{#formatMessage}}message without ID{{/formatMessage}}</div>
+
+</body>
+</html>
+

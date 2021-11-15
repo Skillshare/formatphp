@@ -39,6 +39,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function array_map;
 use function array_merge;
+use function array_unique;
 use function explode;
 use function getcwd;
 
@@ -47,8 +48,6 @@ use function getcwd;
  */
 class ExtractCommand extends AbstractCommand
 {
-    private const DEFAULT_FUNCTION_NAMES = ['formatMessage'];
-
     private const STANDARD_IGNORES = [
         '.arch-params',
         '.bzr',
@@ -131,6 +130,13 @@ class ExtractCommand extends AbstractCommand
                     . 'for when extracting messages.',
             )
             ->addOption(
+                'parser',
+                'p',
+                InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
+                'Parser name or path to a parser script to apply additional '
+                    . 'parsing in addition to the default PHP parsing.',
+            )
+            ->addOption(
                 'ignore',
                 null,
                 InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
@@ -201,6 +207,10 @@ class ExtractCommand extends AbstractCommand
         $idInterpolationPattern = $input->getOption('id-interpolation-pattern');
         $options->idInterpolationPattern = $idInterpolationPattern ?? IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN;
 
+        /** @var string[] $parsers */
+        $parsers = (array) $input->getOption('parser');
+        $options->parsers = array_unique(array_merge($options->parsers, $parsers));
+
         /** @var string[] $ignore */
         $ignore = (array) $input->getOption('ignore');
         $options->ignore = array_merge(self::STANDARD_IGNORES, $ignore);
@@ -213,12 +223,10 @@ class ExtractCommand extends AbstractCommand
         $options->throws = (bool) $input->getOption('throws');
         $options->preserveWhitespace = (bool) $input->getOption('preserve-whitespace');
 
-        /** @var string $additionalFunctionNames */
-        $additionalFunctionNames = $input->getOption('additional-function-names') ?? '';
-        $options->additionalFunctionNames = array_merge(
-            self::DEFAULT_FUNCTION_NAMES,
-            array_map('trim', explode(',', $additionalFunctionNames)),
-        );
+        /** @var string $inputFunctionNames */
+        $inputFunctionNames = $input->getOption('additional-function-names') ?? '';
+        $additionalFunctionNames = array_map('trim', explode(',', $inputFunctionNames));
+        $options->functionNames = array_unique(array_merge($options->functionNames, $additionalFunctionNames));
 
         return $options;
     }

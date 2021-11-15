@@ -20,22 +20,21 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Format;
+namespace FormatPHP\Extractor\Parser;
 
-use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
+use IteratorAggregate;
+use Ramsey\Collection\AbstractCollection;
 
 /**
- * Converts a DescriptorCollection into an appropriate data structure for
- * converting to JSON and writing to a file
+ * Collection of ParserError instances
+ *
+ * @extends AbstractCollection<ParserError>
+ * @implements IteratorAggregate<array-key, ParserError>
  */
-interface WriterInterface
+final class ParserErrorCollection extends AbstractCollection implements IteratorAggregate
 {
-    /**
-     * Returns an array that will be converted to JSON by the caller and
-     * written to a file
-     *
-     * @return mixed[]
-     */
-    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array;
+    public function getType(): string
+    {
+        return ParserError::class;
+    }
 }

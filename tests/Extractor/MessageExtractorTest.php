@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Extractor;
 
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Extractor\MessageExtractor;
 use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Extractor\Parser\DescriptorParserInterface;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\Globber;
@@ -19,6 +23,7 @@ use function json_decode;
 use function ob_end_clean;
 use function ob_get_contents;
 use function ob_start;
+use function sprintf;
 
 class MessageExtractorTest extends TestCase
 {
@@ -47,7 +52,7 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage', 'translate'];
+        $options->functionNames = ['formatMessage', 'translate'];
 
         $extractor = new MessageExtractor(
             $options,
@@ -92,7 +97,6 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->format = 'FormatPHP';
 
         $extractor = new MessageExtractor(
@@ -129,7 +133,6 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->format = 'simple';
 
         $extractor = new MessageExtractor(
@@ -159,7 +162,6 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->format = 'smartling';
 
         $extractor = new MessageExtractor(
@@ -206,7 +208,6 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->format = CustomFormat::class;
 
         $extractor = new MessageExtractor(
@@ -242,7 +243,6 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->format = __DIR__ . '/format.php';
 
         $extractor = new MessageExtractor(
@@ -285,7 +285,6 @@ class MessageExtractorTest extends TestCase
         });
 
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->format = 'this-is-not-a-valid-formatter';
 
         $extractor = new MessageExtractor(
@@ -304,7 +303,7 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['notExistentFunction'];
+        $options->functionNames = ['notExistentFunction'];
 
         $extractor = new MessageExtractor(
             $options,
@@ -325,7 +324,7 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['notExistentFunction'];
+        $options->functionNames = ['notExistentFunction'];
         $options->outFile = 'en-US.json';
 
         $file = $this->mockery(FileSystemHelper::class);
@@ -341,7 +340,6 @@ class MessageExtractorTest extends TestCase
         $path = __DIR__ . '/Parser/Descriptor/fixtures/php-parser-01.php';
 
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
 
         $exception = new UnableToProcessFileException('something bad happened');
 
@@ -368,7 +366,6 @@ class MessageExtractorTest extends TestCase
         $path = __DIR__ . '/Parser/Descriptor/fixtures/php-parser-01.php';
 
         $options = new MessageExtractorOptions();
-        $options->additionalFunctionNames = ['formatMessage'];
         $options->throws = true;
 
         $exception = new UnableToProcessFileException('something bad happened');
@@ -388,5 +385,184 @@ class MessageExtractorTest extends TestCase
         $this->expectExceptionMessage('something bad happened');
 
         $extractor->process([$path]);
+    }
+
+    public function testProcessWithCustomParser(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->parsers = [CustomDescriptorParser::class, 'php'];
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+        );
+
+        ob_start();
+        $extractor->process([
+            __DIR__ . '/Parser/Descriptor/fixtures/*.ph*',
+            __DIR__ . '/Parser/Descriptor/fixtures/*.template',
+        ]);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $errors = $extractor->getErrors()->toArray();
+
+        $receivedErrors = [];
+        foreach ($errors as $error) {
+            $receivedErrors[] = $error->message . ' in ' . $error->sourceFile . ' on line ' . (int) $error->sourceLine;
+        }
+
+        $expectedErrors = [
+            'Descriptor argument must be an array in ' . __DIR__
+                . '/Parser/Descriptor/fixtures/php-parser-02.php on line 32',
+            'Descriptor argument must be an array in ' . __DIR__
+                . '/Parser/Descriptor/fixtures/php-parser-03.php on line 8',
+            'Descriptor argument must be an array in ' . __DIR__
+                . '/Parser/Descriptor/fixtures/php-parser-04.php on line 40',
+            'Descriptor argument must be present in ' . __DIR__
+                . '/Parser/Descriptor/fixtures/php-parser-09.phtml on line 18',
+            'Missing "defaultMessage" in "{{#formatMessage |idWithoutMessage}}{{/formatMessage}}" in '
+                . __DIR__ . '/Parser/Descriptor/fixtures/custom-parser-01.template on line 0',
+            'Missing "id" in "{{#formatMessage}}message without ID{{/formatMessage}}" in '
+                . __DIR__ . '/Parser/Descriptor/fixtures/custom-parser-01.template on line 0',
+        ];
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'aTestId' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'photos.count' => [
+                    'defaultMessage' =>
+                        'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                ],
+                'welcome' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
+                'goodbye' => [
+                    'defaultMessage' => 'Goodbye!',
+                ],
+                'customWelcome' => [
+                    'defaultMessage' => 'Custom Welcome!',
+                ],
+                'customGoodbye' => [
+                    'defaultMessage' => 'Custom Goodbye!',
+                ],
+            ],
+            $messages,
+        );
+
+        $this->assertSame($expectedErrors, $receivedErrors);
+    }
+
+    public function testProcessWithCustomParserAsClosure(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->parsers = ['php', __DIR__ . '/parser.php'];
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+        );
+
+        ob_start();
+        $extractor->process([
+            __DIR__ . '/Parser/Descriptor/fixtures/*.ph*',
+            __DIR__ . '/Parser/Descriptor/fixtures/*.template',
+        ]);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $errors = $extractor->getErrors()->toArray();
+
+        $receivedErrors = [];
+        foreach ($errors as $error) {
+            $receivedErrors[] = $error->message . ' in ' . $error->sourceFile . ' on line ' . (int) $error->sourceLine;
+        }
+
+        $expectedErrors = [
+            'Descriptor argument must be an array in ' . __DIR__
+            . '/Parser/Descriptor/fixtures/php-parser-02.php on line 32',
+            'Descriptor argument must be an array in ' . __DIR__
+            . '/Parser/Descriptor/fixtures/php-parser-03.php on line 8',
+            'Descriptor argument must be an array in ' . __DIR__
+            . '/Parser/Descriptor/fixtures/php-parser-04.php on line 40',
+            'Descriptor argument must be present in ' . __DIR__
+            . '/Parser/Descriptor/fixtures/php-parser-09.phtml on line 18',
+            'Missing "defaultMessage" in "{{#formatMessage |idWithoutMessage}}{{/formatMessage}}" in '
+            . __DIR__ . '/Parser/Descriptor/fixtures/custom-parser-01.template on line 0',
+            'Missing "id" in "{{#formatMessage}}message without ID{{/formatMessage}}" in '
+            . __DIR__ . '/Parser/Descriptor/fixtures/custom-parser-01.template on line 0',
+        ];
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'aTestId' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'photos.count' => [
+                    'defaultMessage' =>
+                        'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                ],
+                'welcome' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
+                'goodbye' => [
+                    'defaultMessage' => 'Goodbye!',
+                ],
+                'customWelcome' => [
+                    'defaultMessage' => 'Custom Welcome!',
+                ],
+                'customGoodbye' => [
+                    'defaultMessage' => 'Custom Goodbye!',
+                ],
+            ],
+            $messages,
+        );
+
+        $this->assertSame($expectedErrors, $receivedErrors);
+    }
+
+    public function testProcessThrowsExceptionWithCustomParserNotACallable(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->parsers = ['php', __DIR__ . '/../Util/fixtures/load-closure-04.php'];
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+        );
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf(
+            'The parser provided is not a known descriptor parser, an instance of '
+            . '%s, or a callable of the shape `callable(string,%s,%s):%s`.',
+            DescriptorParserInterface::class,
+            MessageExtractorOptions::class,
+            ParserErrorCollection::class,
+            DescriptorCollection::class,
+        ));
+
+        $extractor->process([
+            __DIR__ . '/Parser/Descriptor/fixtures/*.ph*',
+            __DIR__ . '/Parser/Descriptor/fixtures/*.template',
+        ]);
     }
 }

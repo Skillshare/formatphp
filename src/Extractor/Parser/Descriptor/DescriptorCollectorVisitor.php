@@ -30,6 +30,7 @@ use FormatPHP\Exception\UnableToGenerateMessageIdException;
 use FormatPHP\Exception\UnableToParseDescriptorException;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\Parser\ParserError;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use PhpParser\Node;
 use PhpParser\NodeVisitorAbstract;
 
@@ -48,11 +49,7 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     private bool $preserveWhitespace;
     private IdInterpolator $idInterpolator;
     private string $idInterpolatorPattern;
-
-    /**
-     * @var ParserError[]
-     */
-    private array $errors = [];
+    private ParserErrorCollection $errors;
 
     /**
      * @var string[]
@@ -65,11 +62,13 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
      */
     public function __construct(
         string $filePath,
+        ParserErrorCollection $errors,
         array $functionNames = [],
         bool $preserveWhitespace = false,
         string $idInterpolatorPattern = IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN
     ) {
         $this->filePath = $filePath;
+        $this->errors = $errors;
         $this->functionNames = $functionNames;
         $this->preserveWhitespace = $preserveWhitespace;
         $this->descriptors = new DescriptorCollection();
@@ -83,16 +82,6 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     public function getDescriptors(): DescriptorCollection
     {
         return $this->descriptors;
-    }
-
-    /**
-     * Returns an array of message formatting errors
-     *
-     * @return ParserError[]
-     */
-    public function getErrors(): array
-    {
-        return $this->errors;
     }
 
     /**

@@ -6,8 +6,9 @@ namespace FormatPHP\Test\Extractor\Parser\Descriptor;
 
 use FormatPHP\DescriptorInterface;
 use FormatPHP\ExtendedDescriptorInterface;
+use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
-use FormatPHP\Extractor\Parser\ParserError;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
 
@@ -17,9 +18,11 @@ class PhpParserTest extends TestCase
 {
     public function testParse01(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-01.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+        $options = new MessageExtractorOptions();
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-01.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -42,9 +45,15 @@ class PhpParserTest extends TestCase
 
     public function testParse02(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage', 'bar'], 'intl');
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-02.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->functionNames = ['formatMessage', 'bar'];
+        $options->pragma = 'intl';
+
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-02.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -71,10 +80,10 @@ class PhpParserTest extends TestCase
         );
         $this->assertSame(
             [
-                'Descriptor argument must be an array on line 32 in ' . __DIR__ . '/fixtures/php-parser-02.php',
                 'Pragma contains data that could not be parsed: "some:thing this should not be captured '
                     . 'another:meta-value also not captured" on line 2 in ' . __DIR__ . '/fixtures/php-parser-02.php',
                 'Pragma found without a value on line 8 in ' . __DIR__ . '/fixtures/php-parser-02.php',
+                'Descriptor argument must be an array on line 32 in ' . __DIR__ . '/fixtures/php-parser-02.php',
             ],
             $receivedErrors,
         );
@@ -82,9 +91,14 @@ class PhpParserTest extends TestCase
 
     public function testParse03(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage', 'translate']);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-03.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->functionNames = ['formatMessage', 'translate'];
+
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-03.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -112,9 +126,14 @@ class PhpParserTest extends TestCase
 
     public function testParse04(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage', 'translate', 'translate3']);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-04.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->functionNames = ['formatMessage', 'translate', 'translate3'];
+
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-04.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertCount(0, $descriptors);
         $this->assertSame(
@@ -130,9 +149,14 @@ class PhpParserTest extends TestCase
 
     public function testParse05(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage'], 'invalid.pragma');
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-05.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->pragma = 'invalid.pragma';
+
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-05.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -155,9 +179,14 @@ class PhpParserTest extends TestCase
 
     public function testParse06(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage'], 'intl');
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-06.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->pragma = 'intl';
+
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-06.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -180,9 +209,11 @@ class PhpParserTest extends TestCase
 
     public function testParse07WithoutPreservingWhitespace(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-07.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+        $options = new MessageExtractorOptions();
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-07.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -205,9 +236,14 @@ class PhpParserTest extends TestCase
 
     public function testParse07PreservingWhitespace(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage'], null, true);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-07.php');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->preserveWhitespace = true;
+
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-07.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(1, $descriptors);
@@ -231,9 +267,11 @@ class PhpParserTest extends TestCase
 
     public function testParse08(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-08.txt');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+        $options = new MessageExtractorOptions();
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-08.txt', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertCount(0, $descriptors);
         $this->assertSame([], $receivedErrors);
@@ -241,9 +279,11 @@ class PhpParserTest extends TestCase
 
     public function testParse09(): void
     {
-        $parser = new PhpParser(new FileSystemHelper(), ['formatMessage']);
-        $descriptors = $parser->parse(__DIR__ . '/fixtures/php-parser-09.phtml');
-        $receivedErrors = $this->compileErrors($parser->getErrors());
+        $errors = new ParserErrorCollection();
+        $options = new MessageExtractorOptions();
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-09.phtml', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
 
         $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
         $this->assertCount(2, $descriptors);
@@ -284,11 +324,9 @@ class PhpParserTest extends TestCase
     }
 
     /**
-     * @param ParserError[] $errors
-     *
      * @return string[]
      */
-    private function compileErrors(array $errors): array
+    private function compileErrors(ParserErrorCollection $errors): array
     {
         $receivedErrors = [];
 

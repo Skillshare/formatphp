@@ -31,13 +31,13 @@ class ParserError
 {
     public string $message;
     public string $sourceFile;
-    public int $sourceLine;
+    public ?int $sourceLine;
     public ?Throwable $exception;
 
     public function __construct(
         string $message,
         string $sourceFile,
-        int $sourceLine,
+        ?int $sourceLine = null,
         ?Throwable $exception = null
     ) {
         $this->message = $message;

@@ -23,7 +23,6 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor;
 
 use Closure;
-use FormatPHP\ConfigInterface;
 use FormatPHP\DescriptorInterface;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\UnableToGenerateMessageIdException;
@@ -46,7 +45,29 @@ use function trim;
 /**
  * IdInterpolator supports generation of message descriptor IDs
  *
- * @see ConfigInterface::getIdInterpolatorPattern()
+ * If message descriptors are missing the id property, we will use this
+ * pattern to automatically generate IDs for them.
+ *
+ * The pattern follows this format:
+ *
+ *     [hashAlgorithm:contenthash:encodingAlgorithm:length]
+ *
+ * When passing this value, provide the hashAlgorithm, encodingAlgorithm,
+ * and length, and formatphp will calculate the contenthash.
+ *
+ * For example, if you wish to use `haval160,4` as the hashing algorithm,
+ * `hex` as the encoding algorithm, with a length of 10, you would pass
+ * the following string:
+ *
+ *     [haval160,4:contenthash:hex:10]
+ *
+ * See <https://www.php.net/hash_algos> for available hashing algorithms.
+ *
+ * The following binary-to-text encodings are supported:
+ *
+ * - `base64`
+ * - `base64url`
+ * - `hex`
  */
 class IdInterpolator
 {
@@ -61,8 +82,6 @@ class IdInterpolator
      *
      * If the message descriptor does not have a default message, we cannot
      * generate an ID, so we throw `UnableToGenerateMessageId`.
-     *
-     * @see ConfigInterface::getIdInterpolatorPattern()
      *
      * @throws InvalidArgumentException
      * @throws UnableToGenerateMessageIdException
