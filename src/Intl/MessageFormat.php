@@ -28,6 +28,7 @@ use IntlException as PhpIntlException;
 use Locale as PhpLocale;
 use MessageFormatter as PhpMessageFormatter;
 
+use function is_int;
 use function sprintf;
 
 /**
@@ -61,7 +62,7 @@ class MessageFormat implements MessageFormatInterface
                     $pattern,
                     (string) $this->locale->baseName(),
                 ),
-                (int) $exception->getCode(),
+                is_int($exception->getCode()) ? $exception->getCode() : 0,
                 $exception,
             );
         }

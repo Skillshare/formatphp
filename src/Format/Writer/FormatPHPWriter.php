@@ -20,12 +20,13 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Writer\Format;
+namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\ExtendedDescriptorInterface;
 use FormatPHP\Extractor\MessageExtractorOptions;
-use FormatPHP\Writer\FormatInterface;
+use FormatPHP\Format\Reader\FormatPHPReader;
+use FormatPHP\Format\WriterInterface;
 
 use function array_merge;
 use function ksort;
@@ -56,8 +57,9 @@ use function ksort;
  * pairs, according to the pragma parsed from each source file.
  *
  * @link https://formatjs.io/docs/getting-started/message-extraction FormatJS message extraction
+ * @see FormatPHPReader
  */
-class FormatPHP implements FormatInterface
+class FormatPHPWriter implements WriterInterface
 {
     /**
      * @inheritdoc

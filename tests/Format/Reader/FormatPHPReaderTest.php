@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Test\Reader\Format;
+namespace FormatPHP\Test\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Intl\Locale;
 use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
-use FormatPHP\Reader\Format\Simple;
 use FormatPHP\Test\TestCase;
 
 use function sprintf;
 
-class SimpleTest extends TestCase
+class FormatPHPReaderTest extends TestCase
 {
     public function testThrowsExceptionWhenMessageIdIsNotAString(): void
     {
         $locale = new Locale('en');
         $config = new Config($locale);
-        $formatReader = new Simple();
+        $formatReader = new FormatPHPReader();
         $data = ['foo'];
 
         $this->expectException(InvalidMessageShapeException::class);
         $this->expectExceptionMessage(sprintf(
             '%s expects a string message ID; received integer',
-            Simple::class,
+            FormatPHPReader::class,
         ));
 
         $formatReader($config, $data, $locale);
@@ -36,13 +36,13 @@ class SimpleTest extends TestCase
     {
         $locale = new Locale('en');
         $config = new Config($locale);
-        $formatReader = new Simple();
+        $formatReader = new FormatPHPReader();
         $data = ['foo' => ['bar']];
 
         $this->expectException(InvalidMessageShapeException::class);
         $this->expectExceptionMessage(sprintf(
-            '%s expects a string message; received array',
-            Simple::class,
+            '%s expects a string defaultMessage property; defaultMessage does not exist or is not a string',
+            FormatPHPReader::class,
         ));
 
         $formatReader($config, $data, $locale);
@@ -53,8 +53,8 @@ class SimpleTest extends TestCase
         $locale = new Locale('en-US');
         $localeResolved = new Locale('en');
         $config = new Config($locale);
-        $formatReader = new Simple();
-        $data = ['foo' => 'I am foo', 'bar' => 'I am bar'];
+        $formatReader = new FormatPHPReader();
+        $data = ['foo' => ['defaultMessage' => 'I am foo'], 'bar' => ['defaultMessage' => 'I am bar']];
 
         $collection = $formatReader($config, $data, $localeResolved);
 

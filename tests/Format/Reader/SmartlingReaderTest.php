@@ -2,31 +2,31 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Test\Reader\Format;
+namespace FormatPHP\Test\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\Reader\SmartlingReader;
 use FormatPHP\Intl\Locale;
 use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
-use FormatPHP\Reader\Format\FormatPHP;
 use FormatPHP\Test\TestCase;
 
 use function sprintf;
 
-class FormatPHPTest extends TestCase
+class SmartlingReaderTest extends TestCase
 {
     public function testThrowsExceptionWhenMessageIdIsNotAString(): void
     {
         $locale = new Locale('en');
         $config = new Config($locale);
-        $formatReader = new FormatPHP();
-        $data = ['foo'];
+        $formatReader = new SmartlingReader();
+        $data = ['smartling' => [], 'foo'];
 
         $this->expectException(InvalidMessageShapeException::class);
         $this->expectExceptionMessage(sprintf(
             '%s expects a string message ID; received integer',
-            FormatPHP::class,
+            SmartlingReader::class,
         ));
 
         $formatReader($config, $data, $locale);
@@ -36,13 +36,13 @@ class FormatPHPTest extends TestCase
     {
         $locale = new Locale('en');
         $config = new Config($locale);
-        $formatReader = new FormatPHP();
-        $data = ['foo' => ['bar']];
+        $formatReader = new SmartlingReader();
+        $data = ['smartling' => [], 'foo' => ['bar']];
 
         $this->expectException(InvalidMessageShapeException::class);
         $this->expectExceptionMessage(sprintf(
-            '%s expects a string defaultMessage property; defaultMessage does not exist or is not a string',
-            FormatPHP::class,
+            '%s expects a string message property; message does not exist or is not a string',
+            SmartlingReader::class,
         ));
 
         $formatReader($config, $data, $locale);
@@ -53,8 +53,8 @@ class FormatPHPTest extends TestCase
         $locale = new Locale('en-US');
         $localeResolved = new Locale('en');
         $config = new Config($locale);
-        $formatReader = new FormatPHP();
-        $data = ['foo' => ['defaultMessage' => 'I am foo'], 'bar' => ['defaultMessage' => 'I am bar']];
+        $formatReader = new SmartlingReader();
+        $data = ['smartling' => [], 'foo' => ['message' => 'I am foo'], 'bar' => ['message' => 'I am bar']];
 
         $collection = $formatReader($config, $data, $localeResolved);
 

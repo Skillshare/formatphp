@@ -31,12 +31,12 @@ use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
+use FormatPHP\Format\Writer\FormatPHPWriter;
+use FormatPHP\Format\Writer\SimpleWriter;
+use FormatPHP\Format\Writer\SmartlingWriter;
+use FormatPHP\Format\WriterInterface;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\Globber;
-use FormatPHP\Writer\Format\FormatPHP;
-use FormatPHP\Writer\Format\Simple;
-use FormatPHP\Writer\Format\Smartling;
-use FormatPHP\Writer\FormatInterface;
 use LogicException;
 use Psr\Log\LoggerInterface;
 
@@ -183,20 +183,20 @@ class MessageExtractor
     private function getFormatter(?string $format): callable
     {
         if ($format === null) {
-            return new FormatPHP();
+            return new FormatPHPWriter();
         }
 
         switch (strtolower($format)) {
             case 'simple':
-                return new Simple();
+                return new SimpleWriter();
             case 'smartling':
-                return new Smartling();
+                return new SmartlingWriter();
             case 'formatjs':
             case 'formatphp':
-                return new FormatPHP();
+                return new FormatPHPWriter();
         }
 
-        if (class_exists($format) && is_a($format, FormatInterface::class, true)) {
+        if (class_exists($format) && is_a($format, WriterInterface::class, true)) {
             $formatter = new $format();
         } else {
             /** @var Closure(DescriptorCollection,MessageExtractorOptions):array<mixed> | null $formatter */
@@ -210,7 +210,7 @@ class MessageExtractor
         throw new InvalidArgumentException(sprintf(
             'The format provided is not a known format, an instance of '
             . '%s, or a callable of the shape `callable(%s,%s):array<mixed>`.',
-            FormatInterface::class,
+            WriterInterface::class,
             DescriptorCollection::class,
             MessageExtractorOptions::class,
         ));

@@ -20,12 +20,12 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Writer;
+namespace FormatPHP\Format;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
 
-interface FormatInterface
+interface WriterInterface
 {
     /**
      * @return mixed[]

@@ -37,6 +37,7 @@ use function getcwd;
 use function gettype;
 use function is_callable;
 use function is_dir;
+use function is_int;
 use function is_readable;
 use function is_resource;
 use function is_string;
@@ -96,12 +97,14 @@ class FileSystemHelper
         $contents = $this->getContents($filePath);
 
         try {
-            /** @var array<array-key, mixed> */
-            return @json_decode($contents, true, 512, self::JSON_DECODE_FLAGS);
+            /** @var array<array-key, mixed> $parsedContents */
+            $parsedContents = @json_decode($contents, true, 512, self::JSON_DECODE_FLAGS);
+
+            return $parsedContents;
         } catch (JsonException $exception) {
             throw new UnableToProcessFileException(
                 sprintf('Unable to decode the JSON in the file "%s"', $filePath),
-                (int) $exception->getCode(),
+                is_int($exception->getCode()) ? $exception->getCode() : 0,
                 $exception,
             );
         }

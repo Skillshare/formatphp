@@ -22,13 +22,13 @@ declare(strict_types=1);
 
 namespace FormatPHP\Exception;
 
-use FormatPHP\Reader\FormatInterface;
+use FormatPHP\Format\ReaderInterface;
 use RuntimeException as PhpRuntimeException;
 
 /**
  * Thrown when reading a message that doesn't conform to the expected shape
  *
- * @see FormatInterface
+ * @see ReaderInterface
  */
 class InvalidMessageShapeException extends PhpRuntimeException implements FormatPHPExceptionInterface
 {

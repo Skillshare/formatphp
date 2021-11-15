@@ -20,11 +20,12 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Writer\Format;
+namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
-use FormatPHP\Writer\FormatInterface;
+use FormatPHP\Format\Reader\SimpleReader;
+use FormatPHP\Format\WriterInterface;
 
 /**
  * A simple formatter for FormatPHP, producing message key-value pairs
@@ -36,8 +37,10 @@ use FormatPHP\Writer\FormatInterface;
  *   "my.message": "This is a message for translation."
  * }
  * ```
+ *
+ * @see SimpleReader
  */
-class Simple implements FormatInterface
+class SimpleWriter implements WriterInterface
 {
     /**
      * @inheritdoc

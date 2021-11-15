@@ -20,28 +20,28 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Reader\Format;
+namespace FormatPHP\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
-use FormatPHP\Reader\FormatInterface;
 
 use function assert;
 use function gettype;
-use function is_array;
 use function is_string;
 use function sprintf;
 
 /**
  * Returns a MessageCollection parsed from JSON-decoded data that was written
- * using Writer\Format\FormatPHP
+ * using Writer\Format\Simple
  *
- * @see \FormatPHP\Writer\Format\FormatPHP
+ * @see SimpleWriter
  */
-class FormatPHP implements FormatInterface
+class SimpleReader implements ReaderInterface
 {
     /**
      * @inheritdoc
@@ -53,10 +53,9 @@ class FormatPHP implements FormatInterface
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
             assert(is_string($messageId));
-            assert(isset($message['defaultMessage']));
-            assert(is_string($message['defaultMessage']));
+            assert(is_string($message));
 
-            $messages[] = new Message($localeResolved, $messageId, $message['defaultMessage']);
+            $messages[$messageId] = new Message($localeResolved, $messageId, $message);
         }
 
         return $messages;
@@ -80,10 +79,11 @@ class FormatPHP implements FormatInterface
             ));
         }
 
-        if (!is_array($message) || !is_string($message['defaultMessage'] ?? null)) {
+        if (!is_string($message)) {
             throw new InvalidMessageShapeException(sprintf(
-                '%s expects a string defaultMessage property; defaultMessage does not exist or is not a string',
+                '%s expects a string message; received %s',
                 self::class,
+                gettype($message),
             ));
         }
     }

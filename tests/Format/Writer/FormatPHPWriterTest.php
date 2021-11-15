@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Test\Writer\Format;
+namespace FormatPHP\Test\Format\Writer;
 
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Test\TestCase;
-use FormatPHP\Writer\Format\FormatPHP;
 
-class FormatPHPTest extends TestCase
+class FormatPHPWriterTest extends TestCase
 {
     public function testFormatterBasic(): void
     {
@@ -21,7 +21,7 @@ class FormatPHPTest extends TestCase
         $collection->add(new Descriptor('bar', 'some message'));
         $collection->add(new Descriptor('baz', 'another message', 'a description'));
 
-        $formatter = new FormatPHP();
+        $formatter = new FormatPHPWriter();
 
         $this->assertSame(
             [
@@ -57,7 +57,7 @@ class FormatPHPTest extends TestCase
         $collection = new DescriptorCollection();
         $collection->add($descriptor);
 
-        $formatter = new FormatPHP();
+        $formatter = new FormatPHPWriter();
 
         $this->assertSame(
             [

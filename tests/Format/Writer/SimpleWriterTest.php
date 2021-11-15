@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Test\Writer\Format;
+namespace FormatPHP\Test\Format\Writer;
 
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Test\TestCase;
-use FormatPHP\Writer\Format\Simple;
 
-class SimpleTest extends TestCase
+class SimpleWriterTest extends TestCase
 {
     public function testInvoke(): void
     {
@@ -23,7 +23,7 @@ class SimpleTest extends TestCase
                 'aaa' => 'first message',
                 'bbb' => 'second message',
             ],
-            (new Simple())($collection, new MessageExtractorOptions()),
+            (new SimpleWriter())($collection, new MessageExtractorOptions()),
         );
     }
 }

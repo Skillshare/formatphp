@@ -6,9 +6,9 @@ namespace FormatPHP\Test\Extractor;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Extractor\MessageExtractorOptions;
-use FormatPHP\Writer\FormatInterface;
+use FormatPHP\Format\WriterInterface;
 
-class CustomFormat implements FormatInterface
+class CustomFormat implements WriterInterface
 {
     /**
      * @inheritdoc

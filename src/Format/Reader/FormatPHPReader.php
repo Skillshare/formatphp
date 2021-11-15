@@ -20,27 +20,28 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Reader\Format;
+namespace FormatPHP\Format\Reader;
 
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
+use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
-use FormatPHP\Reader\FormatInterface;
 
-use function assert;
 use function gettype;
+use function is_array;
 use function is_string;
 use function sprintf;
 
 /**
  * Returns a MessageCollection parsed from JSON-decoded data that was written
- * using Writer\Format\Simple
+ * using Writer\Format\FormatPHP
  *
- * @see \FormatPHP\Writer\Format\Simple
+ * @see FormatPHPWriter
  */
-class Simple implements FormatInterface
+class FormatPHPReader implements ReaderInterface
 {
     /**
      * @inheritdoc
@@ -49,12 +50,14 @@ class Simple implements FormatInterface
     {
         $messages = new MessageCollection($config);
 
+        /**
+         * @var string $messageId
+         * @var array{defaultMessage: string} $message
+         */
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
-            assert(is_string($messageId));
-            assert(is_string($message));
 
-            $messages[$messageId] = new Message($localeResolved, $messageId, $message);
+            $messages[] = new Message($localeResolved, $messageId, $message['defaultMessage']);
         }
 
         return $messages;
@@ -78,11 +81,10 @@ class Simple implements FormatInterface
             ));
         }
 
-        if (!is_string($message)) {
+        if (!is_array($message) || !is_string($message['defaultMessage'] ?? null)) {
             throw new InvalidMessageShapeException(sprintf(
-                '%s expects a string message; received %s',
+                '%s expects a string defaultMessage property; defaultMessage does not exist or is not a string',
                 self::class,
-                gettype($message),
             ));
         }
     }

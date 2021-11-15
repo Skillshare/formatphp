@@ -212,9 +212,12 @@ class ExtractCommand extends AbstractCommand
         $options->extractSourceLocation = (bool) $input->getOption('extract-source-location');
         $options->throws = (bool) $input->getOption('throws');
         $options->preserveWhitespace = (bool) $input->getOption('preserve-whitespace');
+
+        /** @var string $additionalFunctionNames */
+        $additionalFunctionNames = $input->getOption('additional-function-names') ?? '';
         $options->additionalFunctionNames = array_merge(
             self::DEFAULT_FUNCTION_NAMES,
-            array_map('trim', explode(',', (string) $input->getOption('additional-function-names'))),
+            array_map('trim', explode(',', $additionalFunctionNames)),
         );
 
         return $options;
