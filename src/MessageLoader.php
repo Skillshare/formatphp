@@ -26,6 +26,7 @@ use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Exception\LocaleNotFoundException;
 use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\LocaleInterface;
@@ -55,11 +56,11 @@ final class MessageLoader
     public function __construct(
         string $messagesDirectory,
         Config $config,
-        ReaderInterface $formatReader,
+        ?ReaderInterface $formatReader = null,
         ?FileSystemHelper $fileSystemHelper = null
     ) {
         $this->config = $config;
-        $this->formatReader = $formatReader;
+        $this->formatReader = $formatReader ?? new FormatPHPReader();
         $this->fileSystemHelper = $fileSystemHelper ?? new FileSystemHelper();
         $this->messagesDirectory = $this->fileSystemHelper->getRealPath($messagesDirectory);
 
