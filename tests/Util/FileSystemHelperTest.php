@@ -20,6 +20,7 @@ use function fseek;
 use function getcwd;
 use function is_resource;
 use function is_writable;
+use function realpath;
 use function sprintf;
 use function sys_get_temp_dir;
 use function tempnam;
@@ -235,5 +236,45 @@ class FileSystemHelperTest extends TestCase
         $this->assertStringContainsString('string to write', (string) file_get_contents($tmpFile));
 
         unlink($tmpFile);
+    }
+
+    public function testGetRealPathThrowsExceptionWhenUnableToAccessFile(): void
+    {
+        $helper = new FileSystemHelper();
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unable to find or access the path at "foo/bar"');
+
+        $helper->getRealPath('foo/bar');
+    }
+
+    public function testGetRealPath(): void
+    {
+        $helper = new FileSystemHelper();
+
+        $this->assertSame(realpath('.'), $helper->getRealPath('.'));
+    }
+
+    public function testGetJsonContentsThrowsExceptionWhenUnableToParseJson(): void
+    {
+        $helper = new FileSystemHelper();
+
+        $this->expectException(UnableToProcessFileException::class);
+        $this->expectExceptionMessage(sprintf(
+            'Unable to decode the JSON in the file "%s"',
+            __DIR__ . '/fixtures/get-json-contents-01.json',
+        ));
+
+        $helper->getJsonContents(__DIR__ . '/fixtures/get-json-contents-01.json');
+    }
+
+    public function testGetJsonContents(): void
+    {
+        $helper = new FileSystemHelper();
+
+        $this->assertSame(
+            ['foo' => 'bar'],
+            $helper->getJsonContents(__DIR__ . '/fixtures/get-json-contents-02.json'),
+        );
     }
 }
