@@ -68,8 +68,6 @@ class FormatPHPReader implements ReaderInterface
      * @param mixed $message
      *
      * @throws InvalidMessageShapeException
-     *
-     * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
      */
     private function validateShape($messageId, $message): void
     {

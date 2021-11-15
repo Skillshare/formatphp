@@ -20,7 +20,7 @@
         "ext-intl": "*",
         "ext-json": "*",
         "nikic/php-parser": "^4.13",
-        "psr/log": "^2",
+        "psr/log": "^1 || ^2",
         "ramsey/collection": "^1.2",
         "symfony/console": "^5.3",
         "symfony/polyfill-php80": "^1.23",
