@@ -20,20 +20,21 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Util;
+
+use function preg_replace;
+use function trim;
 
 /**
- * FormatPHP translation message
+ * Provides tools for cleaning messages
  */
-interface MessageInterface
+trait MessageCleaner
 {
     /**
-     * Returns the message identifier
+     * Removes newlines and extra whitespace from the given message string
      */
-    public function getId(): string;
-
-    /**
-     * Returns the string translation message
-     */
-    public function getMessage(): string;
+    private function cleanMessage(string $message): string
+    {
+        return trim((string) preg_replace('/\n\s*/', ' ', $message));
+    }
 }

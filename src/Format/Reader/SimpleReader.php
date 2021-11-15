@@ -48,14 +48,14 @@ class SimpleReader implements ReaderInterface
      */
     public function __invoke(Config $config, array $data, LocaleInterface $localeResolved): MessageCollection
     {
-        $messages = new MessageCollection($config);
+        $messages = new MessageCollection();
 
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
             assert(is_string($messageId));
             assert(is_string($message));
 
-            $messages[$messageId] = new Message($localeResolved, $messageId, $message);
+            $messages[$messageId] = new Message($messageId, $message);
         }
 
         return $messages;

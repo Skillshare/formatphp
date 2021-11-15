@@ -22,23 +22,18 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
-use FormatPHP\Intl\LocaleInterface;
-
 /**
  * FormatPHP translation message
  */
 class Message implements MessageInterface
 {
     private string $id;
-    private LocaleInterface $locale;
     private string $message;
 
     public function __construct(
-        LocaleInterface $locale,
         string $id,
         string $message
     ) {
-        $this->locale = $locale;
         $this->id = $id;
         $this->message = $message;
     }
@@ -46,11 +41,6 @@ class Message implements MessageInterface
     public function getId(): string
     {
         return $this->id;
-    }
-
-    public function getLocale(): LocaleInterface
-    {
-        return $this->locale;
     }
 
     public function getMessage(): string

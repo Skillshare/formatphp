@@ -22,13 +22,23 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToGenerateMessageIdException;
 use FormatPHP\Intl\MessageFormat;
+use FormatPHP\Util\MessageCleaner;
+use FormatPHP\Util\MessageRetriever;
+
+use function is_int;
 
 /**
  * FormatPHP internationalization and localization
  */
 class FormatPHP implements FormatterInterface
 {
+    use MessageCleaner;
+    use MessageRetriever;
+
+    private ConfigInterface $config;
     private MessageCollection $messages;
     private MessageFormat $messageFormat;
 
@@ -39,6 +49,7 @@ class FormatPHP implements FormatterInterface
         ConfigInterface $config,
         MessageCollection $messages
     ) {
+        $this->config = $config;
         $this->messages = $messages;
         $this->messageFormat = new MessageFormat($config->getLocale());
     }
@@ -51,12 +62,28 @@ class FormatPHP implements FormatterInterface
      */
     public function formatMessage(array $descriptor, array $values = []): string
     {
-        $messagePattern = $this->messages->getMessageByDescriptor(new Descriptor(
-            $descriptor['id'] ?? null,
-            $descriptor['defaultMessage'] ?? null,
-            $descriptor['description'] ?? null,
-        ));
+        try {
+            $messagePattern = $this->getMessageForDescriptor(
+                $this->messages,
+                new Descriptor(
+                    $descriptor['id'] ?? null,
+                    $descriptor['defaultMessage'] ?? null,
+                    $descriptor['description'] ?? null,
+                ),
+            );
+        } catch (UnableToGenerateMessageIdException $exception) {
+            throw new InvalidArgumentException(
+                'The message descriptor must have an ID or default message',
+                is_int($exception->getCode()) ? $exception->getCode() : 0,
+                $exception,
+            );
+        }
 
-        return $this->messageFormat->format($messagePattern, $values);
+        return $this->messageFormat->format($this->cleanMessage($messagePattern), $values);
+    }
+
+    protected function getConfig(): ConfigInterface
+    {
+        return $this->config;
     }
 }

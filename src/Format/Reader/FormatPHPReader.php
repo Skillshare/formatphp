@@ -48,7 +48,7 @@ class FormatPHPReader implements ReaderInterface
      */
     public function __invoke(Config $config, array $data, LocaleInterface $localeResolved): MessageCollection
     {
-        $messages = new MessageCollection($config);
+        $messages = new MessageCollection();
 
         /**
          * @var string $messageId
@@ -57,7 +57,7 @@ class FormatPHPReader implements ReaderInterface
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
 
-            $messages[] = new Message($localeResolved, $messageId, $message['defaultMessage']);
+            $messages[] = new Message($messageId, $message['defaultMessage']);
         }
 
         return $messages;

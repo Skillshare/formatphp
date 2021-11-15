@@ -62,9 +62,7 @@ class FormatPHPReaderTest extends TestCase
         $this->assertCount(2, $collection);
         $this->assertInstanceOf(MessageInterface::class, $collection['foo']);
         $this->assertSame('I am foo', $collection['foo']->getMessage());
-        $this->assertSame($localeResolved, $collection['foo']->getLocale());
         $this->assertInstanceOf(MessageInterface::class, $collection['bar']);
         $this->assertSame('I am bar', $collection['bar']->getMessage());
-        $this->assertSame($localeResolved, $collection['bar']->getLocale());
     }
 }

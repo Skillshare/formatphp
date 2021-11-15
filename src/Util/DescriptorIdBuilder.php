@@ -20,36 +20,32 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP;
+namespace FormatPHP\Util;
 
-use IteratorAggregate;
-use Ramsey\Collection\AbstractCollection;
-use Ramsey\Collection\Exception\InvalidArgumentException;
+use FormatPHP\ConfigInterface;
+use FormatPHP\DescriptorInterface;
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToGenerateMessageIdException;
+use FormatPHP\Extractor\IdInterpolator;
 
 /**
- * FormatPHP collection of Message instances
- *
- * @extends AbstractCollection<MessageInterface>
- * @implements IteratorAggregate<array-key, MessageInterface>
+ * Provides tools for building message IDs for descriptors
  */
-final class MessageCollection extends AbstractCollection implements IteratorAggregate
+trait DescriptorIdBuilder
 {
-    public function getType(): string
-    {
-        return MessageInterface::class;
-    }
+    abstract protected function getConfig(): ConfigInterface;
 
     /**
-     * @throws InvalidArgumentException
+     * Builds a message ID for the given descriptor or returns its existing ID
      *
-     * @inheritDoc
+     * @throws InvalidArgumentException
+     * @throws UnableToGenerateMessageIdException
      */
-    public function offsetSet($offset, $value): void
+    private function buildMessageId(DescriptorInterface $descriptor): string
     {
-        if ($value instanceof MessageInterface) {
-            $offset = $value->getId();
-        }
-
-        parent::offsetSet($offset, $value);
+        return (new IdInterpolator())->generateId(
+            $descriptor,
+            $this->getConfig()->getIdInterpolatorPattern(),
+        );
     }
 }
