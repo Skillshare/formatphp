@@ -48,7 +48,7 @@ class SmartlingReader implements ReaderInterface
      */
     public function __invoke(Config $config, array $data, LocaleInterface $localeResolved): MessageCollection
     {
-        $messages = new MessageCollection($config);
+        $messages = new MessageCollection();
 
         unset($data['smartling']);
 
@@ -59,7 +59,7 @@ class SmartlingReader implements ReaderInterface
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
 
-            $messages[] = new Message($localeResolved, $messageId, $message['message']);
+            $messages[] = new Message($messageId, $message['message']);
         }
 
         return $messages;

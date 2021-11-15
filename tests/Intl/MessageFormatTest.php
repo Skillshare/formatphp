@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FormatPHP\Test\Intl;
 
 use FormatPHP\Config;
+use FormatPHP\ConfigInterface;
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorInterface;
 use FormatPHP\Exception\UnableToFormatMessageException;
@@ -14,9 +15,12 @@ use FormatPHP\Message;
 use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
 use FormatPHP\Test\TestCase;
+use FormatPHP\Util\DescriptorIdBuilder;
 
 class MessageFormatTest extends TestCase
 {
+    use DescriptorIdBuilder;
+
     private const TRANSLATION_MESSAGES_EN = [
         'myMessage' => 'Today is {ts, date, ::yyyyMMdd}',
         'foo' => 'A translation string with no default message',
@@ -32,15 +36,20 @@ class MessageFormatTest extends TestCase
      */
     private array $messagesEn = [];
 
+    private ConfigInterface $config;
+
     protected function setUp(): void
     {
         parent::setUp();
 
-        $localeEn = new Locale('en');
-
         foreach (self::TRANSLATION_MESSAGES_EN as $id => $value) {
-            $this->messagesEn[] = new Message($localeEn, $id, $value);
+            $this->messagesEn[] = new Message($id, $value);
         }
+    }
+
+    protected function getConfig(): ConfigInterface
+    {
+        return $this->config;
     }
 
     public function testFormatThrowsExceptionWhenUnableToFormatMessage(): void
@@ -64,14 +73,15 @@ class MessageFormatTest extends TestCase
         string $expected,
         array $replacements = []
     ): void {
-        $config = new Config($locale);
+        $this->config = new Config($locale);
         $formatter = new MessageFormat($locale);
-        $messages = new MessageCollection($config, $this->messagesEn);
+        $messages = new MessageCollection($this->messagesEn);
+        $messageId = $this->buildMessageId($descriptor);
 
-        $this->assertSame(
-            $expected,
-            $formatter->format($messages->getMessageByDescriptor($descriptor), $replacements),
-        );
+        /** @var MessageInterface $message */
+        $message = $messages[$messageId];
+
+        $this->assertSame($expected, $formatter->format($message->getMessage(), $replacements));
     }
 
     /**
@@ -83,7 +93,6 @@ class MessageFormatTest extends TestCase
         $localeFoo = new Locale('foo');
 
         $descriptors = [
-            'empty' => new Descriptor('messageId'),
             'full' => new Descriptor(
                 'myMessage',
                 'Today is {ts, date, ::yyyyMMdd}',
@@ -92,7 +101,6 @@ class MessageFormatTest extends TestCase
             'id only' => new Descriptor('foo'),
             'id with defaultMessage' => new Descriptor('bar', 'Howdy!'),
             'id with description' => new Descriptor('baz', null, 'There is not default message for this one'),
-            'id not found' => new Descriptor('idNotFound', 'Default message should be returned'),
             'defaultMessage only' => new Descriptor(null, 'What are you doing this weekend?'),
             'complicated pattern' => new Descriptor(
                 null,
@@ -117,11 +125,6 @@ class MessageFormatTest extends TestCase
         return [
             [
                 'locale' => $localeEn,
-                'descriptor' => $descriptors['empty'],
-                'expected' => 'messageId',
-            ],
-            [
-                'locale' => $localeEn,
                 'descriptor' => $descriptors['full'],
                 'expected' => 'Today is 10/25/2021',
                 'replacements' => ['ts' => 1635204852], // Mon, 25 Oct 2021 23:34:12 +0000
@@ -140,11 +143,6 @@ class MessageFormatTest extends TestCase
                 'locale' => $localeEn,
                 'descriptor' => $descriptors['id with description'],
                 'expected' => 'I don\'t know what to write here.',
-            ],
-            [
-                'locale' => $localeEn,
-                'descriptor' => $descriptors['id not found'],
-                'expected' => 'Default message should be returned',
             ],
             [
                 'locale' => $localeEn,

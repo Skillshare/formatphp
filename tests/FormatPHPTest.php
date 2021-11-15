@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FormatPHP\Test;
 
 use FormatPHP\Config;
+use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\FormatPHP;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Message;
@@ -18,12 +19,11 @@ class FormatPHPTest extends TestCase
         $config = new Config($locale);
 
         $message = new Message(
-            $locale,
             'myMessage',
             'Nous sommes aujourd\'hui le {ts, date, ::yyyyMMdd}',
         );
 
-        $messageCollection = new MessageCollection($config, [$message]);
+        $messageCollection = new MessageCollection([$message]);
         $formatphp = new FormatPHP($config, $messageCollection);
 
         $this->assertSame(
@@ -38,5 +38,51 @@ class FormatPHPTest extends TestCase
                 ],
             ),
         );
+    }
+
+    public function testFormatMessageReturnsDefaultMessage(): void
+    {
+        $locale = new Locale('fr');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame(
+            // The date is formatted according to the locale, even though the
+            // default message is returned.
+            'Today is 25/10/2021',
+            $formatphp->formatMessage(
+                [
+                    'id' => 'myMessage',
+                    'defaultMessage' => 'Today is {ts, date, ::yyyyMMdd}',
+                ],
+                [
+                    'ts' => 1635204852, // Mon, 25 Oct 2021 23:34:12 +0000
+                ],
+            ),
+        );
+    }
+
+    public function testFormatMessageReturnsMessageIdWhenMessageNotFound(): void
+    {
+        $locale = new Locale('en-US');
+        $config = new Config($locale);
+        $collection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $collection);
+
+        $this->assertSame('foobar', $formatphp->formatMessage(['id' => 'foobar']));
+    }
+
+    public function testFormatMessageThrowsExceptionWhenUnableToGenerateMessageId(): void
+    {
+        $locale = new Locale('en-US');
+        $config = new Config($locale);
+        $collection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $collection);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The message descriptor must have an ID or default message');
+
+        $formatphp->formatMessage([]);
     }
 }

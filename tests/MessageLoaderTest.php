@@ -67,7 +67,6 @@ class MessageLoaderTest extends TestCase
         $this->assertCount(1, $collection);
         $this->assertNotNull($collection['about.inspire']);
         $this->assertInstanceOf(MessageInterface::class, $collection['about.inspire']);
-        $this->assertSame('en', $collection['about.inspire']->getLocale()->toString());
     }
 
     public function testLoadMessagesWithFallback(): void
@@ -87,7 +86,6 @@ class MessageLoaderTest extends TestCase
         $this->assertCount(1, $collection);
         $this->assertNotNull($collection['about.inspire']);
         $this->assertInstanceOf(MessageInterface::class, $collection['about.inspire']);
-        $this->assertSame('ar', $collection['about.inspire']->getLocale()->toString());
         $this->assertSame(
             'في Skillshare ، نقوم بتمكين الأعضاء للحصول على الإلهام.',
             $collection['about.inspire']->getMessage(),
