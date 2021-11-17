@@ -78,9 +78,9 @@ class FileSystemHelper
             throw new UnableToProcessFileException(sprintf('File path is a directory: "%s".', $filePath));
         }
 
-        $contents = @file_get_contents($filePath) ?: null;
+        $contents = @file_get_contents($filePath);
 
-        if ($contents === null) {
+        if ($contents === false) {
             throw new UnableToProcessFileException(sprintf('Could not open file for reading: "%s".', $filePath));
         }
 
