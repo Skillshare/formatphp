@@ -37,6 +37,7 @@ use PhpParser\NodeVisitorAbstract;
 use function assert;
 use function in_array;
 use function preg_replace;
+use function sprintf;
 use function trim;
 
 /**
@@ -200,9 +201,8 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
 
             assert($item !== null);
             assert($item->key instanceof Node\Scalar\String_);
-            assert($item->value instanceof Node\Scalar\String_);
 
-            $properties[$item->key->value] = $item->value->value;
+            $properties[$item->key->value] = $this->getValue($item->value);
         }
 
         return $properties;
@@ -212,7 +212,7 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     {
         return $item !== null
             && $item->key instanceof Node\Scalar\String_
-            && $item->value instanceof Node\Scalar\String_;
+            && $this->isValidValue($item->value);
     }
 
     private function clean(?string $value): ?string
@@ -237,5 +237,36 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
         $descriptor->setId($this->idInterpolator->generateId($descriptor, $this->idInterpolatorPattern));
 
         return $descriptor;
+    }
+
+    private function isValidValue(Node\Expr $value): bool
+    {
+        if ($value instanceof Node\Scalar\String_) {
+            return true;
+        }
+
+        if ($value instanceof Node\Expr\BinaryOp\Concat) {
+            $isValid = $this->isValidValue($value->left);
+
+            return $isValid && $this->isValidValue($value->right);
+        }
+
+        throw new UnableToParseDescriptorException(sprintf(
+            'The descriptor must not contain values other than string literals; encountered %s',
+            $value->getType(),
+        ));
+    }
+
+    private function getValue(Node\Expr $value): string
+    {
+        if ($value instanceof Node\Scalar\String_) {
+            return $value->value;
+        }
+
+        assert($value instanceof Node\Expr\BinaryOp\Concat);
+
+        $contents = $this->getValue($value->left);
+
+        return $contents . $this->getValue($value->right);
     }
 }
