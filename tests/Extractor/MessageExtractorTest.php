@@ -424,6 +424,12 @@ class MessageExtractorTest extends TestCase
                 . '/Parser/Descriptor/fixtures/php-parser-04.php on line 40',
             'Descriptor argument must be present in ' . __DIR__
                 . '/Parser/Descriptor/fixtures/php-parser-09.phtml on line 18',
+            'The descriptor must not contain values other than string literals; '
+                . 'encountered Expr_Variable in ' . __DIR__
+                . '/Parser/Descriptor/fixtures/php-parser-10.php on line 6',
+            'The descriptor must not contain values other than string literals; '
+                . 'encountered Scalar_Encapsed in ' . __DIR__
+                . '/Parser/Descriptor/fixtures/php-parser-10.php on line 12',
             'Missing "defaultMessage" in "{{#formatMessage |idWithoutMessage}}{{/formatMessage}}" in '
                 . __DIR__ . '/Parser/Descriptor/fixtures/custom-parser-01.template on line 0',
             'Missing "id" in "{{#formatMessage}}message without ID{{/formatMessage}}" in '
@@ -499,6 +505,12 @@ class MessageExtractorTest extends TestCase
             . '/Parser/Descriptor/fixtures/php-parser-04.php on line 40',
             'Descriptor argument must be present in ' . __DIR__
             . '/Parser/Descriptor/fixtures/php-parser-09.phtml on line 18',
+            'The descriptor must not contain values other than string literals; '
+            . 'encountered Expr_Variable in ' . __DIR__
+            . '/Parser/Descriptor/fixtures/php-parser-10.php on line 6',
+            'The descriptor must not contain values other than string literals; '
+            . 'encountered Scalar_Encapsed in ' . __DIR__
+            . '/Parser/Descriptor/fixtures/php-parser-10.php on line 12',
             'Missing "defaultMessage" in "{{#formatMessage |idWithoutMessage}}{{/formatMessage}}" in '
             . __DIR__ . '/Parser/Descriptor/fixtures/custom-parser-01.template on line 0',
             'Missing "id" in "{{#formatMessage}}message without ID{{/formatMessage}}" in '

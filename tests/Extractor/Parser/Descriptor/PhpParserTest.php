@@ -31,7 +31,7 @@ class PhpParserTest extends TestCase
             [
                 'defaultMessage' => 'This is a default message',
                 'description' => 'A simple description of a fixture for testing purposes.',
-                'end' => 202,
+                'end' => 326,
                 'file' => __DIR__ . '/fixtures/php-parser-01.php',
                 'id' => 'aTestId',
                 'line' => 3,
@@ -318,6 +318,29 @@ class PhpParserTest extends TestCase
         $this->assertSame(
             [
                 'Descriptor argument must be present on line 18 in ' . __DIR__ . '/fixtures/php-parser-09.phtml',
+            ],
+            $receivedErrors,
+        );
+    }
+
+    public function testParse10(): void
+    {
+        $errors = new ParserErrorCollection();
+        $options = new MessageExtractorOptions();
+        $parser = new PhpParser(new FileSystemHelper());
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-10.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
+
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
+        $this->assertCount(0, $descriptors);
+        $this->assertSame(
+            [
+                'The descriptor must not contain values other than string literals; '
+                    . 'encountered Expr_Variable on line 6 in '
+                    . __DIR__ . '/fixtures/php-parser-10.php',
+                'The descriptor must not contain values other than string literals; '
+                    . 'encountered Scalar_Encapsed on line 12 in '
+                    . __DIR__ . '/fixtures/php-parser-10.php',
             ],
             $receivedErrors,
         );
