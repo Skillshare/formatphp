@@ -41,29 +41,18 @@ use FormatPHP\Util\Globber;
 use LogicException;
 use Psr\Log\LoggerInterface;
 
-use function assert;
 use function class_exists;
 use function count;
-use function fopen;
 use function is_a;
 use function is_callable;
-use function is_resource;
-use function json_encode;
-use function preg_replace;
 use function sprintf;
 use function strtolower;
-
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-use const JSON_UNESCAPED_UNICODE;
 
 /**
  * Extracts message descriptors from application source code
  */
 class MessageExtractor
 {
-    private const JSON_ENCODE_FLAGS = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
-
     private FileSystemHelper $file;
     private Globber $globber;
     private LoggerInterface $logger;
@@ -129,7 +118,7 @@ class MessageExtractor
             return;
         }
 
-        $this->writeOutput($this->prepareOutput($formatter, $descriptors));
+        $this->write($formatter, $descriptors);
     }
 
     public function getErrors(): ParserErrorCollection
@@ -245,43 +234,27 @@ class MessageExtractor
 
     /**
      * @param callable(DescriptorCollection,MessageExtractorOptions):array<mixed> $formatter
+     *
+     * @throws UnableToWriteFileException
+     * @throws InvalidArgumentException
      */
-    private function prepareOutput(callable $formatter, DescriptorCollection $descriptors): string
+    private function write(callable $formatter, DescriptorCollection $descriptors): void
     {
-        $messages = $formatter($descriptors, $this->options);
+        $file = $this->options->outFile ?? 'php://output';
 
+        $messages = $formatter($descriptors, $this->options);
         if (count($messages) === 0) {
             $messages = (object) $messages;
         }
 
-        $output = (string) json_encode($messages, self::JSON_ENCODE_FLAGS);
+        $this->file->writeJsonContents($file, $messages);
 
-        // Indent by 2 spaces instead of 4.
-        $output = (string) preg_replace('/^(  +?)\\1(?=[^ ])/m', '$1', $output);
-
-        return $output . "\n";
-    }
-
-    /**
-     * @throws UnableToWriteFileException
-     * @throws InvalidArgumentException
-     */
-    private function writeOutput(string $output): void
-    {
         if ($this->options->outFile !== null) {
-            $this->file->writeContents($this->options->outFile, $output);
             $this->logger->notice(
                 'Message descriptors extracted and written to {file}',
                 ['file' => $this->options->outFile],
             );
-
-            return;
         }
-
-        $stream = fopen('php://output', 'w');
-        assert(is_resource($stream));
-
-        $this->file->writeContents($stream, $output);
     }
 
     private function createInvokableDescriptorParser(callable $parser): DescriptorParserInterface

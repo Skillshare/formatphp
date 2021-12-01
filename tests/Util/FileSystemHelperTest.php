@@ -277,4 +277,42 @@ class FileSystemHelperTest extends TestCase
             $helper->getJsonContents(__DIR__ . '/fixtures/get-json-contents-02.json'),
         );
     }
+
+    public function testWriteJsonContents(): void
+    {
+        $value = [
+            'foo' => [
+                'bar' => [
+                    'baz' => 'qux',
+                ],
+            ],
+        ];
+
+        $expectedContents = <<<'EOD'
+            {
+              "foo": {
+                "bar": {
+                  "baz": "qux"
+                }
+              }
+            }
+
+            EOD;
+
+        $helper = $this->mockery(FileSystemHelper::class);
+        $helper->shouldReceive('writeJsonContents')->passthru();
+        $helper->expects()->writeContents('filename.ext', $expectedContents);
+
+        $helper->writeJsonContents('filename.ext', $value);
+    }
+
+    public function testWriteJsonContentsThrowsExceptionWhenUnableToEncodeJson(): void
+    {
+        $helper = new FileSystemHelper();
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unable to encode contents as JSON');
+
+        $helper->writeJsonContents(__DIR__ . '/foo.json', fopen('php://output', 'r'));
+    }
 }

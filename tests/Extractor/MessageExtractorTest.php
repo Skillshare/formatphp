@@ -15,9 +15,10 @@ use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\Globber;
 use Generator;
-use Hamcrest\Type\IsResource;
+use Hamcrest\Core\IsInstanceOf;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use stdClass;
 
 use function json_decode;
 use function ob_end_clean;
@@ -329,7 +330,7 @@ class MessageExtractorTest extends TestCase
 
         $file = $this->mockery(FileSystemHelper::class);
         $file->shouldReceive('getContents')->andReturn('nothing of consequence');
-        $file->expects()->writeContents('en-US.json', "{}\n");
+        $file->expects()->writeJsonContents('en-US.json', new IsInstanceOf(stdClass::class));
 
         $extractor = new MessageExtractor($options, $logger, new Globber(new FileSystemHelper()), $file);
         $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.php']);
@@ -345,7 +346,7 @@ class MessageExtractorTest extends TestCase
 
         $file = $this->mockery(FileSystemHelper::class);
         $file->expects()->getContents($path)->andThrows($exception);
-        $file->expects()->writeContents(new IsResource(), "{}\n");
+        $file->expects()->writeJsonContents('php://output', new IsInstanceOf(stdClass::class));
 
         $logger = $this->mockery(LoggerInterface::class);
         $logger->shouldReceive('debug')->with(
