@@ -32,8 +32,10 @@ use LogicException;
 use PhpParser\Lexer;
 use PhpParser\Lexer\Emulative;
 use PhpParser\NodeTraverser;
+use PhpParser\NodeVisitor\CloningVisitor;
 use PhpParser\Parser;
 use PhpParser\Parser\Php7 as Php7Parser;
+use PhpParser\PrettyPrinter\Standard as PhpPrinter;
 
 use function assert;
 use function count;
@@ -49,16 +51,16 @@ class PhpParser implements DescriptorParserInterface
 {
     private const PHP_PATH_EXTENSIONS = ['php', 'phtml'];
 
-    private FileSystemHelper $file;
+    private FileSystemHelper $fileSystemHelper;
     private Lexer $lexer;
     private Parser $parser;
 
     /**
      * @throws LogicException
      */
-    public function __construct(FileSystemHelper $file)
+    public function __construct(FileSystemHelper $fileSystemHelper)
     {
-        $this->file = $file;
+        $this->fileSystemHelper = $fileSystemHelper;
 
         $this->lexer = new Emulative([
             'usedAttributes' => [
@@ -84,7 +86,7 @@ class PhpParser implements DescriptorParserInterface
             return new DescriptorCollection();
         }
 
-        $statements = $this->parser->parse($this->file->getContents($filePath));
+        $statements = $this->parser->parse($this->fileSystemHelper->getContents($filePath));
         assert($statements !== null);
 
         $descriptorCollector = new DescriptorCollectorVisitor(
@@ -93,18 +95,32 @@ class PhpParser implements DescriptorParserInterface
             $options->functionNames,
             $options->preserveWhitespace,
             $options->idInterpolationPattern,
+            $options->addGeneratedIdsToSourceCode,
         );
 
         $traverser = new NodeTraverser();
-        $traverser->addVisitor($descriptorCollector);
+        $traverser->addVisitor(new CloningVisitor());
+
+        $oldStatements = $statements;
+        $oldTokens = $this->lexer->getTokens();
+
+        $modifyingTraverser = new NodeTraverser();
+        $modifyingTraverser->addVisitor($descriptorCollector);
 
         $pragmaCollector = null;
         if ($options->pragma !== null) {
             $pragmaCollector = new PragmaCollectorVisitor($filePath, $options->pragma, $errors);
-            $traverser->addVisitor($pragmaCollector);
+            $modifyingTraverser->addVisitor($pragmaCollector);
         }
 
-        $traverser->traverse($statements);
+        $newStatements = $traverser->traverse($statements);
+        $newStatements = $modifyingTraverser->traverse($newStatements);
+
+        if ($options->addGeneratedIdsToSourceCode && count($descriptorCollector->getDescriptors()) > 0) {
+            $printer = new PhpPrinter();
+            $updatedSourceCode = $printer->printFormatPreserving($newStatements, $oldStatements, $oldTokens);
+            $this->fileSystemHelper->writeContents($filePath, $updatedSourceCode);
+        }
 
         return $this->applyMetadata($descriptorCollector->getDescriptors(), $pragmaCollector);
     }

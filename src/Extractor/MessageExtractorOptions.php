@@ -97,4 +97,12 @@ class MessageExtractorOptions
      * @var string[]
      */
     public array $parsers = self::DEFAULT_PARSERS;
+
+    /**
+     * Whether to update the source code with by adding auto-generated IDs
+     * to the descriptors
+     *
+     * Any IDs already present in the source code will remain unchanged.
+     */
+    public bool $addGeneratedIdsToSourceCode = false;
 }
