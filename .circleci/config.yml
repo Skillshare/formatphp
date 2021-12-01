@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: |
           sudo apt update
-          sudo apt install php7.4-intl php7.4-pcov
+          sudo apt install php7.4-intl php-pcov
 
       # Install Composer dependencies.
       - restore_cache:
