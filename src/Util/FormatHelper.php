@@ -28,6 +28,7 @@ use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\Format;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\Reader\SimpleReader;
 use FormatPHP\Format\Reader\SmartlingReader;
@@ -53,15 +54,15 @@ use function strtolower;
 class FormatHelper
 {
     private const READER_FORMATS = [
-        'simple' => SimpleReader::class,
-        'smartling' => SmartlingReader::class,
-        'formatphp' => FormatPHPReader::class,
+        Format::FORMATPHP => FormatPHPReader::class,
+        Format::SIMPLE => SimpleReader::class,
+        Format::SMARTLING => SmartlingReader::class,
     ];
 
     private const WRITER_FORMATS = [
-        'simple' => SimpleWriter::class,
-        'smartling' => SmartlingWriter::class,
-        'formatphp' => FormatPHPWriter::class,
+        Format::FORMATPHP => FormatPHPWriter::class,
+        Format::SIMPLE => SimpleWriter::class,
+        Format::SMARTLING => SmartlingWriter::class,
     ];
 
     private FileSystemHelper $fileSystemHelper;

@@ -42,7 +42,6 @@ use function is_resource;
 use function is_string;
 use function json_decode;
 use function json_encode;
-use function preg_replace;
 use function realpath;
 use function sprintf;
 use function strlen;
@@ -169,9 +168,6 @@ class FileSystemHelper
         } catch (JsonException $exception) {
             throw new InvalidArgumentException('Unable to encode contents as JSON', 0, $exception);
         }
-
-        // Indent by 2 spaces instead of 4.
-        $encodedContents = (string) preg_replace('/^(  +?)\\1(?=[^ ])/m', '$1', $encodedContents);
 
         $this->writeContents($file, $encodedContents . "\n");
     }

@@ -290,11 +290,11 @@ class FileSystemHelperTest extends TestCase
 
         $expectedContents = <<<'EOD'
             {
-              "foo": {
-                "bar": {
-                  "baz": "qux"
+                "foo": {
+                    "bar": {
+                        "baz": "qux"
+                    }
                 }
-              }
             }
 
             EOD;
