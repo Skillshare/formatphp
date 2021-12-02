@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @foo bar:baz
+ */
 $intl->formatMessage([
     'id' => 'Soex4s',
     'defaultMessage' => 'This is a default message',

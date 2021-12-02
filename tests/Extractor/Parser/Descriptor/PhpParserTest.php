@@ -411,8 +411,8 @@ class PhpParserTest extends TestCase
         $errors = new ParserErrorCollection();
 
         $options = new MessageExtractorOptions();
-        //$options->functionNames = ['translate'];
         $options->addGeneratedIdsToSourceCode = true;
+        $options->pragma = 'foo';
 
         $parser = new PhpParser($fileSystemHelper);
         $descriptors = $parser(__DIR__ . '/fixtures/php-parser-11.php', $options, $errors);
