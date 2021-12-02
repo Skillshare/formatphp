@@ -27,9 +27,9 @@ namespace FormatPHP\Format;
  */
 final class Format
 {
+    public const FORMATPHP = 'formatphp';
     public const SIMPLE = 'simple';
     public const SMARTLING = 'smartling';
-    public const FORMATPHP = 'formatphp';
 
     /**
      * Disallow instantiation of this class.
