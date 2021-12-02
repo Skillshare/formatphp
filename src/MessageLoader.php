@@ -45,7 +45,7 @@ use const DIRECTORY_SEPARATOR;
  */
 final class MessageLoader
 {
-    private Config $config;
+    private ConfigInterface $config;
     private FileSystemHelper $fileSystemHelper;
     private ReaderInterface $formatReader;
     private string $messagesDirectory;
@@ -55,7 +55,7 @@ final class MessageLoader
      */
     public function __construct(
         string $messagesDirectory,
-        Config $config,
+        ConfigInterface $config,
         ?ReaderInterface $formatReader = null,
         ?FileSystemHelper $fileSystemHelper = null
     ) {

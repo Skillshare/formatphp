@@ -6,3 +6,5 @@ parameters:
         - ./tests
     excludePaths:
         - */tests/*/fixtures/*
+    ignoreErrors:
+        - '#Cannot call method getName\(\) on ReflectionType\|null#'

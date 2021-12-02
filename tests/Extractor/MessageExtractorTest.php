@@ -13,6 +13,7 @@ use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
+use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use Generator;
 use Hamcrest\Core\IsInstanceOf;
@@ -45,7 +46,7 @@ class MessageExtractorTest extends TestCase
         $logger = $this->mockery(LoggerInterface::class);
         $logger->expects()->warning('Could not find files', ['files' => ['foo', 'bar', 'baz']]);
 
-        $extractor = new MessageExtractor($options, $logger, $globber, $file);
+        $extractor = new MessageExtractor($options, $logger, $globber, $file, new FormatHelper($file));
         $extractor->process(['foo', 'bar', 'baz']);
     }
 
@@ -60,6 +61,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -105,6 +107,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -141,6 +144,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -170,6 +174,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -216,6 +221,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -244,13 +250,14 @@ class MessageExtractorTest extends TestCase
     {
         $logger = new NullLogger();
         $options = new MessageExtractorOptions();
-        $options->format = __DIR__ . '/format.php';
+        $options->format = __DIR__ . '/fixtures/formatter.php';
 
         $extractor = new MessageExtractor(
             $options,
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -293,6 +300,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -311,6 +319,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -332,7 +341,14 @@ class MessageExtractorTest extends TestCase
         $file->shouldReceive('getContents')->andReturn('nothing of consequence');
         $file->expects()->writeJsonContents('en-US.json', new IsInstanceOf(stdClass::class));
 
-        $extractor = new MessageExtractor($options, $logger, new Globber(new FileSystemHelper()), $file);
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            $file,
+            new FormatHelper(new FileSystemHelper()),
+        );
+
         $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.php']);
     }
 
@@ -358,7 +374,14 @@ class MessageExtractorTest extends TestCase
             ['exception' => $exception],
         );
 
-        $extractor = new MessageExtractor($options, $logger, new Globber(new FileSystemHelper()), $file);
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            $file,
+            new FormatHelper(new FileSystemHelper()),
+        );
+
         $extractor->process([$path]);
     }
 
@@ -380,7 +403,13 @@ class MessageExtractorTest extends TestCase
             ['file' => $path],
         );
 
-        $extractor = new MessageExtractor($options, $logger, new Globber(new FileSystemHelper()), $file);
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            $file,
+            new FormatHelper(new FileSystemHelper()),
+        );
 
         $this->expectException(UnableToProcessFileException::class);
         $this->expectExceptionMessage('something bad happened');
@@ -399,6 +428,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -480,6 +510,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         ob_start();
@@ -561,6 +592,7 @@ class MessageExtractorTest extends TestCase
             $logger,
             new Globber(new FileSystemHelper()),
             new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
         );
 
         $this->expectException(InvalidArgumentException::class);

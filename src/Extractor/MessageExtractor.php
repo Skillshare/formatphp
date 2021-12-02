@@ -32,11 +32,8 @@ use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
-use FormatPHP\Format\Writer\FormatPHPWriter;
-use FormatPHP\Format\Writer\SimpleWriter;
-use FormatPHP\Format\Writer\SmartlingWriter;
-use FormatPHP\Format\WriterInterface;
 use FormatPHP\Util\FileSystemHelper;
+use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
 use Psr\Log\LoggerInterface;
@@ -58,20 +55,20 @@ class MessageExtractor
     private LoggerInterface $logger;
     private MessageExtractorOptions $options;
     private ParserErrorCollection $errors;
+    private FormatHelper $formatHelper;
 
-    /**
-     * @throws LogicException
-     */
     public function __construct(
         MessageExtractorOptions $options,
         LoggerInterface $logger,
         Globber $globber,
-        FileSystemHelper $file
+        FileSystemHelper $file,
+        FormatHelper $formatHelper
     ) {
         $this->options = $options;
         $this->logger = $logger;
         $this->globber = $globber;
         $this->file = $file;
+        $this->formatHelper = $formatHelper;
         $this->errors = new ParserErrorCollection();
     }
 
@@ -83,11 +80,13 @@ class MessageExtractor
      * @throws UnableToProcessFileException
      * @throws UnableToWriteFileException
      * @throws InvalidArgumentException
+     * @throws ImproperContextException
+     * @throws LogicException
      */
     public function process(array $files): void
     {
         try {
-            $formatter = $this->getFormatter($this->options->format);
+            $formatter = $this->formatHelper->getWriter($this->options->format);
         } catch (FormatPHPExceptionInterface $exception) {
             $this->logger->error($exception->getMessage(), ['exception' => $exception]);
 
@@ -128,6 +127,8 @@ class MessageExtractor
 
     /**
      * @throws UnableToProcessFileException
+     * @throws ImproperContextException
+     * @throws LogicException
      */
     private function parse(DescriptorCollection $descriptors, string $filePath): DescriptorCollection
     {
@@ -142,6 +143,7 @@ class MessageExtractor
     /**
      * @return DescriptorParserInterface[]
      *
+     * @throws ImproperContextException
      * @throws LogicException
      */
     private function getDescriptorParsers(): array
@@ -156,6 +158,7 @@ class MessageExtractor
     }
 
     /**
+     * @throws ImproperContextException
      * @throws LogicException
      */
     private function loadDescriptorParser(string $parserNameOrScript): DescriptorParserInterface
@@ -187,48 +190,6 @@ class MessageExtractor
             MessageExtractorOptions::class,
             ParserErrorCollection::class,
             DescriptorCollection::class,
-        ));
-    }
-
-    /**
-     * @return callable(DescriptorCollection,MessageExtractorOptions):array<mixed>
-     *
-     * @throws ImproperContextException
-     * @throws InvalidArgumentException
-     */
-    private function getFormatter(?string $format): callable
-    {
-        if ($format === null) {
-            return new FormatPHPWriter();
-        }
-
-        switch (strtolower($format)) {
-            case 'simple':
-                return new SimpleWriter();
-            case 'smartling':
-                return new SmartlingWriter();
-            case 'formatjs':
-            case 'formatphp':
-                return new FormatPHPWriter();
-        }
-
-        if (class_exists($format) && is_a($format, WriterInterface::class, true)) {
-            $formatter = new $format();
-        } else {
-            /** @var Closure(DescriptorCollection,MessageExtractorOptions):array<mixed> | null $formatter */
-            $formatter = $this->file->loadClosureFromScript($format);
-        }
-
-        if (is_callable($formatter)) {
-            return $formatter;
-        }
-
-        throw new InvalidArgumentException(sprintf(
-            'The format provided is not a known format, an instance of '
-            . '%s, or a callable of the shape `callable(%s,%s):array<mixed>`.',
-            WriterInterface::class,
-            DescriptorCollection::class,
-            MessageExtractorOptions::class,
         ));
     }
 
