@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.3.0 - TBD
+
+### Added
+
+- Add `Util\FormatHelper` that provides `getReader()` and `getWriter()` methods
+- Introduce `Format\Format` final static class for format constants
+
+### Changed
+
+- The `Extractor\MessageExtractor` constructor now requires `Util\FormatHelper` as a fifth parameter
+- Use `ConfigInterface` instead of `Config` as the type-hint on `Format\ReaderInterface`
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.2.2 - 2021-11-18
 
 ### Added

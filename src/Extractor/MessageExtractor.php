@@ -32,57 +32,43 @@ use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
-use FormatPHP\Format\Writer\FormatPHPWriter;
-use FormatPHP\Format\Writer\SimpleWriter;
-use FormatPHP\Format\Writer\SmartlingWriter;
-use FormatPHP\Format\WriterInterface;
 use FormatPHP\Util\FileSystemHelper;
+use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
 use Psr\Log\LoggerInterface;
 
-use function assert;
 use function class_exists;
 use function count;
-use function fopen;
 use function is_a;
 use function is_callable;
-use function is_resource;
-use function json_encode;
-use function preg_replace;
 use function sprintf;
 use function strtolower;
-
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
-use const JSON_UNESCAPED_UNICODE;
 
 /**
  * Extracts message descriptors from application source code
  */
 class MessageExtractor
 {
-    private const JSON_ENCODE_FLAGS = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
-
     private FileSystemHelper $file;
     private Globber $globber;
     private LoggerInterface $logger;
     private MessageExtractorOptions $options;
     private ParserErrorCollection $errors;
+    private FormatHelper $formatHelper;
 
-    /**
-     * @throws LogicException
-     */
     public function __construct(
         MessageExtractorOptions $options,
         LoggerInterface $logger,
         Globber $globber,
-        FileSystemHelper $file
+        FileSystemHelper $file,
+        FormatHelper $formatHelper
     ) {
         $this->options = $options;
         $this->logger = $logger;
         $this->globber = $globber;
         $this->file = $file;
+        $this->formatHelper = $formatHelper;
         $this->errors = new ParserErrorCollection();
     }
 
@@ -94,11 +80,13 @@ class MessageExtractor
      * @throws UnableToProcessFileException
      * @throws UnableToWriteFileException
      * @throws InvalidArgumentException
+     * @throws ImproperContextException
+     * @throws LogicException
      */
     public function process(array $files): void
     {
         try {
-            $formatter = $this->getFormatter($this->options->format);
+            $formatter = $this->formatHelper->getWriter($this->options->format);
         } catch (FormatPHPExceptionInterface $exception) {
             $this->logger->error($exception->getMessage(), ['exception' => $exception]);
 
@@ -129,7 +117,7 @@ class MessageExtractor
             return;
         }
 
-        $this->writeOutput($this->prepareOutput($formatter, $descriptors));
+        $this->write($formatter, $descriptors);
     }
 
     public function getErrors(): ParserErrorCollection
@@ -139,6 +127,8 @@ class MessageExtractor
 
     /**
      * @throws UnableToProcessFileException
+     * @throws ImproperContextException
+     * @throws LogicException
      */
     private function parse(DescriptorCollection $descriptors, string $filePath): DescriptorCollection
     {
@@ -153,6 +143,7 @@ class MessageExtractor
     /**
      * @return DescriptorParserInterface[]
      *
+     * @throws ImproperContextException
      * @throws LogicException
      */
     private function getDescriptorParsers(): array
@@ -167,6 +158,7 @@ class MessageExtractor
     }
 
     /**
+     * @throws ImproperContextException
      * @throws LogicException
      */
     private function loadDescriptorParser(string $parserNameOrScript): DescriptorParserInterface
@@ -202,86 +194,28 @@ class MessageExtractor
     }
 
     /**
-     * @return callable(DescriptorCollection,MessageExtractorOptions):array<mixed>
+     * @param callable(DescriptorCollection,MessageExtractorOptions):array<mixed> $formatter
      *
-     * @throws ImproperContextException
+     * @throws UnableToWriteFileException
      * @throws InvalidArgumentException
      */
-    private function getFormatter(?string $format): callable
+    private function write(callable $formatter, DescriptorCollection $descriptors): void
     {
-        if ($format === null) {
-            return new FormatPHPWriter();
-        }
+        $file = $this->options->outFile ?? 'php://output';
 
-        switch (strtolower($format)) {
-            case 'simple':
-                return new SimpleWriter();
-            case 'smartling':
-                return new SmartlingWriter();
-            case 'formatjs':
-            case 'formatphp':
-                return new FormatPHPWriter();
-        }
-
-        if (class_exists($format) && is_a($format, WriterInterface::class, true)) {
-            $formatter = new $format();
-        } else {
-            /** @var Closure(DescriptorCollection,MessageExtractorOptions):array<mixed> | null $formatter */
-            $formatter = $this->file->loadClosureFromScript($format);
-        }
-
-        if (is_callable($formatter)) {
-            return $formatter;
-        }
-
-        throw new InvalidArgumentException(sprintf(
-            'The format provided is not a known format, an instance of '
-            . '%s, or a callable of the shape `callable(%s,%s):array<mixed>`.',
-            WriterInterface::class,
-            DescriptorCollection::class,
-            MessageExtractorOptions::class,
-        ));
-    }
-
-    /**
-     * @param callable(DescriptorCollection,MessageExtractorOptions):array<mixed> $formatter
-     */
-    private function prepareOutput(callable $formatter, DescriptorCollection $descriptors): string
-    {
         $messages = $formatter($descriptors, $this->options);
-
         if (count($messages) === 0) {
             $messages = (object) $messages;
         }
 
-        $output = (string) json_encode($messages, self::JSON_ENCODE_FLAGS);
+        $this->file->writeJsonContents($file, $messages);
 
-        // Indent by 2 spaces instead of 4.
-        $output = (string) preg_replace('/^(  +?)\\1(?=[^ ])/m', '$1', $output);
-
-        return $output . "\n";
-    }
-
-    /**
-     * @throws UnableToWriteFileException
-     * @throws InvalidArgumentException
-     */
-    private function writeOutput(string $output): void
-    {
         if ($this->options->outFile !== null) {
-            $this->file->writeContents($this->options->outFile, $output);
             $this->logger->notice(
                 'Message descriptors extracted and written to {file}',
                 ['file' => $this->options->outFile],
             );
-
-            return;
         }
-
-        $stream = fopen('php://output', 'w');
-        assert(is_resource($stream));
-
-        $this->file->writeContents($stream, $output);
     }
 
     private function createInvokableDescriptorParser(callable $parser): DescriptorParserInterface

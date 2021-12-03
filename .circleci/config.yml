@@ -6,9 +6,9 @@ jobs:
 
     steps:
       - checkout
-      - run: |
-          sudo apt update
-          sudo apt install php7.4-intl php7.4-pcov
+
+      # Install pcov extension for code coverage.
+      - run: sudo pecl install pcov
 
       # Install Composer dependencies.
       - restore_cache:

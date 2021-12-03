@@ -22,15 +22,19 @@ declare(strict_types=1);
 
 namespace FormatPHP\Console\Command;
 
+use FormatPHP\Exception\ImproperContextException;
+use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\MessageExtractor;
 use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Util\FileSystemHelper;
+use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
 use Psr\Log\LogLevel;
-use Symfony\Component\Console\Exception\InvalidArgumentException;
+use Symfony\Component\Console\Exception\InvalidArgumentException as SymfonyInvalidArgumentException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -76,7 +80,7 @@ class ExtractCommand extends AbstractCommand
     ];
 
     /**
-     * @throws InvalidArgumentException
+     * @throws SymfonyInvalidArgumentException
      */
     protected function configure(): void
     {
@@ -166,8 +170,11 @@ class ExtractCommand extends AbstractCommand
     }
 
     /**
-     * @throws InvalidArgumentException
+     * @throws SymfonyInvalidArgumentException
      * @throws UnableToProcessFileException
+     * @throws UnableToWriteFileException
+     * @throws InvalidArgumentException
+     * @throws ImproperContextException
      * @throws LogicException
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -175,12 +182,14 @@ class ExtractCommand extends AbstractCommand
         /** @var string[] $files */
         $files = $input->getArgument('files') ?: [getcwd() . '/**/*'];
         $options = $this->buildOptions($input);
+        $fileSystemHelper = new FileSystemHelper();
 
         $extractor = new MessageExtractor(
             $options,
             new ConsoleLogger($output, self::LOG_VERBOSITY_MAPPING, self::LOG_FORMAT_MAPPING),
-            new Globber(new FileSystemHelper()),
-            new FileSystemHelper(),
+            new Globber($fileSystemHelper),
+            $fileSystemHelper,
+            new FormatHelper($fileSystemHelper),
         );
 
         $extractor->process($files);
@@ -189,7 +198,7 @@ class ExtractCommand extends AbstractCommand
     }
 
     /**
-     * @throws InvalidArgumentException
+     * @throws SymfonyInvalidArgumentException
      */
     private function buildOptions(InputInterface $input): MessageExtractorOptions
     {
