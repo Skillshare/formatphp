@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace FormatPHP\Format;
 
-use FormatPHP\Config;
+use FormatPHP\ConfigInterface;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\MessageCollection;
@@ -43,5 +43,5 @@ interface ReaderInterface
      *
      * @throws InvalidMessageShapeException
      */
-    public function __invoke(Config $config, array $data, LocaleInterface $localeResolved): MessageCollection;
+    public function __invoke(ConfigInterface $config, array $data, LocaleInterface $localeResolved): MessageCollection;
 }

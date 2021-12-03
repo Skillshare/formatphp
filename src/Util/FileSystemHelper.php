@@ -37,18 +37,21 @@ use function getcwd;
 use function gettype;
 use function is_callable;
 use function is_dir;
-use function is_int;
 use function is_readable;
 use function is_resource;
 use function is_string;
 use function json_decode;
+use function json_encode;
 use function realpath;
 use function sprintf;
 use function strlen;
 
 use const JSON_BIGINT_AS_STRING;
 use const JSON_INVALID_UTF8_SUBSTITUTE;
+use const JSON_PRETTY_PRINT;
 use const JSON_THROW_ON_ERROR;
+use const JSON_UNESCAPED_SLASHES;
+use const JSON_UNESCAPED_UNICODE;
 use const PHP_SAPI;
 
 /**
@@ -56,7 +59,16 @@ use const PHP_SAPI;
  */
 class FileSystemHelper
 {
-    private const JSON_DECODE_FLAGS = JSON_BIGINT_AS_STRING | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR;
+    private const JSON_DECODE_FLAGS =
+        JSON_BIGINT_AS_STRING
+        | JSON_INVALID_UTF8_SUBSTITUTE
+        | JSON_THROW_ON_ERROR;
+
+    private const JSON_ENCODE_FLAGS =
+        JSON_PRETTY_PRINT
+        | JSON_UNESCAPED_SLASHES
+        | JSON_UNESCAPED_UNICODE
+        | JSON_THROW_ON_ERROR;
 
     private static ?string $currentWorkingDir = null;
 
@@ -104,7 +116,7 @@ class FileSystemHelper
         } catch (JsonException $exception) {
             throw new UnableToProcessFileException(
                 sprintf('Unable to decode the JSON in the file "%s"', $filePath),
-                is_int($exception->getCode()) ? $exception->getCode() : 0,
+                0,
                 $exception,
             );
         }
@@ -140,6 +152,24 @@ class FileSystemHelper
         if ($bytes === false) {
             throw new UnableToWriteFileException(sprintf('Unable to write contents to file "%s".', $file));
         }
+    }
+
+    /**
+     * @param string | resource | mixed $file
+     * @param mixed $contents
+     *
+     * @throws InvalidArgumentException
+     * @throws UnableToWriteFileException
+     */
+    public function writeJsonContents($file, $contents): void
+    {
+        try {
+            $encodedContents = (string) @json_encode($contents, self::JSON_ENCODE_FLAGS);
+        } catch (JsonException $exception) {
+            throw new InvalidArgumentException('Unable to encode contents as JSON', 0, $exception);
+        }
+
+        $this->writeContents($file, $encodedContents . "\n");
     }
 
     /**

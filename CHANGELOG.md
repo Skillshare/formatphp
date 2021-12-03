@@ -10,10 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 
 - Provide `--add-missing-ids` extraction option to update source code with auto-generated identifiers
+- Add `Util\FormatHelper` that provides `getReader()` and `getWriter()` methods
+- Introduce `Format\Format` final static class for format constants
 
 ### Changed
 
-- Nothing.
+- The `Extractor\MessageExtractor` constructor now requires `Util\FormatHelper` as a fifth parameter
+- Use `ConfigInterface` instead of `Config` as the type-hint on `Format\ReaderInterface`
 
 ### Deprecated
 
