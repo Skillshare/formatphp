@@ -32,8 +32,12 @@ use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\Parser\ParserError;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use PhpParser\Node;
+use PhpParser\Node\Expr\ArrayItem;
+use PhpParser\Node\Expr\Array_;
+use PhpParser\Node\Scalar\String_;
 use PhpParser\NodeVisitorAbstract;
 
+use function array_unshift;
 use function assert;
 use function in_array;
 use function preg_replace;
@@ -51,6 +55,7 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
     private IdInterpolator $idInterpolator;
     private string $idInterpolatorPattern;
     private ParserErrorCollection $errors;
+    private bool $addGeneratedIdsToSourceCode;
 
     /**
      * @var string[]
@@ -66,7 +71,8 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
         ParserErrorCollection $errors,
         array $functionNames = [],
         bool $preserveWhitespace = false,
-        string $idInterpolatorPattern = IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN
+        string $idInterpolatorPattern = IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN,
+        bool $addGeneratedIdsToSourceCode = false
     ) {
         $this->filePath = $filePath;
         $this->errors = $errors;
@@ -75,6 +81,7 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
         $this->descriptors = new DescriptorCollection();
         $this->idInterpolator = new IdInterpolator();
         $this->idInterpolatorPattern = $idInterpolatorPattern;
+        $this->addGeneratedIdsToSourceCode = $addGeneratedIdsToSourceCode;
     }
 
     /**
@@ -126,8 +133,9 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
         }
 
         try {
-            $descriptor = $this->parseDescriptorArgument($node->getArgs()[0] ?? null);
-            $this->descriptors[] = $this->ensureId($descriptor);
+            $descriptorArgument = $node->getArgs()[0] ?? null;
+            $descriptor = $this->parseDescriptorArgument($descriptorArgument);
+            $this->descriptors[] = $this->ensureId($descriptor, $descriptorArgument);
         } catch (UnableToParseDescriptorException $exception) {
             $this->errors[] = new ParserError(
                 $exception->getMessage(),
@@ -232,9 +240,24 @@ class DescriptorCollectorVisitor extends NodeVisitorAbstract
      * @throws InvalidArgumentException
      * @throws UnableToGenerateMessageIdException
      */
-    private function ensureId(DescriptorInterface $descriptor): DescriptorInterface
+    private function ensureId(DescriptorInterface $descriptor, ?Node\Arg $descriptorArgument): DescriptorInterface
     {
-        $descriptor->setId($this->idInterpolator->generateId($descriptor, $this->idInterpolatorPattern));
+        $generatedId = $this->idInterpolator->generateId($descriptor, $this->idInterpolatorPattern);
+
+        // Should we update the source code with the generated ID?
+        if (
+            $this->addGeneratedIdsToSourceCode
+            && $descriptorArgument !== null
+            && $descriptorArgument->value instanceof Array_
+            && $descriptor->getId() === null
+        ) {
+            array_unshift(
+                $descriptorArgument->value->items,
+                new ArrayItem(new String_($generatedId), new String_('id')),
+            );
+        }
+
+        $descriptor->setId($generatedId);
 
         return $descriptor;
     }

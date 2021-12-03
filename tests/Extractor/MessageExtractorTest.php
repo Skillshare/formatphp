@@ -91,6 +91,16 @@ class MessageExtractorTest extends TestCase
                 'goodbye' => [
                     'defaultMessage' => 'Goodbye!',
                 ],
+                'Soex4s' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'xgMWoP' => [
+                    'defaultMessage' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
             ],
             $messages,
         );
@@ -128,6 +138,16 @@ class MessageExtractorTest extends TestCase
                         'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
                     'description' => 'A description with multiple lines and extra whitespace.',
                 ],
+                'Soex4s' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'xgMWoP' => [
+                    'defaultMessage' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
             ],
             $messages,
         );
@@ -158,6 +178,9 @@ class MessageExtractorTest extends TestCase
             [
                 'aTestId' => 'This is a default message',
                 'photos.count' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                'Soex4s' => 'This is a default message',
+                'xgMWoP' => 'This is a default message',
+                'Q+U0TW' => 'Welcome!',
             ],
             $messages,
         );
@@ -205,6 +228,16 @@ class MessageExtractorTest extends TestCase
                     'description' => 'A description with multiple lines and extra whitespace.',
                     'message' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
                 ],
+                'Soex4s' => [
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                    'message' => 'This is a default message',
+                ],
+                'xgMWoP' => [
+                    'message' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'message' => 'Welcome!',
+                ],
             ],
             $messages,
         );
@@ -241,6 +274,18 @@ class MessageExtractorTest extends TestCase
                     'id' => 'photos.count',
                     'string' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
                 ],
+                'Soex4s' => [
+                    'id' => 'Soex4s',
+                    'string' => 'This is a default message',
+                ],
+                'xgMWoP' => [
+                    'id' => 'xgMWoP',
+                    'string' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'id' => 'Q+U0TW',
+                    'string' => 'Welcome!',
+                ],
             ],
             $messages,
         );
@@ -274,6 +319,15 @@ class MessageExtractorTest extends TestCase
                 ],
                 'photos.count' => [
                     'translation' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                ],
+                'Soex4s' => [
+                    'translation' => 'This is a default message',
+                ],
+                'xgMWoP' => [
+                    'translation' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'translation' => 'Welcome!',
                 ],
             ],
             $messages,
@@ -486,6 +540,16 @@ class MessageExtractorTest extends TestCase
                 'goodbye' => [
                     'defaultMessage' => 'Goodbye!',
                 ],
+                'Soex4s' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'xgMWoP' => [
+                    'defaultMessage' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
                 'customWelcome' => [
                     'defaultMessage' => 'Custom Welcome!',
                 ],
@@ -567,6 +631,16 @@ class MessageExtractorTest extends TestCase
                 ],
                 'goodbye' => [
                     'defaultMessage' => 'Goodbye!',
+                ],
+                'Soex4s' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'xgMWoP' => [
+                    'defaultMessage' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'defaultMessage' => 'Welcome!',
                 ],
                 'customWelcome' => [
                     'defaultMessage' => 'Custom Welcome!',

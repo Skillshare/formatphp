@@ -12,6 +12,7 @@ use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
 
+use function file_get_contents;
 use function sprintf;
 
 class PhpParserTest extends TestCase
@@ -122,6 +123,51 @@ class PhpParserTest extends TestCase
             ],
             $receivedErrors,
         );
+    }
+
+    public function testParse03AddsMissingIdToDescriptor(): void
+    {
+        $fileSystemHelper = $this->mockery(FileSystemHelper::class);
+
+        $fileSystemHelper
+            ->expects()
+            ->getContents(__DIR__ . '/fixtures/php-parser-03.php')
+            ->andReturn(file_get_contents(__DIR__ . '/fixtures/php-parser-03.php'));
+
+        $fileSystemHelper
+            ->expects()
+            ->writeContents(
+                __DIR__ . '/fixtures/php-parser-03.php',
+                file_get_contents(__DIR__ . '/fixtures/php-parser-03.written'),
+            );
+
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->functionNames = ['translate'];
+        $options->addGeneratedIdsToSourceCode = true;
+
+        $parser = new PhpParser($fileSystemHelper);
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-03.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
+
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
+        $this->assertCount(1, $descriptors);
+        $this->assertInstanceOf(ExtendedDescriptorInterface::class, $descriptors[0]);
+        $this->assertSame(
+            [
+                'defaultMessage' => 'Hello!',
+                'description' => null,
+                'end' => 320,
+                'file' => __DIR__ . '/fixtures/php-parser-03.php',
+                'id' => 'OpKKos',
+                'line' => 14,
+                'meta' => [],
+                'start' => 284,
+            ],
+            $descriptors[0]->toArray(),
+        );
+        $this->assertCount(0, $receivedErrors);
     }
 
     public function testParse04(): void
@@ -344,6 +390,37 @@ class PhpParserTest extends TestCase
             ],
             $receivedErrors,
         );
+    }
+
+    public function testParse11(): void
+    {
+        $fileSystemHelper = $this->mockery(FileSystemHelper::class);
+
+        $fileSystemHelper
+            ->expects()
+            ->getContents(__DIR__ . '/fixtures/php-parser-11.php')
+            ->andReturn(file_get_contents(__DIR__ . '/fixtures/php-parser-11.php'));
+
+        $fileSystemHelper
+            ->expects()
+            ->writeContents(
+                __DIR__ . '/fixtures/php-parser-11.php',
+                file_get_contents(__DIR__ . '/fixtures/php-parser-11.written'),
+            );
+
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->addGeneratedIdsToSourceCode = true;
+        $options->pragma = 'foo';
+
+        $parser = new PhpParser($fileSystemHelper);
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-11.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
+
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
+        $this->assertCount(4, $descriptors);
+        $this->assertCount(0, $receivedErrors);
     }
 
     /**

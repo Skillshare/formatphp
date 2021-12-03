@@ -23,6 +23,9 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor\Parser\Descriptor;
 
 use FormatPHP\DescriptorCollection;
+use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Exception\UnableToProcessFileException;
+use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\ExtendedDescriptorInterface;
 use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
@@ -31,9 +34,11 @@ use FormatPHP\Util\FileSystemHelper;
 use LogicException;
 use PhpParser\Lexer;
 use PhpParser\Lexer\Emulative;
+use PhpParser\Node;
 use PhpParser\NodeTraverser;
-use PhpParser\Parser;
+use PhpParser\NodeVisitor\CloningVisitor;
 use PhpParser\Parser\Php7 as Php7Parser;
+use PhpParser\PrettyPrinter\Standard as PhpPrinter;
 
 use function assert;
 use function count;
@@ -49,32 +54,31 @@ class PhpParser implements DescriptorParserInterface
 {
     private const PHP_PATH_EXTENSIONS = ['php', 'phtml'];
 
-    private FileSystemHelper $file;
-    private Lexer $lexer;
-    private Parser $parser;
+    private const LEXER_OPTIONS = [
+        'usedAttributes' => [
+            'comments',
+            'endFilePos',
+            'endLine',
+            'endTokenPos',
+            'startFilePos',
+            'startLine',
+            'startTokenPos',
+        ],
+    ];
 
-    /**
-     * @throws LogicException
-     */
-    public function __construct(FileSystemHelper $file)
+    private FileSystemHelper $fileSystemHelper;
+
+    public function __construct(FileSystemHelper $fileSystemHelper)
     {
-        $this->file = $file;
-
-        $this->lexer = new Emulative([
-            'usedAttributes' => [
-                'comments',
-                'endFilePos',
-                'endLine',
-                'endTokenPos',
-                'startFilePos',
-                'startLine',
-                'startTokenPos',
-            ],
-        ]);
-
-        $this->parser = new Php7Parser($this->lexer);
+        $this->fileSystemHelper = $fileSystemHelper;
     }
 
+    /**
+     * @throws InvalidArgumentException
+     * @throws UnableToWriteFileException
+     * @throws LogicException
+     * @throws UnableToProcessFileException
+     */
     public function __invoke(
         string $filePath,
         MessageExtractorOptions $options,
@@ -84,8 +88,9 @@ class PhpParser implements DescriptorParserInterface
             return new DescriptorCollection();
         }
 
-        $statements = $this->parser->parse($this->file->getContents($filePath));
-        assert($statements !== null);
+        $lexer = new Emulative(self::LEXER_OPTIONS);
+        $parser = new Php7Parser($lexer);
+        $statements = $parser->parse($this->fileSystemHelper->getContents($filePath));
 
         $descriptorCollector = new DescriptorCollectorVisitor(
             $filePath,
@@ -93,20 +98,80 @@ class PhpParser implements DescriptorParserInterface
             $options->functionNames,
             $options->preserveWhitespace,
             $options->idInterpolationPattern,
+            $options->addGeneratedIdsToSourceCode,
         );
-
-        $traverser = new NodeTraverser();
-        $traverser->addVisitor($descriptorCollector);
 
         $pragmaCollector = null;
         if ($options->pragma !== null) {
             $pragmaCollector = new PragmaCollectorVisitor($filePath, $options->pragma, $errors);
+        }
+
+        assert($statements !== null);
+
+        if ($options->addGeneratedIdsToSourceCode) {
+            $this->traverseWithUpdate($filePath, $statements, $lexer, $descriptorCollector, $pragmaCollector);
+        } else {
+            $this->traverseWithoutUpdate($statements, $descriptorCollector, $pragmaCollector);
+        }
+
+        return $this->applyMetadata($descriptorCollector->getDescriptors(), $pragmaCollector);
+    }
+
+    /**
+     * @param Node[] $statements
+     */
+    private function traverseWithoutUpdate(
+        array $statements,
+        DescriptorCollectorVisitor $descriptorCollector,
+        ?PragmaCollectorVisitor $pragmaCollector
+    ): void {
+        $traverser = new NodeTraverser();
+        $traverser->addVisitor($descriptorCollector);
+
+        if ($pragmaCollector !== null) {
             $traverser->addVisitor($pragmaCollector);
         }
 
         $traverser->traverse($statements);
+    }
 
-        return $this->applyMetadata($descriptorCollector->getDescriptors(), $pragmaCollector);
+    /**
+     * @param Node[] $originalStatements
+     *
+     * @throws UnableToWriteFileException
+     * @throws InvalidArgumentException
+     */
+    private function traverseWithUpdate(
+        string $filePath,
+        array $originalStatements,
+        Lexer $lexer,
+        DescriptorCollectorVisitor $descriptorCollector,
+        ?PragmaCollectorVisitor $pragmaCollector
+    ): void {
+        $originalTokens = $lexer->getTokens();
+
+        $cloningTraverser = new NodeTraverser();
+        $cloningTraverser->addVisitor(new CloningVisitor());
+        $clonedStatements = $cloningTraverser->traverse($originalStatements);
+
+        $modifyingTraverser = new NodeTraverser();
+        $modifyingTraverser->addVisitor($descriptorCollector);
+
+        if ($pragmaCollector !== null) {
+            $modifyingTraverser->addVisitor($pragmaCollector);
+        }
+
+        $modifiedStatements = $modifyingTraverser->traverse($clonedStatements);
+
+        if (count($descriptorCollector->getDescriptors()) > 0) {
+            $updatedSourceCode = (new PhpPrinter())->printFormatPreserving(
+                $modifiedStatements,
+                $originalStatements,
+                $originalTokens,
+            );
+
+            $this->fileSystemHelper->writeContents($filePath, $updatedSourceCode);
+        }
     }
 
     private function applyMetadata(
