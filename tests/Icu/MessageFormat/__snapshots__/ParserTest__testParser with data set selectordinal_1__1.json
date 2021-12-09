@@ -1,0 +1,261 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 73,
+                    "line": 1,
+                    "offset": 72
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "offset": 0,
+            "options": {
+                "=0": {
+                    "location": {
+                        "end": {
+                            "column": 34,
+                            "line": 1,
+                            "offset": 33
+                        },
+                        "start": {
+                            "column": 26,
+                            "line": 1,
+                            "offset": 25
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 33,
+                                    "line": 1,
+                                    "offset": 32
+                                },
+                                "start": {
+                                    "column": 27,
+                                    "line": 1,
+                                    "offset": 26
+                                }
+                            },
+                            "type": 0,
+                            "value": "ground"
+                        }
+                    ]
+                },
+                "few": {
+                    "location": {
+                        "end": {
+                            "column": 61,
+                            "line": 1,
+                            "offset": 60
+                        },
+                        "start": {
+                            "column": 56,
+                            "line": 1,
+                            "offset": 55
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 58,
+                                    "line": 1,
+                                    "offset": 57
+                                },
+                                "start": {
+                                    "column": 57,
+                                    "line": 1,
+                                    "offset": 56
+                                }
+                            },
+                            "type": 7
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 60,
+                                    "line": 1,
+                                    "offset": 59
+                                },
+                                "start": {
+                                    "column": 58,
+                                    "line": 1,
+                                    "offset": 57
+                                }
+                            },
+                            "type": 0,
+                            "value": "rd"
+                        }
+                    ]
+                },
+                "one": {
+                    "location": {
+                        "end": {
+                            "column": 43,
+                            "line": 1,
+                            "offset": 42
+                        },
+                        "start": {
+                            "column": 38,
+                            "line": 1,
+                            "offset": 37
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 40,
+                                    "line": 1,
+                                    "offset": 39
+                                },
+                                "start": {
+                                    "column": 39,
+                                    "line": 1,
+                                    "offset": 38
+                                }
+                            },
+                            "type": 7
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 42,
+                                    "line": 1,
+                                    "offset": 41
+                                },
+                                "start": {
+                                    "column": 40,
+                                    "line": 1,
+                                    "offset": 39
+                                }
+                            },
+                            "type": 0,
+                            "value": "st"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 72,
+                            "line": 1,
+                            "offset": 71
+                        },
+                        "start": {
+                            "column": 67,
+                            "line": 1,
+                            "offset": 66
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 69,
+                                    "line": 1,
+                                    "offset": 68
+                                },
+                                "start": {
+                                    "column": 68,
+                                    "line": 1,
+                                    "offset": 67
+                                }
+                            },
+                            "type": 7
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 71,
+                                    "line": 1,
+                                    "offset": 70
+                                },
+                                "start": {
+                                    "column": 69,
+                                    "line": 1,
+                                    "offset": 68
+                                }
+                            },
+                            "type": 0,
+                            "value": "th"
+                        }
+                    ]
+                },
+                "two": {
+                    "location": {
+                        "end": {
+                            "column": 52,
+                            "line": 1,
+                            "offset": 51
+                        },
+                        "start": {
+                            "column": 47,
+                            "line": 1,
+                            "offset": 46
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 49,
+                                    "line": 1,
+                                    "offset": 48
+                                },
+                                "start": {
+                                    "column": 48,
+                                    "line": 1,
+                                    "offset": 47
+                                }
+                            },
+                            "type": 7
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 51,
+                                    "line": 1,
+                                    "offset": 50
+                                },
+                                "start": {
+                                    "column": 49,
+                                    "line": 1,
+                                    "offset": 48
+                                }
+                            },
+                            "type": 0,
+                            "value": "nd"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "ordinal",
+            "type": 6,
+            "value": "floor"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 79,
+                    "line": 1,
+                    "offset": 78
+                },
+                "start": {
+                    "column": 73,
+                    "line": 1,
+                    "offset": 72
+                }
+            },
+            "type": 0,
+            "value": " floor"
+        }
+    ]
+}

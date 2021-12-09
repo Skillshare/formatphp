@@ -1,0 +1,154 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 3,
+                    "line": 1,
+                    "offset": 2
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "I "
+        },
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 10,
+                            "line": 1,
+                            "offset": 9
+                        },
+                        "start": {
+                            "column": 6,
+                            "line": 1,
+                            "offset": 5
+                        }
+                    },
+                    "type": 0,
+                    "value": "have"
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 14,
+                    "line": 1,
+                    "offset": 13
+                },
+                "start": {
+                    "column": 3,
+                    "line": 1,
+                    "offset": 2
+                }
+            },
+            "type": 8,
+            "value": "b"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 15,
+                    "line": 1,
+                    "offset": 14
+                },
+                "start": {
+                    "column": 14,
+                    "line": 1,
+                    "offset": 13
+                }
+            },
+            "type": 0,
+            "value": " "
+        },
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 37,
+                            "line": 1,
+                            "offset": 36
+                        },
+                        "start": {
+                            "column": 20,
+                            "line": 1,
+                            "offset": 19
+                        }
+                    },
+                    "style": null,
+                    "type": 2,
+                    "value": "numCats"
+                },
+                {
+                    "location": {
+                        "end": {
+                            "column": 50,
+                            "line": 1,
+                            "offset": 49
+                        },
+                        "start": {
+                            "column": 37,
+                            "line": 1,
+                            "offset": 36
+                        }
+                    },
+                    "type": 0,
+                    "value": " some string "
+                },
+                {
+                    "location": {
+                        "end": {
+                            "column": 63,
+                            "line": 1,
+                            "offset": 62
+                        },
+                        "start": {
+                            "column": 50,
+                            "line": 1,
+                            "offset": 49
+                        }
+                    },
+                    "type": 1,
+                    "value": "placeholder"
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 69,
+                    "line": 1,
+                    "offset": 68
+                },
+                "start": {
+                    "column": 15,
+                    "line": 1,
+                    "offset": 14
+                }
+            },
+            "type": 8,
+            "value": "foo"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 75,
+                    "line": 1,
+                    "offset": 74
+                },
+                "start": {
+                    "column": 69,
+                    "line": 1,
+                    "offset": 68
+                }
+            },
+            "type": 0,
+            "value": " cats."
+        }
+    ]
+}

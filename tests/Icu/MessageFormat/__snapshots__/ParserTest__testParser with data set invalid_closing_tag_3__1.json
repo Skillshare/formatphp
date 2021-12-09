@@ -1,0 +1,19 @@
+{
+    "val": null,
+    "err": {
+        "kind": 23,
+        "message": "<test>a<\/test",
+        "location": {
+            "start": {
+                "offset": 7,
+                "line": 1,
+                "column": 8
+            },
+            "end": {
+                "offset": 13,
+                "line": 1,
+                "column": 14
+            }
+        }
+    }
+}

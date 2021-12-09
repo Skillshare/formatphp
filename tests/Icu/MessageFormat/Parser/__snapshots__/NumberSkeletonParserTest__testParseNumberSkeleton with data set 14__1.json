@@ -1,0 +1,7 @@
+{
+    "currency": "GBP",
+    "maximumSignificantDigits": 3,
+    "minimumFractionDigits": 1,
+    "minimumSignificantDigits": 3,
+    "style": "currency"
+}

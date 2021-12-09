@@ -1,0 +1,71 @@
+{
+    "err": null,
+    "val": [
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 15,
+                            "line": 1,
+                            "offset": 14
+                        },
+                        "start": {
+                            "column": 11,
+                            "line": 1,
+                            "offset": 10
+                        }
+                    },
+                    "type": 0,
+                    "value": "foo "
+                },
+                {
+                    "location": {
+                        "end": {
+                            "column": 18,
+                            "line": 1,
+                            "offset": 17
+                        },
+                        "start": {
+                            "column": 15,
+                            "line": 1,
+                            "offset": 14
+                        }
+                    },
+                    "type": 1,
+                    "value": "0"
+                },
+                {
+                    "location": {
+                        "end": {
+                            "column": 22,
+                            "line": 1,
+                            "offset": 21
+                        },
+                        "start": {
+                            "column": 18,
+                            "line": 1,
+                            "offset": 17
+                        }
+                    },
+                    "type": 0,
+                    "value": " bar"
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 33,
+                    "line": 1,
+                    "offset": 32
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 8,
+            "value": "test-tag"
+        }
+    ]
+}

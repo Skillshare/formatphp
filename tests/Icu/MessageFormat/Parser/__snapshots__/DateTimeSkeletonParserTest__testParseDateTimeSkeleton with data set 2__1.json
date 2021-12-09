@@ -1,0 +1,6 @@
+{
+    "hour": "numeric",
+    "hour12": true,
+    "hourCycle": "h12",
+    "minute": "2-digit"
+}

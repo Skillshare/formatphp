@@ -1,0 +1,1152 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "\n    "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 79,
+                    "line": 20,
+                    "offset": 930
+                },
+                "start": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                }
+            },
+            "options": {
+                "female": {
+                    "location": {
+                        "end": {
+                            "column": 76,
+                            "line": 8,
+                            "offset": 328
+                        },
+                        "start": {
+                            "column": 14,
+                            "line": 3,
+                            "offset": 43
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 9,
+                                    "line": 4,
+                                    "offset": 53
+                                },
+                                "start": {
+                                    "column": 15,
+                                    "line": 3,
+                                    "offset": 44
+                                }
+                            },
+                            "type": 0,
+                            "value": "\n        "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 75,
+                                    "line": 8,
+                                    "offset": 327
+                                },
+                                "start": {
+                                    "column": 9,
+                                    "line": 4,
+                                    "offset": 53
+                                }
+                            },
+                            "offset": 1,
+                            "options": {
+                                "=0": {
+                                    "location": {
+                                        "end": {
+                                            "column": 45,
+                                            "line": 5,
+                                            "offset": 127
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 5,
+                                            "offset": 96
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 5,
+                                                    "offset": 103
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 5,
+                                                    "offset": 97
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 44,
+                                                    "line": 5,
+                                                    "offset": 126
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 5,
+                                                    "offset": 103
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " does not give a party."
+                                        }
+                                    ]
+                                },
+                                "=1": {
+                                    "location": {
+                                        "end": {
+                                            "column": 52,
+                                            "line": 6,
+                                            "offset": 179
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 6,
+                                            "offset": 141
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 6,
+                                                    "offset": 148
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 6,
+                                                    "offset": 142
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 30,
+                                                    "line": 6,
+                                                    "offset": 157
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 6,
+                                                    "offset": 148
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 37,
+                                                    "line": 6,
+                                                    "offset": 164
+                                                },
+                                                "start": {
+                                                    "column": 30,
+                                                    "line": 6,
+                                                    "offset": 157
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 51,
+                                                    "line": 6,
+                                                    "offset": 178
+                                                },
+                                                "start": {
+                                                    "column": 37,
+                                                    "line": 6,
+                                                    "offset": 164
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " to her party."
+                                        }
+                                    ]
+                                },
+                                "=2": {
+                                    "location": {
+                                        "end": {
+                                            "column": 73,
+                                            "line": 7,
+                                            "offset": 252
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 7,
+                                            "offset": 193
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 7,
+                                                    "offset": 200
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 7,
+                                                    "offset": 194
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 30,
+                                                    "line": 7,
+                                                    "offset": 209
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 7,
+                                                    "offset": 200
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 37,
+                                                    "line": 7,
+                                                    "offset": 216
+                                                },
+                                                "start": {
+                                                    "column": 30,
+                                                    "line": 7,
+                                                    "offset": 209
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 72,
+                                                    "line": 7,
+                                                    "offset": 251
+                                                },
+                                                "start": {
+                                                    "column": 37,
+                                                    "line": 7,
+                                                    "offset": 216
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " and one other person to her party."
+                                        }
+                                    ]
+                                },
+                                "other": {
+                                    "location": {
+                                        "end": {
+                                            "column": 74,
+                                            "line": 8,
+                                            "offset": 326
+                                        },
+                                        "start": {
+                                            "column": 17,
+                                            "line": 8,
+                                            "offset": 269
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 24,
+                                                    "line": 8,
+                                                    "offset": 276
+                                                },
+                                                "start": {
+                                                    "column": 18,
+                                                    "line": 8,
+                                                    "offset": 270
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 33,
+                                                    "line": 8,
+                                                    "offset": 285
+                                                },
+                                                "start": {
+                                                    "column": 24,
+                                                    "line": 8,
+                                                    "offset": 276
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 40,
+                                                    "line": 8,
+                                                    "offset": 292
+                                                },
+                                                "start": {
+                                                    "column": 33,
+                                                    "line": 8,
+                                                    "offset": 285
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 45,
+                                                    "line": 8,
+                                                    "offset": 297
+                                                },
+                                                "start": {
+                                                    "column": 40,
+                                                    "line": 8,
+                                                    "offset": 292
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " and "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 46,
+                                                    "line": 8,
+                                                    "offset": 298
+                                                },
+                                                "start": {
+                                                    "column": 45,
+                                                    "line": 8,
+                                                    "offset": 297
+                                                }
+                                            },
+                                            "type": 7
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 73,
+                                                    "line": 8,
+                                                    "offset": 325
+                                                },
+                                                "start": {
+                                                    "column": 46,
+                                                    "line": 8,
+                                                    "offset": 298
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " other people to her party."
+                                        }
+                                    ]
+                                }
+                            },
+                            "pluralType": "cardinal",
+                            "type": 6,
+                            "value": "num_guests"
+                        }
+                    ]
+                },
+                "male": {
+                    "location": {
+                        "end": {
+                            "column": 76,
+                            "line": 14,
+                            "offset": 625
+                        },
+                        "start": {
+                            "column": 12,
+                            "line": 9,
+                            "offset": 340
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 9,
+                                    "line": 10,
+                                    "offset": 350
+                                },
+                                "start": {
+                                    "column": 13,
+                                    "line": 9,
+                                    "offset": 341
+                                }
+                            },
+                            "type": 0,
+                            "value": "\n        "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 75,
+                                    "line": 14,
+                                    "offset": 624
+                                },
+                                "start": {
+                                    "column": 9,
+                                    "line": 10,
+                                    "offset": 350
+                                }
+                            },
+                            "offset": 1,
+                            "options": {
+                                "=0": {
+                                    "location": {
+                                        "end": {
+                                            "column": 45,
+                                            "line": 11,
+                                            "offset": 424
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 11,
+                                            "offset": 393
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 11,
+                                                    "offset": 400
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 11,
+                                                    "offset": 394
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 44,
+                                                    "line": 11,
+                                                    "offset": 423
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 11,
+                                                    "offset": 400
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " does not give a party."
+                                        }
+                                    ]
+                                },
+                                "=1": {
+                                    "location": {
+                                        "end": {
+                                            "column": 52,
+                                            "line": 12,
+                                            "offset": 476
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 12,
+                                            "offset": 438
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 12,
+                                                    "offset": 445
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 12,
+                                                    "offset": 439
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 30,
+                                                    "line": 12,
+                                                    "offset": 454
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 12,
+                                                    "offset": 445
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 37,
+                                                    "line": 12,
+                                                    "offset": 461
+                                                },
+                                                "start": {
+                                                    "column": 30,
+                                                    "line": 12,
+                                                    "offset": 454
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 51,
+                                                    "line": 12,
+                                                    "offset": 475
+                                                },
+                                                "start": {
+                                                    "column": 37,
+                                                    "line": 12,
+                                                    "offset": 461
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " to his party."
+                                        }
+                                    ]
+                                },
+                                "=2": {
+                                    "location": {
+                                        "end": {
+                                            "column": 73,
+                                            "line": 13,
+                                            "offset": 549
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 13,
+                                            "offset": 490
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 13,
+                                                    "offset": 497
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 13,
+                                                    "offset": 491
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 30,
+                                                    "line": 13,
+                                                    "offset": 506
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 13,
+                                                    "offset": 497
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 37,
+                                                    "line": 13,
+                                                    "offset": 513
+                                                },
+                                                "start": {
+                                                    "column": 30,
+                                                    "line": 13,
+                                                    "offset": 506
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 72,
+                                                    "line": 13,
+                                                    "offset": 548
+                                                },
+                                                "start": {
+                                                    "column": 37,
+                                                    "line": 13,
+                                                    "offset": 513
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " and one other person to his party."
+                                        }
+                                    ]
+                                },
+                                "other": {
+                                    "location": {
+                                        "end": {
+                                            "column": 74,
+                                            "line": 14,
+                                            "offset": 623
+                                        },
+                                        "start": {
+                                            "column": 17,
+                                            "line": 14,
+                                            "offset": 566
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 24,
+                                                    "line": 14,
+                                                    "offset": 573
+                                                },
+                                                "start": {
+                                                    "column": 18,
+                                                    "line": 14,
+                                                    "offset": 567
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 33,
+                                                    "line": 14,
+                                                    "offset": 582
+                                                },
+                                                "start": {
+                                                    "column": 24,
+                                                    "line": 14,
+                                                    "offset": 573
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 40,
+                                                    "line": 14,
+                                                    "offset": 589
+                                                },
+                                                "start": {
+                                                    "column": 33,
+                                                    "line": 14,
+                                                    "offset": 582
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 45,
+                                                    "line": 14,
+                                                    "offset": 594
+                                                },
+                                                "start": {
+                                                    "column": 40,
+                                                    "line": 14,
+                                                    "offset": 589
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " and "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 46,
+                                                    "line": 14,
+                                                    "offset": 595
+                                                },
+                                                "start": {
+                                                    "column": 45,
+                                                    "line": 14,
+                                                    "offset": 594
+                                                }
+                                            },
+                                            "type": 7
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 73,
+                                                    "line": 14,
+                                                    "offset": 622
+                                                },
+                                                "start": {
+                                                    "column": 46,
+                                                    "line": 14,
+                                                    "offset": 595
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " other people to his party."
+                                        }
+                                    ]
+                                }
+                            },
+                            "pluralType": "cardinal",
+                            "type": 6,
+                            "value": "num_guests"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 78,
+                            "line": 20,
+                            "offset": 929
+                        },
+                        "start": {
+                            "column": 13,
+                            "line": 15,
+                            "offset": 638
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 9,
+                                    "line": 16,
+                                    "offset": 648
+                                },
+                                "start": {
+                                    "column": 14,
+                                    "line": 15,
+                                    "offset": 639
+                                }
+                            },
+                            "type": 0,
+                            "value": "\n        "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 77,
+                                    "line": 20,
+                                    "offset": 928
+                                },
+                                "start": {
+                                    "column": 9,
+                                    "line": 16,
+                                    "offset": 648
+                                }
+                            },
+                            "offset": 1,
+                            "options": {
+                                "=0": {
+                                    "location": {
+                                        "end": {
+                                            "column": 45,
+                                            "line": 17,
+                                            "offset": 722
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 17,
+                                            "offset": 691
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 17,
+                                                    "offset": 698
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 17,
+                                                    "offset": 692
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 44,
+                                                    "line": 17,
+                                                    "offset": 721
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 17,
+                                                    "offset": 698
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " does not give a party."
+                                        }
+                                    ]
+                                },
+                                "=1": {
+                                    "location": {
+                                        "end": {
+                                            "column": 54,
+                                            "line": 18,
+                                            "offset": 776
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 18,
+                                            "offset": 736
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 18,
+                                                    "offset": 743
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 18,
+                                                    "offset": 737
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 30,
+                                                    "line": 18,
+                                                    "offset": 752
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 18,
+                                                    "offset": 743
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 37,
+                                                    "line": 18,
+                                                    "offset": 759
+                                                },
+                                                "start": {
+                                                    "column": 30,
+                                                    "line": 18,
+                                                    "offset": 752
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 53,
+                                                    "line": 18,
+                                                    "offset": 775
+                                                },
+                                                "start": {
+                                                    "column": 37,
+                                                    "line": 18,
+                                                    "offset": 759
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " to their party."
+                                        }
+                                    ]
+                                },
+                                "=2": {
+                                    "location": {
+                                        "end": {
+                                            "column": 75,
+                                            "line": 19,
+                                            "offset": 851
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 19,
+                                            "offset": 790
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 21,
+                                                    "line": 19,
+                                                    "offset": 797
+                                                },
+                                                "start": {
+                                                    "column": 15,
+                                                    "line": 19,
+                                                    "offset": 791
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 30,
+                                                    "line": 19,
+                                                    "offset": 806
+                                                },
+                                                "start": {
+                                                    "column": 21,
+                                                    "line": 19,
+                                                    "offset": 797
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 37,
+                                                    "line": 19,
+                                                    "offset": 813
+                                                },
+                                                "start": {
+                                                    "column": 30,
+                                                    "line": 19,
+                                                    "offset": 806
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 74,
+                                                    "line": 19,
+                                                    "offset": 850
+                                                },
+                                                "start": {
+                                                    "column": 37,
+                                                    "line": 19,
+                                                    "offset": 813
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " and one other person to their party."
+                                        }
+                                    ]
+                                },
+                                "other": {
+                                    "location": {
+                                        "end": {
+                                            "column": 76,
+                                            "line": 20,
+                                            "offset": 927
+                                        },
+                                        "start": {
+                                            "column": 17,
+                                            "line": 20,
+                                            "offset": 868
+                                        }
+                                    },
+                                    "value": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 24,
+                                                    "line": 20,
+                                                    "offset": 875
+                                                },
+                                                "start": {
+                                                    "column": 18,
+                                                    "line": 20,
+                                                    "offset": 869
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "host"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 33,
+                                                    "line": 20,
+                                                    "offset": 884
+                                                },
+                                                "start": {
+                                                    "column": 24,
+                                                    "line": 20,
+                                                    "offset": 875
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " invites "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 40,
+                                                    "line": 20,
+                                                    "offset": 891
+                                                },
+                                                "start": {
+                                                    "column": 33,
+                                                    "line": 20,
+                                                    "offset": 884
+                                                }
+                                            },
+                                            "type": 1,
+                                            "value": "guest"
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 45,
+                                                    "line": 20,
+                                                    "offset": 896
+                                                },
+                                                "start": {
+                                                    "column": 40,
+                                                    "line": 20,
+                                                    "offset": 891
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " and "
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 46,
+                                                    "line": 20,
+                                                    "offset": 897
+                                                },
+                                                "start": {
+                                                    "column": 45,
+                                                    "line": 20,
+                                                    "offset": 896
+                                                }
+                                            },
+                                            "type": 7
+                                        },
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 75,
+                                                    "line": 20,
+                                                    "offset": 926
+                                                },
+                                                "start": {
+                                                    "column": 46,
+                                                    "line": 20,
+                                                    "offset": 897
+                                                }
+                                            },
+                                            "type": 0,
+                                            "value": " other people to their party."
+                                        }
+                                    ]
+                                }
+                            },
+                            "pluralType": "cardinal",
+                            "type": 6,
+                            "value": "num_guests"
+                        }
+                    ]
+                }
+            },
+            "type": 5,
+            "value": "gender_of_host"
+        }
+    ]
+}

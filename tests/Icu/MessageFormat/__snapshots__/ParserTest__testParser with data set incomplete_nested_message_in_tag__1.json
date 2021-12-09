@@ -1,0 +1,19 @@
+{
+    "err": {
+        "kind": 1,
+        "location": {
+            "end": {
+                "column": 23,
+                "line": 1,
+                "offset": 22
+            },
+            "start": {
+                "column": 22,
+                "line": 1,
+                "offset": 21
+            }
+        },
+        "message": "<a>{a, plural, other {</a>}}"
+    },
+    "val": null
+}

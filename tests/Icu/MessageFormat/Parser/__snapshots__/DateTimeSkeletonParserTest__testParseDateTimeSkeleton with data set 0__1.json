@@ -1,0 +1,11 @@
+{
+    "day": "2-digit",
+    "era": "short",
+    "hour": "2-digit",
+    "hourCycle": "h23",
+    "minute": "2-digit",
+    "month": "2-digit",
+    "second": "2-digit",
+    "timeZoneName": "long",
+    "year": "numeric"
+}

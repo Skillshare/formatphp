@@ -1,0 +1,5 @@
+{
+    "minimumIntegerDigits": 3,
+    "notation": "engineering",
+    "signDisplay": "exceptZero"
+}

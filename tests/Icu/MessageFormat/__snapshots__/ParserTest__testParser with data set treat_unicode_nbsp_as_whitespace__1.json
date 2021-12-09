@@ -1,0 +1,183 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "\n    "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 17,
+                    "line": 8,
+                    "offset": 105
+                },
+                "start": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                }
+            },
+            "options": {
+                "female": {
+                    "location": {
+                        "end": {
+                            "column": 15,
+                            "line": 6,
+                            "offset": 76
+                        },
+                        "start": {
+                            "column": 13,
+                            "line": 5,
+                            "offset": 60
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 9,
+                                    "line": 6,
+                                    "offset": 70
+                                },
+                                "start": {
+                                    "column": 14,
+                                    "line": 5,
+                                    "offset": 61
+                                }
+                            },
+                            "type": 0,
+                            "value": "\n        "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 14,
+                                    "line": 6,
+                                    "offset": 75
+                                },
+                                "start": {
+                                    "column": 9,
+                                    "line": 6,
+                                    "offset": 70
+                                }
+                            },
+                            "type": 1,
+                            "value": "She"
+                        }
+                    ]
+                },
+                "male": {
+                    "location": {
+                        "end": {
+                            "column": 14,
+                            "line": 4,
+                            "offset": 47
+                        },
+                        "start": {
+                            "column": 11,
+                            "line": 3,
+                            "offset": 32
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 9,
+                                    "line": 4,
+                                    "offset": 42
+                                },
+                                "start": {
+                                    "column": 12,
+                                    "line": 3,
+                                    "offset": 33
+                                }
+                            },
+                            "type": 0,
+                            "value": "\n        "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 13,
+                                    "line": 4,
+                                    "offset": 46
+                                },
+                                "start": {
+                                    "column": 9,
+                                    "line": 4,
+                                    "offset": 42
+                                }
+                            },
+                            "type": 1,
+                            "value": "He"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 16,
+                            "line": 8,
+                            "offset": 104
+                        },
+                        "start": {
+                            "column": 11,
+                            "line": 7,
+                            "offset": 87
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 9,
+                                    "line": 8,
+                                    "offset": 97
+                                },
+                                "start": {
+                                    "column": 12,
+                                    "line": 7,
+                                    "offset": 88
+                                }
+                            },
+                            "type": 0,
+                            "value": "\n        "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 15,
+                                    "line": 8,
+                                    "offset": 103
+                                },
+                                "start": {
+                                    "column": 9,
+                                    "line": 8,
+                                    "offset": 97
+                                }
+                            },
+                            "type": 1,
+                            "value": "They"
+                        }
+                    ]
+                }
+            },
+            "type": 5,
+            "value": "gender"
+        }
+    ]
+}

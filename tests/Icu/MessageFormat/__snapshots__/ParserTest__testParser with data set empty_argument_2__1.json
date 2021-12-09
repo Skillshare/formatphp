@@ -1,0 +1,19 @@
+{
+    "err": {
+        "kind": 2,
+        "location": {
+            "end": {
+                "column": 2,
+                "line": 2,
+                "offset": 14
+            },
+            "start": {
+                "column": 12,
+                "line": 1,
+                "offset": 11
+            }
+        },
+        "message": "My name is {\n}"
+    },
+    "val": null
+}

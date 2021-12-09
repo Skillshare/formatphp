@@ -1,0 +1,39 @@
+{
+    "err": null,
+    "val": [
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 8,
+                            "line": 1,
+                            "offset": 7
+                        },
+                        "start": {
+                            "column": 5,
+                            "line": 1,
+                            "offset": 4
+                        }
+                    },
+                    "type": 0,
+                    "value": "foo"
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 13,
+                    "line": 1,
+                    "offset": 12
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 8,
+            "value": "i0"
+        }
+    ]
+}

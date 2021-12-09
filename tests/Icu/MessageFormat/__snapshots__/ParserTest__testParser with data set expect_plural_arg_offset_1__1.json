@@ -1,0 +1,19 @@
+{
+    "val": null,
+    "err": {
+        "kind": 13,
+        "message": "{foo, plural, offset}",
+        "location": {
+            "start": {
+                "offset": 20,
+                "line": 1,
+                "column": 21
+            },
+            "end": {
+                "offset": 20,
+                "line": 1,
+                "column": 21
+            }
+        }
+    }
+}

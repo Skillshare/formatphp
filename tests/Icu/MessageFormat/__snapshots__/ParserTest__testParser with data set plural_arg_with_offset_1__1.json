@@ -1,0 +1,169 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 10,
+                    "line": 1,
+                    "offset": 9
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "You have "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 6,
+                    "line": 5,
+                    "offset": 121
+                },
+                "start": {
+                    "column": 10,
+                    "line": 1,
+                    "offset": 9
+                }
+            },
+            "offset": 2,
+            "options": {
+                "=0": {
+                    "location": {
+                        "end": {
+                            "column": 22,
+                            "line": 2,
+                            "offset": 60
+                        },
+                        "start": {
+                            "column": 12,
+                            "line": 2,
+                            "offset": 50
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 21,
+                                    "line": 2,
+                                    "offset": 59
+                                },
+                                "start": {
+                                    "column": 13,
+                                    "line": 2,
+                                    "offset": 51
+                                }
+                            },
+                            "type": 0,
+                            "value": "no items"
+                        }
+                    ]
+                },
+                "one": {
+                    "location": {
+                        "end": {
+                            "column": 21,
+                            "line": 3,
+                            "offset": 81
+                        },
+                        "start": {
+                            "column": 13,
+                            "line": 3,
+                            "offset": 73
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 20,
+                                    "line": 3,
+                                    "offset": 80
+                                },
+                                "start": {
+                                    "column": 14,
+                                    "line": 3,
+                                    "offset": 74
+                                }
+                            },
+                            "type": 0,
+                            "value": "1 item"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 34,
+                            "line": 4,
+                            "offset": 115
+                        },
+                        "start": {
+                            "column": 15,
+                            "line": 4,
+                            "offset": 96
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 27,
+                                    "line": 4,
+                                    "offset": 108
+                                },
+                                "start": {
+                                    "column": 16,
+                                    "line": 4,
+                                    "offset": 97
+                                }
+                            },
+                            "type": 1,
+                            "value": "itemCount"
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 33,
+                                    "line": 4,
+                                    "offset": 114
+                                },
+                                "start": {
+                                    "column": 27,
+                                    "line": 4,
+                                    "offset": 108
+                                }
+                            },
+                            "type": 0,
+                            "value": " items"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "cardinal",
+            "type": 6,
+            "value": "itemCount"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 7,
+                    "line": 5,
+                    "offset": 122
+                },
+                "start": {
+                    "column": 6,
+                    "line": 5,
+                    "offset": 121
+                }
+            },
+            "type": 0,
+            "value": "."
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 42,
+                    "line": 1,
+                    "offset": 41
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 41,
+                        "line": 1,
+                        "offset": 40
+                    },
+                    "start": {
+                        "column": 13,
+                        "line": 1,
+                        "offset": 12
+                    }
+                },
+                "parsedOptions": {
+                    "notation": "scientific",
+                    "signDisplay": "always"
+                },
+                "tokens": [
+                    {
+                        "options": [
+                            "+ee",
+                            "sign-always"
+                        ],
+                        "stem": "scientific"
+                    }
+                ],
+                "type": 0
+            },
+            "type": 2,
+            "value": "0"
+        }
+    ]
+}

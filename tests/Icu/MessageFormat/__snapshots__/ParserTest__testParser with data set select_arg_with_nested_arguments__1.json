@@ -1,0 +1,136 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "\n    "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 6,
+                    "line": 5,
+                    "offset": 142
+                },
+                "start": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                }
+            },
+            "options": {
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 32,
+                            "line": 4,
+                            "offset": 136
+                        },
+                        "start": {
+                            "column": 15,
+                            "line": 4,
+                            "offset": 119
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 31,
+                                    "line": 4,
+                                    "offset": 135
+                                },
+                                "start": {
+                                    "column": 16,
+                                    "line": 4,
+                                    "offset": 120
+                                }
+                            },
+                            "type": 0,
+                            "value": "No taxes apply."
+                        }
+                    ]
+                },
+                "yes": {
+                    "location": {
+                        "end": {
+                            "column": 78,
+                            "line": 3,
+                            "offset": 104
+                        },
+                        "start": {
+                            "column": 13,
+                            "line": 3,
+                            "offset": 39
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 28,
+                                    "line": 3,
+                                    "offset": 54
+                                },
+                                "start": {
+                                    "column": 14,
+                                    "line": 3,
+                                    "offset": 40
+                                }
+                            },
+                            "type": 0,
+                            "value": "An additional "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 54,
+                                    "line": 3,
+                                    "offset": 80
+                                },
+                                "start": {
+                                    "column": 28,
+                                    "line": 3,
+                                    "offset": 54
+                                }
+                            },
+                            "style": "percent",
+                            "type": 2,
+                            "value": "taxRate"
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 77,
+                                    "line": 3,
+                                    "offset": 103
+                                },
+                                "start": {
+                                    "column": 54,
+                                    "line": 3,
+                                    "offset": 80
+                                }
+                            },
+                            "type": 0,
+                            "value": " tax will be collected."
+                        }
+                    ]
+                }
+            },
+            "type": 5,
+            "value": "taxableArea"
+        }
+    ]
+}

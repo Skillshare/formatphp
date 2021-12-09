@@ -1,0 +1,120 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 5,
+                    "line": 1,
+                    "offset": 4
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "You "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 74,
+                    "line": 1,
+                    "offset": 73
+                },
+                "start": {
+                    "column": 5,
+                    "line": 1,
+                    "offset": 4
+                }
+            },
+            "offset": 0,
+            "options": {
+                "one": {
+                    "location": {
+                        "end": {
+                            "column": 73,
+                            "line": 1,
+                            "offset": 72
+                        },
+                        "start": {
+                            "column": 25,
+                            "line": 1,
+                            "offset": 24
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 65,
+                                    "line": 1,
+                                    "offset": 64
+                                },
+                                "start": {
+                                    "column": 26,
+                                    "line": 1,
+                                    "offset": 25
+                                }
+                            },
+                            "type": 0,
+                            "value": "worked for # hour} other {worked for "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 66,
+                                    "line": 1,
+                                    "offset": 65
+                                },
+                                "start": {
+                                    "column": 65,
+                                    "line": 1,
+                                    "offset": 64
+                                }
+                            },
+                            "type": 7
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 72,
+                                    "line": 1,
+                                    "offset": 71
+                                },
+                                "start": {
+                                    "column": 66,
+                                    "line": 1,
+                                    "offset": 65
+                                }
+                            },
+                            "type": 0,
+                            "value": " hours"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "cardinal",
+            "type": 6,
+            "value": "count"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 81,
+                    "line": 1,
+                    "offset": 80
+                },
+                "start": {
+                    "column": 74,
+                    "line": 1,
+                    "offset": 73
+                }
+            },
+            "type": 0,
+            "value": " today."
+        }
+    ]
+}

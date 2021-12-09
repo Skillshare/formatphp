@@ -1,0 +1,6 @@
+{
+    "minimumSignificantDigits": 1,
+    "maximumSignificantDigits": 3,
+    "maximumFractionDigits": 2,
+    "roundingPriority": "lessPrecision"
+}

@@ -1,0 +1,19 @@
+{
+    "err": {
+        "kind": 7,
+        "location": {
+            "end": {
+                "column": 24,
+                "line": 1,
+                "offset": 23
+            },
+            "start": {
+                "column": 13,
+                "line": 1,
+                "offset": 12
+            }
+        },
+        "message": "{0, number, ::currency/}"
+    },
+    "val": null
+}

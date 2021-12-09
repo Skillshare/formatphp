@@ -1,0 +1,6 @@
+{
+    "day": "numeric",
+    "month": "short",
+    "weekday": "short",
+    "year": "2-digit"
+}

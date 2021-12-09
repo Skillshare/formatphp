@@ -1,0 +1,4 @@
+{
+    "maximumFractionDigits": 2,
+    "trailingZeroDisplay": "stripIfInteger"
+}

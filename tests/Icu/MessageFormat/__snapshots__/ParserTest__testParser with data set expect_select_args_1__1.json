@@ -1,0 +1,19 @@
+{
+    "val": null,
+    "err": {
+        "kind": 12,
+        "message": "{foo, select}",
+        "location": {
+            "start": {
+                "offset": 12,
+                "line": 1,
+                "column": 13
+            },
+            "end": {
+                "offset": 12,
+                "line": 1,
+                "column": 13
+            }
+        }
+    }
+}
