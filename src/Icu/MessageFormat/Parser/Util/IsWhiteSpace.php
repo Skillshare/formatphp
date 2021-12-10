@@ -23,38 +23,52 @@ declare(strict_types=1);
 namespace FormatPHP\Icu\MessageFormat\Parser\Util;
 
 /**
+ * Checks whether a code point is in the Unicode Character Database
+ * White_Space and Pattern_White_Space groups
+ *
  * @internal
  */
-class IsWhiteSpace extends AbstractCodePointMatcher
+class IsWhiteSpace implements CodePointMatcherInterface
 {
     /**
-     * White space code points
+     * Returns true if the code point is in either the White_Space or
+     * Pattern_White_Space group in the Unicode Character Database (UCD)
      *
-     * This list is derived from the White_Space code points listed in the
-     * Unicode Character Database PropList. We converted it to an array for
-     * better performance.
+     * FormatJS claims its `_isWhiteSpace()` function is the code point
+     * equivalent of `\p{White_Space}`, but this is incorrect. In reality,
+     * their function, as implemented in JavaScript, is the code point
+     * equivalent of `\p{Pattern_White_Space}`, which is a subset of
+     * `\p{White_Space}`, along with `0x200e` (left-to-right bidi mark) and
+     * `0x200f` (right-to-left bidi mark) added.
      *
-     * @link https://www.unicode.org/Public/UCD/latest/ucd/PropList.txt UCD PropList
+     * FormatJS uses this function in the case the user's browser doesn't
+     * support the native `\p{White_Space}` regular expression pattern. If the
+     * browser does support it, then it uses `\p{White_Space}` instead.
+     *
+     * In our implementation, we've combined both `White_Space` and
+     * `Pattern_White_Space` code points to accommodate both sets, for maximum
+     * interoperability.
+     *
+     * This function matches exactly 27 code points. The values are derived
+     * from PropList-14.0.0.txt, dated 2021-08-12, 23:13:05 GMT. Ranges have
+     * been collapsed for optimal performance.
+     *
+     * @link https://github.com/formatjs/formatjs/blob/9c50fd13c5a4966adc7e9c22ed21553b7fef5337/packages/icu-messageformat-parser/parser.ts#L1334-L1347 FormatJS _isWhiteSpace()
+     * @link https://www.unicode.org/Public/UCD/latest/ucd/PropList.txt UCD PropList, Latest
+     * @link https://www.unicode.org/Public/14.0.0/ucd/PropList.txt UCD PropList, 14.0.0
      */
-    protected const CODE_POINTS = [
-        0x0009,
-        0x000a,
-        0x000b,
-        0x000c,
-        0x000d,
-        0x0020,
-        0x0085,
-        0x200e,
-        0x200f,
-        0x2028,
-        0x2029,
-    ];
-
-    /**
-     * @inheritdoc
-     */
-    protected function getCodePoints(): array
+    public function matches(int $codepoint): bool
     {
-        return self::CODE_POINTS;
+        return ($codepoint >= 0x0009 && $codepoint <= 0x000d)
+            || $codepoint === 0x0020
+            || $codepoint === 0x0085
+            || $codepoint === 0x00a0
+            || $codepoint === 0x1680
+            || ($codepoint >= 0x2000 && $codepoint <= 0x200a)
+            || ($codepoint >= 0x200e && $codepoint <= 0x200f)
+            || ($codepoint >= 0x2028 && $codepoint <= 0x2029)
+            || $codepoint === 0x202f
+            || $codepoint === 0x205f
+            || $codepoint === 0x3000;
     }
 }
