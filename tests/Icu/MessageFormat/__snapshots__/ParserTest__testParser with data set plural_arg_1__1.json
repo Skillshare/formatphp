@@ -1,0 +1,137 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 11,
+                    "line": 2,
+                    "offset": 11
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "\n    Cart: "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 22,
+                    "line": 2,
+                    "offset": 22
+                },
+                "start": {
+                    "column": 11,
+                    "line": 2,
+                    "offset": 11
+                }
+            },
+            "type": 1,
+            "value": "itemCount"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 23,
+                    "line": 2,
+                    "offset": 23
+                },
+                "start": {
+                    "column": 22,
+                    "line": 2,
+                    "offset": 22
+                }
+            },
+            "type": 0,
+            "value": " "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 6,
+                    "line": 5,
+                    "offset": 89
+                },
+                "start": {
+                    "column": 23,
+                    "line": 2,
+                    "offset": 23
+                }
+            },
+            "offset": 0,
+            "options": {
+                "one": {
+                    "location": {
+                        "end": {
+                            "column": 19,
+                            "line": 3,
+                            "offset": 61
+                        },
+                        "start": {
+                            "column": 13,
+                            "line": 3,
+                            "offset": 55
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 18,
+                                    "line": 3,
+                                    "offset": 60
+                                },
+                                "start": {
+                                    "column": 14,
+                                    "line": 3,
+                                    "offset": 56
+                                }
+                            },
+                            "type": 0,
+                            "value": "item"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 22,
+                            "line": 4,
+                            "offset": 83
+                        },
+                        "start": {
+                            "column": 15,
+                            "line": 4,
+                            "offset": 76
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 21,
+                                    "line": 4,
+                                    "offset": 82
+                                },
+                                "start": {
+                                    "column": 16,
+                                    "line": 4,
+                                    "offset": 77
+                                }
+                            },
+                            "type": 0,
+                            "value": "items"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "cardinal",
+            "type": 6,
+            "value": "itemCount"
+        }
+    ]
+}

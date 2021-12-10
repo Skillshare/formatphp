@@ -1,0 +1,54 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 42,
+                    "line": 1,
+                    "offset": 41
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 41,
+                        "line": 1,
+                        "offset": 40
+                    },
+                    "start": {
+                        "column": 13,
+                        "line": 1,
+                        "offset": 12
+                    }
+                },
+                "parsedOptions": {
+                    "compactDisplay": "short",
+                    "currency": "GBP",
+                    "notation": "compact",
+                    "style": "currency"
+                },
+                "tokens": [
+                    {
+                        "options": [],
+                        "stem": "compact-short"
+                    },
+                    {
+                        "options": [
+                            "GBP"
+                        ],
+                        "stem": "currency"
+                    }
+                ],
+                "type": 0
+            },
+            "type": 2,
+            "value": "0"
+        }
+    ]
+}

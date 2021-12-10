@@ -1,0 +1,5 @@
+{
+    "minimumFractionDigits": 1,
+    "maximumFractionDigits": 4,
+    "style": "percent"
+}

@@ -1,0 +1,21 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 4,
+                    "line": 1,
+                    "offset": 3
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "'#'"
+        }
+    ]
+}

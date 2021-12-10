@@ -1,0 +1,38 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 30,
+                    "line": 1,
+                    "offset": 29
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 29,
+                        "line": 1,
+                        "offset": 28
+                    },
+                    "start": {
+                        "column": 11,
+                        "line": 1,
+                        "offset": 10
+                    }
+                },
+                "parsedOptions": {},
+                "pattern": "EEE, MMM d, ''yy",
+                "type": 1
+            },
+            "type": 3,
+            "value": "0"
+        }
+    ]
+}

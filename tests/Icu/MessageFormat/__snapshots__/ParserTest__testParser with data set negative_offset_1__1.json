@@ -1,0 +1,153 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 70,
+                    "line": 1,
+                    "offset": 69
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "offset": -2,
+            "options": {
+                "=-1": {
+                    "location": {
+                        "end": {
+                            "column": 44,
+                            "line": 1,
+                            "offset": 43
+                        },
+                        "start": {
+                            "column": 27,
+                            "line": 1,
+                            "offset": 26
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 29,
+                                    "line": 1,
+                                    "offset": 28
+                                },
+                                "start": {
+                                    "column": 28,
+                                    "line": 1,
+                                    "offset": 27
+                                }
+                            },
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 35,
+                                    "line": 1,
+                                    "offset": 34
+                                },
+                                "start": {
+                                    "column": 29,
+                                    "line": 1,
+                                    "offset": 28
+                                }
+                            },
+                            "type": 1,
+                            "value": "text"
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 43,
+                                    "line": 1,
+                                    "offset": 42
+                                },
+                                "start": {
+                                    "column": 35,
+                                    "line": 1,
+                                    "offset": 34
+                                }
+                            },
+                            "type": 0,
+                            "value": " project"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 69,
+                            "line": 1,
+                            "offset": 68
+                        },
+                        "start": {
+                            "column": 51,
+                            "line": 1,
+                            "offset": 50
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 53,
+                                    "line": 1,
+                                    "offset": 52
+                                },
+                                "start": {
+                                    "column": 52,
+                                    "line": 1,
+                                    "offset": 51
+                                }
+                            },
+                            "type": 0,
+                            "value": " "
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 59,
+                                    "line": 1,
+                                    "offset": 58
+                                },
+                                "start": {
+                                    "column": 53,
+                                    "line": 1,
+                                    "offset": 52
+                                }
+                            },
+                            "type": 1,
+                            "value": "text"
+                        },
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 68,
+                                    "line": 1,
+                                    "offset": 67
+                                },
+                                "start": {
+                                    "column": 59,
+                                    "line": 1,
+                                    "offset": 58
+                                }
+                            },
+                            "type": 0,
+                            "value": " projects"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "cardinal",
+            "type": 6,
+            "value": "c"
+        }
+    ]
+}

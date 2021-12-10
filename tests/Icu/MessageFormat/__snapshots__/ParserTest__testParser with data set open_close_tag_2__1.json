@@ -1,0 +1,39 @@
+{
+    "err": null,
+    "val": [
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 14,
+                            "line": 1,
+                            "offset": 13
+                        },
+                        "start": {
+                            "column": 11,
+                            "line": 1,
+                            "offset": 10
+                        }
+                    },
+                    "type": 0,
+                    "value": "foo"
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 25,
+                    "line": 1,
+                    "offset": 24
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 8,
+            "value": "test-tag"
+        }
+    ]
+}

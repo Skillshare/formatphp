@@ -1,0 +1,38 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 45,
+                    "line": 1,
+                    "offset": 44
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 44,
+                        "line": 1,
+                        "offset": 43
+                    },
+                    "start": {
+                        "column": 11,
+                        "line": 1,
+                        "offset": 10
+                    }
+                },
+                "parsedOptions": {},
+                "pattern": "yyyy.MM.dd G 'at' HH:mm:ss vvvv",
+                "type": 1
+            },
+            "type": 3,
+            "value": "0"
+        }
+    ]
+}

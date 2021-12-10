@@ -1,0 +1,10 @@
+{
+    "currency": "GBP",
+    "currencyDisplay": "name",
+    "maximumFractionDigits": 4,
+    "maximumSignificantDigits": 3,
+    "minimumFractionDigits": 2,
+    "minimumSignificantDigits": 3,
+    "style": "currency",
+    "unitDisplay": "long"
+}

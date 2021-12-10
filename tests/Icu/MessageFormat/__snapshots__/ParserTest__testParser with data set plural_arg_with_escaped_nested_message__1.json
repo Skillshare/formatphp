@@ -1,0 +1,105 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "\n    "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 6,
+                    "line": 5,
+                    "offset": 77
+                },
+                "start": {
+                    "column": 5,
+                    "line": 2,
+                    "offset": 5
+                }
+            },
+            "offset": 0,
+            "options": {
+                "one": {
+                    "location": {
+                        "end": {
+                            "column": 22,
+                            "line": 3,
+                            "offset": 46
+                        },
+                        "start": {
+                            "column": 13,
+                            "line": 3,
+                            "offset": 37
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 21,
+                                    "line": 3,
+                                    "offset": 45
+                                },
+                                "start": {
+                                    "column": 14,
+                                    "line": 3,
+                                    "offset": 38
+                                }
+                            },
+                            "type": 0,
+                            "value": "item}"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 25,
+                            "line": 4,
+                            "offset": 71
+                        },
+                        "start": {
+                            "column": 15,
+                            "line": 4,
+                            "offset": 61
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 24,
+                                    "line": 4,
+                                    "offset": 70
+                                },
+                                "start": {
+                                    "column": 16,
+                                    "line": 4,
+                                    "offset": 62
+                                }
+                            },
+                            "type": 0,
+                            "value": "items}"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "cardinal",
+            "type": 6,
+            "value": "itemCount"
+        }
+    ]
+}

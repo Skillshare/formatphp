@@ -1,0 +1,38 @@
+{
+    "val": [
+        {
+            "style": {
+                "pattern": "h:mm a",
+                "parsedOptions": {},
+                "type": 1,
+                "location": {
+                    "start": {
+                        "offset": 10,
+                        "line": 1,
+                        "column": 11
+                    },
+                    "end": {
+                        "offset": 18,
+                        "line": 1,
+                        "column": 19
+                    }
+                }
+            },
+            "type": 4,
+            "value": "0",
+            "location": {
+                "start": {
+                    "offset": 0,
+                    "line": 1,
+                    "column": 1
+                },
+                "end": {
+                    "offset": 19,
+                    "line": 1,
+                    "column": 20
+                }
+            }
+        }
+    ],
+    "err": null
+}

@@ -1,0 +1,54 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 46,
+                    "line": 1,
+                    "offset": 45
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 45,
+                        "line": 1,
+                        "offset": 44
+                    },
+                    "start": {
+                        "column": 13,
+                        "line": 1,
+                        "offset": 12
+                    }
+                },
+                "parsedOptions": {
+                    "currency": "CAD",
+                    "currencyDisplay": "narrowSymbol",
+                    "style": "currency",
+                    "unitDisplay": "narrow"
+                },
+                "tokens": [
+                    {
+                        "options": [
+                            "CAD"
+                        ],
+                        "stem": "currency"
+                    },
+                    {
+                        "options": [],
+                        "stem": "unit-width-narrow"
+                    }
+                ],
+                "type": 0
+            },
+            "type": 2,
+            "value": "0"
+        }
+    ]
+}

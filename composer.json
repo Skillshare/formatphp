@@ -1,7 +1,8 @@
 {
     "name": "skillshare/formatphp",
-    "type": "library",
     "description": "Internationalize PHP apps. This library provides an API to format dates, numbers, and strings, including pluralization and handling translations.",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "intl",
         "i18n",
@@ -14,11 +15,12 @@
         "translate",
         "translation"
     ],
-    "license": "MIT",
     "require": {
         "php": "^7.4 || ^8",
         "ext-intl": "*",
         "ext-json": "*",
+        "ext-mbstring": "*",
+        "myclabs/php-enum": "^1.8",
         "nikic/php-parser": "^4.13",
         "psr/log": "^1 || ^2",
         "ramsey/collection": "^1.2",
@@ -27,8 +29,24 @@
         "webmozart/glob": "^4.4"
     },
     "require-dev": {
-        "ramsey/devtools": "^1.7"
+        "ramsey/devtools": "^1.7",
+        "spatie/phpunit-snapshot-assertions": "^4.2"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "FormatPHP\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FormatPHP\\Test\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/formatphp"
+    ],
     "config": {
         "sort-packages": true
     },
@@ -42,20 +60,5 @@
         "ramsey/devtools": {
             "command-prefix": "dev"
         }
-    },
-    "autoload": {
-        "psr-4": {
-            "FormatPHP\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "FormatPHP\\Test\\": "tests/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "bin": [
-        "bin/formatphp"
-    ]
+    }
 }

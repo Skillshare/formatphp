@@ -1,0 +1,21 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 39,
+                    "line": 1,
+                    "offset": 38
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "I <3 cats. <a>foo</a> <b>bar</b>"
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 31,
+                    "line": 1,
+                    "offset": 30
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 30,
+                        "line": 1,
+                        "offset": 29
+                    },
+                    "start": {
+                        "column": 13,
+                        "line": 1,
+                        "offset": 12
+                    }
+                },
+                "parsedOptions": {
+                    "maximumFractionDigits": 2,
+                    "maximumSignificantDigits": 3,
+                    "minimumFractionDigits": 2,
+                    "minimumSignificantDigits": 1,
+                    "style": "percent"
+                },
+                "tokens": [
+                    {
+                        "options": [],
+                        "stem": "percent"
+                    },
+                    {
+                        "options": [
+                            "@##"
+                        ],
+                        "stem": ".00"
+                    }
+                ],
+                "type": 0
+            },
+            "type": 2,
+            "value": "0"
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 67,
+                    "line": 1,
+                    "offset": 66
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "offset": 0,
+            "options": {
+                "=0": {
+                    "location": {
+                        "end": {
+                            "column": 34,
+                            "line": 1,
+                            "offset": 33
+                        },
+                        "start": {
+                            "column": 23,
+                            "line": 1,
+                            "offset": 22
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 33,
+                                    "line": 1,
+                                    "offset": 32
+                                },
+                                "start": {
+                                    "column": 24,
+                                    "line": 1,
+                                    "offset": 23
+                                }
+                            },
+                            "type": 0,
+                            "value": "no photos"
+                        }
+                    ]
+                },
+                "=1": {
+                    "location": {
+                        "end": {
+                            "column": 48,
+                            "line": 1,
+                            "offset": 47
+                        },
+                        "start": {
+                            "column": 37,
+                            "line": 1,
+                            "offset": 36
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 47,
+                                    "line": 1,
+                                    "offset": 46
+                                },
+                                "start": {
+                                    "column": 38,
+                                    "line": 1,
+                                    "offset": 37
+                                }
+                            },
+                            "type": 0,
+                            "value": "one photo"
+                        }
+                    ]
+                },
+                "other": {
+                    "location": {
+                        "end": {
+                            "column": 66,
+                            "line": 1,
+                            "offset": 65
+                        },
+                        "start": {
+                            "column": 54,
+                            "line": 1,
+                            "offset": 53
+                        }
+                    },
+                    "value": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 65,
+                                    "line": 1,
+                                    "offset": 64
+                                },
+                                "start": {
+                                    "column": 55,
+                                    "line": 1,
+                                    "offset": 54
+                                }
+                            },
+                            "type": 0,
+                            "value": "# photos"
+                        }
+                    ]
+                }
+            },
+            "pluralType": "cardinal",
+            "type": 6,
+            "value": "numPhotos"
+        }
+    ]
+}

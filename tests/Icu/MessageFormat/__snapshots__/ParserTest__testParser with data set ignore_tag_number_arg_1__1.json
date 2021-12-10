@@ -1,0 +1,54 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 13,
+                    "line": 1,
+                    "offset": 12
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "I have <foo>"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 30,
+                    "line": 1,
+                    "offset": 29
+                },
+                "start": {
+                    "column": 13,
+                    "line": 1,
+                    "offset": 12
+                }
+            },
+            "style": null,
+            "type": 2,
+            "value": "numCats"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 42,
+                    "line": 1,
+                    "offset": 41
+                },
+                "start": {
+                    "column": 30,
+                    "line": 1,
+                    "offset": 29
+                }
+            },
+            "type": 0,
+            "value": "</foo> cats."
+        }
+    ]
+}

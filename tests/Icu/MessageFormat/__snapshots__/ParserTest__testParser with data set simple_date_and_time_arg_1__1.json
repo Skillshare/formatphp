@@ -1,0 +1,71 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 35,
+                    "line": 1,
+                    "offset": 34
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "Your meeting is scheduled for the "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 50,
+                    "line": 1,
+                    "offset": 49
+                },
+                "start": {
+                    "column": 35,
+                    "line": 1,
+                    "offset": 34
+                }
+            },
+            "style": null,
+            "type": 3,
+            "value": "dateVal"
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 54,
+                    "line": 1,
+                    "offset": 53
+                },
+                "start": {
+                    "column": 50,
+                    "line": 1,
+                    "offset": 49
+                }
+            },
+            "type": 0,
+            "value": " at "
+        },
+        {
+            "location": {
+                "end": {
+                    "column": 69,
+                    "line": 1,
+                    "offset": 68
+                },
+                "start": {
+                    "column": 54,
+                    "line": 1,
+                    "offset": 53
+                }
+            },
+            "style": null,
+            "type": 4,
+            "value": "timeVal"
+        }
+    ]
+}

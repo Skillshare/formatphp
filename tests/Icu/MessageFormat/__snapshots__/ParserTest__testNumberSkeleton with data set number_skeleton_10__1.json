@@ -1,0 +1,64 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 59,
+                    "line": 1,
+                    "offset": 58
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "style": {
+                "location": {
+                    "end": {
+                        "column": 58,
+                        "line": 1,
+                        "offset": 57
+                    },
+                    "start": {
+                        "column": 13,
+                        "line": 1,
+                        "offset": 12
+                    }
+                },
+                "parsedOptions": {
+                    "currency": "GBP",
+                    "currencyDisplay": "name",
+                    "maximumFractionDigits": 4,
+                    "maximumSignificantDigits": 3,
+                    "minimumFractionDigits": 2,
+                    "minimumSignificantDigits": 3,
+                    "style": "currency",
+                    "unitDisplay": "long"
+                },
+                "tokens": [
+                    {
+                        "options": [
+                            "GBP"
+                        ],
+                        "stem": "currency"
+                    },
+                    {
+                        "options": [
+                            "@@@"
+                        ],
+                        "stem": ".00##"
+                    },
+                    {
+                        "options": [],
+                        "stem": "unit-width-full-name"
+                    }
+                ],
+                "type": 0
+            },
+            "type": 2,
+            "value": "0"
+        }
+    ]
+}

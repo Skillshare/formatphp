@@ -1,0 +1,7 @@
+{
+    "minimumSignificantDigits": 1,
+    "maximumSignificantDigits": 3,
+    "minimumFractionDigits": 2,
+    "maximumFractionDigits": 2,
+    "style": "percent"
+}

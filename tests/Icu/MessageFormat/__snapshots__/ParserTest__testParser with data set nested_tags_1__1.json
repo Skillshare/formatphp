@@ -1,0 +1,89 @@
+{
+    "err": null,
+    "val": [
+        {
+            "location": {
+                "end": {
+                    "column": 9,
+                    "line": 1,
+                    "offset": 8
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 0,
+            "value": "this is "
+        },
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 19,
+                            "line": 1,
+                            "offset": 18
+                        },
+                        "start": {
+                            "column": 12,
+                            "line": 1,
+                            "offset": 11
+                        }
+                    },
+                    "type": 0,
+                    "value": "nested "
+                },
+                {
+                    "children": [
+                        {
+                            "location": {
+                                "end": {
+                                    "column": 35,
+                                    "line": 1,
+                                    "offset": 34
+                                },
+                                "start": {
+                                    "column": 22,
+                                    "line": 1,
+                                    "offset": 21
+                                }
+                            },
+                            "type": 1,
+                            "value": "placeholder"
+                        }
+                    ],
+                    "location": {
+                        "end": {
+                            "column": 39,
+                            "line": 1,
+                            "offset": 38
+                        },
+                        "start": {
+                            "column": 19,
+                            "line": 1,
+                            "offset": 18
+                        }
+                    },
+                    "type": 8,
+                    "value": "b"
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 43,
+                    "line": 1,
+                    "offset": 42
+                },
+                "start": {
+                    "column": 9,
+                    "line": 1,
+                    "offset": 8
+                }
+            },
+            "type": 8,
+            "value": "a"
+        }
+    ]
+}

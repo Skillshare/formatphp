@@ -1,0 +1,19 @@
+{
+    "err": {
+        "kind": 21,
+        "location": {
+            "end": {
+                "column": 45,
+                "line": 1,
+                "offset": 44
+            },
+            "start": {
+                "column": 42,
+                "line": 1,
+                "offset": 41
+            }
+        },
+        "message": "You have {count, select, one {# hot dog} one {# hamburger} one {# sandwich} other {# snacks}} in your lunch bag."
+    },
+    "val": null
+}

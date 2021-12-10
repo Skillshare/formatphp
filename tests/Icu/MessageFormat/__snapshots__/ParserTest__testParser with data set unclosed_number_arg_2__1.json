@@ -1,0 +1,19 @@
+{
+    "err": {
+        "kind": 1,
+        "location": {
+            "end": {
+                "column": 20,
+                "line": 1,
+                "offset": 19
+            },
+            "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0
+            }
+        },
+        "message": "{0, number, percent"
+    },
+    "val": null
+}

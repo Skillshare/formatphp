@@ -1,0 +1,205 @@
+{
+    "err": null,
+    "val": [
+        {
+            "children": [
+                {
+                    "location": {
+                        "end": {
+                            "column": 16,
+                            "line": 1,
+                            "offset": 15
+                        },
+                        "start": {
+                            "column": 7,
+                            "line": 1,
+                            "offset": 6
+                        }
+                    },
+                    "type": 0,
+                    "value": "You have "
+                },
+                {
+                    "location": {
+                        "end": {
+                            "column": 6,
+                            "line": 5,
+                            "offset": 126
+                        },
+                        "start": {
+                            "column": 16,
+                            "line": 1,
+                            "offset": 15
+                        }
+                    },
+                    "offset": 0,
+                    "options": {
+                        "one": {
+                            "location": {
+                                "end": {
+                                    "column": 39,
+                                    "line": 3,
+                                    "offset": 78
+                                },
+                                "start": {
+                                    "column": 13,
+                                    "line": 3,
+                                    "offset": 52
+                                }
+                            },
+                            "value": [
+                                {
+                                    "children": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 23,
+                                                    "line": 3,
+                                                    "offset": 62
+                                                },
+                                                "start": {
+                                                    "column": 22,
+                                                    "line": 3,
+                                                    "offset": 61
+                                                }
+                                            },
+                                            "type": 7
+                                        }
+                                    ],
+                                    "location": {
+                                        "end": {
+                                            "column": 32,
+                                            "line": 3,
+                                            "offset": 71
+                                        },
+                                        "start": {
+                                            "column": 14,
+                                            "line": 3,
+                                            "offset": 53
+                                        }
+                                    },
+                                    "type": 8,
+                                    "value": "italic"
+                                },
+                                {
+                                    "location": {
+                                        "end": {
+                                            "column": 38,
+                                            "line": 3,
+                                            "offset": 77
+                                        },
+                                        "start": {
+                                            "column": 32,
+                                            "line": 3,
+                                            "offset": 71
+                                        }
+                                    },
+                                    "type": 0,
+                                    "value": " apple"
+                                }
+                            ]
+                        },
+                        "other": {
+                            "location": {
+                                "end": {
+                                    "column": 42,
+                                    "line": 4,
+                                    "offset": 120
+                                },
+                                "start": {
+                                    "column": 15,
+                                    "line": 4,
+                                    "offset": 93
+                                }
+                            },
+                            "value": [
+                                {
+                                    "children": [
+                                        {
+                                            "location": {
+                                                "end": {
+                                                    "column": 25,
+                                                    "line": 4,
+                                                    "offset": 103
+                                                },
+                                                "start": {
+                                                    "column": 24,
+                                                    "line": 4,
+                                                    "offset": 102
+                                                }
+                                            },
+                                            "type": 7
+                                        }
+                                    ],
+                                    "location": {
+                                        "end": {
+                                            "column": 34,
+                                            "line": 4,
+                                            "offset": 112
+                                        },
+                                        "start": {
+                                            "column": 16,
+                                            "line": 4,
+                                            "offset": 94
+                                        }
+                                    },
+                                    "type": 8,
+                                    "value": "italic"
+                                },
+                                {
+                                    "location": {
+                                        "end": {
+                                            "column": 41,
+                                            "line": 4,
+                                            "offset": 119
+                                        },
+                                        "start": {
+                                            "column": 34,
+                                            "line": 4,
+                                            "offset": 112
+                                        }
+                                    },
+                                    "type": 0,
+                                    "value": " apples"
+                                }
+                            ]
+                        }
+                    },
+                    "pluralType": "cardinal",
+                    "type": 6,
+                    "value": "count"
+                },
+                {
+                    "location": {
+                        "end": {
+                            "column": 7,
+                            "line": 5,
+                            "offset": 127
+                        },
+                        "start": {
+                            "column": 6,
+                            "line": 5,
+                            "offset": 126
+                        }
+                    },
+                    "type": 0,
+                    "value": "."
+                }
+            ],
+            "location": {
+                "end": {
+                    "column": 14,
+                    "line": 5,
+                    "offset": 134
+                },
+                "start": {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0
+                }
+            },
+            "type": 8,
+            "value": "bold"
+        }
+    ]
+}
