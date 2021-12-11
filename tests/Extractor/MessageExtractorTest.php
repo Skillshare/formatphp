@@ -341,7 +341,7 @@ class MessageExtractorTest extends TestCase
             $expected = 'The format provided is not a known format, an instance of '
             . 'FormatPHP\\Format\\WriterInterface, or a callable of the '
             . 'shape `callable(FormatPHP\\DescriptorCollection,'
-            . 'FormatPHP\\Extractor\\MessageExtractorOptions):array<mixed>`.';
+            . 'FormatPHP\\Format\\WriterOptions):array<mixed>`.';
 
             return $message === $expected;
         });

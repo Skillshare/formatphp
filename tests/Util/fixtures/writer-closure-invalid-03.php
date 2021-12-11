@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\WriterOptions;
 
-return function ($collection, MessageExtractorOptions $options): array
+return function ($collection, WriterOptions $options): array
 {
     return [];
 };

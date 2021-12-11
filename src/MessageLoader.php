@@ -28,8 +28,6 @@ use FormatPHP\Exception\LocaleNotFoundException;
 use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\ReaderInterface;
-use FormatPHP\Intl\Locale;
-use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Util\FileSystemHelper;
 
 use function array_filter;
@@ -76,33 +74,27 @@ final class MessageLoader
      * Returns a MessageCollection according to the configuration provided to
      * this MessageLoader
      *
-     * @throws InvalidArgumentException
      * @throws InvalidMessageShapeException
      * @throws LocaleNotFoundException
      */
     public function loadMessages(): MessageCollection
     {
-        [$messagesData, $resolvedLocale] = $this->getLocaleMessages();
-
-        return ($this->formatReader)($this->config, $messagesData, $resolvedLocale);
+        return ($this->formatReader)($this->config, $this->getLocaleMessages());
     }
 
     /**
-     * @return array{0: array<array-key, mixed>, 1: LocaleInterface}
+     * @return array<array-key, mixed>
      *
-     * @throws InvalidArgumentException
      * @throws LocaleNotFoundException
      */
     private function getLocaleMessages(): array
     {
         $messagesContents = false;
-        $localeResolved = null;
 
         foreach ($this->getFallbackLocales() as $locale) {
             try {
                 $messagesFile = $this->messagesDirectory . DIRECTORY_SEPARATOR . $locale . '.json';
                 $messagesContents = $this->fileSystemHelper->getJsonContents($messagesFile);
-                $localeResolved = new Locale($locale);
 
                 break;
             } catch (UnableToProcessFileException $exception) {
@@ -110,14 +102,14 @@ final class MessageLoader
             }
         }
 
-        if ($messagesContents === false || $localeResolved === null) {
+        if ($messagesContents === false) {
             throw new LocaleNotFoundException(sprintf(
                 'Unable to find a suitable locale for "%s"; please set a default locale',
                 $this->config->getLocale()->toString(),
             ));
         }
 
-        return [$messagesContents, $localeResolved];
+        return $messagesContents;
     }
 
     /**

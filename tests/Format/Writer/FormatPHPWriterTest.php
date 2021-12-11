@@ -6,15 +6,15 @@ namespace FormatPHP\Test\Format\Writer;
 
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Writer\FormatPHPWriter;
+use FormatPHP\Format\WriterOptions;
 use FormatPHP\Test\TestCase;
 
 class FormatPHPWriterTest extends TestCase
 {
     public function testFormatterBasic(): void
     {
-        $options = new MessageExtractorOptions();
+        $options = new WriterOptions();
 
         $collection = new DescriptorCollection();
         $collection->add(new Descriptor('foo'));
@@ -35,9 +35,9 @@ class FormatPHPWriterTest extends TestCase
 
     public function testFormatterFull(): void
     {
-        $options = new MessageExtractorOptions();
-        $options->extractSourceLocation = true;
-        $options->pragma = 'intl';
+        $options = new WriterOptions();
+        $options->includesSourceLocation = true;
+        $options->includesPragma = true;
 
         $descriptor = new Descriptor(
             'foo',

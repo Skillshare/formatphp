@@ -6,7 +6,6 @@ namespace FormatPHP\Test\Util;
 
 use FormatPHP\ConfigInterface;
 use FormatPHP\Format\ReaderInterface;
-use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\MessageCollection;
 
 class MockFormatReader implements ReaderInterface
@@ -14,7 +13,7 @@ class MockFormatReader implements ReaderInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(ConfigInterface $config, array $data, LocaleInterface $localeResolved): MessageCollection
+    public function __invoke(ConfigInterface $config, array $data): MessageCollection
     {
         return new MessageCollection();
     }

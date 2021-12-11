@@ -24,9 +24,9 @@ namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
 use FormatPHP\ExtendedDescriptorInterface;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\WriterInterface;
+use FormatPHP\Format\WriterOptions;
 
 use function array_merge;
 use function ksort;
@@ -64,7 +64,7 @@ class FormatPHPWriter implements WriterInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array
+    public function __invoke(DescriptorCollection $collection, WriterOptions $options): array
     {
         $format = [];
 
@@ -76,7 +76,7 @@ class FormatPHPWriter implements WriterInterface
                 $message['description'] = $item->getDescription();
             }
 
-            if ($options->extractSourceLocation === true && $item instanceof ExtendedDescriptorInterface) {
+            if ($options->includesSourceLocation && $item instanceof ExtendedDescriptorInterface) {
                 $message = array_merge($message, [
                     'end' => $item->getSourceEndOffset(),
                     'file' => $item->getSourceFile(),
@@ -85,7 +85,7 @@ class FormatPHPWriter implements WriterInterface
                 ]);
             }
 
-            if ($options->pragma !== null && $item instanceof ExtendedDescriptorInterface) {
+            if ($options->includesPragma && $item instanceof ExtendedDescriptorInterface) {
                 $message = array_merge($message, [
                     'meta' => $item->getMetadata(),
                 ]);

@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace FormatPHP\Test\Util;
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\WriterInterface;
+use FormatPHP\Format\WriterOptions;
 
 class MockFormatWriter implements WriterInterface
 {
     /**
      * @inheritdoc
      */
-    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array
+    public function __invoke(DescriptorCollection $collection, WriterOptions $options): array
     {
         return [];
     }
