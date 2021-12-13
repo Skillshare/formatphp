@@ -12,15 +12,30 @@ use FormatPHP\Test\TestCase;
 
 class LiteralElementTest extends TestCase
 {
-    public function testType(): void
+    public function testConstructor(): void
     {
-        $details1 = new LocationDetails(7, 4, 5);
-        $details2 = new LocationDetails(12, 4, 10);
-        $location = new Location($details1, $details2);
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
         $element = new LiteralElement('a literal element', $location);
 
         $this->assertEquals(ElementType::Literal(), $element->type);
         $this->assertSame('a literal element', $element->value);
         $this->assertSame($location, $element->location);
+    }
+
+    public function testDeepClone(): void
+    {
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
+        $element = new LiteralElement('a literal element', $location);
+        $clone = clone $element;
+
+        $this->assertNotSame($location, $clone->location);
+        $this->assertNotSame($start, $clone->location->start);
+        $this->assertNotSame($end, $clone->location->end);
     }
 }

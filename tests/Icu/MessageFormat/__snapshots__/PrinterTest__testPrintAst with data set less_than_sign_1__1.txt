@@ -1,0 +1,1 @@
+< {level, select, A{1} 4{2} 3{3} 2{6} 1{12}} hours

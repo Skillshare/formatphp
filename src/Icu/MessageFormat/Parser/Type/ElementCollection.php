@@ -65,4 +65,15 @@ final class ElementCollection extends AbstractCollection implements
     {
         return $this->toArray();
     }
+
+    public function __clone()
+    {
+        $items = [];
+
+        foreach ($this->data as $datum) {
+            $items[] = clone $datum;
+        }
+
+        $this->data = $items;
+    }
 }

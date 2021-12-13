@@ -79,4 +79,12 @@ class DescriptorTest extends TestCase
 
         $this->assertSame('aDescriptorId', $descriptor->getId());
     }
+
+    public function testSetDefaultMessage(): void
+    {
+        $descriptor = new Descriptor();
+        $descriptor->setDefaultMessage('a default message');
+
+        $this->assertSame('a default message', $descriptor->getDefaultMessage());
+    }
 }

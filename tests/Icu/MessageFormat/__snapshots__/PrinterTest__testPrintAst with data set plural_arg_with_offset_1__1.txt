@@ -1,0 +1,1 @@
+You have {itemCount, plural, offset:2 =0{no items} one{1 item} other{{itemCount} items}}.

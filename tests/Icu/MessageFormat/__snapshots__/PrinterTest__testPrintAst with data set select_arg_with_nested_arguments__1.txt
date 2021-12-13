@@ -1,0 +1,2 @@
+
+    {taxableArea, select, yes{An additional {taxRate, number, percent} tax will be collected.} other{No taxes apply.}}

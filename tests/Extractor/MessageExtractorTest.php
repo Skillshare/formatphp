@@ -684,4 +684,61 @@ class MessageExtractorTest extends TestCase
             __DIR__ . '/Parser/Descriptor/fixtures/*.template',
         ]);
     }
+
+    public function testProcessFlatten(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->functionNames = ['formatMessage', 'translate'];
+        $options->flatten = true;
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
+        );
+
+        ob_start();
+        $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.ph*']);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'aTestId' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'OpKKos' => [
+                    'defaultMessage' => 'Hello!',
+                ],
+                'photos.count' => [
+                    'defaultMessage' => '{numPhotos, plural, =0{You have no photos.} '
+                        . '=1{You have one photo.} other{You have # photos.}}',
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                ],
+                'welcome' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
+                'goodbye' => [
+                    'defaultMessage' => 'Goodbye!',
+                ],
+                'Soex4s' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'xgMWoP' => [
+                    'defaultMessage' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
+            ],
+            $messages,
+        );
+    }
 }

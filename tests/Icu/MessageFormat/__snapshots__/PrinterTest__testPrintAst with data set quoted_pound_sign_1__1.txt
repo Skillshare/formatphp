@@ -1,0 +1,1 @@
+You {count, plural, one{worked for '#' hour} other{worked for '#' hours}} today.

@@ -19,4 +19,16 @@ class LocationTest extends TestCase
         $this->assertSame($details1, $location->start);
         $this->assertSame($details2, $location->end);
     }
+
+    public function testDeepClone(): void
+    {
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
+        $clone = clone $location;
+
+        $this->assertNotSame($start, $clone->start);
+        $this->assertNotSame($end, $clone->end);
+    }
 }

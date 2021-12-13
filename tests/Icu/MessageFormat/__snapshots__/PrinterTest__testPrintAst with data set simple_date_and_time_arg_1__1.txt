@@ -1,0 +1,1 @@
+Your meeting is scheduled for the {dateVal, date} at {timeVal, time}

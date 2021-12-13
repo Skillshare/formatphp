@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Provide `--flatten` extraction option to tell the extractor to hoist selectors and flatten sentences as much as possible. For example, `I have {count, plural, one{a dog} other{many dogs}}` becomes `{count, plural, one{I have a dog} other{I have many dogs}}`. The goal is to provide as many full sentences as possible, since fragmented sentences are not translator-friendly.
 - Provide `--add-missing-ids` extraction option to update source code with auto-generated identifiers
 - Add `Util\FormatHelper` that provides `getReader()` and `getWriter()` methods
 - Introduce `Format\Format` final static class for format constants

@@ -12,7 +12,7 @@ use FormatPHP\Test\TestCase;
 
 class PoundElementTest extends TestCase
 {
-    public function testType(): void
+    public function testConstructor(): void
     {
         $start = new LocationDetails(0, 1, 1);
         $end = new LocationDetails(2, 4, 6);
@@ -22,5 +22,19 @@ class PoundElementTest extends TestCase
 
         $this->assertEquals(ElementType::Pound(), $element->type);
         $this->assertSame($location, $element->location);
+    }
+
+    public function testDeepClone(): void
+    {
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
+        $element = new PoundElement($location);
+        $clone = clone $element;
+
+        $this->assertNotSame($location, $clone->location);
+        $this->assertNotSame($start, $clone->location->start);
+        $this->assertNotSame($end, $clone->location->end);
     }
 }

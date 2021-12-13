@@ -168,6 +168,16 @@ class ExtractCommand extends AbstractCommand
                     . 'messages.',
             )
             ->addOption(
+                'flatten',
+                null,
+                InputOption::VALUE_NONE,
+                'Whether to hoist selectors & flatten sentences as much as possible, '
+                    . 'e.g: "I have {count, plural, one{a dog} other{many dogs}}" '
+                    . 'becomes "{count, plural, one{I have a dog} other{I have many '
+                    . 'dogs}}". The goal is to provide as many full sentences as '
+                    . 'possible, since fragmented sentences are not translator-friendly.',
+            )
+            ->addOption(
                 'add-missing-ids',
                 null,
                 InputOption::VALUE_NONE,
@@ -239,6 +249,7 @@ class ExtractCommand extends AbstractCommand
         $options->extractSourceLocation = (bool) $input->getOption('extract-source-location');
         $options->throws = (bool) $input->getOption('throws');
         $options->preserveWhitespace = (bool) $input->getOption('preserve-whitespace');
+        $options->flatten = (bool) $input->getOption('flatten');
         $options->addGeneratedIdsToSourceCode = (bool) $input->getOption('add-missing-ids');
 
         /** @var string $inputFunctionNames */

@@ -24,6 +24,8 @@ namespace FormatPHP\Icu\MessageFormat\Parser\Type;
 
 class Location
 {
+    use DeepCloner;
+
     public LocationDetails $start;
     public LocationDetails $end;
 

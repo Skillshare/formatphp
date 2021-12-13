@@ -72,6 +72,11 @@ class Descriptor implements ExtendedDescriptorInterface
         return $this->defaultMessage;
     }
 
+    public function setDefaultMessage(string $defaultMessage): void
+    {
+        $this->defaultMessage = $defaultMessage;
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
