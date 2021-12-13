@@ -18,8 +18,7 @@ class SmartlingReaderTest extends TestCase
 {
     public function testThrowsExceptionWhenMessageIdIsNotAString(): void
     {
-        $locale = new Locale('en');
-        $config = new Config($locale);
+        $config = new Config(new Locale('en'));
         $formatReader = new SmartlingReader();
         $data = ['smartling' => [], 'foo'];
 
@@ -29,13 +28,12 @@ class SmartlingReaderTest extends TestCase
             SmartlingReader::class,
         ));
 
-        $formatReader($config, $data, $locale);
+        $formatReader($config, $data);
     }
 
     public function testThrowsExceptionWhenMessageIsNotAString(): void
     {
-        $locale = new Locale('en');
-        $config = new Config($locale);
+        $config = new Config(new Locale('en'));
         $formatReader = new SmartlingReader();
         $data = ['smartling' => [], 'foo' => ['bar']];
 
@@ -45,18 +43,16 @@ class SmartlingReaderTest extends TestCase
             SmartlingReader::class,
         ));
 
-        $formatReader($config, $data, $locale);
+        $formatReader($config, $data);
     }
 
     public function testInvoke(): void
     {
-        $locale = new Locale('en-US');
-        $localeResolved = new Locale('en');
-        $config = new Config($locale);
+        $config = new Config(new Locale('en-US'));
         $formatReader = new SmartlingReader();
         $data = ['smartling' => [], 'foo' => ['message' => 'I am foo'], 'bar' => ['message' => 'I am bar']];
 
-        $collection = $formatReader($config, $data, $localeResolved);
+        $collection = $formatReader($config, $data);
 
         $this->assertInstanceOf(MessageCollection::class, $collection);
         $this->assertCount(2, $collection);

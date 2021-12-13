@@ -24,24 +24,21 @@ namespace FormatPHP\Format;
 
 use FormatPHP\ConfigInterface;
 use FormatPHP\Exception\InvalidMessageShapeException;
-use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\MessageCollection;
 
 /**
  * Returns a collection of messages parsed from JSON-decoded message data
+ *
+ * @psalm-type ReaderCallableType = callable(ConfigInterface,mixed[]):MessageCollection
+ * @psalm-type ReaderType = ReaderInterface | ReaderCallableType
  */
 interface ReaderInterface
 {
     /**
      * @param array<array-key, mixed> $data An arbitrary array of JSON-decoded
      *     data, loaded from a message file.
-     * @param LocaleInterface $localeResolved We utilize a "fallback" algorithm
-     *     to look up a suitable replacement locale (i.e., if we receive "en-US"
-     *     and have only a locale for "en," we will use "en" instead). This
-     *     parameter is the actual locale we used, which may be different from
-     *     the one provided on Config.
      *
      * @throws InvalidMessageShapeException
      */
-    public function __invoke(ConfigInterface $config, array $data, LocaleInterface $localeResolved): MessageCollection;
+    public function __invoke(ConfigInterface $config, array $data): MessageCollection;
 }

@@ -30,6 +30,8 @@ use function mb_chr;
 use function mb_ord;
 
 /**
+ * A helper for working with code points
+ *
  * @internal
  */
 class CodePointHelper
@@ -49,32 +51,61 @@ class CodePointHelper
         $this->isPotentialElementNameChar = new IsPotentialElementNameChar();
     }
 
+    /**
+     * Checks whether a code point is an alphabet character
+     *
+     * @see IsAlpha::matches()
+     */
     public function isAlpha(int $codepoint): bool
     {
         return $this->isAlpha->matches($codepoint);
     }
 
+    /**
+     * Checks whether a code point is an alphabet character or a forward slash ("/")
+     *
+     * @see IsAlpha::matches()
+     */
     public function isAlphaOrSlash(int $codepoint): bool
     {
-        return $this->isAlpha->matchesWithSlash($codepoint);
+        return $codepoint === 0x002f || $this->isAlpha->matches($codepoint);
     }
 
+    /**
+     * Checks whether a code point is in the Unicode Character Database
+     * White_Space and Pattern_White_Space groups
+     *
+     * @see IsWhiteSpace::matches()
+     */
     public function isWhiteSpace(int $codepoint): bool
     {
         return $this->isWhiteSpace->matches($codepoint);
     }
 
+    /**
+     * Checks whether a code point is in the Unicode Character Database
+     * Pattern_Syntax group
+     *
+     * @see IsPatternSyntax::matches()
+     */
     public function isPatternSyntax(int $codepoint): bool
     {
         return $this->isPatternSyntax->matches($codepoint);
     }
 
+    /**
+     * Checks whether the code point could be used in an HTML tag element name
+     *
+     * @see IsPotentialElementNameChar::matches()
+     */
     public function isPotentialElementNameChar(int $codepoint): bool
     {
         return $this->isPotentialElementNameChar->matches($codepoint);
     }
 
     /**
+     * Returns the code point for a character in a string array at a given offset
+     *
      * @param string[] $stringArray
      */
     public function charCodeAt(array $stringArray, int $offset): ?int
@@ -92,6 +123,9 @@ class CodePointHelper
         return null;
     }
 
+    /**
+     * Returns the string character for a given code point
+     */
     public function fromCharCode(int $code): ?string
     {
         $char = mb_chr($code, Parser::ENCODING);
@@ -104,6 +138,8 @@ class CodePointHelper
     }
 
     /**
+     * Returns a string of characters for the given code points
+     *
      * @throws InvalidUtf8CodePointException
      */
     public function fromCodePoint(int ...$codePoints): string

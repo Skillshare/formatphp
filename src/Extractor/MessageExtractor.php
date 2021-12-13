@@ -34,6 +34,8 @@ use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
+use FormatPHP\Format\WriterInterface;
+use FormatPHP\Format\WriterOptions;
 use FormatPHP\Icu\MessageFormat\Manipulator;
 use FormatPHP\Icu\MessageFormat\Parser as MessageFormatParser;
 use FormatPHP\Icu\MessageFormat\Printer;
@@ -42,6 +44,7 @@ use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
 use Psr\Log\LoggerInterface;
+use Ramsey\Collection\Exception\CollectionMismatchException;
 
 use function class_exists;
 use function count;
@@ -52,6 +55,9 @@ use function strtolower;
 
 /**
  * Extracts message descriptors from application source code
+ *
+ * @psalm-import-type DescriptorParserCallable from DescriptorParserInterface
+ * @psalm-import-type WriterType from WriterInterface
  */
 class MessageExtractor
 {
@@ -91,6 +97,7 @@ class MessageExtractor
      * @throws InvalidArgumentException
      * @throws ImproperContextException
      * @throws LogicException
+     * @throws CollectionMismatchException
      */
     public function process(array $files): void
     {
@@ -138,6 +145,7 @@ class MessageExtractor
      * @throws UnableToProcessFileException
      * @throws ImproperContextException
      * @throws LogicException
+     * @throws CollectionMismatchException
      */
     private function parse(DescriptorCollection $descriptors, string $filePath): DescriptorCollection
     {
@@ -172,15 +180,14 @@ class MessageExtractor
      */
     private function loadDescriptorParser(string $parserNameOrScript): DescriptorParserInterface
     {
-        switch (strtolower($parserNameOrScript)) {
-            case 'php':
-                return new PhpParser($this->file);
+        if (strtolower($parserNameOrScript) === 'php') {
+            return new PhpParser($this->file);
         }
 
         if (class_exists($parserNameOrScript) && is_a($parserNameOrScript, DescriptorParserInterface::class, true)) {
             $parser = new $parserNameOrScript();
         } else {
-            /** @var Closure(string,MessageExtractorOptions,ParserErrorCollection):DescriptorCollection | null $parser */
+            /** @var DescriptorParserCallable | null $parser */
             $parser = $this->file->loadClosureFromScript($parserNameOrScript);
         }
 
@@ -203,7 +210,9 @@ class MessageExtractor
     }
 
     /**
-     * @param callable(DescriptorCollection,MessageExtractorOptions):array<mixed> $formatter
+     * @see WriterInterface
+     *
+     * @param WriterType $formatter
      *
      * @throws UnableToWriteFileException
      * @throws InvalidArgumentException
@@ -218,7 +227,11 @@ class MessageExtractor
 
         $file = $this->options->outFile ?? 'php://output';
 
-        $messages = $formatter($descriptors, $this->options);
+        $writerOptions = new WriterOptions();
+        $writerOptions->includesSourceLocation = $this->options->extractSourceLocation;
+        $writerOptions->includesPragma = $this->options->pragma !== null;
+
+        $messages = $formatter($descriptors, $writerOptions);
         if (count($messages) === 0) {
             $messages = (object) $messages;
         }

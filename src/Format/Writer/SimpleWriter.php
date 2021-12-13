@@ -23,9 +23,9 @@ declare(strict_types=1);
 namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Reader\SimpleReader;
 use FormatPHP\Format\WriterInterface;
+use FormatPHP\Format\WriterOptions;
 
 /**
  * A simple formatter for FormatPHP, producing message key-value pairs
@@ -45,7 +45,7 @@ class SimpleWriter implements WriterInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array
+    public function __invoke(DescriptorCollection $collection, WriterOptions $options): array
     {
         $simple = [];
         foreach ($collection as $item) {
