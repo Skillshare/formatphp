@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Format\Reader;
 
-use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Format\Reader\SmartlingReader;
-use FormatPHP\Intl\Locale;
 use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
 use FormatPHP\Test\TestCase;
@@ -18,7 +16,6 @@ class SmartlingReaderTest extends TestCase
 {
     public function testThrowsExceptionWhenMessageIdIsNotAString(): void
     {
-        $config = new Config(new Locale('en'));
         $formatReader = new SmartlingReader();
         $data = ['smartling' => [], 'foo'];
 
@@ -28,12 +25,11 @@ class SmartlingReaderTest extends TestCase
             SmartlingReader::class,
         ));
 
-        $formatReader($config, $data);
+        $formatReader($data);
     }
 
     public function testThrowsExceptionWhenMessageIsNotAString(): void
     {
-        $config = new Config(new Locale('en'));
         $formatReader = new SmartlingReader();
         $data = ['smartling' => [], 'foo' => ['bar']];
 
@@ -43,16 +39,15 @@ class SmartlingReaderTest extends TestCase
             SmartlingReader::class,
         ));
 
-        $formatReader($config, $data);
+        $formatReader($data);
     }
 
     public function testInvoke(): void
     {
-        $config = new Config(new Locale('en-US'));
         $formatReader = new SmartlingReader();
         $data = ['smartling' => [], 'foo' => ['message' => 'I am foo'], 'bar' => ['message' => 'I am bar']];
 
-        $collection = $formatReader($config, $data);
+        $collection = $formatReader($data);
 
         $this->assertInstanceOf(MessageCollection::class, $collection);
         $this->assertCount(2, $collection);
