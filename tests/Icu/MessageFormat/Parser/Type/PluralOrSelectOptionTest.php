@@ -15,11 +15,8 @@ class PluralOrSelectOptionTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $elements = new ElementCollection([
-            $this->mockery(ElementInterface::class),
-            $this->mockery(ElementInterface::class),
-            $this->mockery(ElementInterface::class),
-        ]);
+        $element = $this->mockery(ElementInterface::class);
+        $elements = new ElementCollection([$element, $element]);
 
         $start = new LocationDetails(0, 1, 1);
         $end = new LocationDetails(2, 4, 6);
@@ -29,5 +26,23 @@ class PluralOrSelectOptionTest extends TestCase
 
         $this->assertSame($elements, $option->value);
         $this->assertSame($location, $option->location);
+        $this->assertSame($element, $option->value[0]);
+    }
+
+    public function testDeepClone(): void
+    {
+        $element = $this->mockery(ElementInterface::class);
+        $elements = new ElementCollection([$element, $element]);
+
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
+        $option = new PluralOrSelectOption($elements, $location);
+        $clone = clone $option;
+
+        $this->assertNotSame($elements, $clone->value);
+        $this->assertNotSame($location, $clone->location);
+        $this->assertNotSame($element, $clone->value[0]);
     }
 }

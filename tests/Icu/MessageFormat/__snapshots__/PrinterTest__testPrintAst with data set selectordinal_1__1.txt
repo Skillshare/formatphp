@@ -1,0 +1,1 @@
+{floor, selectordinal, =0{ground} one{#st} two{#nd} few{#rd} other{#th}} floor

@@ -1,0 +1,1 @@
+<bold>You have {count, plural, one{<italic>#</italic> apple} other{<italic>#</italic> apples}}.</bold>

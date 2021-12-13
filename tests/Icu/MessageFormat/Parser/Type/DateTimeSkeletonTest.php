@@ -13,7 +13,7 @@ use FormatPHP\Test\TestCase;
 
 class DateTimeSkeletonTest extends TestCase
 {
-    public function testType(): void
+    public function testConstructor(): void
     {
         $start = new LocationDetails(0, 1, 1);
         $end = new LocationDetails(2, 4, 6);
@@ -27,5 +27,22 @@ class DateTimeSkeletonTest extends TestCase
         $this->assertSame('date pattern', $skeleton->pattern);
         $this->assertSame($location, $skeleton->location);
         $this->assertSame($parsedOptions, $skeleton->parsedOptions);
+    }
+
+    public function testDeepClone(): void
+    {
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
+        $parsedOptions = new DateTimeFormatOptions();
+
+        $skeleton = new DateTimeSkeleton('date pattern', $location, $parsedOptions);
+        $clone = clone $skeleton;
+
+        $this->assertNotSame($location, $clone->location);
+        $this->assertNotSame($start, $clone->location->start);
+        $this->assertNotSame($end, $clone->location->end);
+        $this->assertNotSame($parsedOptions, $clone->parsedOptions);
     }
 }

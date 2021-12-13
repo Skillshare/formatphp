@@ -1,0 +1,1 @@
+{count, plural, one{I have a dog} other{I have many dogs}}

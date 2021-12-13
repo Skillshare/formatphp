@@ -24,6 +24,8 @@ namespace FormatPHP\Icu\MessageFormat\Parser\Type;
 
 abstract class AbstractSkeleton implements SkeletonInterface
 {
+    use DeepCloner;
+
     public SkeletonType $type;
     public Location $location;
 }

@@ -14,20 +14,40 @@ use FormatPHP\Test\TestCase;
 
 class TagElementTest extends TestCase
 {
-    public function testType(): void
+    public function testConstructor(): void
     {
         $start = new LocationDetails(0, 1, 1);
         $end = new LocationDetails(2, 4, 6);
         $location = new Location($start, $end);
 
         $formatElement = $this->mockery(ElementInterface::class);
-        $children = new ElementCollection([clone $formatElement, clone $formatElement]);
+        $children = new ElementCollection([$formatElement, $formatElement]);
 
         $element = new TagElement('tag name', $children, $location);
 
         $this->assertEquals(ElementType::Tag(), $element->type);
         $this->assertSame('tag name', $element->value);
-        $this->assertSame($children, $element->children);
         $this->assertSame($location, $element->location);
+        $this->assertSame($children, $element->children);
+        $this->assertCount(2, $element->children);
+        $this->assertSame($formatElement, $element->children[0]);
+    }
+
+    public function testDeepClone(): void
+    {
+        $start = new LocationDetails(0, 1, 1);
+        $end = new LocationDetails(2, 4, 6);
+        $location = new Location($start, $end);
+
+        $formatElement = $this->mockery(ElementInterface::class);
+        $children = new ElementCollection([$formatElement, $formatElement]);
+
+        $element = new TagElement('tag name', $children, $location);
+        $clone = clone $element;
+
+        $this->assertNotSame($location, $clone->location);
+        $this->assertNotSame($children, $clone->children);
+        $this->assertCount(2, $element->children);
+        $this->assertNotSame($formatElement, $clone->children[0]);
     }
 }

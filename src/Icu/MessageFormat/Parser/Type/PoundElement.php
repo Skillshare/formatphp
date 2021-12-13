@@ -24,8 +24,10 @@ namespace FormatPHP\Icu\MessageFormat\Parser\Type;
 
 final class PoundElement implements ElementInterface
 {
+    use DeepCloner;
+
     public ElementType $type;
-    public ?Location $location = null;
+    public Location $location;
 
     public function __construct(Location $location)
     {

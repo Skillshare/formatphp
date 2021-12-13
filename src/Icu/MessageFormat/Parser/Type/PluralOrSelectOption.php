@@ -24,6 +24,8 @@ namespace FormatPHP\Icu\MessageFormat\Parser\Type;
 
 class PluralOrSelectOption
 {
+    use DeepCloner;
+
     public ElementCollection $value;
     public Location $location;
 

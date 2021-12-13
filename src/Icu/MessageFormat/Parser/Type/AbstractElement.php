@@ -24,7 +24,9 @@ namespace FormatPHP\Icu\MessageFormat\Parser\Type;
 
 abstract class AbstractElement implements ElementInterface
 {
+    use DeepCloner;
+
     public ElementType $type;
-    public ?string $value = null;
-    public ?Location $location = null;
+    public string $value;
+    public Location $location;
 }

@@ -22,6 +22,8 @@ declare(strict_types=1);
 
 namespace FormatPHP\Extractor;
 
+use FormatPHP\Icu\MessageFormat\Manipulator;
+
 /**
  * MessageExtractor options
  */
@@ -76,6 +78,13 @@ class MessageExtractorOptions
      * Whether to preserve whitespace and newlines in extracted messages
      */
     public bool $preserveWhitespace = false;
+
+    /**
+     * Whether to hoist selectors and flatten sentences as much as possible
+     *
+     * @see Manipulator::hoistSelectors()
+     */
+    public bool $flatten = false;
 
     /**
      * Function and method names to parse from the application source code

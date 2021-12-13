@@ -23,7 +23,9 @@ declare(strict_types=1);
 namespace FormatPHP\Extractor;
 
 use Closure;
+use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
+use FormatPHP\DescriptorInterface;
 use FormatPHP\Exception\FormatPHPExceptionInterface;
 use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
@@ -34,6 +36,9 @@ use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Format\WriterInterface;
 use FormatPHP\Format\WriterOptions;
+use FormatPHP\Icu\MessageFormat\Manipulator;
+use FormatPHP\Icu\MessageFormat\Parser as MessageFormatParser;
+use FormatPHP\Icu\MessageFormat\Printer;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
@@ -62,6 +67,8 @@ class MessageExtractor
     private MessageExtractorOptions $options;
     private ParserErrorCollection $errors;
     private FormatHelper $formatHelper;
+    private Manipulator $manipulator;
+    private Printer $printer;
 
     public function __construct(
         MessageExtractorOptions $options,
@@ -76,6 +83,8 @@ class MessageExtractor
         $this->file = $file;
         $this->formatHelper = $formatHelper;
         $this->errors = new ParserErrorCollection();
+        $this->manipulator = new Manipulator();
+        $this->printer = new Printer();
     }
 
     /**
@@ -210,6 +219,12 @@ class MessageExtractor
      */
     private function write(callable $formatter, DescriptorCollection $descriptors): void
     {
+        if ($this->options->flatten === true) {
+            /** @var DescriptorInterface[] $flattened */
+            $flattened = $descriptors->map($this->flattenMessage())->toArray();
+            $descriptors = new DescriptorCollection($flattened);
+        }
+
         $file = $this->options->outFile ?? 'php://output';
 
         $writerOptions = new WriterOptions();
@@ -249,6 +264,23 @@ class MessageExtractor
                 /** @var DescriptorCollection */
                 return ($this->parser)($filePath, $options, $errors);
             }
+        };
+    }
+
+    private function flattenMessage(): Closure
+    {
+        return function (Descriptor $descriptor): Descriptor {
+            $message = $descriptor->getDefaultMessage();
+            $messageFormatParser = new MessageFormatParser((string) $message);
+            $result = $messageFormatParser->parse();
+
+            /** @var MessageFormatParser\Type\ElementCollection $messageAst */
+            $messageAst = $result->val;
+
+            $hoistedAst = $this->manipulator->hoistSelectors($messageAst);
+            $descriptor->setDefaultMessage($this->printer->printAst($hoistedAst));
+
+            return $descriptor;
         };
     }
 }
