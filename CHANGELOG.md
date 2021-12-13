@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Provide `--add-missing-ids` extraction option to update source code with auto-generated identifiers
 - Add `Util\FormatHelper` that provides `getReader()` and `getWriter()` methods
 - Introduce `Format\Format` final static class for format constants
+- Port [@formatjs/icu-messageformat-parser](https://www.npmjs.com/package/@formatjs/icu-messageformat-parser) to FormatPHP (`FormatPHP\Icu\MessageFormat\Parser`)
 
 ### Changed
 

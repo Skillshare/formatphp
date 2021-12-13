@@ -23,30 +23,47 @@ declare(strict_types=1);
 namespace FormatPHP\Icu\MessageFormat\Parser\Util;
 
 /**
+ * Checks whether the code point could be used in an HTML tag element name
+ *
  * @internal
  */
 class IsPotentialElementNameChar implements CodePointMatcherInterface
 {
     /**
-     * Checks whether the code point could be used in an element name
+     * Returns true if the code point could be used in an HTML tag element name
      *
-     * We could convert this to an array, like we did for the other code point
-     * matchers, but this list has 54,128 code points in it, so we have opted
-     * to use a logical statement instead.
+     * This function matches exactly 971,632 code points.
+     *
+     * A tag name must start with an ASCII lower/upper case letter. The grammar
+     * is based on the HTML custom element name except that a dash is NOT always
+     * mandatory and uppercase letters are accepted:
+     *
+     * ```
+     * tag ::= "<" tagName (whitespace)* "/>" |
+     *     "<" tagName (whitespace)* ">" message "</" tagName (whitespace)* ">"
+     * tagName ::= [a-z] (PENChar)*
+     * PENChar ::=
+     *     "-" | "." | [0-9] | "_" | [a-z] | [A-Z] | #xB7 | [#xC0-#xD6] |
+     *     [#xD8-#xF6] | [#xF8-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] |
+     *     [#x203F-#x2040] | [#x2070-#x218F] | [#x2C00-#x2FEF] |
+     *     [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] |
+     *     [#x10000-#xEFFFF]
+     * ```
+     *
+     * @link https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name HTML custom element name
      */
     public function matches(int $codepoint): bool
     {
-        return $codepoint === 45 /* '-' */
-            || $codepoint === 46 /* '.' */
-            || ($codepoint >= 48 && $codepoint <= 57) /* 0..9 */
-            || $codepoint === 95 /* '_' */
-            || ($codepoint >= 97 && $codepoint <= 122) /* a..z */
-            || ($codepoint >= 65 && $codepoint <= 90) /* A..Z */
-            || $codepoint === 0xb7
-            || ($codepoint >= 0xc0 && $codepoint <= 0xd6)
-            || ($codepoint >= 0xd8 && $codepoint <= 0xf6)
-            || ($codepoint >= 0xf8 && $codepoint <= 0x37d)
-            || ($codepoint >= 0x37f && $codepoint <= 0x1fff)
+        return ($codepoint >= 0x002d && $codepoint <= 0x002e)
+            || ($codepoint >= 0x0030 && $codepoint <= 0x0039)
+            || ($codepoint >= 0x0041 && $codepoint <= 0x005a)
+            || $codepoint === 0x005f
+            || ($codepoint >= 0x0061 && $codepoint <= 0x007a)
+            || $codepoint === 0x00b7
+            || ($codepoint >= 0x00c0 && $codepoint <= 0x00d6)
+            || ($codepoint >= 0x00d8 && $codepoint <= 0x00f6)
+            || ($codepoint >= 0x00f8 && $codepoint <= 0x037d)
+            || ($codepoint >= 0x037f && $codepoint <= 0x1fff)
             || ($codepoint >= 0x200c && $codepoint <= 0x200d)
             || ($codepoint >= 0x203f && $codepoint <= 0x2040)
             || ($codepoint >= 0x2070 && $codepoint <= 0x218f)
