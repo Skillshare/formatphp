@@ -36,6 +36,27 @@ interface ConfigInterface
     public function getDefaultLocale(): ?LocaleInterface;
 
     /**
+     * Returns a map of tag names to rich text formatting functions
+     *
+     * This is meant to provide a centralized way to format common tags such as
+     * `<b>`, `<p>`, or enforcing a certain design system in the codebase
+     * (e.g., standardized `<a>`, `<button>`, etc.).
+     *
+     * The functions should be a callable that accepts a single string parameter
+     * and returns a string. For example:
+     *
+     * ```php
+     * [
+     *     'em' => fn (string $text): string => '<em class="bar">' . $text . '</em>',
+     *     'strong' => fn (string $text): string => '<strong class="foo">' . $text . '</strong>',
+     * ]
+     * ```
+     *
+     * @return array<string, callable(string):string>
+     */
+    public function getDefaultRichTextElements(): array;
+
+    /**
      * Returns a pattern that defines how to generate missing message IDs
      *
      * @see IdInterpolator

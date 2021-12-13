@@ -24,6 +24,9 @@ namespace FormatPHP\Icu\MessageFormat\Parser;
 
 use FormatPHP\Icu\MessageFormat\Parser\Type\Location;
 
+/**
+ * @psalm-type ErrorKind = Error::*
+ */
 class Error
 {
     /**
@@ -166,7 +169,7 @@ class Error
     public const UNCLOSED_TAG = 27;
 
     /**
-     * @psalm-var Error::*
+     * @var ErrorKind
      */
     public int $kind;
 
@@ -174,7 +177,7 @@ class Error
     public Location $location;
 
     /**
-     * @psalm-param Error::* $kind
+     * @param ErrorKind $kind
      */
     public function __construct(int $kind, string $message, Location $location)
     {
