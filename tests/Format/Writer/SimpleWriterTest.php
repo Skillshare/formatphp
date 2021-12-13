@@ -6,8 +6,8 @@ namespace FormatPHP\Test\Format\Writer;
 
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Writer\SimpleWriter;
+use FormatPHP\Format\WriterOptions;
 use FormatPHP\Test\TestCase;
 
 class SimpleWriterTest extends TestCase
@@ -23,7 +23,7 @@ class SimpleWriterTest extends TestCase
                 'aaa' => 'first message',
                 'bbb' => 'second message',
             ],
-            (new SimpleWriter())($collection, new MessageExtractorOptions()),
+            (new SimpleWriter())($collection, new WriterOptions()),
         );
     }
 }

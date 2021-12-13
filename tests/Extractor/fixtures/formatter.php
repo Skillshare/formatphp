@@ -7,14 +7,12 @@
 declare(strict_types=1);
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\WriterOptions;
 
 /**
  * @return array<string, array{translation: string}>
- *
- * @psalm-suppress UnusedClosureParam
  */
-return function (DescriptorCollection $collection, MessageExtractorOptions $options): array {
+return function (DescriptorCollection $collection, WriterOptions $options): array {
     $format = [];
     foreach ($collection as $item) {
         $format[(string) $item->getId()] = [

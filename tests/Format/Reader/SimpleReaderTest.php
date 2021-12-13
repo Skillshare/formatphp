@@ -18,8 +18,7 @@ class SimpleReaderTest extends TestCase
 {
     public function testThrowsExceptionWhenMessageIdIsNotAString(): void
     {
-        $locale = new Locale('en');
-        $config = new Config($locale);
+        $config = new Config(new Locale('en'));
         $formatReader = new SimpleReader();
         $data = ['foo'];
 
@@ -29,13 +28,12 @@ class SimpleReaderTest extends TestCase
             SimpleReader::class,
         ));
 
-        $formatReader($config, $data, $locale);
+        $formatReader($config, $data);
     }
 
     public function testThrowsExceptionWhenMessageIsNotAString(): void
     {
-        $locale = new Locale('en');
-        $config = new Config($locale);
+        $config = new Config(new Locale('en'));
         $formatReader = new SimpleReader();
         $data = ['foo' => ['bar']];
 
@@ -45,18 +43,16 @@ class SimpleReaderTest extends TestCase
             SimpleReader::class,
         ));
 
-        $formatReader($config, $data, $locale);
+        $formatReader($config, $data);
     }
 
     public function testInvoke(): void
     {
-        $locale = new Locale('en-US');
-        $localeResolved = new Locale('en');
-        $config = new Config($locale);
+        $config = new Config(new Locale('en-US'));
         $formatReader = new SimpleReader();
         $data = ['foo' => 'I am foo', 'bar' => 'I am bar'];
 
-        $collection = $formatReader($config, $data, $localeResolved);
+        $collection = $formatReader($config, $data);
 
         $this->assertInstanceOf(MessageCollection::class, $collection);
         $this->assertCount(2, $collection);

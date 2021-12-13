@@ -23,9 +23,9 @@ declare(strict_types=1);
 namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Reader\SmartlingReader;
 use FormatPHP\Format\WriterInterface;
+use FormatPHP\Format\WriterOptions;
 
 /**
  * Smartling formatter for FormatPHP
@@ -61,7 +61,7 @@ class SmartlingWriter implements WriterInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array
+    public function __invoke(DescriptorCollection $collection, WriterOptions $options): array
     {
         $format = [
             'smartling' => [

@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Format\WriterOptions;
 
-return function (DescriptorCollection $collection, MessageExtractorOptions $options)
+return function (DescriptorCollection $collection, WriterOptions $options)
 {
     return [];
 };

@@ -6,15 +6,15 @@ namespace FormatPHP\Test\Format\Writer;
 
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Writer\SmartlingWriter;
+use FormatPHP\Format\WriterOptions;
 use FormatPHP\Test\TestCase;
 
 class SmartlingWriterTest extends TestCase
 {
     public function testFormatter(): void
     {
-        $options = new MessageExtractorOptions();
+        $options = new WriterOptions();
 
         $collection = new DescriptorCollection();
         $collection->add(new Descriptor('foo'));

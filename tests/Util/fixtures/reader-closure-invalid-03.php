@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\MessageCollection;
 
-return function ($config, array $data, LocaleInterface $localeResolved): MessageCollection
+return function ($config, array $data): MessageCollection
 {
     return new MessageCollection();
 };

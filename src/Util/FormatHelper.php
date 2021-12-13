@@ -27,7 +27,6 @@ use FormatPHP\ConfigInterface;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Format;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\Reader\SimpleReader;
@@ -37,7 +36,7 @@ use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Format\Writer\SmartlingWriter;
 use FormatPHP\Format\WriterInterface;
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\Format\WriterOptions;
 use FormatPHP\MessageCollection;
 use ReflectionFunction;
 use Throwable;
@@ -50,6 +49,11 @@ use function strtolower;
 
 /**
  * Utilities for format readers and writers
+ *
+ * @psalm-import-type ReaderCallableType from ReaderInterface
+ * @psalm-import-type ReaderType from ReaderInterface
+ * @psalm-import-type WriterCallableType from WriterInterface
+ * @psalm-import-type WriterType from WriterInterface
  */
 class FormatHelper
 {
@@ -75,7 +79,7 @@ class FormatHelper
     /**
      * Returns a format reader for the given short name, class name, or file name
      *
-     * @return callable(ConfigInterface,array<mixed>,LocaleInterface):MessageCollection
+     * @return ReaderType
      *
      * @throws InvalidArgumentException
      * @throws ImproperContextException
@@ -91,14 +95,14 @@ class FormatHelper
             return new $formatter();
         }
 
-        /** @var callable(ConfigInterface,array<mixed>,LocaleInterface):MessageCollection */
+        /** @var ReaderCallableType */
         return $this->loadFormatter($format, ReaderInterface::class);
     }
 
     /**
      * Returns a format writer for the given short name, class name, or file name
      *
-     * @return callable(DescriptorCollection,MessageExtractorOptions):array<mixed>
+     * @return WriterType
      *
      * @throws InvalidArgumentException
      * @throws ImproperContextException
@@ -114,12 +118,14 @@ class FormatHelper
             return new $formatter();
         }
 
-        /** @var callable(DescriptorCollection,MessageExtractorOptions):array<mixed> */
+        /** @var WriterCallableType */
         return $this->loadFormatter($format, WriterInterface::class);
     }
 
     /**
      * @param class-string<ReaderInterface> | class-string<WriterInterface> $type
+     *
+     * @return ReaderCallableType | WriterCallableType
      *
      * @throws ImproperContextException
      * @throws InvalidArgumentException
@@ -154,23 +160,20 @@ class FormatHelper
 
             $reflected = new ReflectionFunction($formatter);
 
-            assert($reflected->getNumberOfParameters() === 3);
+            assert($reflected->getNumberOfParameters() === 2);
 
             $param1 = $reflected->getParameters()[0];
             $param2 = $reflected->getParameters()[1];
-            $param3 = $reflected->getParameters()[2];
 
             assert($param1->hasType() && $param1->getType()->getName() === ConfigInterface::class);
             assert($param2->hasType() && $param2->getType()->getName() === 'array');
-            assert($param3->hasType() && $param3->getType()->getName() === LocaleInterface::class);
             assert($reflected->hasReturnType() && $reflected->getReturnType()->getName() === MessageCollection::class);
         } catch (Throwable $exception) {
             throw new InvalidArgumentException(sprintf(
                 'The format provided is not a known format, an instance of '
-                    . '%s, or a callable of the shape `callable(%s,array<mixed>,%s):%s`.',
+                    . '%s, or a callable of the shape `callable(%s,array<mixed>):%s`.',
                 ReaderInterface::class,
                 ConfigInterface::class,
-                LocaleInterface::class,
                 MessageCollection::class,
             ));
         }
@@ -196,7 +199,7 @@ class FormatHelper
             $param2 = $reflected->getParameters()[1];
 
             assert($param1->hasType() && $param1->getType()->getName() === DescriptorCollection::class);
-            assert($param2->hasType() && $param2->getType()->getName() === MessageExtractorOptions::class);
+            assert($param2->hasType() && $param2->getType()->getName() === WriterOptions::class);
             assert($reflected->hasReturnType() && $reflected->getReturnType()->getName() === 'array');
         } catch (Throwable $exception) {
             throw new InvalidArgumentException(sprintf(
@@ -204,7 +207,7 @@ class FormatHelper
                 . '%s, or a callable of the shape `callable(%s,%s):array<mixed>`.',
                 WriterInterface::class,
                 DescriptorCollection::class,
-                MessageExtractorOptions::class,
+                WriterOptions::class,
             ));
         }
 
