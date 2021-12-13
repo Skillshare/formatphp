@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace FormatPHP\Test\Util;
 
 use Closure;
-use FormatPHP\ConfigInterface;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Format\Reader\FormatPHPReader;
@@ -91,9 +90,8 @@ class FormatHelperTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'The format provided is not a known format, an instance of '
-                . '%s, or a callable of the shape `callable(%s,array<mixed>):%s`.',
+                . '%s, or a callable of the shape `callable(array<mixed>):%s`.',
             ReaderInterface::class,
-            ConfigInterface::class,
             MessageCollection::class,
         ));
 
@@ -117,9 +115,6 @@ class FormatHelperTest extends TestCase
             ],
             'not enough parameters' => [
                 'reader' => __DIR__ . '/fixtures/reader-closure-invalid-02.php',
-            ],
-            'first param is not ConfigInterface' => [
-                'reader' => __DIR__ . '/fixtures/reader-closure-invalid-03.php',
             ],
             'second param is not array' => [
                 'reader' => __DIR__ . '/fixtures/reader-closure-invalid-04.php',

@@ -22,14 +22,13 @@ declare(strict_types=1);
 
 namespace FormatPHP\Format;
 
-use FormatPHP\ConfigInterface;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\MessageCollection;
 
 /**
  * Returns a collection of messages parsed from JSON-decoded message data
  *
- * @psalm-type ReaderCallableType = callable(ConfigInterface,mixed[]):MessageCollection
+ * @psalm-type ReaderCallableType = callable(mixed[]):MessageCollection
  * @psalm-type ReaderType = ReaderInterface | ReaderCallableType
  */
 interface ReaderInterface
@@ -40,5 +39,5 @@ interface ReaderInterface
      *
      * @throws InvalidMessageShapeException
      */
-    public function __invoke(ConfigInterface $config, array $data): MessageCollection;
+    public function __invoke(array $data): MessageCollection;
 }

@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-use FormatPHP\ConfigInterface;
 use FormatPHP\MessageCollection;
 
-return function (ConfigInterface $config, array $data): MessageCollection
+return function (array $data): MessageCollection
 {
     return new MessageCollection();
 };

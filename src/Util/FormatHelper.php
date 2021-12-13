@@ -23,7 +23,6 @@ declare(strict_types=1);
 namespace FormatPHP\Util;
 
 use Closure;
-use FormatPHP\ConfigInterface;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
@@ -160,20 +159,17 @@ class FormatHelper
 
             $reflected = new ReflectionFunction($formatter);
 
-            assert($reflected->getNumberOfParameters() === 2);
+            assert($reflected->getNumberOfParameters() === 1);
 
             $param1 = $reflected->getParameters()[0];
-            $param2 = $reflected->getParameters()[1];
 
-            assert($param1->hasType() && $param1->getType()->getName() === ConfigInterface::class);
-            assert($param2->hasType() && $param2->getType()->getName() === 'array');
+            assert($param1->hasType() && $param1->getType()->getName() === 'array');
             assert($reflected->hasReturnType() && $reflected->getReturnType()->getName() === MessageCollection::class);
         } catch (Throwable $exception) {
             throw new InvalidArgumentException(sprintf(
                 'The format provided is not a known format, an instance of '
-                    . '%s, or a callable of the shape `callable(%s,array<mixed>):%s`.',
+                    . '%s, or a callable of the shape `callable(array<mixed>):%s`.',
                 ReaderInterface::class,
-                ConfigInterface::class,
                 MessageCollection::class,
             ));
         }

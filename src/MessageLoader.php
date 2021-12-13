@@ -79,7 +79,7 @@ final class MessageLoader
      */
     public function loadMessages(): MessageCollection
     {
-        return ($this->formatReader)($this->config, $this->getLocaleMessages());
+        return ($this->formatReader)($this->getLocaleMessages());
     }
 
     /**

@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test\Format\Reader;
 
-use FormatPHP\Config;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Format\Reader\SimpleReader;
-use FormatPHP\Intl\Locale;
 use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
 use FormatPHP\Test\TestCase;
@@ -18,7 +16,6 @@ class SimpleReaderTest extends TestCase
 {
     public function testThrowsExceptionWhenMessageIdIsNotAString(): void
     {
-        $config = new Config(new Locale('en'));
         $formatReader = new SimpleReader();
         $data = ['foo'];
 
@@ -28,12 +25,11 @@ class SimpleReaderTest extends TestCase
             SimpleReader::class,
         ));
 
-        $formatReader($config, $data);
+        $formatReader($data);
     }
 
     public function testThrowsExceptionWhenMessageIsNotAString(): void
     {
-        $config = new Config(new Locale('en'));
         $formatReader = new SimpleReader();
         $data = ['foo' => ['bar']];
 
@@ -43,16 +39,15 @@ class SimpleReaderTest extends TestCase
             SimpleReader::class,
         ));
 
-        $formatReader($config, $data);
+        $formatReader($data);
     }
 
     public function testInvoke(): void
     {
-        $config = new Config(new Locale('en-US'));
         $formatReader = new SimpleReader();
         $data = ['foo' => 'I am foo', 'bar' => 'I am bar'];
 
-        $collection = $formatReader($config, $data);
+        $collection = $formatReader($data);
 
         $this->assertInstanceOf(MessageCollection::class, $collection);
         $this->assertCount(2, $collection);
