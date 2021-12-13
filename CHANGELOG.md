@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - The `Extractor\MessageExtractor` constructor now requires `Util\FormatHelper` as a fifth parameter
 - Use `ConfigInterface` instead of `Config` as the type-hint on `Format\ReaderInterface`
+- Remove `$localeResolved` argument from `Format\ReaderInterface`
+- Change type on `$options` argument in `Format\WriterInterface` from `MessageExtractorOptions` to a dedicated `WriterOptions` type
 
 ### Deprecated
 

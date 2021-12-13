@@ -23,11 +23,13 @@ declare(strict_types=1);
 namespace FormatPHP\Format;
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Extractor\MessageExtractorOptions;
 
 /**
  * Converts a DescriptorCollection into an appropriate data structure for
  * converting to JSON and writing to a file
+ *
+ * @psalm-type WriterCallableType = callable(DescriptorCollection,WriterOptions):mixed[]
+ * @psalm-type WriterType = WriterInterface | WriterCallableType
  */
 interface WriterInterface
 {
@@ -37,5 +39,5 @@ interface WriterInterface
      *
      * @return mixed[]
      */
-    public function __invoke(DescriptorCollection $collection, MessageExtractorOptions $options): array;
+    public function __invoke(DescriptorCollection $collection, WriterOptions $options): array;
 }

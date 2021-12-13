@@ -28,6 +28,9 @@ use FormatPHP\Extractor\MessageExtractorOptions;
 
 /**
  * Parses message descriptors from application source code files
+ *
+ * @psalm-type DescriptorParserCallable = callable(string,MessageExtractorOptions,ParserErrorCollection):DescriptorCollection
+ * @psalm-type DescriptorParserType = DescriptorParserInterface | DescriptorParserCallable
  */
 interface DescriptorParserInterface
 {

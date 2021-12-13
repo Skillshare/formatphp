@@ -8,7 +8,6 @@ use Closure;
 use FormatPHP\ConfigInterface;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\InvalidArgumentException;
-use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\Reader\SimpleReader;
 use FormatPHP\Format\Reader\SmartlingReader;
@@ -17,7 +16,7 @@ use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Format\Writer\SmartlingWriter;
 use FormatPHP\Format\WriterInterface;
-use FormatPHP\Intl\LocaleInterface;
+use FormatPHP\Format\WriterOptions;
 use FormatPHP\MessageCollection;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
@@ -92,10 +91,9 @@ class FormatHelperTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'The format provided is not a known format, an instance of '
-                . '%s, or a callable of the shape `callable(%s,array<mixed>,%s):%s`.',
+                . '%s, or a callable of the shape `callable(%s,array<mixed>):%s`.',
             ReaderInterface::class,
             ConfigInterface::class,
-            LocaleInterface::class,
             MessageCollection::class,
         ));
 
@@ -126,11 +124,8 @@ class FormatHelperTest extends TestCase
             'second param is not array' => [
                 'reader' => __DIR__ . '/fixtures/reader-closure-invalid-04.php',
             ],
-            'second param is not LocaleInterface' => [
-                'reader' => __DIR__ . '/fixtures/reader-closure-invalid-05.php',
-            ],
             'return type is not Message Collection' => [
-                'reader' => __DIR__ . '/fixtures/reader-closure-invalid-06.php',
+                'reader' => __DIR__ . '/fixtures/reader-closure-invalid-05.php',
             ],
         ];
     }
@@ -196,7 +191,7 @@ class FormatHelperTest extends TestCase
                 . '%s, or a callable of the shape `callable(%s,%s):array<mixed>`.',
             WriterInterface::class,
             DescriptorCollection::class,
-            MessageExtractorOptions::class,
+            WriterOptions::class,
         ));
 
         $helper->getWriter($writer);

@@ -26,7 +26,6 @@ use FormatPHP\ConfigInterface;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Format\Writer\SmartlingWriter;
-use FormatPHP\Intl\LocaleInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
 
@@ -46,7 +45,7 @@ class SmartlingReader implements ReaderInterface
     /**
      * @inheritdoc
      */
-    public function __invoke(ConfigInterface $config, array $data, LocaleInterface $localeResolved): MessageCollection
+    public function __invoke(ConfigInterface $config, array $data): MessageCollection
     {
         $messages = new MessageCollection();
 
