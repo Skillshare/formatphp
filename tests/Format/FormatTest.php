@@ -11,6 +11,8 @@ class FormatTest extends TestCase
 {
     public function testConstantValues(): void
     {
+        $this->assertSame('chrome', Format::CHROME);
+        $this->assertSame('crowdin', Format::CROWDIN);
         $this->assertSame('formatphp', Format::FORMATPHP);
         $this->assertSame('simple', Format::SIMPLE);
         $this->assertSame('smartling', Format::SMARTLING);

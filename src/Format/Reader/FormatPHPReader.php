@@ -24,7 +24,6 @@ namespace FormatPHP\Format\Reader;
 
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Format\ReaderInterface;
-use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
 
@@ -35,9 +34,7 @@ use function sprintf;
 
 /**
  * Returns a MessageCollection parsed from JSON-decoded data that was written
- * using Writer\Format\FormatPHP
- *
- * @see FormatPHPWriter
+ * using {@see FormatPHPWriter}
  */
 class FormatPHPReader implements ReaderInterface
 {

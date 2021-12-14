@@ -27,16 +27,16 @@ use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
 
-use function assert;
 use function gettype;
+use function is_array;
 use function is_string;
 use function sprintf;
 
 /**
  * Returns a MessageCollection parsed from JSON-decoded data that was written
- * using {@see SimpleWriter}
+ * using {@see ChromeWriter}
  */
-class SimpleReader implements ReaderInterface
+class ChromeReader implements ReaderInterface
 {
     /**
      * @inheritdoc
@@ -45,12 +45,14 @@ class SimpleReader implements ReaderInterface
     {
         $messages = new MessageCollection();
 
+        /**
+         * @var string $messageId
+         * @var array{message: string} $message
+         */
         foreach ($data as $messageId => $message) {
             $this->validateShape($messageId, $message);
-            assert(is_string($messageId));
-            assert(is_string($message));
 
-            $messages[$messageId] = new Message($messageId, $message);
+            $messages[] = new Message($messageId, $message['message']);
         }
 
         return $messages;
@@ -67,16 +69,15 @@ class SimpleReader implements ReaderInterface
         if (!is_string($messageId)) {
             throw new InvalidMessageShapeException(sprintf(
                 '%s expects a string message ID; received %s',
-                self::class,
+                static::class,
                 gettype($messageId),
             ));
         }
 
-        if (!is_string($message)) {
+        if (!is_array($message) || !is_string($message['message'] ?? null)) {
             throw new InvalidMessageShapeException(sprintf(
-                '%s expects a string message; received %s',
-                self::class,
-                gettype($message),
+                '%s expects a string message property; message does not exist or is not a string',
+                static::class,
             ));
         }
     }

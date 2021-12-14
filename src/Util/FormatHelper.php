@@ -27,10 +27,14 @@ use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Format\Format;
+use FormatPHP\Format\Reader\ChromeReader;
+use FormatPHP\Format\Reader\CrowdinReader;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\Reader\SimpleReader;
 use FormatPHP\Format\Reader\SmartlingReader;
 use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\ChromeWriter;
+use FormatPHP\Format\Writer\CrowdinWriter;
 use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Format\Writer\SmartlingWriter;
@@ -57,12 +61,16 @@ use function strtolower;
 class FormatHelper
 {
     private const READER_FORMATS = [
+        Format::CHROME => ChromeReader::class,
+        Format::CROWDIN => CrowdinReader::class,
         Format::FORMATPHP => FormatPHPReader::class,
         Format::SIMPLE => SimpleReader::class,
         Format::SMARTLING => SmartlingReader::class,
     ];
 
     private const WRITER_FORMATS = [
+        Format::CHROME => ChromeWriter::class,
+        Format::CROWDIN => CrowdinWriter::class,
         Format::FORMATPHP => FormatPHPWriter::class,
         Format::SIMPLE => SimpleWriter::class,
         Format::SMARTLING => SmartlingWriter::class,

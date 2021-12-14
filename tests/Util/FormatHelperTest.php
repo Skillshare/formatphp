@@ -7,10 +7,14 @@ namespace FormatPHP\Test\Util;
 use Closure;
 use FormatPHP\DescriptorCollection;
 use FormatPHP\Exception\InvalidArgumentException;
+use FormatPHP\Format\Reader\ChromeReader;
+use FormatPHP\Format\Reader\CrowdinReader;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\Reader\SimpleReader;
 use FormatPHP\Format\Reader\SmartlingReader;
 use FormatPHP\Format\ReaderInterface;
+use FormatPHP\Format\Writer\ChromeWriter;
+use FormatPHP\Format\Writer\CrowdinWriter;
 use FormatPHP\Format\Writer\FormatPHPWriter;
 use FormatPHP\Format\Writer\SimpleWriter;
 use FormatPHP\Format\Writer\SmartlingWriter;
@@ -57,6 +61,14 @@ class FormatHelperTest extends TestCase
             'smartling' => [
                 'reader' => 'smartling',
                 'expectedType' => SmartlingReader::class,
+            ],
+            'crowdin' => [
+                'reader' => 'crowdin',
+                'expectedType' => CrowdinReader::class,
+            ],
+            'chrome' => [
+                'reader' => 'chrome',
+                'expectedType' => ChromeReader::class,
             ],
             'formatphp' => [
                 'reader' => 'formatphp',
@@ -150,6 +162,14 @@ class FormatHelperTest extends TestCase
             'smartling' => [
                 'writer' => 'smartling',
                 'expectedType' => SmartlingWriter::class,
+            ],
+            'crowdin' => [
+                'writer' => 'crowdin',
+                'expectedType' => CrowdinWriter::class,
+            ],
+            'chrome' => [
+                'writer' => 'chrome',
+                'expectedType' => ChromeWriter::class,
             ],
             'formatphp' => [
                 'writer' => 'formatphp',

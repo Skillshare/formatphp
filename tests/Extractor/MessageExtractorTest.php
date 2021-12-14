@@ -243,6 +243,98 @@ class MessageExtractorTest extends TestCase
         );
     }
 
+    public function testProcessWithCrowdinFormatterName(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->format = 'crowdin';
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
+        );
+
+        ob_start();
+        $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.php']);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'aTestId' => [
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                    'message' => 'This is a default message',
+                ],
+                'photos.count' => [
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                    'message' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                ],
+                'Soex4s' => [
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                    'message' => 'This is a default message',
+                ],
+                'xgMWoP' => [
+                    'message' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'message' => 'Welcome!',
+                ],
+            ],
+            $messages,
+        );
+    }
+
+    public function testProcessWithChromeFormatterName(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->format = 'chrome';
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
+        );
+
+        ob_start();
+        $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.php']);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'aTestId' => [
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                    'message' => 'This is a default message',
+                ],
+                'photos.count' => [
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                    'message' => 'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                ],
+                'Soex4s' => [
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                    'message' => 'This is a default message',
+                ],
+                'xgMWoP' => [
+                    'message' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'message' => 'Welcome!',
+                ],
+            ],
+            $messages,
+        );
+    }
+
     public function testProcessWithCustomFormatterClass(): void
     {
         $logger = new NullLogger();
