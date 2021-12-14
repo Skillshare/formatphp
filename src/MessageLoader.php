@@ -41,7 +41,7 @@ use const DIRECTORY_SEPARATOR;
 /**
  * Loads messages for a given locale from the file system or cache
  */
-final class MessageLoader
+class MessageLoader
 {
     private ConfigInterface $config;
     private FileSystemHelper $fileSystemHelper;

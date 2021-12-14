@@ -23,7 +23,9 @@ declare(strict_types=1);
 namespace FormatPHP\Console;
 
 use FormatPHP\Console\Command\ExtractCommand;
+use FormatPHP\Console\Command\PseudoLocaleCommand;
 use Symfony\Component\Console\Application as SymfonyConsoleApplication;
+use Symfony\Component\Console\Exception\LogicException;
 
 /**
  * FormatPHP console application
@@ -32,10 +34,14 @@ class Application extends SymfonyConsoleApplication
 {
     public const NAME = 'formatphp';
 
+    /**
+     * @throws LogicException
+     */
     public function __construct()
     {
         parent::__construct(self::NAME);
 
         $this->add(new ExtractCommand());
+        $this->add(new PseudoLocaleCommand());
     }
 }

@@ -1,0 +1,14 @@
+{
+    "about.inspire": {
+        "defaultMessage": "[!! Ḁṭ Ṡǩíííĺĺśśśḫâŕŕŕè, ẘè èṁṗṗṗŏẘèèèŕ ṁṁṁèṁḃḃḃèŕśśś ṭŏŏŏ ĝèèèṭ íííńśṗṗṗíŕèèèḋ. !!]"
+    },
+    "how.many.pets": {
+        "defaultMessage": "[!! Ļâśśśṭ ṭṭṭíṁèèè Ḭ ćḫèèèćǩèèèḋ,  !!]{gender, select, male{<italicized>[!! ḫè !!]</italicized>[!!  ḫâââḋ !!]} female{<italicized>[!! śḫèèè !!]</italicized>[!!  ḫâââḋ !!]} other{<italicized>[!! ṭḫèèèẏ !!]</italicized>[!!  ḫâââḋ !!]}}[!!   !!]{petCount, plural, =0{<bold>[!! ńŏ !!]</bold>[!!  ṗèèèṭś !!]} =1{<bold>[!! â !!]</bold>[!!  ṗèèèṭ !!]} other{<bold>#</bold>[!!  ṗèèèṭś !!]}}[!! . !!]"
+    },
+    "start.with.tag": {
+        "defaultMessage": "<foo>{argument}</foo>"
+    },
+    "start.with.argument": {
+        "defaultMessage": "{argument}"
+    }
+}
