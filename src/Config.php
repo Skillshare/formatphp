@@ -34,14 +34,24 @@ class Config implements ConfigInterface
     private ?LocaleInterface $defaultLocale;
     private string $idInterpolatorPattern;
 
+    /**
+     * @var array<string, callable(string):string>
+     */
+    private array $defaultRichTextElements;
+
+    /**
+     * @param array<string, callable(string):string> $defaultRichTextElements
+     */
     public function __construct(
         LocaleInterface $locale,
         ?LocaleInterface $defaultLocale = null,
+        array $defaultRichTextElements = [],
         string $idInterpolatorPattern = IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN
     ) {
         $this->locale = $locale;
         $this->defaultLocale = $defaultLocale;
         $this->idInterpolatorPattern = $idInterpolatorPattern;
+        $this->defaultRichTextElements = $defaultRichTextElements;
     }
 
     public function getDefaultLocale(): ?LocaleInterface
@@ -57,5 +67,13 @@ class Config implements ConfigInterface
     public function getLocale(): LocaleInterface
     {
         return $this->locale;
+    }
+
+    /**
+     * @return array<string, callable(string):string>
+     */
+    public function getDefaultRichTextElements(): array
+    {
+        return $this->defaultRichTextElements;
     }
 }

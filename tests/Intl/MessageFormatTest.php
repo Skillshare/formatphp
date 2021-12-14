@@ -9,6 +9,7 @@ use FormatPHP\ConfigInterface;
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorInterface;
 use FormatPHP\Exception\UnableToFormatMessageException;
+use FormatPHP\Icu\MessageFormat\Parser\Exception\UnableToParseMessageException;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Message;
@@ -174,5 +175,131 @@ class MessageFormatTest extends TestCase
                 'replacements' => ['gender' => 'male', 'petCount' => 1],
             ],
         ];
+    }
+
+    public function testTags(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $formatted = $formatter->format(
+            'Hi, <profileLink><boldface>{name}</boldface>, our <italicized>great friend</italicized></profileLink>!',
+            [
+                'name' => 'Samwise',
+                'profileLink' => fn ($text) => '<a href="https://example.com">' . $text . '</a>',
+                'boldface' => fn ($text) => "<strong>$text</strong>",
+                'italicized' => fn ($text) => "<em>$text</em>",
+            ],
+        );
+
+        $this->assertSame(
+            'Hi, <a href="https://example.com"><strong>Samwise</strong>, our <em>great friend</em></a>!',
+            $formatted,
+        );
+    }
+
+    public function testMixedTags(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $formatted = $formatter->format(
+            'Hi, <profileLink><boldface>{name}</boldface>, <foo /> our '
+                . '<italicized>great friend</italicized></profileLink>!',
+            [
+                'name' => 'Pippin',
+                'profileLink' => fn ($text) => '<a href="https://example.com">' . $text . '</a>',
+            ],
+        );
+
+        $this->assertSame(
+            'Hi, <a href="https://example.com"><boldface>Pippin</boldface>, '
+                . '<foo/> our <italicized>great friend</italicized></a>!',
+            $formatted,
+        );
+    }
+
+    public function testSelectAndPluralOptionsWithTags(): void
+    {
+        $message = <<<'EOD'
+            Last time I checked, {gender, select,
+                male {<italicized>he</italicized> had}
+                female {<italicized>she</italicized> had}
+                other {<italicized>they</italicized> had}
+            } {petCount, plural,
+                =0 {<bold>no</bold> pets}
+                =1 {<bold>a</bold> pet}
+                other {<bold>#</bold> pets}
+            }.
+            EOD;
+
+        $expected = 'Last time I checked, <em>she</em> had <strong>4</strong> pets.';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $formatted = $formatter->format($message, [
+            'gender' => 'female',
+            'petCount' => 4,
+            'italicized' => fn ($text) => "<em>$text</em>",
+            'bold' => fn ($text) => "<strong>$text</strong>",
+        ]);
+
+        $this->assertSame($expected, $formatted);
+    }
+
+    public function testThrowsExceptionWhenUnableToParseMessage(): void
+    {
+        $message = 'Hello, <link>{name}';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        // We're not using expectException() because we want to actually
+        // inspect the exception object as part of this test.
+        try {
+            $formatter->format($message, [
+                'name' => 'Bilbo',
+                'link' => fn ($text) => "<a>$text</a>",
+            ]);
+        } catch (UnableToFormatMessageException $exception) {
+            $this->assertSame(
+                'Unable to format message with pattern "Hello, <link>{name}" for locale "en-US"',
+                $exception->getMessage(),
+            );
+            $this->assertInstanceOf(UnableToParseMessageException::class, $exception->getPrevious());
+            $this->assertSame(
+                'Syntax error UNCLOSED_TAG found while parsing message "Hello, <link>{name}"',
+                $exception->getPrevious()->getMessage(),
+            );
+        }
+    }
+
+    public function testReplacesEmptyTagWithCallbackResultValue(): void
+    {
+        $message = 'Sometimes a <foobar></foobar> might not have a body';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $formatted = $formatter->format($message, [
+            'foobar' => fn () => '<em>tag</em>',
+        ]);
+
+        $this->assertSame('Sometimes a <em>tag</em> might not have a body', $formatted);
+    }
+
+    public function testReplacesSelfClosingTagWithCallbackResultValue(): void
+    {
+        $message = 'Sometimes a <foobar /> might be self-closing';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $formatted = $formatter->format($message, [
+            'foobar' => fn () => '<strong>tag</strong>',
+        ]);
+
+        $this->assertSame('Sometimes a <strong>tag</strong> might be self-closing', $formatted);
     }
 }

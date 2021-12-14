@@ -85,4 +85,31 @@ class FormatPHPTest extends TestCase
 
         $formatphp->formatMessage([]);
     }
+
+    public function testFormatMessageUsesDefaultRichTextElements(): void
+    {
+        $locale = new Locale('en-US');
+        $config = new Config($locale, null, [
+            'homeLink' => fn (string $text): string => '<a href="https://example.com>' . $text . '</a>',
+            'boldface' => fn ($text) => "<strong>$text</strong>",
+            'italicized' => fn ($text) => "<em>$text</em>",
+        ]);
+
+        $message = new Message('myMessage', '<homeLink>Go <boldface>home</boldface></homeLink>, {name}!');
+        $messageCollection = new MessageCollection([$message]);
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame(
+            '<a href="https://example.com>Go <strong>home</strong></a>, Sam!',
+            $formatphp->formatMessage(
+                [
+                    'id' => 'myMessage',
+                    'defaultMessage' => '<homeLink>Go <boldface>home</boldface></homeLink>, {name}!',
+                ],
+                [
+                    'name' => 'Sam',
+                ],
+            ),
+        );
+    }
 }

@@ -28,6 +28,7 @@ use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Util\MessageCleaner;
 use FormatPHP\Util\MessageRetriever;
 
+use function array_merge;
 use function is_int;
 
 /**
@@ -62,6 +63,10 @@ class FormatPHP implements FormatterInterface
      */
     public function formatMessage(array $descriptor, array $values = []): string
     {
+        // Combine the global default rich text element callbacks with the values,
+        // giving preference to values provided with the same keys.
+        $values = array_merge($this->config->getDefaultRichTextElements(), $values);
+
         try {
             $messagePattern = $this->getMessageForDescriptor(
                 $this->messages,
