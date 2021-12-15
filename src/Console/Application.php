@@ -26,6 +26,7 @@ use FormatPHP\Console\Command\ExtractCommand;
 use FormatPHP\Console\Command\PseudoLocaleCommand;
 use Symfony\Component\Console\Application as SymfonyConsoleApplication;
 use Symfony\Component\Console\Exception\LogicException;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
  * FormatPHP console application
@@ -40,8 +41,49 @@ class Application extends SymfonyConsoleApplication
     public function __construct()
     {
         parent::__construct(self::NAME);
+        $this->cleanUpOptions();
 
         $this->add(new ExtractCommand());
         $this->add(new PseudoLocaleCommand());
+    }
+
+    private function cleanUpOptions(): void
+    {
+        $definition = $this->getDefaultInputDefinition();
+
+        $helpOption = new InputOption(
+            'help',
+            'h',
+            InputOption::VALUE_NONE,
+            'Display help for the given command.',
+        );
+        $verboseOption = new InputOption(
+            'verbose',
+            'v|vv|vvv',
+            InputOption::VALUE_NONE,
+            'Increase the verbosity of messages.',
+        );
+
+        $newOptions = [];
+        $options = $definition->getOptions();
+        foreach ($options as $option) {
+            if ($option->getName() === 'help') {
+                $newOptions[] = $helpOption;
+
+                continue;
+            }
+
+            if ($option->getName() === 'verbose') {
+                $newOptions[] = $verboseOption;
+
+                continue;
+            }
+
+            $newOptions[] = $option;
+        }
+
+        $definition->setOptions($newOptions);
+
+        $this->setDefinition($definition);
     }
 }
