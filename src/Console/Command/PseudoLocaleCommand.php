@@ -63,7 +63,7 @@ class PseudoLocaleCommand extends AbstractCommand
                     . 'One of: ' . implode(', ', PseudoLocale::LOCALES),
             )
             ->addOption(
-                'in-format',
+                '--in-format',
                 null,
                 InputOption::VALUE_REQUIRED,
                 'Formatter name or path to a formatter script that' . PHP_EOL
@@ -71,14 +71,14 @@ class PseudoLocaleCommand extends AbstractCommand
                     . 'Defaults to "formatphp".',
             )
             ->addOption(
-                'out-format',
+                '--out-format',
                 null,
                 InputOption::VALUE_REQUIRED,
                 'Formatter name or path to a formatter script that' . PHP_EOL
-                    . 'controls the shape of the JSON produced as output.',
+                    . 'controls the shape of the JSON output produced.',
             )
             ->addOption(
-                'out-file',
+                '--out-file',
                 null,
                 InputOption::VALUE_REQUIRED,
                 'Target file path to save the JSON output.',

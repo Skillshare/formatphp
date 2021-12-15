@@ -46,6 +46,8 @@ use function array_unique;
 use function explode;
 use function getcwd;
 
+use const PHP_EOL;
+
 /**
  * Provides the `formatphp extract` command
  */
@@ -78,100 +80,107 @@ class ExtractCommand extends AbstractCommand
             ->addArgument(
                 'files',
                 InputArgument::OPTIONAL | InputArgument::IS_ARRAY,
-                'One or more paths to process for extraction. May use glob '
-                    . 'patterns for file matching; supports globstar (`**`) '
-                    . 'for recursive matching.',
+                'One or more paths to process for extraction.' . PHP_EOL
+                    . 'May use glob patterns for file matching;' . PHP_EOL
+                    . 'supports globstar (**) for recursive matching.',
             )
             ->addOption(
-                'format',
+                '--format',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'Formatter name or path to a formatter script that controls '
-                    . 'the shape of the JSON produced for `--out-file`.',
+                'Formatter name or path to a formatter script' . PHP_EOL
+                    . 'that controls the shape of the JSON produced' . PHP_EOL
+                    . 'for `--out-file`.',
             )
             ->addOption(
-                'out-file',
+                '--out-file',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'Target file path to save the JSON output file of all '
-                    . 'translations extracted from the `files`.',
+                'Target file path to save the JSON output file' . PHP_EOL
+                    . 'of all translations extracted from the `files`.',
             )
             ->addOption(
-                'id-interpolation-pattern',
-                null,
-                InputOption::VALUE_REQUIRED,
-                'If message descriptors are missing the id property, we will '
-                    . 'use this pattern to automatically generate IDs for '
-                    . 'them. Defaults to `[sha512:contenthash:base64:6]` where '
-                    . '`contenthash` represents the hash of `defaultMessage` '
-                    . 'and `description`.',
-            )
-            ->addOption(
-                'extract-source-location',
-                null,
-                InputOption::VALUE_NONE,
-                'Whether to extract metadata for the source files. If present, '
-                    . 'the extracted descriptors will each include `file`, '
-                    . '`start`, `end`, `line`, and `col` properties.',
-            )
-            ->addOption(
-                'additional-function-names',
-                null,
-                InputOption::VALUE_REQUIRED,
-                'Comma-separated list of additional function names to search '
-                    . 'for when extracting messages.',
-            )
-            ->addOption(
-                'parser',
-                'p',
-                InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
-                'Parser name or path to a parser script to apply additional '
-                    . 'parsing in addition to the default PHP parsing.',
-            )
-            ->addOption(
-                'ignore',
+                '--ignore',
                 null,
                 InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
-                'Glob patterns for paths to exclude from extraction.',
+                'Glob patterns for paths to exclude from' . PHP_EOL
+                    . 'extraction.',
             )
             ->addOption(
-                'throws',
+                '--flatten',
                 null,
                 InputOption::VALUE_NONE,
-                'Whether to throw an exception when failing to process any '
-                    . 'file in the batch.',
+                'Whether to hoist selectors & flatten sentences' . PHP_EOL
+                    . 'as much as possible, e.g: "I have {count,' . PHP_EOL
+                    . 'plural, one{a dog} other{many dogs}}" becomes' . PHP_EOL
+                    . '"{count, plural, one{I have a dog} other{I have' . PHP_EOL
+                    . 'many dogs}}". The goal is to provide as many' . PHP_EOL
+                    . 'full sentences as possible, since fragmented' . PHP_EOL
+                    . 'sentences are not translator-friendly.',
             )
             ->addOption(
-                'pragma',
+                '--extract-source-location',
+                null,
+                InputOption::VALUE_NONE,
+                'Whether to extract source file metadata. If' . PHP_EOL
+                    . 'present, the extracted descriptors will each' . PHP_EOL
+                    . 'include `file`, `start`, `end`, `line`, and' . PHP_EOL
+                    . '`col` properties.',
+            )
+            ->addOption(
+                '--addl-func',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'Allows parsing of additional custom pragma to include custom '
-                    . 'metadata in the extracted messages.',
+                'Comma-separated list of additional function' . PHP_EOL
+                    . 'names to search for when extracting messages.',
             )
             ->addOption(
-                'preserve-whitespace',
+                '--pragma',
                 null,
-                InputOption::VALUE_NONE,
-                'Whether to preserve whitespace and newlines in extracted '
+                InputOption::VALUE_REQUIRED,
+                'Allows parsing of additional custom pragma to' . PHP_EOL
+                    . 'include custom metadata in the extracted' . PHP_EOL
                     . 'messages.',
             )
             ->addOption(
-                'flatten',
+                '--preserve-whitespace',
                 null,
                 InputOption::VALUE_NONE,
-                'Whether to hoist selectors & flatten sentences as much as possible, '
-                    . 'e.g: "I have {count, plural, one{a dog} other{many dogs}}" '
-                    . 'becomes "{count, plural, one{I have a dog} other{I have many '
-                    . 'dogs}}". The goal is to provide as many full sentences as '
-                    . 'possible, since fragmented sentences are not translator-friendly.',
+                'Whether to preserve whitespace and newlines in' . PHP_EOL
+                    . 'extracted messages.',
             )
             ->addOption(
-                'add-missing-ids',
+                '--parser',
+                '-p',
+                InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED,
+                'Parser name or path to a parser script to apply' . PHP_EOL
+                    . 'additional parsing in addition to the default' . PHP_EOL
+                    . 'PHP parsing.',
+            )
+            ->addOption(
+                '--throws',
                 null,
                 InputOption::VALUE_NONE,
-                'Whether to update the source code in place with autogenerated '
-                    . 'descriptor IDs. Descriptors that already have IDs will '
-                    . 'remain untouched.',
+                'Whether to throw an exception when failing to' . PHP_EOL
+                    . 'process any file in the batch.',
+            )
+            ->addOption(
+                '--id-pattern',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'If message descriptors are missing the id' . PHP_EOL
+                    . 'property, we will use this to autogenerate IDs.' . PHP_EOL
+                    . 'Defaults to `[sha512:contenthash:base64:6]`' . PHP_EOL
+                    . 'where `contenthash` represents the hash of' . PHP_EOL
+                    . '`defaultMessage` and `description`.',
+            )
+            ->addOption(
+                '--add-missing-ids',
+                null,
+                InputOption::VALUE_NONE,
+                'Whether to update the source code in place with' . PHP_EOL
+                    . 'autogenerated descriptor IDs. Descriptors that' . PHP_EOL
+                    . 'already have IDs will not change.',
             );
     }
 
@@ -220,7 +229,7 @@ class ExtractCommand extends AbstractCommand
         $options->outFile = $outFile;
 
         /** @var string | null $idInterpolationPattern */
-        $idInterpolationPattern = $input->getOption('id-interpolation-pattern');
+        $idInterpolationPattern = $input->getOption('id-pattern');
         $options->idInterpolationPattern = $idInterpolationPattern ?? IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN;
 
         /** @var string[] $parsers */
@@ -242,7 +251,7 @@ class ExtractCommand extends AbstractCommand
         $options->addGeneratedIdsToSourceCode = (bool) $input->getOption('add-missing-ids');
 
         /** @var string $inputFunctionNames */
-        $inputFunctionNames = $input->getOption('additional-function-names') ?? '';
+        $inputFunctionNames = $input->getOption('addl-func') ?? '';
         $additionalFunctionNames = array_map('trim', explode(',', $inputFunctionNames));
         $options->functionNames = array_unique(array_merge($options->functionNames, $additionalFunctionNames));
 
