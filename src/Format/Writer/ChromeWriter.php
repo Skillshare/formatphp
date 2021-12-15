@@ -23,30 +23,17 @@ declare(strict_types=1);
 namespace FormatPHP\Format\Writer;
 
 use FormatPHP\DescriptorCollection;
-use FormatPHP\Format\Reader\SmartlingReader;
+use FormatPHP\Format\Reader\ChromeReader;
+use FormatPHP\Format\WriterInterface;
 use FormatPHP\Format\WriterOptions;
 
-use function array_merge;
-
 /**
- * Smartling formatter for FormatPHP
+ * Chrome formatter for FormatPHP
  *
- * This follows the same format as the Smartling formatter for FormatJS and
- * implements the Smartling JSON format.
+ * This implements the Chrome JSON format.
  *
  * ```json
  * {
- *   "smartling": {
- *     "string_format": "icu",
- *     "translate_paths": [
- *       {
- *         "instruction": "*\/description",
- *         "key": "{*}\/message",
- *         "path": "*\/message"
- *       }
- *     ],
- *     "variants_enabled": true
- *   },
  *   "my.message": {
  *     "description": "And I'm providing more details for translators here."
  *     "message": "This is a message for translation."
@@ -54,30 +41,30 @@ use function array_merge;
  * }
  * ```
  *
- * @link https://help.smartling.com/hc/en-us/articles/360008000733 Smartling JSON Format
- * @see SmartlingReader
+ * @link hhttps://developer.chrome.com/docs/extensions/mv3/i18n-messages/ Chrome JSON format
+ * @see ChromeReader
  */
-class SmartlingWriter extends ChromeWriter
+class ChromeWriter implements WriterInterface
 {
     /**
      * @inheritdoc
      */
     public function __invoke(DescriptorCollection $collection, WriterOptions $options): array
     {
-        $format = [
-            'smartling' => [
-                'string_format' => 'icu',
-                'translate_paths' => [
-                    [
-                        'instruction' => '*/description',
-                        'key' => '{*}/message',
-                        'path' => '*/message',
-                    ],
-                ],
-                'variants_enabled' => true,
-            ],
-        ];
+        $format = [];
 
-        return array_merge($format, parent::__invoke($collection, $options));
+        foreach ($collection as $item) {
+            $message = [];
+
+            if ($item->getDescription() !== null) {
+                $message['description'] = $item->getDescription();
+            }
+
+            $message['message'] = $item->getDefaultMessage() ?? '';
+
+            $format[(string) $item->getId()] = $message;
+        }
+
+        return $format;
     }
 }

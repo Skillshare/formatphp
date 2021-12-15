@@ -22,21 +22,10 @@ declare(strict_types=1);
 
 namespace FormatPHP\Format\Reader;
 
-use FormatPHP\MessageCollection;
-
 /**
  * Returns a MessageCollection parsed from JSON-decoded data that was written
- * using {@see SmartlingWriter}
+ * using {@see CrowdinWriter}
  */
-class SmartlingReader extends ChromeReader
+class CrowdinReader extends ChromeReader
 {
-    /**
-     * @inheritdoc
-     */
-    public function __invoke(array $data): MessageCollection
-    {
-        unset($data['smartling']);
-
-        return parent::__invoke($data);
-    }
 }

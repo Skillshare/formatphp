@@ -20,23 +20,26 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Format\Reader;
-
-use FormatPHP\MessageCollection;
+namespace FormatPHP\Format\Writer;
 
 /**
- * Returns a MessageCollection parsed from JSON-decoded data that was written
- * using {@see SmartlingWriter}
+ * Crowdin formatter for FormatPHP
+ *
+ * This follows the same format as the Crowdin formatter for FormatJS and
+ * implements the Crowdin Chrome JSON format.
+ *
+ * ```json
+ * {
+ *   "my.message": {
+ *     "description": "And I'm providing more details for translators here."
+ *     "message": "This is a message for translation."
+ *   }
+ * }
+ * ```
+ *
+ * @link https://support.crowdin.com/file-formats/chrome-json/ Crowdin Chrome JSON format
+ * @see CrowdinReader
  */
-class SmartlingReader extends ChromeReader
+class CrowdinWriter extends ChromeWriter
 {
-    /**
-     * @inheritdoc
-     */
-    public function __invoke(array $data): MessageCollection
-    {
-        unset($data['smartling']);
-
-        return parent::__invoke($data);
-    }
 }

@@ -27,6 +27,8 @@ namespace FormatPHP\Format;
  */
 class Format
 {
+    public const CHROME = 'chrome';
+    public const CROWDIN = 'crowdin';
     public const FORMATPHP = 'formatphp';
     public const SIMPLE = 'simple';
     public const SMARTLING = 'smartling';

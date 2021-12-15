@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+- Add [Crowdin](https://crowdin.com) as a format for writing and reading extracted messages
 - Add `pseudo-locale` console command to allow conversion of a locale to one of the supported pseudo-locales (`en-XA`, `en-XB`, `xx-AC`, `xx-HA`, and `xx-LS`).
 - Provide `--flatten` extraction option to tell the extractor to hoist selectors and flatten sentences as much as possible. For example, `I have {count, plural, one{a dog} other{many dogs}}` becomes `{count, plural, one{I have a dog} other{I have many dogs}}`. The goal is to provide as many full sentences as possible, since fragmented sentences are not translator-friendly.
 - Provide `--add-missing-ids` extraction option to update source code with auto-generated identifiers
