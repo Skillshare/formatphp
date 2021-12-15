@@ -64,7 +64,7 @@ class MessageLoaderTest extends TestCase
 
         $collection = $loader->loadMessages();
 
-        $this->assertCount(1, $collection);
+        $this->assertGreaterThanOrEqual(1, $collection->count());
         $this->assertNotNull($collection['about.inspire']);
         $this->assertInstanceOf(MessageInterface::class, $collection['about.inspire']);
     }

@@ -20,14 +20,15 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Format;
+namespace FormatPHP\PseudoLocale;
 
 /**
- * Constant values for formats
+ * A pseudo locale converter
  */
-class Format
+interface PseudoLocaleInterface
 {
-    public const FORMATPHP = 'formatphp';
-    public const SIMPLE = 'simple';
-    public const SMARTLING = 'smartling';
+    /**
+     * Converts an ICU message to a pseudo locale
+     */
+    public function convert(string $message): string;
 }

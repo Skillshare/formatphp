@@ -15,11 +15,4 @@ class FormatTest extends TestCase
         $this->assertSame('simple', Format::SIMPLE);
         $this->assertSame('smartling', Format::SMARTLING);
     }
-
-    public function testClassCannotInstantiate(): void
-    {
-        $this->expectError();
-
-        new Format(); // @phpstan-ignore-line
-    }
 }

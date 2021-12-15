@@ -1,0 +1,19 @@
+{
+    "smartling": {
+        "string_format": "icu",
+        "translate_paths": [
+            {
+                "instruction": "*/description",
+                "key": "{*}/message",
+                "path": "*/message"
+            }
+        ],
+        "variants_enabled": true
+    },
+    "about.inspire": {
+        "message": "[!! Ḁṭ Ṡǩíííĺĺśśśḫâŕŕŕè, ẘè èṁṗṗṗŏẘèèèŕ ṁṁṁèṁḃḃḃèŕśśś ṭŏŏŏ ĝèèèṭ íííńśṗṗṗíŕèèèḋ. !!]"
+    },
+    "how.many.pets": {
+        "message": "[!! Ļâśśśṭ ṭṭṭíṁèèè Ḭ ćḫèèèćǩèèèḋ,  !!]{gender, select, male{<italicized>[!! ḫè !!]</italicized>[!!  ḫâââḋ !!]} female{<italicized>[!! śḫèèè !!]</italicized>[!!  ḫâââḋ !!]} other{<italicized>[!! ṭḫèèèẏ !!]</italicized>[!!  ḫâââḋ !!]}}[!!   !!]{petCount, plural, =0{<bold>[!! ńŏ !!]</bold>[!!  ṗèèèṭś !!]} =1{<bold>[!! â !!]</bold>[!!  ṗèèèṭ !!]} other{<bold>#</bold>[!!  ṗèèèṭś !!]}}[!! . !!]"
+    }
+}

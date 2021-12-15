@@ -1,0 +1,14 @@
+{
+    "about.inspire": {
+        "defaultMessage": "Ḁṭ Ṡǩíĺĺśḫâŕè, ẘè èṁṗŏẘèŕ ṁèṁḃèŕś ṭŏ ĝèṭ íńśṗíŕèḋ."
+    },
+    "how.many.pets": {
+        "defaultMessage": "Ļâśṭ ṭíṁè Ḭ ćḫèćǩèḋ, {gender, select, male{<italicized>ḫè</italicized> ḫâḋ} female{<italicized>śḫè</italicized> ḫâḋ} other{<italicized>ṭḫèẏ</italicized> ḫâḋ}} {petCount, plural, =0{<bold>ńŏ</bold> ṗèṭś} =1{<bold>â</bold> ṗèṭ} other{<bold>#</bold> ṗèṭś}}."
+    },
+    "start.with.tag": {
+        "defaultMessage": "<foo>{argument}</foo>"
+    },
+    "start.with.argument": {
+        "defaultMessage": "{argument}"
+    }
+}

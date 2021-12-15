@@ -2,5 +2,14 @@
     "about.inspire": {
         "defaultMessage": "At Skillshare, we empower members to get inspired.",
         "description": "Marketing text found at https://skillshare.com/about"
+    },
+    "how.many.pets": {
+        "defaultMessage": "Last time I checked, {gender, select, male {<italicized>he</italicized> had} female {<italicized>she</italicized> had} other {<italicized>they</italicized> had}} {petCount, plural, =0 {<bold>no</bold> pets} =1 {<bold>a</bold> pet} other {<bold>#</bold> pets}}."
+    },
+    "start.with.tag": {
+        "defaultMessage": "<foo>{argument}</foo>"
+    },
+    "start.with.argument": {
+        "defaultMessage": "{argument}"
     }
 }

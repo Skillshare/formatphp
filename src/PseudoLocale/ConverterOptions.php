@@ -20,14 +20,27 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Format;
+namespace FormatPHP\PseudoLocale;
 
 /**
- * Constant values for formats
+ * Converter options
  */
-class Format
+class ConverterOptions
 {
-    public const FORMATPHP = 'formatphp';
-    public const SIMPLE = 'simple';
-    public const SMARTLING = 'smartling';
+    /**
+     * Formatter name or path to a formatter script that controls the shape
+     * of the JSON read from the input
+     */
+    public ?string $inFormat = null;
+
+    /**
+     * Formatter name or path to a formatter script that controls the shape
+     * of the JSON produced for $outFile
+     */
+    public ?string $outFormat = null;
+
+    /**
+     * Target file path to save the JSON output file for the pseudo locale
+     */
+    public ?string $outFile = null;
 }

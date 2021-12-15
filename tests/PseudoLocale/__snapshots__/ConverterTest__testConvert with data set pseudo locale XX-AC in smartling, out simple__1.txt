@@ -1,0 +1,4 @@
+{
+    "about.inspire": "AT SKILLSHARE, WE EMPOWER MEMBERS TO GET INSPIRED.",
+    "how.many.pets": "LAST TIME I CHECKED, {gender, select, male{<italicized>HE</italicized> HAD} female{<italicized>SHE</italicized> HAD} other{<italicized>THEY</italicized> HAD}} {petCount, plural, =0{<bold>NO</bold> PETS} =1{<bold>A</bold> PET} other{<bold>#</bold> PETS}}."
+}
