@@ -21,11 +21,6 @@ class ExtractCommandTest extends TestCase
         $commandTester = new CommandTester($command);
         $commandTester->execute(['files' => ['*.foo']]);
 
-        $output = $commandTester->getDisplay();
-
-        $this->assertStringContainsString(
-            '[warning] Could not find files',
-            $output,
-        );
+        $this->assertMatchesTextSnapshot($commandTester->getDisplay());
     }
 }

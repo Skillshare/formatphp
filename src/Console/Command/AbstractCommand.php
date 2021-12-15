@@ -22,11 +22,30 @@ declare(strict_types=1);
 
 namespace FormatPHP\Console\Command;
 
+use Psr\Log\LogLevel;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command as SymfonyConsoleCommand;
+use Symfony\Component\Console\Logger\ConsoleLogger;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Common command functionality for FormatPHP console commands
  */
 abstract class AbstractCommand extends SymfonyConsoleCommand
 {
+    private const LOG_FORMAT_MAPPING = [
+        LogLevel::WARNING => ConsoleLogger::ERROR,
+        LogLevel::NOTICE => ConsoleLogger::ERROR,
+        LogLevel::INFO => ConsoleLogger::ERROR,
+        LogLevel::DEBUG => ConsoleLogger::ERROR,
+    ];
+
+    private const LOG_VERBOSITY_MAPPING = [
+        LogLevel::NOTICE => OutputInterface::VERBOSITY_NORMAL,
+    ];
+
+    protected function getConsoleLogger(OutputInterface $output): LoggerInterface
+    {
+        return new ConsoleLogger($output, self::LOG_VERBOSITY_MAPPING, self::LOG_FORMAT_MAPPING);
+    }
 }

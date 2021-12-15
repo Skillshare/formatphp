@@ -33,12 +33,11 @@ use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
-use Psr\Log\LogLevel;
+use Ramsey\Collection\Exception\CollectionMismatchException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as SymfonyInvalidArgumentException;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use function array_map;
@@ -66,17 +65,6 @@ class ExtractCommand extends AbstractCommand
         'CVS',
         'node_modules',
         'vendor',
-    ];
-
-    private const LOG_FORMAT_MAPPING = [
-        LogLevel::WARNING => ConsoleLogger::ERROR,
-        LogLevel::NOTICE => ConsoleLogger::ERROR,
-        LogLevel::INFO => ConsoleLogger::ERROR,
-        LogLevel::DEBUG => ConsoleLogger::ERROR,
-    ];
-
-    private const LOG_VERBOSITY_MAPPING = [
-        LogLevel::NOTICE => OutputInterface::VERBOSITY_NORMAL,
     ];
 
     /**
@@ -194,6 +182,7 @@ class ExtractCommand extends AbstractCommand
      * @throws InvalidArgumentException
      * @throws ImproperContextException
      * @throws LogicException
+     * @throws CollectionMismatchException
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
@@ -204,7 +193,7 @@ class ExtractCommand extends AbstractCommand
 
         $extractor = new MessageExtractor(
             $options,
-            new ConsoleLogger($output, self::LOG_VERBOSITY_MAPPING, self::LOG_FORMAT_MAPPING),
+            $this->getConsoleLogger($output),
             new Globber($fileSystemHelper),
             $fileSystemHelper,
             new FormatHelper($fileSystemHelper),

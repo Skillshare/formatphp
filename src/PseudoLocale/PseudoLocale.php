@@ -20,16 +20,24 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Format;
+namespace FormatPHP\PseudoLocale;
 
 /**
- * Constant values for formats
+ * Constant values for pseudo locales
  */
-class Format
+class PseudoLocale
 {
-    public const CHROME = 'chrome';
-    public const CROWDIN = 'crowdin';
-    public const FORMATPHP = 'formatphp';
-    public const SIMPLE = 'simple';
-    public const SMARTLING = 'smartling';
+    public const EN_XA = 'en-XA';
+    public const EN_XB = 'en-XB';
+    public const XX_AC = 'xx-AC';
+    public const XX_HA = 'xx-HA';
+    public const XX_LS = 'xx-LS';
+
+    public const LOCALES = [
+        self::EN_XA,
+        self::EN_XB,
+        self::XX_AC,
+        self::XX_HA,
+        self::XX_LS,
+    ];
 }
