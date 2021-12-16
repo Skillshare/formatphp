@@ -82,6 +82,66 @@ echo $formatphp->formatMessage([
 ]);
 ```
 
+### Rich Text Formatting (Use of Tags in Messages)
+
+While the ICU message syntax does not prohibit the use of HTML tags in formatted
+messages, HTML tags provide an added level of difficulty when it comes to parsing
+and validating ICU formatted messages. By default, FormatPHP does not support
+HTML tags in messages.
+
+Instead, [like FormatJS](https://formatjs.io/docs/core-concepts/icu-syntax#rich-text-formatting),
+we support embedded rich text formatting using custom tags and callbacks. This
+allows developers to embed as much text as possible so sentences don't have to
+be broken up into chunks. These are not HTML or XML tags, and attributes are
+not supported.
+
+```php
+$formatphp->formatMessage([
+    'id' => 'priceMessage',
+    'defaultMessage' => <<<'EOD'
+        Our price is <boldThis>{price, number, ::currency/USD precision-integer}</boldThis>
+        with <link>{pct, number, ::percent} discount</link>
+        EOD,
+], [
+    'price' => 29.99,
+    'pct' => 2.5,
+    'boldThis' => fn ($text) => "<strong>$text</strong>",
+    'link' => fn ($text) => "<a href=\"/discounts/1234\">$text</a>",
+]);
+```
+
+For an `en-US` locale, this will produce a string similar to the following:
+
+    Our price is <strong>$30</strong> with <a href="/discounts/1234">2.5% discount</a>
+
+For rich text elements used throughout your application, you may provide a map
+of tag names to rich text formatting functions, when configuring FormatPHP.
+
+```php
+$config = new Config(
+    locale: new Intl\Locale('en-US'),
+    defaultRichTextElements: [
+        'em' => fn ($text) => "<em class=\"myClass\">$text</em>",
+        'strong' => fn ($text) => "<strong class=\"myClass\">$text</strong>",
+    ],
+);
+```
+
+Using this approach, consider the following formatted message:
+
+```php
+$formatphp->formatMessage([
+    'id' => 'welcome',
+    'defaultMessage' => 'Welcome, <strong><em>{name}</em></strong>',
+], [
+    'name' => 'Sam',
+]);
+```
+
+It will produce a string similar to the following:
+
+    Welcome, <strong class="myClass"><em class="myClass">Sam</em></strong>
+
 ### Using MessageLoader to Load Messages
 
 We also provide a message loader to load translation strings from locale files
@@ -134,7 +194,10 @@ application source code, saving them to JSON files that your translation
 management system can use.
 
 ```shell
-./vendor/bin/formatphp extract --out-file=locales/en.json 'src/**/*.php' 'src/**/*.phtml'
+./vendor/bin/formatphp extract \
+    --out-file=locales/en.json \
+    'src/**/*.php' \
+    'src/**/*.phtml'
 ```
 
 In order for message extraction to function properly, we have a few rules that
@@ -167,6 +230,124 @@ At least one of `id` or `defaultMessage` must be present.
 > ```
 > --additional-function-names='formatMessage, myCustomFormattingFunction'
 > ```
+>
+> To see all available options, view the command help with `formatphp help extract`.
+
+### Pseudo Locales
+
+Pseudo locales provide a way to test an application with various types of
+characters and string widths. FormatPHP provides a tool to convert any locale
+file to a pseudo locale for testing purposes.
+
+Given the English message `my name is {name}`, the following table shows how
+each supported pseudo locale will render this message.
+
+| Locale  | Message                                      |
+|---------|----------------------------------------------|
+| `en-XA` | `ṁẏ ńâṁè íś {name}`                          |
+| `en-XB` | `[!! ṁẏ ńâṁṁṁè íííś  !!]{name}`              |
+| `xx-AC` | `MY NAME IS {name}`                          |
+| `xx-HA` | `[javascript]my name is {name}`              |
+| `xx-LS` | `my name is {name}SSSSSSSSSSSSSSSSSSSSSSSSS` |
+
+To convert a locale to a pseudo locale, use the `formatphp pseudo-locale` command.
+
+```shell
+./vendor/bin/formatphp pseudo-locale \
+    --out-file locales/en-XA.json \
+    locales/en.json \
+    en-XA
+```
+
+> ℹ️ To see all available options, view the command help with
+> `formatphp help pseudo-locale`.
+
+## TMS Support
+
+A [translation management system](https://en.wikipedia.org/wiki/Translation_management_system),
+or TMS, allows translators to use your default locale file to create translations
+for all the other languages your application supports. To work with a TMS, you
+will extract the formatted strings from your application to send to the TMS.
+Often, a TMS will specify a particular document format they require.
+
+Out of the box, FormatPHP supports the following formatters for integration with
+third-party TMSes. Supporting a TMS does not imply endorsement of that
+particular TMS.
+
+| TMS                                                                                  | `--format`  |
+|--------------------------------------------------------------------------------------|-------------|
+| [Crowdin Chrome JSON](https://support.crowdin.com/file-formats/chrome-json/)         | `crowdin`   |
+| [Lingohub](https://lingohub.com/developers/resource-files/json-localization/)        | `simple`    |
+| [locize](https://docs.locize.com/integration/supported-formats#json-flatten)         | `simple`    |
+| [Phrase](https://help.phrase.com/help/simple-json)                                   | `simple`    |
+| [SimpleLocalize](https://simplelocalize.io/docs/integrations/format-js-cli/)         | `simple`    |
+| [Smartling ICU JSON](https://help.smartling.com/hc/en-us/articles/360008000733-JSON) | `smartling` |
+
+Our default formatter is `formatphp`, which mirrors the output of default
+formatter for FormatJS.
+
+### Custom Formatters
+
+You may provide your own formatter using our interfaces. You will need to
+create a writer for the format. Optionally, you may create a reader, if using
+our message loader or the `formatphp pseudo-locale` command with the
+`--in-format` option.
+
+* The writer must implement `FormatPHP\Format\WriterInterface` or be a callable
+  of the shape `callable(FormatPHP\DescriptorCollection, FormatPHP\Format\WriterOptions): mixed[]`.
+* The reader must implement `FormatPHP\Format\ReaderInterface` or be a
+  callable of the shape `callable(mixed[]): FormatPHP\MessageCollection`.
+
+To use your custom writer with `formatphp extract`, pass the fully-qualified
+class name to `--format`, or a path to a script that returns the callable.
+
+For example, given the script `my-writer.php` with the contents:
+
+```php
+<?php
+
+use FormatPHP\DescriptorCollection;
+use FormatPHP\Format\WriterOptions;
+
+require_once 'vendor/autoload.php';
+
+/**
+ * @return mixed[]
+ */
+return function(DescriptorCollection $descriptors, WriterOptions $options): array {
+    // Custom writer logic to create an array of data we will write
+    // as JSON to a file, which your TMS will be able to use.
+};
+```
+
+You can call `formatphp extract` like this:
+
+```shell
+./vendor/bin/formatphp extract \
+    --format='path/to/my-writer.php' \
+    --out-file=locales/en.json \
+    'src/**/*.php'
+```
+
+To use a custom reader with the message loader:
+
+```php
+$messageLoader = new MessageLoader(
+    // The path to your locale JSON files (i.e., en.json, es.json, etc.).
+    messagesDirectory: '/path/to/app/locales',
+    // The configuration object created earlier.
+    config: $config,
+    // Pass your custom reader through the formatReader parameter.
+    formatReader: MyCustomReader::class,
+);
+```
+
+The `formatReader` parameter accepts the following:
+
+* Fully-qualified class name for a class that implements `FormatPHP\Format\ReaderInterface`
+* An already-instantiated instance object of `FormatPHP\Format\ReaderInterface`
+* A callable with the shape `callable(mixed[]): FormatPHP\MessageCollection`
+* The path to a script that returns a callable with this shape
 
 ## Contributing
 
