@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 0.3.0 - TBD
+## 0.3.0 - 2021-12-16
 
 ### Added
 
@@ -24,6 +24,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove `$config` argument from `Format\ReaderInterface`
 - Remove `$localeResolved` argument from `Format\ReaderInterface`
 - Change type on `$options` argument in `Format\WriterInterface` from `MessageExtractorOptions` to a dedicated `WriterOptions` type
+- The `MessageLoader` constructor now accepts the following values for the `$formatReader` parameter:
+  - Fully-qualified class name for a class that implements `FormatPHP\Format\ReaderInterface`
+  - An already-instantiated instance object of `FormatPHP\Format\ReaderInterface`
+  - A callable with the shape `callable(mixed[]): FormatPHP\MessageCollection`
+  - The path to a script that returns a callable with this shape
 
 ### Deprecated
 
