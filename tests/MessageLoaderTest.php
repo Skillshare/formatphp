@@ -10,11 +10,15 @@ use FormatPHP\Exception\LocaleNotFoundException;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Intl\Locale;
+use FormatPHP\MessageCollection;
 use FormatPHP\MessageInterface;
 use FormatPHP\MessageLoader;
 
 use function sprintf;
 
+/**
+ * @psalm-import-type ReaderType from ReaderInterface
+ */
 class MessageLoaderTest extends TestCase
 {
     public function testExceptionWhenDirectoryIsNotValid(): void
@@ -25,10 +29,13 @@ class MessageLoaderTest extends TestCase
             __FILE__,
         ));
 
+        /** @var ReaderInterface $reader */
+        $reader = $this->mockery(ReaderInterface::class);
+
         new MessageLoader(
             __FILE__,
             new Config(new Locale('en')),
-            $this->mockery(ReaderInterface::class),
+            $reader,
         );
     }
 
@@ -37,10 +44,13 @@ class MessageLoaderTest extends TestCase
         // Esperanto, Latin script, US region.
         $locale = new Locale('eo-Latn-US');
 
+        /** @var ReaderInterface $reader */
+        $reader = $this->mockery(ReaderInterface::class);
+
         $loader = new MessageLoader(
             __DIR__ . '/fixtures/locales',
             new Config($locale),
-            $this->mockery(ReaderInterface::class),
+            $reader,
         );
 
         $this->expectException(LocaleNotFoundException::class);
@@ -90,5 +100,48 @@ class MessageLoaderTest extends TestCase
             'في Skillshare ، نقوم بتمكين الأعضاء للحصول على الإلهام.',
             $collection['about.inspire']->getMessage(),
         );
+    }
+
+    /**
+     * @param ReaderType $customReader
+     *
+     * @dataProvider provideCustomReader
+     */
+    public function testLoadMessagesWithCustomReader($customReader): void
+    {
+        $locale = new Locale('ar');
+
+        $loader = new MessageLoader(
+            __DIR__ . '/fixtures/locales',
+            new Config($locale),
+            $customReader,
+        );
+
+        $collection = $loader->loadMessages();
+
+        $this->assertCount(1, $collection);
+        $this->assertNotNull($collection['about.inspire']);
+        $this->assertInstanceOf(MessageInterface::class, $collection['about.inspire']);
+        $this->assertSame(
+            'في Skillshare ، نقوم بتمكين الأعضاء للحصول على الإلهام.',
+            $collection['about.inspire']->getMessage(),
+        );
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function provideCustomReader(): array
+    {
+        $customReader = new CustomMessageLoaderReader();
+
+        return [
+            ['customReader' => CustomMessageLoaderReader::class],
+            ['customReader' => $customReader],
+            ['customReader' => fn (array $data): MessageCollection => (new FormatPHPReader())($data)],
+            ['customReader' => [$customReader, '__invoke']],
+            ['customReader' => __DIR__ . '/fixtures/custom-reader.php'],
+            ['customReader' => null],
+        ];
     }
 }

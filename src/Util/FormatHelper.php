@@ -132,7 +132,7 @@ class FormatHelper
     /**
      * @param class-string<ReaderInterface> | class-string<WriterInterface> $type
      *
-     * @return ReaderCallableType | WriterCallableType
+     * @return ReaderType | WriterType
      *
      * @throws ImproperContextException
      * @throws InvalidArgumentException
@@ -147,23 +147,29 @@ class FormatHelper
         $formatter = $this->fileSystemHelper->loadClosureFromScript($format);
 
         if ($type === ReaderInterface::class) {
-            $formatter = $this->validateReaderClosure($formatter);
+            $formatter = $this->validateReaderCallable($formatter);
         } else {
-            $formatter = $this->validateWriterClosure($formatter);
+            $formatter = $this->validateWriterCallable($formatter);
         }
 
         return $formatter;
     }
 
     /**
+     * @return ReaderCallableType
+     *
      * @throws InvalidArgumentException
      *
      * @psalm-suppress UndefinedMethod, PossiblyNullReference
      */
-    private function validateReaderClosure(?Closure $formatter): Closure
+    public function validateReaderCallable(?callable $formatter): callable
     {
         try {
             assert($formatter !== null);
+
+            if (!$formatter instanceof Closure) {
+                $formatter = Closure::fromCallable($formatter);
+            }
 
             $reflected = new ReflectionFunction($formatter);
 
@@ -186,14 +192,20 @@ class FormatHelper
     }
 
     /**
+     * @return WriterCallableType
+     *
      * @throws InvalidArgumentException
      *
      * @psalm-suppress UndefinedMethod, PossiblyNullReference
      */
-    private function validateWriterClosure(?Closure $formatter): Closure
+    public function validateWriterCallable(?callable $formatter): callable
     {
         try {
             assert($formatter !== null);
+
+            if (!$formatter instanceof Closure) {
+                $formatter = Closure::fromCallable($formatter);
+            }
 
             $reflected = new ReflectionFunction($formatter);
 
