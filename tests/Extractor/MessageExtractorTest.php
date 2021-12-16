@@ -11,6 +11,7 @@ use FormatPHP\Extractor\MessageExtractor;
 use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
+use FormatPHP\Icu\MessageFormat\Parser\Exception\InvalidMessageException;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
@@ -21,6 +22,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use stdClass;
 
+use function count;
 use function json_decode;
 use function ob_end_clean;
 use function ob_get_contents;
@@ -832,5 +834,102 @@ class MessageExtractorTest extends TestCase
             ],
             $messages,
         );
+    }
+
+    public function testProcessValidate(): void
+    {
+        $logger = new NullLogger();
+        $options = new MessageExtractorOptions();
+        $options->validateMessages = true;
+        $options->functionNames = ['formatMessage', 'translate'];
+
+        $extractor = new MessageExtractor(
+            $options,
+            $logger,
+            new Globber(new FileSystemHelper()),
+            new FileSystemHelper(),
+            new FormatHelper(new FileSystemHelper()),
+        );
+
+        ob_start();
+        $extractor->process([
+            __DIR__ . '/Parser/Descriptor/fixtures/*.ph*',
+            __DIR__ . '/../fixtures/invalid-message.php',
+        ]);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        $messages = json_decode((string) $output, true);
+
+        $this->assertSame(
+            [
+                'aTestId' => [
+                    'defaultMessage' => 'This is a default <a href="#foo">message</a>',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'OpKKos' => [
+                    'defaultMessage' => 'Hello!',
+                ],
+                'photos.count' => [
+                    'defaultMessage' =>
+                        'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
+                    'description' => 'A description with multiple lines and extra whitespace.',
+                ],
+                'welcome' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
+                'goodbye' => [
+                    'defaultMessage' => 'Goodbye!',
+                ],
+                'Soex4s' => [
+                    'defaultMessage' => 'This is a default message',
+                    'description' => 'A simple description of a fixture for testing purposes.',
+                ],
+                'xgMWoP' => [
+                    'defaultMessage' => 'This is a default message',
+                ],
+                'Q+U0TW' => [
+                    'defaultMessage' => 'Welcome!',
+                ],
+            ],
+            $messages,
+        );
+
+        $this->assertGreaterThan(0, count($extractor->getErrors()));
+
+        $errors = [];
+        foreach ($extractor->getErrors() as $error) {
+            $message = $error->message;
+            if ($error->exception instanceof InvalidMessageException) {
+                $message = 'Syntax Error: '
+                    . $error->exception->getParserError()->getErrorKindName()
+                    . ' in message "' . $error->exception->getParserError()->message . '"';
+            }
+
+            $errors[$error->sourceFile][] = [$error->sourceLine, $message];
+        }
+
+        $this->assertSame([
+            __DIR__ . '/Parser/Descriptor/fixtures/php-parser-02.php' => [
+                [32, 'Descriptor argument must be an array'],
+            ],
+            __DIR__ . '/Parser/Descriptor/fixtures/php-parser-03.php' => [
+                [8, 'Descriptor argument must be an array'],
+            ],
+            __DIR__ . '/Parser/Descriptor/fixtures/php-parser-04.php' => [
+                [29, 'Descriptor argument must be an array'],
+                [40, 'Descriptor argument must be an array'],
+            ],
+            __DIR__ . '/Parser/Descriptor/fixtures/php-parser-09.phtml' => [
+                [18, 'Descriptor argument must be present'],
+            ],
+            __DIR__ . '/Parser/Descriptor/fixtures/php-parser-10.php' => [
+                [6, 'The descriptor must not contain values other than string literals; encountered Expr_Variable'],
+                [12, 'The descriptor must not contain values other than string literals; encountered Scalar_Encapsed'],
+            ],
+            __DIR__ . '/../fixtures/invalid-message.php' => [
+                [4, 'Syntax Error: INVALID_TAG in message "This is a default <a href="#foo">message</a>"'],
+            ],
+        ], $errors);
     }
 }

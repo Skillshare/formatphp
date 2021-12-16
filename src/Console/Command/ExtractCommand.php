@@ -29,22 +29,31 @@ use FormatPHP\Exception\UnableToWriteFileException;
 use FormatPHP\Extractor\IdInterpolator;
 use FormatPHP\Extractor\MessageExtractor;
 use FormatPHP\Extractor\MessageExtractorOptions;
+use FormatPHP\Extractor\Parser\ParserErrorCollection;
+use FormatPHP\Icu\MessageFormat\Parser\Exception\InvalidMessageException;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
 use LogicException;
 use Ramsey\Collection\Exception\CollectionMismatchException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as SymfonyInvalidArgumentException;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 use function array_map;
 use function array_merge;
 use function array_unique;
+use function count;
 use function explode;
 use function getcwd;
+use function ksort;
+use function strlen;
+use function substr;
 
 use const PHP_EOL;
 
@@ -117,6 +126,15 @@ class ExtractCommand extends AbstractCommand
                     . 'many dogs}}". The goal is to provide as many' . PHP_EOL
                     . 'full sentences as possible, since fragmented' . PHP_EOL
                     . 'sentences are not translator-friendly.',
+            )
+            ->addOption(
+                '--validate-messages',
+                null,
+                InputOption::VALUE_NONE,
+                'Whether to validate messages as proper ICU' . PHP_EOL
+                    . 'message syntax. If any messages fail, this' . PHP_EOL
+                    . 'will respond with a non-zero exit code and' . PHP_EOL
+                    . 'print the error messages to stderr.',
             )
             ->addOption(
                 '--extract-source-location',
@@ -210,6 +228,10 @@ class ExtractCommand extends AbstractCommand
 
         $extractor->process($files);
 
+        if ($options->validateMessages && $this->printErrors($extractor->getErrors(), $input, $output)) {
+            return self::FAILURE;
+        }
+
         return self::SUCCESS;
     }
 
@@ -249,6 +271,7 @@ class ExtractCommand extends AbstractCommand
         $options->preserveWhitespace = (bool) $input->getOption('preserve-whitespace');
         $options->flatten = (bool) $input->getOption('flatten');
         $options->addGeneratedIdsToSourceCode = (bool) $input->getOption('add-missing-ids');
+        $options->validateMessages = (bool) $input->getOption('validate-messages');
 
         /** @var string $inputFunctionNames */
         $inputFunctionNames = $input->getOption('addl-func') ?? '';
@@ -256,5 +279,69 @@ class ExtractCommand extends AbstractCommand
         $options->functionNames = array_unique(array_merge($options->functionNames, $additionalFunctionNames));
 
         return $options;
+    }
+
+    /**
+     * @throws LogicException
+     * @throws SymfonyInvalidArgumentException
+     */
+    private function printErrors(ParserErrorCollection $errors, InputInterface $input, OutputInterface $output): bool
+    {
+        $tableErrors = [];
+        foreach ($errors as $error) {
+            $message = $error->message;
+            if ($error->exception instanceof InvalidMessageException) {
+                $message = 'Syntax Error: '
+                    . $error->exception->getParserError()->getErrorKindName()
+                    . ' in message "' . $error->exception->getParserError()->message . '"';
+            }
+
+            $tableErrors[$error->sourceFile][] = [$error->sourceLine, $message];
+        }
+
+        if (count($tableErrors) === 0) {
+            return false;
+        }
+
+        if ($output instanceof ConsoleOutputInterface) {
+            $output = $output->getErrorOutput();
+        }
+
+        $style = new SymfonyStyle($input, $output);
+        $style->warning('The following errors occurred while extracting ICU formatted messages.');
+
+        ksort($tableErrors);
+        foreach ($tableErrors as $file => $fileErrors) {
+            $this->renderTable($file, $fileErrors, $output);
+        }
+
+        $style->error('Errors encountered during ICU formatted message extraction.');
+
+        return true;
+    }
+
+    /**
+     * @param non-empty-array<array{int | null, string}> $errors
+     *
+     * @throws LogicException
+     * @throws SymfonyInvalidArgumentException
+     */
+    private function renderTable(string $file, array $errors, OutputInterface $output): void
+    {
+        $fileHeader = strlen($file) > 68 ? '...' . substr($file, -65) : $file;
+
+        $style = Table::getStyleDefinition('borderless');
+        $style->setHorizontalBorderChars('-');
+
+        $table = new Table($output);
+        $table->setStyle($style);
+        $table->setColumnMaxWidth(0, 4);
+        $table->setColumnMaxWidth(1, 68);
+        $table->setHeaders(['Line', $fileHeader]);
+        $table->setRows($errors);
+
+        $table->render();
+
+        $output->write(PHP_EOL);
     }
 }

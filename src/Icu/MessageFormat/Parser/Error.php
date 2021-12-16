@@ -23,12 +23,24 @@ declare(strict_types=1);
 namespace FormatPHP\Icu\MessageFormat\Parser;
 
 use FormatPHP\Icu\MessageFormat\Parser\Type\Location;
+use ReflectionObject;
+use Throwable;
+
+use function array_flip;
 
 /**
  * @psalm-type ErrorKind = Error::*
  */
 class Error
 {
+    /**
+     * An error that does not fit with any of the other constants on this class.
+     *
+     * If receiving this kind of error, check {@see getThrowable()} to see if
+     * there is an associated exception.
+     */
+    public const OTHER = 0;
+
     /**
      * Argument is unclosed (e.g. `{0`)
      */
@@ -169,6 +181,11 @@ class Error
     public const UNCLOSED_TAG = 27;
 
     /**
+     * @var string[]
+     */
+    private static array $constants = [];
+
+    /**
      * @var ErrorKind
      */
     public int $kind;
@@ -176,13 +193,43 @@ class Error
     public string $message;
     public Location $location;
 
+    private ?Throwable $throwable;
+
     /**
      * @param ErrorKind $kind
      */
-    public function __construct(int $kind, string $message, Location $location)
-    {
+    public function __construct(
+        int $kind,
+        string $message,
+        Location $location,
+        ?Throwable $throwable = null
+    ) {
         $this->kind = $kind;
         $this->message = $message;
         $this->location = $location;
+        $this->throwable = $throwable;
+    }
+
+    /**
+     * May return a Throwable instance if {@see $kind} is {@see OTHER}
+     */
+    public function getThrowable(): ?Throwable
+    {
+        return $this->throwable;
+    }
+
+    /**
+     * Returns the name for the kind of error this represents
+     */
+    public function getErrorKindName(): string
+    {
+        if (self::$constants === []) {
+            $reflection = new ReflectionObject($this);
+
+            // @phpstan-ignore-next-line
+            self::$constants = array_flip($reflection->getConstants());
+        }
+
+        return self::$constants[$this->kind] ?? '';
     }
 }

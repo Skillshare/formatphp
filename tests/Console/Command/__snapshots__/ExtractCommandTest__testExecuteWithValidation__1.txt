@@ -1,0 +1,32 @@
+{
+    "aTestId": {
+        "defaultMessage": "This is a default <a href=\"#foo\">message</a>",
+        "description": "A simple description of a fixture for testing purposes."
+    },
+    "photos.count": {
+        "defaultMessage": "You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }",
+        "description": "A description with multiple lines and extra whitespace."
+    },
+    "welcome": {
+        "defaultMessage": "Welcome!"
+    },
+    "goodbye": {
+        "defaultMessage": "Goodbye!"
+    },
+    "Soex4s": {
+        "defaultMessage": "This is a default message",
+        "description": "A simple description of a fixture for testing purposes."
+    },
+    "xgMWoP": {
+        "defaultMessage": "This is a default message"
+    },
+    "Q+U0TW": {
+        "defaultMessage": "Welcome!"
+    },
+    "myMessage": {
+        "defaultMessage": "<homeLink>Go <boldface>home</boldface></homeLink>, {name}!"
+    },
+    "foobar": {
+        "defaultMessage": "foobar"
+    }
+}

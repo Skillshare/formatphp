@@ -656,6 +656,7 @@ class Parser
                                     Error::INVALID_NUMBER_SKELETON,
                                     $this->message,
                                     $styleAndLocation['styleLocation'],
+                                    $exception,
                                 ),
                             );
                         }
