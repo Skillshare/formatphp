@@ -114,4 +114,9 @@ class MessageExtractorOptions
      * Any IDs already present in the source code will remain unchanged.
      */
     public bool $addGeneratedIdsToSourceCode = false;
+
+    /**
+     * Whether to validate ICU message syntax during extraction
+     */
+    public bool $validateMessages = false;
 }

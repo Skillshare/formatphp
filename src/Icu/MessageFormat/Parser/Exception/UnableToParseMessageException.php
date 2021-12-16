@@ -23,11 +23,9 @@ declare(strict_types=1);
 namespace FormatPHP\Icu\MessageFormat\Parser\Exception;
 
 use FormatPHP\Icu\MessageFormat\Parser\Error;
-use ReflectionObject;
 use RuntimeException as PhpRuntimeException;
 use Throwable;
 
-use function array_flip;
 use function sprintf;
 
 /**
@@ -45,18 +43,8 @@ class UnableToParseMessageException extends PhpRuntimeException implements Parse
     {
         return sprintf(
             'Syntax error %s found while parsing message "%s"',
-            $this->getErrorTypeName($error),
+            $error->getErrorKindName(),
             $error->message,
         );
-    }
-
-    private function getErrorTypeName(Error $error): string
-    {
-        $reflection = new ReflectionObject($error);
-
-        // @phpstan-ignore-next-line
-        $constants = array_flip($reflection->getConstants());
-
-        return $constants[$error->kind] ?? '';
     }
 }

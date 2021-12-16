@@ -5,6 +5,7 @@ parameters:
         - ./src
         - ./tests
     excludePaths:
+        - */tests/fixtures/*
         - */tests/*/fixtures/*
     ignoreErrors:
         - '#Cannot call method getName\(\) on ReflectionType\|null#'

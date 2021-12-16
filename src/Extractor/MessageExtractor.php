@@ -31,14 +31,17 @@ use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Exception\UnableToWriteFileException;
+use FormatPHP\ExtendedDescriptorInterface;
 use FormatPHP\Extractor\Parser\Descriptor\PhpParser;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
+use FormatPHP\Extractor\Parser\ParserError;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
 use FormatPHP\Format\WriterInterface;
 use FormatPHP\Format\WriterOptions;
 use FormatPHP\Icu\MessageFormat\Manipulator;
 use FormatPHP\Icu\MessageFormat\Parser as MessageFormatParser;
 use FormatPHP\Icu\MessageFormat\Printer;
+use FormatPHP\Icu\MessageFormat\Validator;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use FormatPHP\Util\Globber;
@@ -133,6 +136,10 @@ class MessageExtractor
             return;
         }
 
+        if ($this->options->validateMessages) {
+            $this->validateDescriptors($descriptors);
+        }
+
         $this->write($formatter, $descriptors);
     }
 
@@ -225,6 +232,12 @@ class MessageExtractor
             $descriptors = new DescriptorCollection($flattened);
         }
 
+        if ($this->options->validateMessages === true && count($this->errors) > 0) {
+            $this->logger->error('Validation errors encountered; extraction failed');
+
+            return;
+        }
+
         $file = $this->options->outFile ?? 'php://output';
 
         $writerOptions = new WriterOptions();
@@ -282,5 +295,26 @@ class MessageExtractor
 
             return $descriptor;
         };
+    }
+
+    private function validateDescriptors(DescriptorCollection $descriptors): void
+    {
+        $validator = new Validator();
+
+        foreach ($descriptors as $descriptor) {
+            try {
+                $validator->validate((string) $descriptor->getDefaultMessage());
+            } catch (MessageFormatParser\Exception\InvalidMessageException $exception) {
+                $sourceFile = '';
+                $sourceLine = -1;
+
+                if ($descriptor instanceof ExtendedDescriptorInterface) {
+                    $sourceFile = $descriptor->getSourceFile() ?? '';
+                    $sourceLine = $descriptor->getSourceLine() ?? -1;
+                }
+
+                $this->errors[] = new ParserError($exception->getMessage(), $sourceFile, $sourceLine, $exception);
+            }
+        }
     }
 }

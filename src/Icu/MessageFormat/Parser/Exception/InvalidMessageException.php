@@ -20,25 +20,30 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Console\Command;
+namespace FormatPHP\Icu\MessageFormat\Parser\Exception;
 
-use Psr\Log\LogLevel;
-use Psr\Log\LoggerInterface;
-use Symfony\Component\Console\Command\Command as SymfonyConsoleCommand;
-use Symfony\Component\Console\Logger\ConsoleLogger;
-use Symfony\Component\Console\Output\OutputInterface;
+use FormatPHP\Icu\MessageFormat\Parser\Error;
+use RuntimeException as PhpRuntimeException;
+use Throwable;
 
 /**
- * Common command functionality for FormatPHP console commands
+ * Thrown when ICU message validation fails
  */
-abstract class AbstractCommand extends SymfonyConsoleCommand
+class InvalidMessageException extends PhpRuntimeException implements ParserExceptionInterface
 {
-    private const LOG_VERBOSITY_MAPPING = [
-        LogLevel::NOTICE => OutputInterface::VERBOSITY_NORMAL,
-    ];
+    private Error $error;
 
-    protected function getConsoleLogger(OutputInterface $output): LoggerInterface
+    public function __construct(Error $error, ?Throwable $previous = null)
     {
-        return new ConsoleLogger($output, self::LOG_VERBOSITY_MAPPING);
+        parent::__construct('Syntax error', 0, $previous);
+        $this->error = $error;
+    }
+
+    /**
+     * Returns the specific syntax error that caused validation to fail
+     */
+    public function getParserError(): Error
+    {
+        return $this->error;
     }
 }
