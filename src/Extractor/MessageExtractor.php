@@ -232,6 +232,12 @@ class MessageExtractor
             $descriptors = new DescriptorCollection($flattened);
         }
 
+        if ($this->options->validateMessages === true && count($this->errors) > 0) {
+            $this->logger->error('Validation errors encountered; extraction failed');
+
+            return;
+        }
+
         $file = $this->options->outFile ?? 'php://output';
 
         $writerOptions = new WriterOptions();

@@ -859,42 +859,7 @@ class MessageExtractorTest extends TestCase
         $output = ob_get_contents();
         ob_end_clean();
 
-        $messages = json_decode((string) $output, true);
-
-        $this->assertSame(
-            [
-                'aTestId' => [
-                    'defaultMessage' => 'This is a default <a href="#foo">message</a>',
-                    'description' => 'A simple description of a fixture for testing purposes.',
-                ],
-                'OpKKos' => [
-                    'defaultMessage' => 'Hello!',
-                ],
-                'photos.count' => [
-                    'defaultMessage' =>
-                        'You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }',
-                    'description' => 'A description with multiple lines and extra whitespace.',
-                ],
-                'welcome' => [
-                    'defaultMessage' => 'Welcome!',
-                ],
-                'goodbye' => [
-                    'defaultMessage' => 'Goodbye!',
-                ],
-                'Soex4s' => [
-                    'defaultMessage' => 'This is a default message',
-                    'description' => 'A simple description of a fixture for testing purposes.',
-                ],
-                'xgMWoP' => [
-                    'defaultMessage' => 'This is a default message',
-                ],
-                'Q+U0TW' => [
-                    'defaultMessage' => 'Welcome!',
-                ],
-            ],
-            $messages,
-        );
-
+        $this->assertSame('', $output);
         $this->assertGreaterThan(0, count($extractor->getErrors()));
 
         $errors = [];

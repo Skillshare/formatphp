@@ -49,10 +49,7 @@ class ExtractCommandTest extends TestCase
         ob_end_clean();
 
         $this->assertSame(1, $commandTester->getStatusCode());
-
-        // Use a text snapshot instead of JSON so that characters aren't
-        // converted to unicode escape sequences.
-        $this->assertMatchesTextSnapshot($jsonOutput);
+        $this->assertSame('', $jsonOutput);
 
         // We can't deterministically snapshot-assert the error output because
         // it contains file paths. Boo!
