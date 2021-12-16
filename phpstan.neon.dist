@@ -9,3 +9,4 @@ parameters:
         - */tests/*/fixtures/*
     ignoreErrors:
         - '#Cannot call method getName\(\) on ReflectionType\|null#'
+        - '#Method FormatPHP\\Util\\FormatHelper::loadFormatter\(\) never returns callable\(array\): FormatPHP\\MessageCollection so it can be removed from the return type#'
