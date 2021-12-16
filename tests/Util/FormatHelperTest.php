@@ -150,7 +150,7 @@ class FormatHelperTest extends TestCase
     }
 
     /**
-     * @return array<string, array{writer: string, expectedType: string}>
+     * @return mixed[]
      */
     public function validWriterProvider(): array
     {
@@ -232,6 +232,42 @@ class FormatHelperTest extends TestCase
             ],
             'return type is not array' => [
                 'reader' => __DIR__ . '/fixtures/writer-closure-invalid-05.php',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider validateWriterCallableProvider
+     */
+    public function testValidateWriterCallable(callable $writer): void
+    {
+        $helper = new FormatHelper(new FileSystemHelper());
+
+        $this->assertInstanceOf(Closure::class, $helper->validateWriterCallable($writer));
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function validateWriterCallableProvider(): array
+    {
+        $writerInstance = new ChromeWriter();
+
+        return [
+            'formatphp' => [
+                'writer' => new FormatPHPWriter(),
+            ],
+            'callable array' => [
+                'writer' => [$writerInstance, '__invoke'],
+            ],
+            'loaded closure' => [
+                'writer' => require __DIR__ . '/fixtures/writer-closure-01.php',
+            ],
+            'loaded anonymous class' => [
+                'writer' => require __DIR__ . '/fixtures/writer-closure-02.php',
+            ],
+            'closure' => [
+                'writer' => fn (DescriptorCollection $descriptors, WriterOptions $options): array => [],
             ],
         ];
     }

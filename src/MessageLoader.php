@@ -22,6 +22,7 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
+use FormatPHP\Exception\ImproperContextException;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\InvalidMessageShapeException;
 use FormatPHP\Exception\LocaleNotFoundException;
@@ -29,38 +30,52 @@ use FormatPHP\Exception\UnableToProcessFileException;
 use FormatPHP\Format\Reader\FormatPHPReader;
 use FormatPHP\Format\ReaderInterface;
 use FormatPHP\Util\FileSystemHelper;
+use FormatPHP\Util\FormatHelper;
 
 use function array_filter;
 use function array_unique;
 use function array_values;
 use function implode;
+use function is_callable;
 use function sprintf;
 
 use const DIRECTORY_SEPARATOR;
 
 /**
  * Loads messages for a given locale from the file system or cache
+ *
+ * @psalm-import-type ReaderType from ReaderInterface
  */
 class MessageLoader
 {
     private ConfigInterface $config;
     private FileSystemHelper $fileSystemHelper;
-    private ReaderInterface $formatReader;
+    private FormatHelper $formatHelper;
     private string $messagesDirectory;
 
     /**
+     * @var ReaderType
+     */
+    private $formatReader;
+
+    /**
+     * @param ReaderType | string | null $formatReader
+     *
      * @throws InvalidArgumentException
+     * @throws ImproperContextException
      */
     public function __construct(
         string $messagesDirectory,
         ConfigInterface $config,
-        ?ReaderInterface $formatReader = null,
-        ?FileSystemHelper $fileSystemHelper = null
+        $formatReader = null,
+        ?FileSystemHelper $fileSystemHelper = null,
+        ?FormatHelper $formatHelper = null
     ) {
         $this->config = $config;
-        $this->formatReader = $formatReader ?? new FormatPHPReader();
         $this->fileSystemHelper = $fileSystemHelper ?? new FileSystemHelper();
+        $this->formatHelper = $formatHelper ?? new FormatHelper($this->fileSystemHelper);
         $this->messagesDirectory = $this->fileSystemHelper->getRealPath($messagesDirectory);
+        $this->formatReader = $this->loadFormatReader($formatReader);
 
         if (!$this->fileSystemHelper->isDirectory($this->messagesDirectory)) {
             throw new InvalidArgumentException(sprintf(
@@ -130,5 +145,30 @@ class MessageLoader
 
         /** @var string[] */
         return array_values(array_unique(array_filter($fallbacks)));
+    }
+
+    /**
+     * @param ReaderType | string | null $formatReader
+     *
+     * @return ReaderType
+     *
+     * @throws ImproperContextException
+     * @throws InvalidArgumentException
+     */
+    private function loadFormatReader($formatReader): callable
+    {
+        if ($formatReader === null) {
+            return new FormatPHPReader();
+        }
+
+        if ($formatReader instanceof ReaderInterface) {
+            return $formatReader;
+        }
+
+        if (is_callable($formatReader)) {
+            return $this->formatHelper->validateReaderCallable($formatReader);
+        }
+
+        return $this->formatHelper->getReader($formatReader);
     }
 }
