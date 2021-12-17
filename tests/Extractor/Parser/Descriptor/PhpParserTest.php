@@ -424,6 +424,36 @@ class PhpParserTest extends TestCase
     }
 
     /**
+     * This test covers situations where the formatting functions are not
+     * present in the source code being analyzed, so we should short-circuit
+     * and skip parsing the file.
+     */
+    public function testParse12(): void
+    {
+        $fileSystemHelper = $this->mockery(FileSystemHelper::class);
+
+        $fileSystemHelper
+            ->expects()
+            ->getContents(__DIR__ . '/fixtures/php-parser-12.php')
+            ->andReturn(file_get_contents(__DIR__ . '/fixtures/php-parser-12.php'));
+
+        $fileSystemHelper->shouldNotReceive('writeContents');
+
+        $errors = new ParserErrorCollection();
+
+        $options = new MessageExtractorOptions();
+        $options->functionNames = ['formatMessage', 'translate', 't'];
+
+        $parser = new PhpParser($fileSystemHelper);
+        $descriptors = $parser(__DIR__ . '/fixtures/php-parser-12.php', $options, $errors);
+        $receivedErrors = $this->compileErrors($errors);
+
+        $this->assertContainsOnlyInstancesOf(DescriptorInterface::class, $descriptors);
+        $this->assertCount(0, $descriptors);
+        $this->assertCount(0, $receivedErrors);
+    }
+
+    /**
      * @return string[]
      */
     private function compileErrors(ParserErrorCollection $errors): array

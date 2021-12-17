@@ -30,6 +30,7 @@ use FormatPHP\ExtendedDescriptorInterface;
 use FormatPHP\Extractor\MessageExtractorOptions;
 use FormatPHP\Extractor\Parser\DescriptorParserInterface;
 use FormatPHP\Extractor\Parser\ParserErrorCollection;
+use FormatPHP\Icu\MessageFormat\Parser;
 use FormatPHP\Util\FileSystemHelper;
 use LogicException;
 use PhpParser\Lexer;
@@ -43,6 +44,7 @@ use PhpParser\PrettyPrinter\Standard as PhpPrinter;
 use function assert;
 use function count;
 use function in_array;
+use function mb_strpos;
 use function pathinfo;
 
 use const PATHINFO_EXTENSION;
@@ -88,9 +90,14 @@ class PhpParser implements DescriptorParserInterface
             return new DescriptorCollection();
         }
 
+        $fileContents = $this->fileSystemHelper->getContents($filePath);
+        if (!$this->hasFormattingFunctions($fileContents, $options->functionNames)) {
+            return new DescriptorCollection();
+        }
+
         $lexer = new Emulative(self::LEXER_OPTIONS);
         $parser = new Php7Parser($lexer);
-        $statements = $parser->parse($this->fileSystemHelper->getContents($filePath));
+        $statements = $parser->parse($fileContents);
 
         $descriptorCollector = new DescriptorCollectorVisitor(
             $filePath,
@@ -198,5 +205,19 @@ class PhpParser implements DescriptorParserInterface
         $extension = pathinfo($filePath, PATHINFO_EXTENSION);
 
         return in_array($extension, self::PHP_PATH_EXTENSIONS);
+    }
+
+    /**
+     * @param string[] $functions
+     */
+    private function hasFormattingFunctions(string $code, array $functions): bool
+    {
+        foreach ($functions as $function) {
+            if (mb_strpos($code, $function, 0, Parser::ENCODING) !== false) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
