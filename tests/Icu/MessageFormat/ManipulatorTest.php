@@ -64,6 +64,9 @@ class ManipulatorTest extends TestCase
                             other{many cats}}
                     EOD,
             ],
+            'should not mangle numbers in messages' => [
+                'message' => 'All classes are pre-recorded and average 30-40 minutes in total length.',
+            ],
         ];
     }
 }

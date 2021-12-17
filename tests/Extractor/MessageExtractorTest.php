@@ -795,7 +795,10 @@ class MessageExtractorTest extends TestCase
         );
 
         ob_start();
-        $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.ph*']);
+        $extractor->process([
+            __DIR__ . '/Parser/Descriptor/fixtures/*.ph*',
+            __DIR__ . '/../fixtures/invalid-message.php',
+        ]);
         $output = ob_get_contents();
         ob_end_clean();
 

@@ -49,6 +49,7 @@ use LogicException;
 use Psr\Log\LoggerInterface;
 use Ramsey\Collection\Exception\CollectionMismatchException;
 
+use function array_filter;
 use function class_exists;
 use function count;
 use function is_a;
@@ -226,16 +227,16 @@ class MessageExtractor
      */
     private function write(callable $formatter, DescriptorCollection $descriptors): void
     {
-        if ($this->options->flatten === true) {
-            /** @var DescriptorInterface[] $flattened */
-            $flattened = $descriptors->map($this->flattenMessage())->toArray();
-            $descriptors = new DescriptorCollection($flattened);
-        }
-
         if ($this->options->validateMessages === true && count($this->errors) > 0) {
             $this->logger->error('Validation errors encountered; extraction failed');
 
             return;
+        }
+
+        if ($this->options->flatten === true) {
+            /** @var DescriptorInterface[] $flattened */
+            $flattened = $descriptors->map($this->flattenMessage())->toArray();
+            $descriptors = new DescriptorCollection(array_filter($flattened));
         }
 
         $file = $this->options->outFile ?? 'php://output';
@@ -282,10 +283,14 @@ class MessageExtractor
 
     private function flattenMessage(): Closure
     {
-        return function (Descriptor $descriptor): Descriptor {
+        return function (Descriptor $descriptor): ?Descriptor {
             $message = $descriptor->getDefaultMessage();
             $messageFormatParser = new MessageFormatParser((string) $message);
             $result = $messageFormatParser->parse();
+
+            if ($result->err !== null) {
+                return null;
+            }
 
             /** @var MessageFormatParser\Type\ElementCollection $messageAst */
             $messageAst = $result->val;

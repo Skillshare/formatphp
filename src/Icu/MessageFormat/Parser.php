@@ -373,21 +373,21 @@ class Parser
 
         while (true) {
             $quoted = $this->tryParseQuote($parentArgType);
-            if ($quoted) {
+            if ($quoted !== null) {
                 $value .= $quoted;
 
                 continue;
             }
 
             $unquoted = $this->tryParseUnquoted($nestingLevel, $parentArgType);
-            if ($unquoted) {
+            if ($unquoted !== null) {
                 $value .= $unquoted;
 
                 continue;
             }
 
             $leftAngle = $this->tryParseLeftAngleBracket();
-            if ($leftAngle) {
+            if ($leftAngle !== null) {
                 $value .= $leftAngle;
 
                 continue;
