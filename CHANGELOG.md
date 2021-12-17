@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.3.1 - 2021-12-17
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Fixed case where errors occurring during flattening would cause `null` to be passed to a method that does not accept `null`
+- Fixed case where "0" character caused a truthy check to fail, since `0 == false`
+
 ## 0.3.0 - 2021-12-16
 
 ### Added
