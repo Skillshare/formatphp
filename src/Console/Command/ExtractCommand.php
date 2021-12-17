@@ -45,6 +45,7 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
+use function array_filter;
 use function array_map;
 use function array_merge;
 use function array_unique;
@@ -275,7 +276,7 @@ class ExtractCommand extends AbstractCommand
 
         /** @var string $inputFunctionNames */
         $inputFunctionNames = $input->getOption('addl-func') ?? '';
-        $additionalFunctionNames = array_map('trim', explode(',', $inputFunctionNames));
+        $additionalFunctionNames = array_filter(array_map('trim', explode(',', $inputFunctionNames)));
         $options->functionNames = array_unique(array_merge($options->functionNames, $additionalFunctionNames));
 
         return $options;
