@@ -44,17 +44,22 @@ class MessageLoaderTest extends TestCase
         // Esperanto, Latin script, US region.
         $locale = new Locale('eo-Latn-US');
 
+        $messagesDirectory = __DIR__ . '/fixtures/locales';
+
         /** @var ReaderInterface $reader */
         $reader = $this->mockery(ReaderInterface::class);
 
         $loader = new MessageLoader(
-            __DIR__ . '/fixtures/locales',
+            $messagesDirectory,
             new Config($locale),
             $reader,
         );
 
         $this->expectException(LocaleNotFoundException::class);
-        $this->expectExceptionMessage('Unable to find a suitable locale for "eo-Latn-US"; please set a default locale');
+        $this->expectExceptionMessage(
+            'Unable to find a suitable locale for "eo-Latn-US" in ' . $messagesDirectory
+            . '; please set a default locale',
+        );
 
         $loader->loadMessages();
     }
@@ -143,5 +148,27 @@ class MessageLoaderTest extends TestCase
             ['customReader' => __DIR__ . '/fixtures/custom-reader.php'],
             ['customReader' => null],
         ];
+    }
+
+    public function testLoadMessagesNormalizesFilenames(): void
+    {
+        $locale = new Locale('en-XB');
+        $defaultLocale = new Locale('en');
+
+        $loader = new MessageLoader(
+            __DIR__ . '/fixtures/locales',
+            new Config($locale, $defaultLocale),
+            new FormatPHPReader(),
+        );
+
+        $collection = $loader->loadMessages();
+
+        $this->assertGreaterThanOrEqual(1, $collection->count());
+        $this->assertNotNull($collection['about.inspire']);
+        $this->assertInstanceOf(MessageInterface::class, $collection['about.inspire']);
+        $this->assertSame(
+            '[!! Ḁṭ Ṡǩíííĺĺśśśḫâŕŕŕè, ẘè èṁṗṗṗŏẘèèèŕ ṁṁṁèṁḃḃḃèŕśśś ṭŏŏŏ ĝèèèṭ íííńśṗṗṗíŕèèèḋ. !!]',
+            $collection['about.inspire']->getMessage(),
+        );
     }
 }

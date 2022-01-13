@@ -37,9 +37,13 @@ use function array_unique;
 use function array_values;
 use function implode;
 use function is_callable;
+use function scandir;
 use function sprintf;
+use function str_replace;
+use function strtolower;
 
 use const DIRECTORY_SEPARATOR;
+use const SCANDIR_SORT_NONE;
 
 /**
  * Loads messages for a given locale from the file system or cache
@@ -48,6 +52,8 @@ use const DIRECTORY_SEPARATOR;
  */
 class MessageLoader
 {
+    private const MESSAGE_FILE_EXTENSION = '.json';
+
     private ConfigInterface $config;
     private FileSystemHelper $fileSystemHelper;
     private FormatHelper $formatHelper;
@@ -108,8 +114,9 @@ class MessageLoader
 
         foreach ($this->getFallbackLocales() as $locale) {
             try {
-                $messagesFile = $this->messagesDirectory . DIRECTORY_SEPARATOR . $locale . '.json';
-                $messagesContents = $this->fileSystemHelper->getJsonContents($messagesFile);
+                $messagesContents = $this->fileSystemHelper->getJsonContents(
+                    $this->getFilePathForLocale($locale),
+                );
 
                 break;
             } catch (UnableToProcessFileException $exception) {
@@ -119,8 +126,9 @@ class MessageLoader
 
         if ($messagesContents === false) {
             throw new LocaleNotFoundException(sprintf(
-                'Unable to find a suitable locale for "%s"; please set a default locale',
+                'Unable to find a suitable locale for "%s" in %s; please set a default locale',
                 $this->config->getLocale()->toString(),
+                $this->messagesDirectory,
             ));
         }
 
@@ -170,5 +178,24 @@ class MessageLoader
         }
 
         return $this->formatHelper->getReader($formatReader);
+    }
+
+    private function getFilePathForLocale(string $locale): string
+    {
+        $normalize = fn (string $filename): string => str_replace('_', '-', strtolower($filename));
+        $searchFile = $normalize($locale . self::MESSAGE_FILE_EXTENSION);
+        $localeFiles = scandir($this->messagesDirectory, SCANDIR_SORT_NONE) ?: [];
+
+        foreach ($localeFiles as $localeFile) {
+            if ($normalize($localeFile) === $searchFile) {
+                return $this->messagesDirectory . DIRECTORY_SEPARATOR . $localeFile;
+            }
+        }
+
+        throw new UnableToProcessFileException(sprintf(
+            'Could not find file for locale "%s" in %s',
+            $locale,
+            $this->messagesDirectory,
+        ));
     }
 }
