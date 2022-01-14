@@ -35,6 +35,7 @@ use FormatPHP\Util\FormatHelper;
 use function array_filter;
 use function array_unique;
 use function array_values;
+use function file_exists;
 use function implode;
 use function is_callable;
 use function scandir;
@@ -182,6 +183,13 @@ class MessageLoader
 
     private function getFilePathForLocale(string $locale): string
     {
+        $filePath = $this->messagesDirectory . DIRECTORY_SEPARATOR . $locale . self::MESSAGE_FILE_EXTENSION;
+        if (file_exists($filePath)) {
+            return $filePath;
+        }
+
+        // If the file doesn't exist, check for alternate casings and notations.
+        // e.g., en-XB, en_XB, en-xb, en_xb, EN-XB, EN_XB, eN-xB, etc.
         $normalize = fn (string $filename): string => str_replace('_', '-', strtolower($filename));
         $searchFile = $normalize($locale . self::MESSAGE_FILE_EXTENSION);
         $localeFiles = scandir($this->messagesDirectory, SCANDIR_SORT_NONE) ?: [];
