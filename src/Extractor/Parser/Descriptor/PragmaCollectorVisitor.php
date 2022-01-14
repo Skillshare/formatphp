@@ -44,6 +44,8 @@ use function trim;
  */
 class PragmaCollectorVisitor extends NodeVisitorAbstract
 {
+    public ParserErrorCollection $errors;
+
     /**
      * @var array<string, string>
      */
@@ -51,7 +53,6 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
 
     private string $filePath;
     private ?string $pragmaName;
-    private ParserErrorCollection $errors;
 
     public function __construct(string $filePath, string $pragmaName, ParserErrorCollection $errors)
     {
@@ -132,6 +133,11 @@ class PragmaCollectorVisitor extends NodeVisitorAbstract
 
         preg_match_all('/(([a-z0-9_\-]+):([a-z0-9_\-]+))+/i', $metadata, $matches);
 
+        /**
+         * @psalm-suppress UnnecessaryVarAnnotation
+         * @var int $index
+         * @var string $propertyName
+         */
         foreach ($matches[2] as $index => $propertyName) {
             $compareParsed .= preg_replace('/\s+/', '', strtolower("$propertyName:{$matches[3][$index]}"));
             $this->parsedPragma[$propertyName] = $matches[3][$index];

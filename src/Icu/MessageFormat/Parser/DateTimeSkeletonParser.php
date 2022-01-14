@@ -118,7 +118,7 @@ class DateTimeSkeletonParser
                         '"e..eee" (weekday) patterns are not supported',
                     );
                 }
-                $options->weekday = ['short', 'long', 'narrow', 'short'][$length - 4];
+                $options->weekday = $this->getWeekdayValue($length - 4);
 
                 break;
             case 'c':
@@ -127,7 +127,7 @@ class DateTimeSkeletonParser
                         '"c..ccc" (weekday) patterns are not supported',
                     );
                 }
-                $options->weekday = ['short', 'long', 'narrow', 'short'][$length - 4];
+                $options->weekday = $this->getWeekdayValue($length - 4);
 
                 break;
             // Period
@@ -201,5 +201,29 @@ class DateTimeSkeletonParser
                     '"Z/O/v/V/X/x" (timeZone) patterns are not supported, use "z" instead',
                 );
         }
+    }
+
+    /**
+     * @psalm-return "long" | "narrow" | "short"
+     */
+    private function getWeekdayValue(int $index): string
+    {
+        switch ($index) {
+            case 1:
+                $value = 'long';
+
+                break;
+            case 2:
+                $value = 'narrow';
+
+                break;
+            case 0:
+            default:
+                $value = 'short';
+
+                break;
+        }
+
+        return $value;
     }
 }

@@ -49,12 +49,13 @@ use function trim;
  */
 class DescriptorCollectorVisitor extends NodeVisitorAbstract
 {
+    public ParserErrorCollection $errors;
+
     private DescriptorCollection $descriptors;
     private string $filePath;
     private bool $preserveWhitespace;
     private IdInterpolator $idInterpolator;
     private string $idInterpolatorPattern;
-    private ParserErrorCollection $errors;
     private bool $addGeneratedIdsToSourceCode;
 
     /**
