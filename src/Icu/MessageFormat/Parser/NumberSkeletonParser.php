@@ -124,7 +124,7 @@ class NumberSkeletonParser
                     continue 2;
                 case 'currency':
                     $options->style = 'currency';
-                    $options->currency = $token->options[0];
+                    $options->currency = $token->options[0] ?: null;
 
                     continue 2;
                 case 'group-off':
@@ -140,7 +140,7 @@ class NumberSkeletonParser
                 case 'measure-unit':
                 case 'unit':
                     $options->style = 'unit';
-                    $options->unit = preg_replace('/^(.*?)-/u', '', $token->options[0]);
+                    $options->unit = preg_replace('/^(.*?)-/u', '', $token->options[0]) ?: null;
 
                     continue 2;
                 case 'compact-short':
@@ -210,7 +210,9 @@ class NumberSkeletonParser
 
             // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#integer-width
             if (preg_match(self::CONCISE_INTEGER_WIDTH_REGEX, $token->stem)) {
-                $options->minimumIntegerDigits = mb_strlen($token->stem, Parser::ENCODING);
+                /** @var positive-int $digits */
+                $digits = mb_strlen($token->stem, Parser::ENCODING);
+                $options->minimumIntegerDigits = $digits;
 
                 continue;
             }
@@ -358,7 +360,9 @@ class NumberSkeletonParser
                 throw new Exception\InvalidNotationException('Malformed concise eng/scientific notation');
             }
 
-            $numberFormatOptions->minimumIntegerDigits = mb_strlen($stem, Parser::ENCODING);
+            /** @var positive-int $digits */
+            $digits = mb_strlen($stem, Parser::ENCODING);
+            $numberFormatOptions->minimumIntegerDigits = $digits;
         }
     }
 
@@ -383,7 +387,9 @@ class NumberSkeletonParser
             ];
 
             if ($matches[1] !== '') {
-                $options->minimumIntegerDigits = mb_strlen($matches[2], Parser::ENCODING);
+                /** @var positive-int $digits */
+                $digits = mb_strlen($matches[2], Parser::ENCODING);
+                $options->minimumIntegerDigits = $digits;
             } elseif ($matches[3] !== '' && $matches[4] !== '') {
                 throw new Exception\UnsupportedOptionException('We currently do not support maximum integer digits');
             } elseif ($matches[5] !== '') {
@@ -414,18 +420,27 @@ class NumberSkeletonParser
 
             // .000* case (before ICU67 it was .000+)
             if ($matches[2] === '*') {
-                $options->minimumFractionDigits = mb_strlen($matches[1], Parser::ENCODING);
+                /** @var positive-int $digits */
+                $digits = mb_strlen($matches[1], Parser::ENCODING);
+                $options->minimumFractionDigits = $digits;
             // .### case
             } elseif (($matches[3][0] ?? '') === '#') {
-                $options->maximumFractionDigits = mb_strlen($matches[3], Parser::ENCODING);
+                /** @var positive-int $digits */
+                $digits = mb_strlen($matches[3], Parser::ENCODING);
+                $options->maximumFractionDigits = $digits;
             // .00## case
             } elseif ($matches[4] !== '' && $matches[5] !== '') {
-                $options->minimumFractionDigits = mb_strlen($matches[4], Parser::ENCODING);
-                $options->maximumFractionDigits =
-                    $options->minimumFractionDigits + mb_strlen($matches[5], Parser::ENCODING);
+                /** @var positive-int $minDigits */
+                $minDigits = mb_strlen($matches[4], Parser::ENCODING);
+                /** @var positive-int $maxDigits */
+                $maxDigits = mb_strlen($matches[5], Parser::ENCODING);
+                $options->minimumFractionDigits = $minDigits;
+                $options->maximumFractionDigits = $options->minimumFractionDigits + $maxDigits;
             } else {
-                $options->minimumFractionDigits = mb_strlen($matches[1], Parser::ENCODING);
-                $options->maximumFractionDigits = mb_strlen($matches[1], Parser::ENCODING);
+                /** @var positive-int $digits */
+                $digits = mb_strlen($matches[1], Parser::ENCODING);
+                $options->minimumFractionDigits = $digits;
+                $options->maximumFractionDigits = $digits;
             }
 
             return '';
@@ -447,21 +462,25 @@ class NumberSkeletonParser
                 $m[2] ?? '',
             ];
 
+            /** @var positive-int $digits */
+            $digits = mb_strlen($matches[1], Parser::ENCODING);
+
             // @@@ case
             if ($matches[2] === '') {
-                $options->minimumSignificantDigits = mb_strlen($matches[1], Parser::ENCODING);
-                $options->maximumSignificantDigits = mb_strlen($matches[1], Parser::ENCODING);
+                $options->minimumSignificantDigits = $digits;
+                $options->maximumSignificantDigits = $digits;
             // @@@+ case
             } elseif ($matches[2] === '+') {
-                $options->minimumSignificantDigits = mb_strlen($matches[1], Parser::ENCODING);
+                $options->minimumSignificantDigits = $digits;
             // .### case
             } elseif (($matches[1][0] ?? '') === '#') {
-                $options->maximumSignificantDigits = mb_strlen($matches[1], Parser::ENCODING);
+                $options->maximumSignificantDigits = $digits;
             // .@@## or .@@@ case
             } else {
-                $options->minimumSignificantDigits = mb_strlen($matches[1], Parser::ENCODING);
-                $options->maximumSignificantDigits =
-                    $options->minimumSignificantDigits + mb_strlen($matches[2], Parser::ENCODING);
+                /** @var positive-int $maxDigits */
+                $maxDigits = mb_strlen($matches[2], Parser::ENCODING);
+                $options->minimumSignificantDigits = $digits;
+                $options->maximumSignificantDigits = $options->minimumSignificantDigits + $maxDigits;
             }
 
             return '';
