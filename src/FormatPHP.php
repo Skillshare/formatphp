@@ -27,9 +27,11 @@ use DateTimeInterface as PhpDateTimeInterface;
 use Exception as PhpException;
 use FormatPHP\Intl\DateTimeFormat;
 use FormatPHP\Intl\DateTimeFormatOptions;
+use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Util\MessageCleaner;
 use FormatPHP\Util\MessageRetriever;
+use Locale as PhpLocale;
 
 use function array_merge;
 use function gettype;
@@ -55,12 +57,12 @@ class FormatPHP implements FormatterInterface
      * @throws Exception\InvalidArgumentException
      */
     public function __construct(
-        ConfigInterface $config,
-        MessageCollection $messages
+        ?ConfigInterface $config = null,
+        ?MessageCollection $messages = null
     ) {
-        $this->config = $config;
-        $this->messages = $messages;
-        $this->messageFormat = new MessageFormat($config->getLocale());
+        $this->config = $config ?? new Config(new Locale(PhpLocale::getDefault()));
+        $this->messages = $messages ?? new MessageCollection();
+        $this->messageFormat = new MessageFormat($this->config->getLocale());
     }
 
     /**
