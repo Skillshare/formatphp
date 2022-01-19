@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.5.0 - 2022-01-31
+
+### Added
+
+- Provide functionality for formatting numbers and currency through `Intl\NumberFormat`, as well as `FormatPHP::formatNumber()` and `FormatPHP::formatCurrency()` convenience methods.
+- Add `UnableToFormatNumberException` thrown when we're unable to format a number string.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.4.1 - 2022-01-21
 
 ### Added

@@ -10,6 +10,7 @@ use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\FormatPHP;
 use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\Locale;
+use FormatPHP\Intl\NumberFormatOptions;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
 use Locale as PhpLocale;
@@ -346,5 +347,53 @@ class FormatPHPTest extends TestCase
                 ['ts' => $date],
             ),
         );
+    }
+
+    public function testFormatNumber(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame('1,234', $formatphp->formatNumber(1234));
+    }
+
+    public function testFormatNumberWithOptions(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame('1.234E3', $formatphp->formatNumber(1234, new NumberFormatOptions([
+            'notation' => 'scientific',
+        ])));
+    }
+
+    public function testFormatCurrency(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame('$1,234.00', $formatphp->formatCurrency(1234, 'USD'));
+    }
+
+    public function testFormatCurrencyWithOptions(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // The following string has a non-breaking space encoded in it.
+        $expected = "EUR\xC2\xA01,234";
+
+        $this->assertSame($expected, $formatphp->formatCurrency(1234, 'EUR', new NumberFormatOptions([
+            'currencyDisplay' => 'code',
+            'trailingZeroDisplay' => 'stripIfInteger',
+        ])));
     }
 }
