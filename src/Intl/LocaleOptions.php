@@ -24,11 +24,19 @@ namespace FormatPHP\Intl;
 
 /**
  * Configuration options for the locale identifier
+ *
+ * @psalm-import-type CalendarType from DateTimeFormatOptions
+ * @psalm-import-type HourType from DateTimeFormatOptions
+ * @psalm-import-type NumeralType from NumberFormatOptions
+ * @psalm-type CaseFirstType = "upper" | "lower" | "false"
+ * @psalm-type CollationType = "big5han" | "compat" | "dict" | "direct" | "ducet" | "emoji" | "eor" | "gb2312" | "phonebk" | "phonetic" | "pinyin" | "reformed" | "search" | "searchjl" | "standard" | "stroke" | "trad" | "unihan" | "zhuyin" | string
  */
 class LocaleOptions
 {
     /**
      * The locale's calendar era
+     *
+     * @psalm-var CalendarType | null
      */
     public ?string $calendar = null;
 
@@ -36,12 +44,14 @@ class LocaleOptions
      * Whether case should be accounted for in the locale's collation rules
      * (i.e. `"upper"`, `"lower"`, or `"false"`)
      *
-     * @psalm-var "upper" | "lower" | "false"
+     * @psalm-var CaseFirstType | null
      */
     public ?string $caseFirst = null;
 
     /**
      * The locale's collation type
+     *
+     * @psalm-var CollationType | null
      */
     public ?string $collation = null;
 
@@ -49,7 +59,7 @@ class LocaleOptions
      * The locale's time-keeping convention (i.e., `"h11"`, `"h12"`, `"h23"`,
      * or `"h24"`)
      *
-     * @psalm-var "h11" | "h12" | "h23" | "h24" | null
+     * @psalm-var HourType | null
      */
     public ?string $hourCycle = null;
 
@@ -60,6 +70,8 @@ class LocaleOptions
 
     /**
      * The locale's numeral system
+     *
+     * @psalm-var NumeralType | null
      */
     public ?string $numberingSystem = null;
 
@@ -79,14 +91,14 @@ class LocaleOptions
     public ?string $script = null;
 
     /**
-     * @param string | null $calendar The locale's calendar era
-     * @param string | null $caseFirst Whether case should be accounted for in
+     * @param CalendarType | null $calendar The locale's calendar era
+     * @param CaseFirstType | null $caseFirst Whether case should be accounted for in
      *     the locale's collation rules (i.e. `"upper"`, `"lower"`, or `"false"`)
-     * @param string | null $collation The locale's collation type
-     * @param string | null $hourCycle The locale's time-keeping convention
+     * @param CollationType | null $collation The locale's collation type
+     * @param HourType | null $hourCycle The locale's time-keeping convention
      *     (i.e., `"h11"`, `"h12"`, `"h23"`, or `"h24"`)
      * @param string | null $language The locale's language
-     * @param string | null $numberingSystem The locale's numeral system
+     * @param NumeralType | null $numberingSystem The locale's numeral system
      * @param bool | null $numeric Whether the locale has special collation
      *     handling for numeric strings
      * @param string | null $region The locale's region

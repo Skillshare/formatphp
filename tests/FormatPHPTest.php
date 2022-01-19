@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace FormatPHP\Test;
 
+use DateTimeImmutable;
 use FormatPHP\Config;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\FormatPHP;
+use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
+
+use function date;
 
 class FormatPHPTest extends TestCase
 {
@@ -110,6 +114,153 @@ class FormatPHPTest extends TestCase
                     'name' => 'Sam',
                 ],
             ),
+        );
+    }
+
+    public function testFormatDateUsesCurrentDateWhenNoValuePassed(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame(date('n/j/y'), $formatphp->formatDate());
+    }
+
+    public function testFormatDateWithUnixTimestamp(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // Mon, 25 Oct 2021 23:34:12 +0000
+        $this->assertSame(
+            '10/25/21',
+            $formatphp->formatDate(1635204852),
+        );
+    }
+
+    public function testFormatDateWithOptions(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // Mon, 25 Oct 2021 23:34:12 +0000
+        $this->assertSame(
+            'Monday, October 25, 2021 at 11:34:12 PM UTC',
+            $formatphp->formatDate(1635204852, new DateTimeFormatOptions([
+                'dateStyle' => 'full',
+                'timeStyle' => 'long',
+            ])),
+        );
+    }
+
+    public function testFormatDateWithDateTimeInstance(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // Mon, 25 Oct 2021 23:34:12 +0000
+        $date = new DateTimeImmutable('@' . 1635204852);
+
+        $this->assertSame(
+            '10/25/21',
+            $formatphp->formatDate($date),
+        );
+    }
+
+    public function testFormatDateWithString(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame(
+            '10/25/21',
+            $formatphp->formatDate('Mon, 25 Oct 2021 23:34:12 +0000'),
+        );
+    }
+
+    public function testFormatDateThrowsExceptionForInvalidArgument(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Value must be a string, integer, or instance of DateTimeInterface; received \'boolean\'',
+        );
+
+        // @phpstan-ignore-next-line
+        $formatphp->formatDate(false);
+    }
+
+    public function testFormatTime(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $this->assertSame(
+            '11:34 PM',
+            $formatphp->formatTime('Mon, 25 Oct 2021 23:34:12 +0000'),
+        );
+    }
+
+    public function testFormatTimeWithOptions(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // Mon, 25 Oct 2021 23:34:12 +0000
+        $this->assertSame(
+            '11:34:12 PM',
+            $formatphp->formatTime(1635204852, new DateTimeFormatOptions([
+                'second' => 'numeric',
+            ])),
+        );
+    }
+
+    public function testFormatTimeWithTimeStyle(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // Mon, 25 Oct 2021 23:34:12 +0000
+        $this->assertSame(
+            '11:34:12 PM Coordinated Universal Time',
+            $formatphp->formatTime(1635204852, new DateTimeFormatOptions([
+                'timeStyle' => 'full',
+            ])),
+        );
+    }
+
+    public function testFormatTimeWithDateStyle(): void
+    {
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        // Mon, 25 Oct 2021 23:34:12 +0000
+        $this->assertSame(
+            'Monday, October 25, 2021',
+            $formatphp->formatTime(1635204852, new DateTimeFormatOptions([
+                'dateStyle' => 'full',
+            ])),
         );
     }
 }

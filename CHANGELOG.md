@@ -11,7 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Add `Intl\NumberFormatOptions` to allow users to configure number string formatting.
 - Add `Intl\DateTimeFormatOptions` to allow users to configure date and time string formatting.
+- Provide functionality for formatting dates and times through `Intl\DateTimeFormat`, as well as `FormatPHP::formatDate()` and `FormatPHP::formatTime()` convenience methods.
 - Add `UnableToFormatStringException` from which other formatting exceptions will descend.
+- Add `UnableToFormatDateTimeException` thrown when we're unable to format a date or time string.
 
 ### Changed
 

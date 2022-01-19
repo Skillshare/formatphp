@@ -31,7 +31,7 @@ use JsonSerializable;
  * @psalm-type FractionDigitsType = 0 | 1 | 2 | 3
  * @psalm-type HourType = "h11" | "h12" | "h23" | "h24"
  * @psalm-type PeriodType = "narrow" | "short" | "long"
- * @psalm-type StyleType = "full" | "long" | "medium" | "short" | "none"
+ * @psalm-type StyleType = "full" | "long" | "medium" | "short"
  * @psalm-type TimeZoneNameType = "long" | "short" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric"
  * @psalm-type TimeZoneType = non-empty-string
  * @psalm-type WidthType = "numeric" | "2-digit"
@@ -45,7 +45,6 @@ class DateTimeFormatOptions implements JsonSerializable
     public const STYLE_LONG = 'long';
     public const STYLE_MEDIUM = 'medium';
     public const STYLE_SHORT = 'short';
-    public const STYLE_NONE = 'none';
 
     public const PERIOD_NARROW = 'narrow';
     public const PERIOD_SHORT = 'short';

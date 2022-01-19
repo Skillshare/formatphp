@@ -22,17 +22,25 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
-use FormatPHP\Exception\InvalidArgumentException;
-use FormatPHP\Exception\UnableToGenerateMessageIdException;
+use DateTimeImmutable as PhpDateTimeImmutable;
+use DateTimeInterface as PhpDateTimeInterface;
+use Exception as PhpException;
+use FormatPHP\Intl\DateTimeFormat;
+use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Util\MessageCleaner;
 use FormatPHP\Util\MessageRetriever;
 
 use function array_merge;
+use function gettype;
 use function is_int;
+use function is_string;
+use function sprintf;
 
 /**
  * FormatPHP internationalization and localization
+ *
+ * @psalm-import-type DateTimeType from FormatterInterface
  */
 class FormatPHP implements FormatterInterface
 {
@@ -76,10 +84,10 @@ class FormatPHP implements FormatterInterface
                     $descriptor['description'] ?? null,
                 ),
             );
-        } catch (UnableToGenerateMessageIdException $exception) {
-            throw new InvalidArgumentException(
+        } catch (Exception\UnableToGenerateMessageIdException $exception) {
+            throw new Exception\InvalidArgumentException(
                 'The message descriptor must have an ID or default message',
-                is_int($exception->getCode()) ? $exception->getCode() : 0, // @phpstan-ignore-line
+                (int) $exception->getCode(),
                 $exception,
             );
         }
@@ -87,8 +95,69 @@ class FormatPHP implements FormatterInterface
         return $this->messageFormat->format($this->cleanMessage($messagePattern), $values);
     }
 
+    /**
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatDateTimeException
+     *
+     * @inheritdoc
+     */
+    public function formatDate($date = null, ?DateTimeFormatOptions $options = null): string
+    {
+        $formatter = new DateTimeFormat($this->config->getLocale(), $options);
+
+        return $formatter->format($this->convertToDateTime($date));
+    }
+
+    /**
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatDateTimeException
+     *
+     * @inheritdoc
+     */
+    public function formatTime($date = null, ?DateTimeFormatOptions $options = null): string
+    {
+        $options = $options ?? new DateTimeFormatOptions();
+
+        if ($options->dateStyle === null && $options->timeStyle === null) {
+            $options->hour = $options->hour ?? 'numeric';
+            $options->minute = $options->minute ?? 'numeric';
+        }
+
+        return $this->formatDate($date, $options);
+    }
+
     protected function getConfig(): ConfigInterface
     {
         return $this->config;
+    }
+
+    /**
+     * @param DateTimeType | mixed $date
+     *
+     * @throws Exception\InvalidArgumentException
+     * @throws PhpException
+     */
+    private function convertToDateTime($date): PhpDateTimeInterface
+    {
+        if ($date === null) {
+            return new PhpDateTimeImmutable();
+        }
+
+        if ($date instanceof PhpDateTimeInterface) {
+            return $date;
+        }
+
+        if (is_string($date)) {
+            return new PhpDateTimeImmutable($date);
+        }
+
+        if (is_int($date)) {
+            return new PhpDateTimeImmutable('@' . $date);
+        }
+
+        throw new Exception\InvalidArgumentException(sprintf(
+            'Value must be a string, integer, or instance of DateTimeInterface; received \'%s\'',
+            gettype($date),
+        ));
     }
 }

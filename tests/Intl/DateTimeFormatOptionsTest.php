@@ -50,10 +50,6 @@ class DateTimeFormatOptionsTest extends TestCase
                 'expectedValue' => 'short',
             ],
             [
-                'constantName' => "$class::STYLE_NONE",
-                'expectedValue' => 'none',
-            ],
-            [
                 'constantName' => "$class::PERIOD_NARROW",
                 'expectedValue' => 'narrow',
             ],
