@@ -23,11 +23,15 @@ declare(strict_types=1);
 namespace FormatPHP\Icu\MessageFormat\Parser;
 
 use FormatPHP\Icu\MessageFormat\Parser;
-use FormatPHP\Icu\MessageFormat\Parser\Type\DateTimeFormatOptions;
+use FormatPHP\Intl\DateTimeFormatOptions as IntlDateTimeFormatOptions;
 
 use function mb_strlen;
 use function preg_match_all;
 
+/**
+ * @psalm-import-type PeriodType from IntlDateTimeFormatOptions
+ * @psalm-import-type WidthType from IntlDateTimeFormatOptions
+ */
 class DateTimeSkeletonParser
 {
     private const DATE_TIME_REGEX = '/(?:[Eec]{1,6}|G{1,5}|[Qq]{1,5}|(?:[yYur]+|U{1,5})|[ML]{1,5}|d{1,2}|D{1,3}|F|'
@@ -40,9 +44,9 @@ class DateTimeSkeletonParser
      *
      * @throws Exception\InvalidSkeletonOption
      */
-    public function parse(string $skeleton): DateTimeFormatOptions
+    public function parse(string $skeleton): Type\DateTimeFormatOptions
     {
-        $options = new DateTimeFormatOptions();
+        $options = new Type\DateTimeFormatOptions();
 
         if (!preg_match_all(self::DATE_TIME_REGEX, $skeleton, $matches)) {
             return $options;
@@ -58,19 +62,19 @@ class DateTimeSkeletonParser
     /**
      * @throws Exception\InvalidSkeletonOption
      */
-    private function setOption(string $skeletonOption, DateTimeFormatOptions $options): void
+    private function setOption(string $skeletonOption, Type\DateTimeFormatOptions $options): void
     {
         $length = mb_strlen($skeletonOption, Parser::ENCODING);
 
         switch ($skeletonOption[0] ?? '') {
             // Era
             case 'G':
-                $options->era = $length === 4 ? 'long' : ($length === 5 ? 'narrow' : 'short');
+                $options->era = $this->getPeriodForLength($length);
 
                 break;
             // Year
             case 'y':
-                $options->year = $length === 2 ? '2-digit' : 'numeric';
+                $options->year = $this->getWidthForLength($length);
 
                 break;
             case 'Y':
@@ -89,7 +93,7 @@ class DateTimeSkeletonParser
             // Month
             case 'M':
             case 'L':
-                $options->month = ['numeric', '2-digit', 'short', 'long', 'narrow'][$length - 1];
+                $options->month = $this->getMonthWidthPeriodForLength($length);
 
                 break;
             // Week
@@ -97,7 +101,7 @@ class DateTimeSkeletonParser
             case 'W':
                 throw new Exception\InvalidSkeletonOption('"w/W" (week) patterns are not supported');
             case 'd':
-                $options->day = ['numeric', '2-digit'][$length - 1];
+                $options->day = $this->getWidthForLength($length);
 
                 break;
             case 'D':
@@ -109,7 +113,7 @@ class DateTimeSkeletonParser
 
             // Weekday
             case 'E':
-                $options->weekday = $length === 4 ? 'short' : ($length === 5 ? 'narrow' : 'short');
+                $options->weekday = $this->getPeriodForLength($length);
 
                 break;
             case 'e':
@@ -118,7 +122,9 @@ class DateTimeSkeletonParser
                         '"e..eee" (weekday) patterns are not supported',
                     );
                 }
-                $options->weekday = $this->getWeekdayValue($length - 4);
+
+                // Subtract 1, since length should be 4 or more.
+                $options->weekday = $this->getPeriodForLength($length - 1);
 
                 break;
             case 'c':
@@ -127,7 +133,9 @@ class DateTimeSkeletonParser
                         '"c..ccc" (weekday) patterns are not supported',
                     );
                 }
-                $options->weekday = $this->getWeekdayValue($length - 4);
+
+                // Subtract 1, since length should be 4 or more.
+                $options->weekday = $this->getPeriodForLength($length - 1);
 
                 break;
             // Period
@@ -143,23 +151,23 @@ class DateTimeSkeletonParser
 
             // Hour
             case 'h':
-                $options->hourCycle = 'h12';
-                $options->hour = ['numeric', '2-digit'][$length - 1];
+                $options->hourCycle = IntlDateTimeFormatOptions::HOUR_H12;
+                $options->hour = $this->getWidthForLength($length);
 
                 break;
             case 'H':
-                $options->hourCycle = 'h23';
-                $options->hour = ['numeric', '2-digit'][$length - 1];
+                $options->hourCycle = IntlDateTimeFormatOptions::HOUR_H23;
+                $options->hour = $this->getWidthForLength($length);
 
                 break;
             case 'K':
-                $options->hourCycle = 'h11';
-                $options->hour = ['numeric', '2-digit'][$length - 1];
+                $options->hourCycle = IntlDateTimeFormatOptions::HOUR_H11;
+                $options->hour = $this->getWidthForLength($length);
 
                 break;
             case 'k':
-                $options->hourCycle = 'h24';
-                $options->hour = ['numeric', '2-digit'][$length - 1];
+                $options->hourCycle = IntlDateTimeFormatOptions::HOUR_H24;
+                $options->hour = $this->getWidthForLength($length);
 
                 break;
             case 'j':
@@ -171,13 +179,13 @@ class DateTimeSkeletonParser
 
             // Minute
             case 'm':
-                $options->minute = ['numeric', '2-digit'][$length - 1];
+                $options->minute = $this->getWidthForLength($length);
 
                 break;
 
             // Second
             case 's':
-                $options->second = ['numeric', '2-digit'][$length - 1];
+                $options->second = $this->getWidthForLength($length);
 
                 break;
             case 'S':
@@ -188,7 +196,9 @@ class DateTimeSkeletonParser
 
             // Zone
             case 'z': // 1..3, 4: specific non-location format
-                $options->timeZoneName = $length < 4 ? 'short' : 'long';
+                $options->timeZoneName = $length < 4
+                    ? IntlDateTimeFormatOptions::TIME_ZONE_NAME_SHORT
+                    : IntlDateTimeFormatOptions::TIME_ZONE_NAME_LONG;
 
                 break;
             case 'Z': // 1..3, 4, 5: The ISO8601 various formats
@@ -204,26 +214,45 @@ class DateTimeSkeletonParser
     }
 
     /**
-     * @psalm-return "long" | "narrow" | "short"
+     * @return WidthType
      */
-    private function getWeekdayValue(int $index): string
+    private function getWidthForLength(int $length): string
     {
-        switch ($index) {
-            case 1:
-                $value = 'long';
-
-                break;
-            case 2:
-                $value = 'narrow';
-
-                break;
-            case 0:
-            default:
-                $value = 'short';
-
-                break;
+        if ($length === 2) {
+            return IntlDateTimeFormatOptions::WIDTH_2DIGIT;
         }
 
-        return $value;
+        return IntlDateTimeFormatOptions::WIDTH_NUMERIC;
+    }
+
+    /**
+     * @return PeriodType
+     */
+    private function getPeriodForLength(int $length): string
+    {
+        switch ($length) {
+            case 4:
+                return IntlDateTimeFormatOptions::PERIOD_LONG;
+            case 5:
+                return IntlDateTimeFormatOptions::PERIOD_NARROW;
+            default:
+                return IntlDateTimeFormatOptions::PERIOD_SHORT;
+        }
+    }
+
+    /**
+     * @return WidthType | PeriodType
+     */
+    private function getMonthWidthPeriodForLength(int $length): string
+    {
+        $monthLengths = [
+            IntlDateTimeFormatOptions::WIDTH_NUMERIC,
+            IntlDateTimeFormatOptions::WIDTH_2DIGIT,
+            IntlDateTimeFormatOptions::PERIOD_SHORT,
+            IntlDateTimeFormatOptions::PERIOD_LONG,
+            IntlDateTimeFormatOptions::PERIOD_NARROW,
+        ];
+
+        return $monthLengths[$length - 1] ?? IntlDateTimeFormatOptions::PERIOD_SHORT;
     }
 }

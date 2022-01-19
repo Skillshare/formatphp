@@ -41,6 +41,36 @@ class DateTimeFormatOptions implements JsonSerializable
 {
     use OptionSerializer;
 
+    public const STYLE_FULL = 'full';
+    public const STYLE_LONG = 'long';
+    public const STYLE_MEDIUM = 'medium';
+    public const STYLE_SHORT = 'short';
+    public const STYLE_NONE = 'none';
+
+    public const PERIOD_NARROW = 'narrow';
+    public const PERIOD_SHORT = 'short';
+    public const PERIOD_LONG = 'long';
+
+    public const HOUR_H11 = 'h11';
+    public const HOUR_H12 = 'h12';
+    public const HOUR_H23 = 'h23';
+    public const HOUR_H24 = 'h24';
+
+    public const WIDTH_NUMERIC = 'numeric';
+    public const WIDTH_2DIGIT = '2-digit';
+
+    public const FRACTION_DIGITS_0 = 0;
+    public const FRACTION_DIGITS_1 = 1;
+    public const FRACTION_DIGITS_2 = 2;
+    public const FRACTION_DIGITS_3 = 3;
+
+    public const TIME_ZONE_NAME_LONG = 'long';
+    public const TIME_ZONE_NAME_SHORT = 'short';
+    public const TIME_ZONE_NAME_SHORT_OFFSET = 'shortOffset';
+    public const TIME_ZONE_NAME_LONG_OFFSET = 'longOffset';
+    public const TIME_ZONE_NAME_SHORT_GENERIC = 'shortGeneric';
+    public const TIME_ZONE_NAME_LONG_GENERIC = 'longGeneric';
+
     /**
      * The date formatting style to use when calling `format()`
      *

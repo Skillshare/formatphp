@@ -25,6 +25,7 @@ namespace FormatPHP\Icu\MessageFormat\Parser;
 use Closure;
 use FormatPHP\Icu\MessageFormat\Parser;
 use FormatPHP\Icu\MessageFormat\Parser\Util\CodePointHelper;
+use FormatPHP\Intl\NumberFormatOptions as IntlNumberFormatOptions;
 
 use function array_shift;
 use function assert;
@@ -114,16 +115,16 @@ class NumberSkeletonParser
             switch ($token->stem) {
                 case 'percent':
                 case '%':
-                    $options->style = 'percent';
+                    $options->style = IntlNumberFormatOptions::STYLE_PERCENT;
 
                     continue 2;
                 case '%x100':
-                    $options->style = 'percent';
+                    $options->style = IntlNumberFormatOptions::STYLE_PERCENT;
                     $options->scale = 100.0;
 
                     continue 2;
                 case 'currency':
-                    $options->style = 'currency';
+                    $options->style = IntlNumberFormatOptions::STYLE_CURRENCY;
                     $options->currency = $token->options[0] ?: null;
 
                     continue 2;
@@ -139,53 +140,53 @@ class NumberSkeletonParser
                     continue 2;
                 case 'measure-unit':
                 case 'unit':
-                    $options->style = 'unit';
+                    $options->style = IntlNumberFormatOptions::STYLE_UNIT;
                     $options->unit = preg_replace('/^(.*?)-/u', '', $token->options[0]) ?: null;
 
                     continue 2;
                 case 'compact-short':
                 case 'K':
-                    $options->notation = 'compact';
-                    $options->compactDisplay = 'short';
+                    $options->notation = IntlNumberFormatOptions::NOTATION_COMPACT;
+                    $options->compactDisplay = IntlNumberFormatOptions::COMPACT_DISPLAY_SHORT;
 
                     continue 2;
                 case 'compact-long':
                 case 'KK':
-                    $options->notation = 'compact';
-                    $options->compactDisplay = 'long';
+                    $options->notation = IntlNumberFormatOptions::NOTATION_COMPACT;
+                    $options->compactDisplay = IntlNumberFormatOptions::COMPACT_DISPLAY_LONG;
 
                     continue 2;
                 case 'scientific':
-                    $options->notation = 'scientific';
+                    $options->notation = IntlNumberFormatOptions::NOTATION_SCIENTIFIC;
                     $this->parseNotation($token->options, $options);
 
                     continue 2;
                 case 'engineering':
-                    $options->notation = 'engineering';
+                    $options->notation = IntlNumberFormatOptions::NOTATION_ENGINEERING;
                     $this->parseNotation($token->options, $options);
 
                     continue 2;
                 case 'notation-simple':
-                    $options->notation = 'standard';
+                    $options->notation = IntlNumberFormatOptions::NOTATION_STANDARD;
 
                     continue 2;
                 case 'unit-width-narrow':
-                    $options->currencyDisplay = 'narrowSymbol';
-                    $options->unitDisplay = 'narrow';
+                    $options->currencyDisplay = IntlNumberFormatOptions::CURRENCY_DISPLAY_NARROW_SYMBOL;
+                    $options->unitDisplay = IntlNumberFormatOptions::UNIT_DISPLAY_NARROW;
 
                     continue 2;
                 case 'unit-width-short':
-                    $options->currencyDisplay = 'code';
-                    $options->unitDisplay = 'short';
+                    $options->currencyDisplay = IntlNumberFormatOptions::CURRENCY_DISPLAY_CODE;
+                    $options->unitDisplay = IntlNumberFormatOptions::UNIT_DISPLAY_SHORT;
 
                     continue 2;
                 case 'unit-width-full-name':
-                    $options->currencyDisplay = 'name';
-                    $options->unitDisplay = 'long';
+                    $options->currencyDisplay = IntlNumberFormatOptions::CURRENCY_DISPLAY_NAME;
+                    $options->unitDisplay = IntlNumberFormatOptions::UNIT_DISPLAY_LONG;
 
                     continue 2;
                 case 'unit-width-iso-code':
-                    $options->currencyDisplay = 'symbol';
+                    $options->currencyDisplay = IntlNumberFormatOptions::CURRENCY_DISPLAY_SYMBOL;
 
                     continue 2;
                 case 'scale':
@@ -236,7 +237,7 @@ class NumberSkeletonParser
                 // https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#trailing-zero-display
                 $opt = $token->options[0] ?? '';
                 if ($opt === 'w') {
-                    $options->trailingZeroDisplay = 'stripIfInteger';
+                    $options->trailingZeroDisplay = IntlNumberFormatOptions::TRAILING_ZERO_DISPLAY_STRIP_IF_INTEGER;
                 } elseif ($opt) {
                     $this->parseSignificantPrecision($opt, $options);
                 }
@@ -272,39 +273,39 @@ class NumberSkeletonParser
     {
         switch ($option) {
             case 'sign-auto':
-                $numberFormatOptions->signDisplay = 'auto';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_AUTO;
 
                 break;
             case 'sign-accounting':
             case '()':
-                $numberFormatOptions->currencySign = 'accounting';
+                $numberFormatOptions->currencySign = IntlNumberFormatOptions::CURRENCY_SIGN_ACCOUNTING;
 
                 break;
             case 'sign-always':
             case '+!':
-                $numberFormatOptions->signDisplay = 'always';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_ALWAYS;
 
                 break;
             case 'sign-accounting-always':
             case '()!':
-                $numberFormatOptions->signDisplay = 'always';
-                $numberFormatOptions->currencySign = 'accounting';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_ALWAYS;
+                $numberFormatOptions->currencySign = IntlNumberFormatOptions::CURRENCY_SIGN_ACCOUNTING;
 
                 break;
             case 'sign-except-zero':
             case '+?':
-                $numberFormatOptions->signDisplay = 'exceptZero';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO;
 
                 break;
             case 'sign-accounting-except-zero':
             case '()?':
-                $numberFormatOptions->signDisplay = 'exceptZero';
-                $numberFormatOptions->currencySign = 'accounting';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO;
+                $numberFormatOptions->currencySign = IntlNumberFormatOptions::CURRENCY_SIGN_ACCOUNTING;
 
                 break;
             case 'sign-never':
             case '+_':
-                $numberFormatOptions->signDisplay = 'never';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_NEVER;
 
                 break;
         }
@@ -315,9 +316,9 @@ class NumberSkeletonParser
         $lastChar = $option[mb_strlen($option, Parser::ENCODING) - 1];
 
         if ($lastChar === 'r') {
-            $options->roundingPriority = 'morePrecision';
+            $options->roundingPriority = IntlNumberFormatOptions::ROUNDING_PRIORITY_MORE_PRECISION;
         } elseif ($lastChar === 's') {
-            $options->roundingPriority = 'lessPrecision';
+            $options->roundingPriority = IntlNumberFormatOptions::ROUNDING_PRIORITY_LESS_PRECISION;
         }
 
         preg_replace_callback(
@@ -336,11 +337,11 @@ class NumberSkeletonParser
     ): void {
         $didSetNotation = false;
         if ($stem[0] === 'E' && $stem[1] === 'E') {
-            $numberFormatOptions->notation = 'engineering';
+            $numberFormatOptions->notation = IntlNumberFormatOptions::NOTATION_ENGINEERING;
             $stem = mb_substr($stem, 2, null, Parser::ENCODING);
             $didSetNotation = true;
         } elseif ($stem[0] === 'E') {
-            $numberFormatOptions->notation = 'scientific';
+            $numberFormatOptions->notation = IntlNumberFormatOptions::NOTATION_SCIENTIFIC;
             $stem = mb_substr($stem, 1, null, Parser::ENCODING);
             $didSetNotation = true;
         }
@@ -349,10 +350,10 @@ class NumberSkeletonParser
             $signDisplay = mb_substr($stem, 0, 2, Parser::ENCODING);
 
             if ($signDisplay === '+!') {
-                $numberFormatOptions->signDisplay = 'always';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_ALWAYS;
                 $stem = mb_substr($stem, 2, null, Parser::ENCODING);
             } elseif ($signDisplay === '+?') {
-                $numberFormatOptions->signDisplay = 'exceptZero';
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO;
                 $stem = mb_substr($stem, 2, null, Parser::ENCODING);
             }
 
@@ -409,14 +410,7 @@ class NumberSkeletonParser
          * @param string[] $m
          */
         return function (array $m) use ($options): string {
-            $matches = [
-                $m[0] ?? '',
-                $m[1] ?? '',
-                $m[2] ?? '',
-                $m[3] ?? '',
-                $m[4] ?? '',
-                $m[5] ?? '',
-            ];
+            $matches = [$m[0] ?? '', $m[1] ?? '', $m[2] ?? '', $m[3] ?? '', $m[4] ?? '', $m[5] ?? ''];
 
             // .000* case (before ICU67 it was .000+)
             if ($matches[2] === '*') {
