@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.4.0 - TBD
+
+### Added
+
+- Add `Intl\NumberFormatOptions` to allow users to configure number string formatting.
+- Add `Intl\DateTimeFormatOptions` to allow users to configure date and time string formatting.
+- Add `UnableToFormatStringException` from which other formatting exceptions will descend.
+
+### Changed
+
+- Update `UnableToFormatMessageException` to descend from `UnableToFormatStringException`.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 0.3.3 - 2022-01-14
 
 ### Added
