@@ -22,11 +22,9 @@ declare(strict_types=1);
 
 namespace FormatPHP\Exception;
 
-use RuntimeException;
-
 /**
  * Thrown when we are unable to format a message
  */
-class UnableToFormatMessageException extends RuntimeException implements FormatPHPExceptionInterface
+class UnableToFormatMessageException extends UnableToFormatStringException
 {
 }

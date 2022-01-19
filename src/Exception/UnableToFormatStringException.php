@@ -20,10 +20,13 @@
 
 declare(strict_types=1);
 
-namespace FormatPHP\Icu\MessageFormat\Parser\Type;
+namespace FormatPHP\Exception;
 
-use FormatPHP\Intl\NumberFormatOptions as IntlNumberFormatOptions;
+use RuntimeException;
 
-class NumberFormatOptions extends IntlNumberFormatOptions
+/**
+ * Thrown when we are unable to format a string message, date, time, number, etc.
+ */
+class UnableToFormatStringException extends RuntimeException implements FormatPHPExceptionInterface
 {
 }
