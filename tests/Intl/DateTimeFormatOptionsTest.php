@@ -35,7 +35,6 @@ class DateTimeFormatOptionsTest extends TestCase
     {
         return [
             ['options' => []],
-            ['options' => ['format' => 'yyyy']],
             ['options' => ['dateStyle' => 'full']],
             ['options' => ['timeStyle' => 'long']],
             ['options' => ['calendar' => 'buddhist']],
@@ -44,7 +43,6 @@ class DateTimeFormatOptionsTest extends TestCase
             ['options' => ['timeZone' => 'America/New_York']],
             ['options' => ['hour12' => true]],
             ['options' => ['hourCycle' => 'h23']],
-            ['options' => ['formatMatcher' => 'basic']],
             ['options' => ['weekday' => 'narrow']],
             ['options' => ['era' => 'long']],
             ['options' => ['year' => 'numeric']],

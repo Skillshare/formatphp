@@ -28,8 +28,6 @@ use JsonSerializable;
 /**
  * @psalm-import-type NumeralType from NumberFormatOptions
  * @psalm-type CalendarType = "buddhist" | "chinese" | "coptic" | "dangi" | "ethioaa" | "ethiopia" | "ethiopic" | "gregory" | "hebrew" | "indian" | "islamic" | "islamic-civil" | "islamic-rgsa" | "islamic-tbla" | "islamic-umalqura" | "iso8601" | "japanese" | "persian" | "roc" | non-empty-string
- * @psalm-type FormatMatcherType = "basic" | "best fit"
- * @psalm-type FormatType = non-empty-string
  * @psalm-type FractionDigitsType = 0 | 1 | 2 | 3
  * @psalm-type HourType = "h11" | "h12" | "h23" | "h24"
  * @psalm-type PeriodType = "narrow" | "short" | "long"
@@ -37,16 +35,11 @@ use JsonSerializable;
  * @psalm-type TimeZoneNameType = "long" | "short" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric"
  * @psalm-type TimeZoneType = non-empty-string
  * @psalm-type WidthType = "numeric" | "2-digit"
- * @psalm-type OptionsType = array{format?: FormatType, dateStyle?: StyleType, timeStyle?: StyleType, calendar?: CalendarType, dayPeriod?: PeriodType, numberingSystem?: NumeralType, timeZone?: TimeZoneType, hour12?: bool, hourCycle?: HourType, formatMatcher?: FormatMatcherType, weekday?: PeriodType, era?: PeriodType, year?: WidthType, month?: WidthType | PeriodType, day?: WidthType, hour?: WidthType, minute?: WidthType, second?: WidthType, fractionalSecondDigits?: FractionDigitsType, timeZoneName?: TimeZoneNameType}
+ * @psalm-type OptionsType = array{dateStyle?: StyleType, timeStyle?: StyleType, calendar?: CalendarType, dayPeriod?: PeriodType, numberingSystem?: NumeralType, timeZone?: TimeZoneType, hour12?: bool, hourCycle?: HourType, weekday?: PeriodType, era?: PeriodType, year?: WidthType, month?: WidthType | PeriodType, day?: WidthType, hour?: WidthType, minute?: WidthType, second?: WidthType, fractionalSecondDigits?: FractionDigitsType, timeZoneName?: TimeZoneNameType}
  */
 class DateTimeFormatOptions implements JsonSerializable
 {
     use OptionSerializer;
-
-    /**
-     * @var FormatType | null
-     */
-    public ?string $format = null;
 
     /**
      * The date formatting style to use when calling `format()`
@@ -103,11 +96,6 @@ class DateTimeFormatOptions implements JsonSerializable
     public ?string $hourCycle = null;
 
     /**
-     * @var FormatMatcherType | null
-     */
-    public ?string $formatMatcher = null;
-
-    /**
      * @var PeriodType | null
      */
     public ?string $weekday = null;
@@ -162,7 +150,6 @@ class DateTimeFormatOptions implements JsonSerializable
      */
     public function __construct(array $options = [])
     {
-        $this->format = $options['format'] ?? null;
         $this->dateStyle = $options['dateStyle'] ?? null;
         $this->timeStyle = $options['timeStyle'] ?? null;
         $this->calendar = $options['calendar'] ?? null;
@@ -171,7 +158,6 @@ class DateTimeFormatOptions implements JsonSerializable
         $this->timeZone = $options['timeZone'] ?? null;
         $this->hour12 = $options['hour12'] ?? null;
         $this->hourCycle = $options['hourCycle'] ?? null;
-        $this->formatMatcher = $options['formatMatcher'] ?? null;
         $this->weekday = $options['weekday'] ?? null;
         $this->era = $options['era'] ?? null;
         $this->year = $options['year'] ?? null;
