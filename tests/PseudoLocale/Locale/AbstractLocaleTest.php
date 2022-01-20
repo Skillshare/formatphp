@@ -11,6 +11,7 @@ use FormatPHP\PseudoLocale\Locale\EnXb;
 use FormatPHP\PseudoLocale\Locale\XxAc;
 use FormatPHP\PseudoLocale\Locale\XxHa;
 use FormatPHP\PseudoLocale\Locale\XxLs;
+use FormatPHP\PseudoLocale\Locale\XxZa;
 use FormatPHP\Test\TestCase;
 
 class AbstractLocaleTest extends TestCase
@@ -36,6 +37,7 @@ class AbstractLocaleTest extends TestCase
             'xx-AC' => ['locale' => new XxAc()],
             'xx-HA' => ['locale' => new XxHa()],
             'xx-LS' => ['locale' => new XxLs()],
+            'xx-ZA' => ['locale' => new XxZa()],
         ];
     }
 }

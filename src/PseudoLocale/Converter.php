@@ -35,6 +35,7 @@ use FormatPHP\PseudoLocale\Locale\EnXb;
 use FormatPHP\PseudoLocale\Locale\XxAc;
 use FormatPHP\PseudoLocale\Locale\XxHa;
 use FormatPHP\PseudoLocale\Locale\XxLs;
+use FormatPHP\PseudoLocale\Locale\XxZa;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use Psr\Log\LoggerInterface;
@@ -58,6 +59,7 @@ class Converter
         PseudoLocale::XX_AC => XxAc::class,
         PseudoLocale::XX_HA => XxHa::class,
         PseudoLocale::XX_LS => XxLs::class,
+        PseudoLocale::XX_ZA => XxZa::class,
     ];
 
     private ConverterOptions $options;

@@ -20,6 +20,7 @@
         "ext-intl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
+        "mdwheele/zalgo": "dev-remove-illuminate-dependency",
         "myclabs/php-enum": "^1.8",
         "nikic/php-parser": "^4.13",
         "psr/log": "^1 || ^2",
@@ -32,6 +33,12 @@
         "ramsey/devtools": "^1.7",
         "spatie/phpunit-snapshot-assertions": "^4.2"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ramsey/zalgo"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
