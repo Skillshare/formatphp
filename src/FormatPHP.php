@@ -55,12 +55,12 @@ class FormatPHP implements FormatterInterface
      * @throws Exception\InvalidArgumentException
      */
     public function __construct(
-        ConfigInterface $config,
-        MessageCollection $messages
+        ?ConfigInterface $config = null,
+        ?MessageCollection $messages = null
     ) {
-        $this->config = $config;
-        $this->messages = $messages;
-        $this->messageFormat = new MessageFormat($config->getLocale());
+        $this->config = $config ?? new Config();
+        $this->messages = $messages ?? new MessageCollection();
+        $this->messageFormat = new MessageFormat($this->config->getLocale());
     }
 
     /**

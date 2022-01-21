@@ -12,6 +12,7 @@ use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Message;
 use FormatPHP\MessageCollection;
+use Locale as PhpLocale;
 
 use function date;
 
@@ -303,5 +304,47 @@ class FormatPHPTest extends TestCase
         // These should not change after being passed to formatTime().
         $this->assertSame('2-digit', $options->hour);
         $this->assertSame('2-digit', $options->minute);
+    }
+
+    public function testConstructorWithoutConfiguration(): void
+    {
+        $date = 1635204852; // Mon, 25 Oct 2021 23:34:12 +0000
+
+        $systemLocale = PhpLocale::getDefault();
+        $locale = new Locale($systemLocale);
+        $config = new Config($locale);
+        $formatphpForComparison = new FormatPHP($config);
+
+        $formatphpWithoutConfig = new FormatPHP();
+
+        $this->assertSame(
+            $formatphpForComparison->formatDate($date),
+            $formatphpWithoutConfig->formatDate($date),
+        );
+    }
+
+    public function testConstructorWithoutMessages(): void
+    {
+        $date = 1635204852; // Mon, 25 Oct 2021 23:34:12 +0000
+
+        $systemLocale = PhpLocale::getDefault();
+        $locale = new Locale($systemLocale);
+        $config = new Config($locale);
+        $formatphpForComparison = new FormatPHP($config);
+
+        $expectedMessageResponse = $formatphpForComparison->formatMessage(
+            ['defaultMessage' => 'Today is {ts, date, ::yyyyMMdd}'],
+            ['ts' => $date],
+        );
+
+        $formatphpWithoutMessages = new FormatPHP();
+
+        $this->assertSame(
+            $expectedMessageResponse,
+            $formatphpWithoutMessages->formatMessage(
+                ['id' => 'myMessage', 'defaultMessage' => 'Today is {ts, date, ::yyyyMMdd}'],
+                ['ts' => $date],
+            ),
+        );
     }
 }
