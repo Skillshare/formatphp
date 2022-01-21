@@ -263,4 +263,45 @@ class FormatPHPTest extends TestCase
             ])),
         );
     }
+
+    public function testFormatTimeDoesNotModifyPassedDateTimeFormatOptionsInstance(): void
+    {
+        $time = 1642708984; // Thu, 20 Jan 2022 20:03:04 +0000
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $options = new DateTimeFormatOptions();
+
+        // These should be null before passing them to formatTime().
+        $this->assertNull($options->hour);
+        $this->assertNull($options->minute);
+
+        $this->assertSame('8:03 PM', $formatphp->formatTime($time, $options));
+
+        // These should still be null after passing them to formatTime().
+        $this->assertNull($options->hour);
+        $this->assertNull($options->minute);
+    }
+
+    public function testFormatTimeUsesProvidedHourMinuteOptions(): void
+    {
+        $time = 1642708984; // Thu, 20 Jan 2022 20:03:04 +0000
+        $locale = new Locale('en');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+
+        $options = new DateTimeFormatOptions([
+            'hour' => '2-digit',
+            'minute' => '2-digit',
+        ]);
+
+        $this->assertSame('8:03 PM', $formatphp->formatTime($time, $options));
+
+        // These should not change after being passed to formatTime().
+        $this->assertSame('2-digit', $options->hour);
+        $this->assertSame('2-digit', $options->minute);
+    }
 }

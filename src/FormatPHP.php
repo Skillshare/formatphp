@@ -116,7 +116,7 @@ class FormatPHP implements FormatterInterface
      */
     public function formatTime($date = null, ?DateTimeFormatOptions $options = null): string
     {
-        $options = $options ?? new DateTimeFormatOptions();
+        $options = $options ? clone $options : new DateTimeFormatOptions();
 
         if ($options->dateStyle === null && $options->timeStyle === null) {
             $options->hour = $options->hour ?? 'numeric';
