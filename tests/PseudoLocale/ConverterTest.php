@@ -143,4 +143,35 @@ class ConverterTest extends TestCase
 
         $converter->convert(__DIR__ . '/../fixtures/locales/en.json', 'en');
     }
+
+    /**
+     * Zalgo is non-deterministic, so we can't use snapshot testing for it.
+     */
+    public function testZalgo(): void
+    {
+        $outFile = 'php://output';
+
+        $fileSystemHelper = $this->mockery(FileSystemHelper::class)->makePartial();
+        $fileSystemHelper->shouldReceive('writeContents')->withArgs(
+            function (string $file, string $contents) use ($outFile): bool {
+                $this->assertSame($outFile, $file);
+
+                // We're unable to deterministically test the $contents, since
+                // Zalgo text changes each time it's generated.
+
+                return true;
+            },
+        );
+
+        $logger = $this->mockery(LoggerInterface::class);
+
+        $converter = new Converter(
+            new ConverterOptions(),
+            $fileSystemHelper,
+            new FormatHelper($fileSystemHelper),
+            $logger,
+        );
+
+        $converter->convert(__DIR__ . '/../fixtures/locales/en.json', 'xx-ZA');
+    }
 }

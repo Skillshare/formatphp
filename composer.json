@@ -20,6 +20,7 @@
         "ext-intl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
+        "mdwheele/zalgo": "^0.3.1",
         "myclabs/php-enum": "^1.8",
         "nikic/php-parser": "^4.13",
         "psr/log": "^1 || ^2",

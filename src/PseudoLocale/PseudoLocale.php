@@ -32,6 +32,7 @@ class PseudoLocale
     public const XX_AC = 'xx-AC';
     public const XX_HA = 'xx-HA';
     public const XX_LS = 'xx-LS';
+    public const XX_ZA = 'xx-ZA';
 
     public const LOCALES = [
         self::EN_XA,
@@ -39,5 +40,6 @@ class PseudoLocale
         self::XX_AC,
         self::XX_HA,
         self::XX_LS,
+        self::XX_ZA,
     ];
 }
