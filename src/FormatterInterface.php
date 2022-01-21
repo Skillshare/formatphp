@@ -22,8 +22,15 @@ declare(strict_types=1);
 
 namespace FormatPHP;
 
+use DateTimeInterface as PhpDateTimeInterface;
+use FormatPHP\Intl\DateTimeFormatOptions;
+
 /**
  * FormatPHP formatter methods
+ *
+ * @psalm-type MessageDescriptorType = array{id?: string, defaultMessage?: string, description?: string}
+ * @psalm-type MessageValuesType = array<array-key, float | int | string | callable(string):string>
+ * @psalm-type DateTimeType = PhpDateTimeInterface | string | int
  */
 interface FormatterInterface
 {
@@ -36,8 +43,39 @@ interface FormatterInterface
      * If we cannot find the given ID in the configured messages, we will use
      * the descriptor's defaultMessage, if provided.
      *
-     * @param array{id?: string, defaultMessage?: string, description?: string} $descriptor
-     * @param array<array-key, int | float | string> $values
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatMessageException
+     *
+     * @psalm-param MessageDescriptorType $descriptor
+     * @psalm-param MessageValuesType $values
      */
     public function formatMessage(array $descriptor, array $values = []): string;
+
+    /**
+     * Returns a date string formatted according to the locale of this formatter
+     *
+     * Additional options may be provided to configure how the date should be
+     * formatted.
+     *
+     * @param DateTimeType | null $date
+     *
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatDateTimeException
+     */
+    public function formatDate($date = null, ?DateTimeFormatOptions $options = null): string;
+
+    /**
+     * Returns a date string formatted according to the locale of this formatter,
+     * but it differs from `formatDate()` by using "numeric" as the default value
+     * for the `hour` and `minute` options
+     *
+     * Additional options may be provided to configure how the date should be
+     * formatted.
+     *
+     * @param DateTimeType | null $date
+     *
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatDateTimeException
+     */
+    public function formatTime($date = null, ?DateTimeFormatOptions $options = null): string;
 }

@@ -29,6 +29,12 @@ namespace FormatPHP\Intl;
  * ECMAScript 2022 Internationalization API Specification (ECMA-402 9th Edition).
  *
  * @link https://tc39.es/ecma402/#locale-objects
+ *
+ * @psalm-import-type CalendarType from DateTimeFormatOptions
+ * @psalm-import-type HourType from DateTimeFormatOptions
+ * @psalm-import-type NumeralType from NumberFormatOptions
+ * @psalm-import-type CaseFirstType from LocaleOptions
+ * @psalm-import-type CollationType from LocaleOptions
  */
 interface LocaleInterface
 {
@@ -39,32 +45,70 @@ interface LocaleInterface
 
     /**
      * Returns this locale's calendar era
+     *
+     * @return CalendarType | null
      */
     public function calendar(): ?string;
 
     /**
+     * Returns a new instance of the locale, combined with the given calendar
+     *
+     * @param CalendarType $calendar
+     */
+    public function withCalendar(string $calendar): self;
+
+    /**
      * Returns whether case is accounted for in this locale's collation rules
      *
-     * @psalm-return "upper" | "lower" | "false" | null
+     * @psalm-return CaseFirstType | null
      */
     public function caseFirst(): ?string;
 
     /**
+     * Returns a new instance of the locale, combined with the given case
+     * collation
+     *
+     * @param CaseFirstType $caseFirst
+     */
+    public function withCaseFirst(string $caseFirst): self;
+
+    /**
      * Returns this locale's collation type
+     *
+     * @return CollationType | null
      */
     public function collation(): ?string;
 
     /**
+     * Returns a new instance of the locale, combined with the given collation
+     *
+     * @param CollationType $collation
+     */
+    public function withCollation(string $collation): self;
+
+    /**
      * Returns this locale's time-keeping convention
      *
-     * @psalm-return "h11" | "h12" | "h23" | "h24" | null
+     * @psalm-return HourType | null
      */
     public function hourCycle(): ?string;
+
+    /**
+     * Returns a new instance of the locale, combined with the given hour cycle
+     *
+     * @param HourType $hourCycle
+     */
+    public function withHourCycle(string $hourCycle): self;
 
     /**
      * Returns this locale's language
      */
     public function language(): ?string;
+
+    /**
+     * Returns a new instance of the locale, combined with the given language
+     */
+    public function withLanguage(string $language): self;
 
     /**
      * Using the existing values set on this locale instance, returns the most
@@ -80,8 +124,18 @@ interface LocaleInterface
 
     /**
      * Returns this locale's numeral system
+     *
+     * @return NumeralType | null
      */
     public function numberingSystem(): ?string;
+
+    /**
+     * Returns a new instance of the locale, combined with the given numbering
+     * system
+     *
+     * @param NumeralType $numberingSystem
+     */
+    public function withNumberingSystem(string $numberingSystem): self;
 
     /**
      * Returns whether this locale has special collation handling for
@@ -90,14 +144,30 @@ interface LocaleInterface
     public function numeric(): bool;
 
     /**
+     * Returns a new instance of the locale, with the numeric collation handling
+     * toggled on or off
+     */
+    public function withNumeric(bool $numeric): self;
+
+    /**
      * Returns this locale's region
      */
     public function region(): ?string;
 
     /**
+     * Returns a new instance of the locale, combined with the given region
+     */
+    public function withRegion(string $region): self;
+
+    /**
      * Returns this locale's script used for writing
      */
     public function script(): ?string;
+
+    /**
+     * Returns a new instance of the locale, combined with the given script
+     */
+    public function withScript(string $script): self;
 
     /**
      * Returns the full string identifier for this locale

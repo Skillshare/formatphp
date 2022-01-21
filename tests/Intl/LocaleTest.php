@@ -210,4 +210,115 @@ class LocaleTest extends TestCase
 
         $locale->minimize();
     }
+
+    public function testWithCalendar(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withCalendar('buddhist');
+
+        $this->assertNull($locale1->calendar());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('buddhist', $locale2->calendar());
+        $this->assertSame('en-US-u-ca-buddhist', $locale2->toString());
+    }
+
+    public function testWithCaseFirst(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withCaseFirst('upper');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertNull($locale1->caseFirst());
+        $this->assertSame('upper', $locale2->caseFirst());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-US-u-kf-upper', $locale2->toString());
+    }
+
+    public function testWithCollation(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withCollation('big5han');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertNull($locale1->collation());
+        $this->assertSame('big5han', $locale2->collation());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-US-u-co-big5han', $locale2->toString());
+    }
+
+    public function testWithHourCycle(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withHourCycle('h23');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertNull($locale1->hourCycle());
+        $this->assertSame('h23', $locale2->hourCycle());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-US-u-hc-h23', $locale2->toString());
+    }
+
+    public function testWithLanguage(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withLanguage('es');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertSame('en', $locale1->language());
+        $this->assertSame('es', $locale2->language());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('es-US', $locale2->toString());
+    }
+
+    public function testWithNumberingSystem(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withNumberingSystem('arab');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertNull($locale1->numberingSystem());
+        $this->assertSame('arab', $locale2->numberingSystem());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-US-u-nu-arab', $locale2->toString());
+    }
+
+    public function testWithNumeric(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withNumeric(true);
+        $locale3 = $locale1->withNumeric(false);
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertNotSame($locale2, $locale3);
+        $this->assertFalse($locale1->numeric());
+        $this->assertTrue($locale2->numeric());
+        $this->assertFalse($locale3->numeric());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-US-u-kn-true', $locale2->toString());
+        $this->assertSame('en-US-u-kn-false', $locale3->toString());
+    }
+
+    public function testWithRegion(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withRegion('CA');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertSame('US', $locale1->region());
+        $this->assertSame('CA', $locale2->region());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-CA', $locale2->toString());
+    }
+
+    public function testWithScript(): void
+    {
+        $locale1 = new Locale('en-US');
+        $locale2 = $locale1->withScript('Latn');
+
+        $this->assertNotSame($locale1, $locale2);
+        $this->assertNull($locale1->script());
+        $this->assertSame('Latn', $locale2->script());
+        $this->assertSame('en-US', $locale1->toString());
+        $this->assertSame('en-Latn-US', $locale2->toString());
+    }
 }

@@ -37,6 +37,12 @@ use function strtolower;
 
 /**
  * An implementation of an ECMA-402 locale identifier
+ *
+ * @psalm-import-type CalendarType from DateTimeFormatOptions
+ * @psalm-import-type HourType from DateTimeFormatOptions
+ * @psalm-import-type NumeralType from NumberFormatOptions
+ * @psalm-import-type CaseFirstType from LocaleOptions
+ * @psalm-import-type CollationType from LocaleOptions
  */
 class Locale implements LocaleInterface
 {
@@ -144,21 +150,53 @@ class Locale implements LocaleInterface
         return implode('-', array_filter($parts));
     }
 
+    /**
+     * @return CalendarType | null
+     */
     public function calendar(): ?string
     {
+        /** @var non-empty-string | null $calendar */
         $calendar = $this->parsedLocale['keywords']['calendar'] ?? null;
 
         return self::CALENDAR_MAP[$calendar] ?? $calendar;
     }
 
+    /**
+     * @param CalendarType $calendar
+     */
+    public function withCalendar(string $calendar): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['keywords']['calendar'] = $calendar;
+
+        return $locale;
+    }
+
+    /**
+     * @return CaseFirstType | null
+     */
     public function caseFirst(): ?string
     {
         $colcasefirst = $this->parsedLocale['keywords']['colcasefirst'] ?? null;
 
-        /** @var "false" | "upper" | "lower" | null */
+        /** @var CaseFirstType | null */
         return self::CASE_FIRST_MAP[$colcasefirst] ?? $colcasefirst;
     }
 
+    /**
+     * @param CaseFirstType $caseFirst
+     */
+    public function withCaseFirst(string $caseFirst): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['keywords']['colcasefirst'] = $caseFirst;
+
+        return $locale;
+    }
+
+    /**
+     * @return CollationType | null
+     */
     public function collation(): ?string
     {
         $collation = $this->parsedLocale['keywords']['collation'] ?? null;
@@ -166,15 +204,48 @@ class Locale implements LocaleInterface
         return self::COLLATION_MAP[$collation] ?? $collation;
     }
 
+    /**
+     * @param CollationType $collation
+     */
+    public function withCollation(string $collation): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['keywords']['collation'] = $collation;
+
+        return $locale;
+    }
+
+    /**
+     * @return HourType | null
+     */
     public function hourCycle(): ?string
     {
-        /** @var "h11" | "h12" | "h23" | "h24" | null */
+        /** @var HourType | null */
         return $this->parsedLocale['keywords']['hours'] ?? null;
+    }
+
+    /**
+     * @param HourType $hourCycle
+     */
+    public function withHourCycle(string $hourCycle): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['keywords']['hours'] = $hourCycle;
+
+        return $locale;
     }
 
     public function language(): ?string
     {
         return $this->parsedLocale['language'] ?? null;
+    }
+
+    public function withLanguage(string $language): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['language'] = $language;
+
+        return $locale;
     }
 
     /**
@@ -197,11 +268,26 @@ class Locale implements LocaleInterface
         throw new BadMethodCallException('Method not implemented');
     }
 
+    /**
+     * @return NumeralType | null
+     */
     public function numberingSystem(): ?string
     {
+        /** @var non-empty-string | null $numbers */
         $numbers = $this->parsedLocale['keywords']['numbers'] ?? null;
 
         return self::NUMBERING_SYSTEM_MAP[$numbers] ?? $numbers;
+    }
+
+    /**
+     * @param NumeralType $numberingSystem
+     */
+    public function withNumberingSystem(string $numberingSystem): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['keywords']['numbers'] = $numberingSystem;
+
+        return $locale;
     }
 
     public function numeric(): bool
@@ -209,14 +295,38 @@ class Locale implements LocaleInterface
         return ($this->parsedLocale['keywords']['colnumeric'] ?? null) === 'yes';
     }
 
+    public function withNumeric(bool $numeric): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['keywords']['colnumeric'] = $numeric ? 'yes' : 'no';
+
+        return $locale;
+    }
+
     public function region(): ?string
     {
         return $this->parsedLocale['region'] ?? null;
     }
 
+    public function withRegion(string $region): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['region'] = $region;
+
+        return $locale;
+    }
+
     public function script(): ?string
     {
         return $this->parsedLocale['script'] ?? null;
+    }
+
+    public function withScript(string $script): self
+    {
+        $locale = clone $this;
+        $locale->parsedLocale['script'] = $script;
+
+        return $locale;
     }
 
     public function toString(): string
