@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `UnableToFormatStringException` from which other formatting exceptions will descend.
 - Add `UnableToFormatDateTimeException` thrown when we're unable to format a date or time string.
 - Allow instantiation of `FormatPHP` without configuration or message collection instances; FormatPHP will use the system's default locale, in this case.
+  - Instantiation of `Intl\Locale` without a locale argument will default to the system default locale.
+  - Instantiation of `Config` without a locale argument will create an `Intl\Locale` using the system default locale.
 
 ### Changed
 

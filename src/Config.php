@@ -23,6 +23,7 @@ declare(strict_types=1);
 namespace FormatPHP;
 
 use FormatPHP\Extractor\IdInterpolator;
+use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\LocaleInterface;
 
 /**
@@ -43,12 +44,12 @@ class Config implements ConfigInterface
      * @param array<string, callable(string):string> $defaultRichTextElements
      */
     public function __construct(
-        LocaleInterface $locale,
+        ?LocaleInterface $locale = null,
         ?LocaleInterface $defaultLocale = null,
         array $defaultRichTextElements = [],
         string $idInterpolatorPattern = IdInterpolator::DEFAULT_ID_INTERPOLATION_PATTERN
     ) {
-        $this->locale = $locale;
+        $this->locale = $locale ?? new Locale();
         $this->defaultLocale = $defaultLocale;
         $this->idInterpolatorPattern = $idInterpolatorPattern;
         $this->defaultRichTextElements = $defaultRichTextElements;
