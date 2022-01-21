@@ -68,7 +68,7 @@ class ExtractCommandTest extends TestCase
             $errorOutput,
         );
         $this->assertStringContainsString(
-            '86     Descriptor argument must have at least one of id, defaultMessage, or',
+            '90     Descriptor argument must have at least one of id, defaultMessage, or',
             $errorOutput,
         );
         $this->assertStringContainsString(
