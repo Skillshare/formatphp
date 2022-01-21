@@ -12,6 +12,8 @@ use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use Psr\Log\LoggerInterface;
 
+use function json_decode;
+
 class ConverterTest extends TestCase
 {
     /**
@@ -157,7 +159,13 @@ class ConverterTest extends TestCase
                 $this->assertSame($outFile, $file);
 
                 // We're unable to deterministically test the $contents, since
-                // Zalgo text changes each time it's generated.
+                // Zalgo text changes each time it's generated, but we do want
+                // to make sure none of the strings are empty.
+                /** @var array<string, array{defaultMessage: string}> $json */
+                $json = json_decode($contents, true);
+                foreach ($json as $key => $value) {
+                    $this->assertNotEmpty($value['defaultMessage'], "Value for $key is empty");
+                }
 
                 return true;
             },

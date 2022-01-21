@@ -10,5 +10,8 @@
     },
     "start.with.argument": {
         "defaultMessage": "{argument}"
+    },
+    "value.with.non-ascii.characters": {
+        "defaultMessage": "Ẅè’ḋ ńèèḋ ṭŏ ṭëśṭ śøṁè ńŏń-áśćíí ćḫâŕâćṭèŕś, ṭŏŏ…"
     }
 }

@@ -10,5 +10,8 @@
     },
     "start.with.argument": {
         "defaultMessage": "{argument}"
+    },
+    "value.with.non-ascii.characters": {
+        "defaultMessage": "WE’D NEED TO TËST SØME NON-ÁSCII CHARACTERS, TOO…"
     }
 }

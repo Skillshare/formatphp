@@ -10,5 +10,8 @@
     },
     "start.with.argument": {
         "defaultMessage": "[javascript]{argument}"
+    },
+    "value.with.non-ascii.characters": {
+        "defaultMessage": "[javascript]We’d need to tëst søme non-áscii characters, too…"
     }
 }

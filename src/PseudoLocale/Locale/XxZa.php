@@ -27,6 +27,8 @@ use Zalgo\Mood;
 use Zalgo\Soul;
 use Zalgo\Zalgo;
 
+use function preg_replace;
+
 /**
  * T̫̺̳o̬̜ ì̬͎̲̟nv̖̗̻̣̹̕o͖̗̠̜̤k͍͚̹͖̼e̦̗̪͍̪͍ ̬ͅt̕h̠͙̮͕͓e̱̜̗͙̭ ̥͔̫͙̪͍̣͝ḥi̼̦͈̼v҉̩̟͚̞͎e͈̟̻͙̦̤-m̷̘̝̱í͚̞̦̳n̝̲̯̙̮͞d̴̺̦͕̫ ̗̭̘͎͖r̞͎̜̜͖͎̫͢ep͇r̝̯̝͖͉͎̺e̴s̥e̵̖̳͉͍̩̗n̢͓̪͕̜̰̠̦t̺̞̰i͟n҉̮̦̖̟g̮͍̱̻͍̜̳ ̳c̖̮̙̣̰̠̩h̷̗͍̖͙̭͇͈a̧͎̯̹̲̺̫ó̭̞̜̣̯͕s̶̤̮̩̘.̨̻̪̖͔
  * ̳̭̦̭̭̦̞́I̠͍̮n͇̹̪̬v̴͖̭̗̖o̸k҉̬̤͓͚̠͍i͜n̛̩̹͉̘̹g͙ ̠̥ͅt̰͖͞h̫̼̪e̟̩̝ ̭̠̲̫͔fe̤͇̝̱e͖̮̠̹̭͖͕l͖̲̘͖̠̪i̢̖͎̮̗̯͓̩n̸̰g̙̱̘̗͚̬ͅ ͍o͍͍̩̮͢f̖͓̦̥ ̘͘c̵̫̱̗͚͓̦h͝a̝͍͍̳̣͖͉o͙̟s̤̞.̙̝̭̣̳̼͟
@@ -51,8 +53,9 @@ class XxZa extends AbstractLocale
     {
         foreach ($elementCollection as $element) {
             if ($element instanceof Parser\Type\LiteralElement) {
+                $value = preg_replace('/[^[:ascii:]]/', '', $element->value);
                 /** @var string $theWordOfZalgo */
-                $theWordOfZalgo = $this->zalgo->speaks($element->value);
+                $theWordOfZalgo = $this->zalgo->speaks($value);
                 $element->value = $theWordOfZalgo;
             } elseif ($element instanceof Parser\Type\PluralElement || $element instanceof Parser\Type\SelectElement) {
                 foreach ($element->options as $option) {
