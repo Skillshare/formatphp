@@ -82,6 +82,103 @@ echo $formatphp->formatMessage([
 ]);
 ```
 
+### Formatting Dates and Times
+
+You may use the methods `formatDate()` and `formatTime()` to format dates and
+times.
+
+```php
+use FormatPHP\Config;
+use FormatPHP\FormatPHP;
+use FormatPHP\Intl;
+
+$config = new Config(new Intl\Locale('es'));
+$formatphp = new FormatPHP($config);
+
+$date = new DateTimeImmutable();
+
+echo $formatphp->formatDate($date); // e.g. "21/1/22"
+echo $formatphp->formatTime($date); // e.g. "16:58"
+```
+
+#### Using Intl\DateTimeFormatOptions with formatDate() and formatTime()
+
+Fine-tune date and time formatting with `Intl\DateTimeFormatOptions`.
+
+```php
+echo $formatphp->formatDate($date, new Intl\DateTimeFormatOptions([
+  'dateStyle' => 'medium',
+])); // e.g. "21 ene 2022"
+echo $formatphp->formatTime($date, new Intl\DateTimeFormatOptions([
+  'timeStyle' => 'long',
+])); // e.g. "16:58:31 UTC"
+```
+
+`DateTimeFormatOptions` accepts the following general options for formatting
+dates and times:
+
+* `dateStyle`: General formatting of the date, according to the locale. Possible
+  values include: `full`, `long`, `medium`, and `short`.
+* `timeStyle`: General formatting of the time, according to the locale. Possible
+  values include: `full`, `long`, `medium`, and `short`.
+
+> ℹ️ **Note:** `dateStyle` and `timeStyle` may be used together, but they cannot
+> be used with more granular formatting options (i.e., `era`, `year`, `month`,
+> `day`, `weekday`, `day`, `hour`, `minute`, or `second`).
+
+Instead of `dateStyle` and `timeStyle`, you may use the following options for
+more granular formatting of dates and times:
+
+* `era`: The locale representation of the era (e.g. "AD", "BC"). Possible values
+  are: `long`, `short`, and `narrow`.
+* `year`: The locale representation of the year. Possible values are: `numeric`
+  or `2-digit`.
+* `month`: The locale representation of the month. Possible values are: `numeric`,
+  `2-digit`, `long`, `short`, or `narrow`.
+* `weekday`: The locale representation of the weekday name. Possible values are:
+  `long`, `short`, and `narrow`.
+* `day`: The locale representation of the day. Possible values are: `numeric` or
+  `2-digit`.
+* `hour`: The locale representation of the hour. Possible values are: `numeric`
+  or `2-digit`.
+* `minute`: The locale representation of the minute. Possible values are:
+  `numeric` or `2-digit`.
+* `second`: The locale representation of the seconds. Possible values are:
+  `numeric` or `2-digit`.
+
+Additional options include:
+
+* `calendar`: The calendar system to use. Possible values include: `buddhist`,
+  `chinese`, `coptic`, `dangi`, `ethioaa`, `ethiopia`, `ethiopic`, `gregory`,
+  `hebrew`, `indian`, `islamic`, `islamic-civil`, `islamic-rgsa`, `islamic-tbla`,
+  `islamic-umalqura`, `iso8601`, `japanese`, `persian`, or `roc`.
+* `dayPeriod`: The formatting style used for day periods like "in the morning",
+  "am", "noon", "n" etc. Values include: `narrow`, `short`, or `long`.
+* `fractionalSecondDigits`: The number of digits used to represent fractions of
+  a second (any additional digits are truncated). Values may be: `0`, `1`, `2`,
+  or `3`.
+* `hour12`: If `true`, `hourCycle` will be `h12`, if `false`, `hourCycle` will
+  be `h23`. This property overrides any value set by `hourCycle`.
+* `hourCycle`: The hour cycle to use. Values include: `h11`, `h12`, `h23`, and
+  `h24`. If specified, this property overrides the `hc` property of the locale's
+  language tag. The `hour12` property takes precedence over this value.
+* `numberingSystem`: The numeral system to use. Possible values include: `arab`,
+  `arabext`, `armn`, `armnlow`, `bali`, `beng`, `brah`, `cakm`, `cham`, `deva`,
+  `diak`, `ethi`, `finance`, `fullwide`, `geor`, `gong`, `gonm`, `grek`, `greklow`,
+  `gujr`, `guru`, `hanidays`, `hanidec`, `hans`, `hansfin`, `hant`, `hantfin`,
+  `hebr`, `hmnp`, `java`, `jpan`, `jpanfin`, `jpanyear`, `kali`, `khmr`, `knda`,
+  `lana`, `lanatham`, `laoo`, `lepc`, `limb`, `mlym`, `mong`, `mtei`, `mymr`,
+  `mymrshan`, `native`, `nkoo`, `olck`, `orya`, `osma`, `rohg`, `roman`, `romanlow`,
+  `saur`, `shrd`, `sora`, `sund`, `takr`, `talu`, `taml`, `tamldec`, `telu`,
+  `thai`, `tibt`, `tnsa`, `traditional`, `vaii`, or `wcho`.
+* `timeZoneName`: An indicator for how to format the localized representation of
+  the time zone name. Values include: `long`, `short`, `shortOffset`, `longOffset`,
+  `shortGeneric`, or `longGeneric`.
+* `timeZone`: The time zone to use. The default is the system's default time zone
+  (see [date_default_timezone_set()](https://www.php.net/date_default_timezone_set)).
+  You may use the zone names of the [IANA time zone database](https://www.iana.org/time-zones),
+  such as "Asia/Shanghai", "Asia/Kolkata", "America/New_York".
+
 ### Rich Text Formatting (Use of Tags in Messages)
 
 While the ICU message syntax does not prohibit the use of HTML tags in formatted

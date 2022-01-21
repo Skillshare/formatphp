@@ -91,16 +91,23 @@ class DateTimeFormatOptions implements JsonSerializable
     public ?string $timeStyle = null;
 
     /**
+     * The calendar system to use
+     *
      * @var CalendarType | null
      */
     public ?string $calendar = null;
 
     /**
+     * The formatting style used for day periods like "in the morning", "am",
+     * "noon", "n" etc.
+     *
      * @var PeriodType | null
      */
     public ?string $dayPeriod = null;
 
     /**
+     * The numeral system to use
+     *
      * @var NumeralType | null
      */
     public ?string $numberingSystem = null;
@@ -117,59 +124,92 @@ class DateTimeFormatOptions implements JsonSerializable
      */
     public ?string $timeZone = null;
 
+    /**
+     * If true, hourCycle will be "h12," if false, hourCycle will be "h23"
+     *
+     * This property overrides any value set by hourCycle.
+     */
     public ?bool $hour12 = null;
 
     /**
+     * The hour cycle to use
+     *
+     * If this property is specified, it overrides the hc property of the
+     * language tag, if set. The hour12 property takes precedence over
+     * this value.
+     *
      * @var HourType | null
      */
     public ?string $hourCycle = null;
 
     /**
+     * The locale representation of the weekday name.
+     *
      * @var PeriodType | null
      */
     public ?string $weekday = null;
 
     /**
+     * The locale representation of the era (e.g. "AD", "BC")
+     *
      * @var PeriodType | null
      */
     public ?string $era = null;
 
     /**
+     * The locale representation of the year
+     *
      * @var WidthType | null
      */
     public ?string $year = null;
 
     /**
+     * The locale representation of the month
+     *
      * @var WidthType | PeriodType | null
      */
     public ?string $month = null;
 
     /**
+     * The locale representation of the day
+     *
      * @var WidthType | null
      */
     public ?string $day = null;
 
     /**
+     * The locale representation of the hour
+     *
      * @var WidthType | null
      */
     public ?string $hour = null;
 
     /**
+     * The locale representation of the minute
+     *
      * @var WidthType | null
      */
     public ?string $minute = null;
 
     /**
+     * The locale representation of the seconds
+     *
      * @var WidthType | null
      */
     public ?string $second = null;
 
     /**
+     * The number of digits used to represent fractions of a second (any
+     * additional digits are truncated)
+     *
      * @var FractionDigitsType | null
      */
     public ?int $fractionalSecondDigits = null;
 
     /**
+     * An indicator for how to format the localized representation of the time
+     * zone name
+     *
      * @var TimeZoneNameType | null
      */
     public ?string $timeZoneName = null;
