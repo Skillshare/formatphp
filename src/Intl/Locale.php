@@ -46,7 +46,7 @@ use function strtolower;
  */
 class Locale implements LocaleInterface
 {
-    private const UNDEFINED_LOCALE = 'und';
+    public const UNDEFINED_LOCALE = 'und';
 
     /**
      * PHP's canonicalization (through ICU) converts calendar values to those
@@ -121,9 +121,9 @@ class Locale implements LocaleInterface
     /**
      * @throws InvalidArgumentException
      */
-    public function __construct(string $locale, ?LocaleOptions $options = null)
+    public function __construct(?string $locale = null, ?LocaleOptions $options = null)
     {
-        if (strtolower($locale) === self::UNDEFINED_LOCALE) {
+        if ($locale === null || strtolower($locale) === self::UNDEFINED_LOCALE) {
             $locale = PhpLocale::getDefault();
         }
 

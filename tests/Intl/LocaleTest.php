@@ -92,9 +92,17 @@ class LocaleTest extends TestCase
     public function testLocaleWithUndefinedLocale(): void
     {
         $defaultLocale = new Locale(PhpLocale::getDefault());
-        $undefinedLocale = new Locale('und');
+        $undefinedLocale = new Locale(Locale::UNDEFINED_LOCALE);
 
         $this->assertSame($defaultLocale->toString(), $undefinedLocale->toString());
+    }
+
+    public function testLocaleWithNoLocale(): void
+    {
+        $defaultLocale = new Locale(PhpLocale::getDefault());
+        $noLocale = new Locale();
+
+        $this->assertSame($defaultLocale->toString(), $noLocale->toString());
     }
 
     public function testBaseNameWithMultipleVariants(): void
