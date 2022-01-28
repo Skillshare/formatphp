@@ -1,4 +1,11 @@
 version: 2
+workflows:
+  test:
+    jobs:
+      - build:
+          context:
+            - commit-stage
+      
 jobs:
   build:
     docker:
