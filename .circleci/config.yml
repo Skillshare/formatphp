@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/php:7.4
+      - image: 289698421666.dkr.ecr.us-east-1.amazonaws.com/skillshare/circleci:0.9.3
 
     steps:
       - checkout
