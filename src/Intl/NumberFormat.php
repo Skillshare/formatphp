@@ -110,6 +110,14 @@ class NumberFormat implements NumberFormatInterface
         NumberFormatOptions::UNIT_DISPLAY_SHORT => 'unit-width-short',
     ];
 
+    private const SYMBOLS_USE_GROUPING = [
+        NumberFormatOptions::USE_GROUPING_ALWAYS => 'group-on-aligned',
+        NumberFormatOptions::USE_GROUPING_FALSE => 'group-off',
+        NumberFormatOptions::USE_GROUPING_MIN2 => 'group-min2',
+        NumberFormatOptions::USE_GROUPING_THOUSANDS => 'group-thousands',
+        NumberFormatOptions::USE_GROUPING_TRUE => 'group-on-aligned',
+    ];
+
     private const SCI_ENG_NOTATION = [
         NumberFormatOptions::NOTATION_SCIENTIFIC,
         NumberFormatOptions::NOTATION_ENGINEERING,
@@ -341,9 +349,7 @@ class NumberFormat implements NumberFormatInterface
      */
     private function buildUseGrouping(array $skeleton, NumberFormatOptions $options): array
     {
-        if ($options->useGrouping === false) {
-            $skeleton[] = 'group-off';
-        }
+        $skeleton[] = self::SYMBOLS_USE_GROUPING[$options->useGrouping] ?? '';
 
         return $skeleton;
     }

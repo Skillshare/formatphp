@@ -41,7 +41,8 @@ use JsonSerializable;
  * @psalm-type TrailingZeroDisplayType = "auto" | "stripIfInteger"
  * @psalm-type UnitDisplayType = "short" | "long" | "narrow"
  * @psalm-type UnitType = "acre" | "bit" | "byte" | "celsius" | "centimeter" | "day" | "degree" | "fahrenheit" | "fluid-ounce" | "foot" | "gallon" | "gigabit" | "gigabyte" | "gram" | "hectare" | "hour" | "inch" | "kilobit" | "kilobyte" | "kilogram" | "kilometer" | "liter" | "megabit" | "megabyte" | "meter" | "mile" | "mile-scandinavian" | "milliliter" | "millimeter" | "millisecond" | "minute" | "month" | "ounce" | "percent" | "petabyte" | "pound" | "second" | "stone" | "terabit" | "terabyte" | "week" | "yard" | "year" | non-empty-string
- * @psalm-type OptionsType = array{compactDisplay?: CompactDisplayType, currency?: CurrencyType, currencyDisplay?: CurrencyDisplayType, currencySign?: CurrencySignType, maximumFractionDigits?: FractionDigitsType, maximumSignificantDigits?: DigitsType, minimumFractionDigits?: FractionDigitsType, minimumIntegerDigits?: DigitsType, minimumSignificantDigits?: DigitsType, notation?: NotationType, numberingSystem?: NumeralType, roundingPriority?: RoundingPriorityType, scale?: ScaleType, signDisplay?: SignDisplayType, style?: StyleType, trailingZeroDisplay?: TrailingZeroDisplayType, unit?: UnitType, unitDisplay?: UnitDisplayType, useGrouping?: bool}
+ * @psalm-type UseGroupingType = "always" | "auto" | "false" | "min2" | "thousands" | "true"
+ * @psalm-type OptionsType = array{compactDisplay?: CompactDisplayType, currency?: CurrencyType, currencyDisplay?: CurrencyDisplayType, currencySign?: CurrencySignType, maximumFractionDigits?: FractionDigitsType, maximumSignificantDigits?: DigitsType, minimumFractionDigits?: FractionDigitsType, minimumIntegerDigits?: DigitsType, minimumSignificantDigits?: DigitsType, notation?: NotationType, numberingSystem?: NumeralType, roundingPriority?: RoundingPriorityType, scale?: ScaleType, signDisplay?: SignDisplayType, style?: StyleType, trailingZeroDisplay?: TrailingZeroDisplayType, unit?: UnitType, unitDisplay?: UnitDisplayType, useGrouping?: UseGroupingType}
  */
 class NumberFormatOptions implements JsonSerializable
 {
@@ -83,6 +84,13 @@ class NumberFormatOptions implements JsonSerializable
 
     public const TRAILING_ZERO_DISPLAY_AUTO = 'auto';
     public const TRAILING_ZERO_DISPLAY_STRIP_IF_INTEGER = 'stripIfInteger';
+
+    public const USE_GROUPING_ALWAYS = 'always';
+    public const USE_GROUPING_AUTO = 'auto';
+    public const USE_GROUPING_FALSE = 'false';
+    public const USE_GROUPING_MIN2 = 'min2';
+    public const USE_GROUPING_THOUSANDS = 'thousands';
+    public const USE_GROUPING_TRUE = 'true';
 
     /**
      * Only used when `notation` is "compact".
@@ -286,9 +294,9 @@ class NumberFormatOptions implements JsonSerializable
      * Whether to use grouping separators, such as thousands separators or
      * thousand/lakh/crore separators.
      *
-     * Possible values are true and false; the default is true.
+     * @var UseGroupingType | null
      */
-    public ?bool $useGrouping = null;
+    public ?string $useGrouping = null;
 
     /**
      * @psalm-param OptionsType $options

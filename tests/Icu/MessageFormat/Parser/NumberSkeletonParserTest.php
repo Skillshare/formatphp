@@ -92,6 +92,12 @@ class NumberSkeletonParserTest extends TestCase
             [',_'],
             ['unit-width-short'],
             ['unit-width-iso-code'],
+            ['group-min2'],
+            [',?'],
+            ['group-auto'],
+            ['group-on-aligned'],
+            [',!'],
+            ['group-thousands'],
         ];
     }
 }

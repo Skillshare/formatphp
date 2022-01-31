@@ -130,7 +130,25 @@ class NumberSkeletonParser
                     continue 2;
                 case 'group-off':
                 case ',_':
-                    $options->useGrouping = false;
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_FALSE;
+
+                    continue 2;
+                case 'group-min2':
+                case ',?':
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_MIN2;
+
+                    continue 2;
+                case 'group-auto':
+                    $options->useGrouping = null;
+
+                    continue 2;
+                case 'group-on-aligned':
+                case ',!':
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_ALWAYS;
+
+                    continue 2;
+                case 'group-thousands':
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_THOUSANDS;
 
                     continue 2;
                 case 'precision-integer':

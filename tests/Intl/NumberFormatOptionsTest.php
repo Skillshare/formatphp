@@ -157,6 +157,30 @@ class NumberFormatOptionsTest extends TestCase
                 'constantName' => "$class::UNIT_DISPLAY_SHORT",
                 'expectedValue' => 'short',
             ],
+            [
+                'constantName' => "$class::USE_GROUPING_ALWAYS",
+                'expectedValue' => 'always',
+            ],
+            [
+                'constantName' => "$class::USE_GROUPING_AUTO",
+                'expectedValue' => 'auto',
+            ],
+            [
+                'constantName' => "$class::USE_GROUPING_FALSE",
+                'expectedValue' => 'false',
+            ],
+            [
+                'constantName' => "$class::USE_GROUPING_MIN2",
+                'expectedValue' => 'min2',
+            ],
+            [
+                'constantName' => "$class::USE_GROUPING_THOUSANDS",
+                'expectedValue' => 'thousands',
+            ],
+            [
+                'constantName' => "$class::USE_GROUPING_TRUE",
+                'expectedValue' => 'true',
+            ],
         ];
     }
 
@@ -182,7 +206,7 @@ class NumberFormatOptionsTest extends TestCase
             ['options' => ['scale' => 100]],
             ['options' => ['signDisplay' => 'exceptZero']],
             ['options' => ['style' => 'unit', 'unit' => 'acre', 'unitDisplay' => 'long']],
-            ['options' => ['useGrouping' => true]],
+            ['options' => ['useGrouping' => 'always']],
             ['options' => ['trailingZeroDisplay' => 'stripIfInteger']],
         ];
     }
