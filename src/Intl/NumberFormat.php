@@ -448,6 +448,10 @@ class NumberFormat implements NumberFormatInterface
         $options->minimumFractionDigits = $this->getMinimumFractionDigits($options);
         $options->maximumFractionDigits = $this->getMaximumFractionDigits($options);
 
+        if ($options->maximumFractionDigits === 0) {
+            return 'precision-integer';
+        }
+
         $stem = str_pad(
             str_repeat('0', (int) $options->minimumFractionDigits),
             (int) $options->maximumFractionDigits,

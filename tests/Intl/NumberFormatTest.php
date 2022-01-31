@@ -692,6 +692,17 @@ class NumberFormatTest extends TestCase
                 'expected' => '$1,234',
                 'skeleton' => 'currency/USD precision-currency-standard/w',
             ],
+            [
+                'number' => 1234.567,
+                'locale' => 'en',
+                'options' => [
+                    'style' => 'currency',
+                    'currency' => 'USD',
+                    'maximumFractionDigits' => 0,
+                ],
+                'expected' => '$1,235',
+                'skeleton' => 'currency/USD precision-integer',
+            ],
         ];
     }
 }
