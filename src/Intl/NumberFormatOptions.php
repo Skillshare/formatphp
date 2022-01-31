@@ -34,15 +34,16 @@ use JsonSerializable;
  * @psalm-type FractionDigitsType = DigitsType | 0
  * @psalm-type NotationType = "standard" | "scientific" | "engineering" | "compact"
  * @psalm-type NumeralType = "arab" | "arabext" | "armn" | "armnlow" | "bali" | "beng" | "brah" | "cakm" | "cham" | "deva" | "diak" | "ethi" | "finance" | "fullwide" | "geor" | "gong" | "gonm" | "grek" | "greklow" | "gujr" | "guru" | "hanidays" | "hanidec" | "hans" | "hansfin" | "hant" | "hantfin" | "hebr" | "hmnp" | "java" | "jpan" | "jpanfin" | "jpanyear" | "kali" | "khmr" | "knda" | "lana" | "lanatham" | "laoo" | "lepc" | "limb" | "mlym" | "mong" | "mtei" | "mymr" | "mymrshan" | "native" | "nkoo" | "olck" | "orya" | "osma" | "rohg" | "roman" | "romanlow" | "saur" | "shrd" | "sora" | "sund" | "takr" | "talu" | "taml" | "tamldec" | "telu" | "thai" | "tibt" | "tnsa" | "traditional" | "vaii" | "wcho" | non-empty-string
+ * @psalm-type RoundingModeType = "ceil" | "floor" | "expand" | "trunc" | "halfCeil" | "halfFloor" | "halfExpand" | "halfTrunc" | "halfEven" | "halfOdd" | "unnecessary"
  * @psalm-type RoundingPriorityType = "auto" | "morePrecision" | "lessPrecision"
  * @psalm-type ScaleType = float
- * @psalm-type SignDisplayType = "auto" | "always" | "never" | "exceptZero"
+ * @psalm-type SignDisplayType = "auto" | "always" | "never" | "exceptZero" | "negative"
  * @psalm-type StyleType = "decimal" | "percent" | "currency" | "unit"
  * @psalm-type TrailingZeroDisplayType = "auto" | "stripIfInteger"
  * @psalm-type UnitDisplayType = "short" | "long" | "narrow"
  * @psalm-type UnitType = "acre" | "bit" | "byte" | "celsius" | "centimeter" | "day" | "degree" | "fahrenheit" | "fluid-ounce" | "foot" | "gallon" | "gigabit" | "gigabyte" | "gram" | "hectare" | "hour" | "inch" | "kilobit" | "kilobyte" | "kilogram" | "kilometer" | "liter" | "megabit" | "megabyte" | "meter" | "mile" | "mile-scandinavian" | "milliliter" | "millimeter" | "millisecond" | "minute" | "month" | "ounce" | "percent" | "petabyte" | "pound" | "second" | "stone" | "terabit" | "terabyte" | "week" | "yard" | "year" | non-empty-string
  * @psalm-type UseGroupingType = "always" | "auto" | "false" | "min2" | "thousands" | "true"
- * @psalm-type OptionsType = array{compactDisplay?: CompactDisplayType, currency?: CurrencyType, currencyDisplay?: CurrencyDisplayType, currencySign?: CurrencySignType, maximumFractionDigits?: FractionDigitsType, maximumSignificantDigits?: DigitsType, minimumFractionDigits?: FractionDigitsType, minimumIntegerDigits?: DigitsType, minimumSignificantDigits?: DigitsType, notation?: NotationType, numberingSystem?: NumeralType, roundingPriority?: RoundingPriorityType, scale?: ScaleType, signDisplay?: SignDisplayType, style?: StyleType, trailingZeroDisplay?: TrailingZeroDisplayType, unit?: UnitType, unitDisplay?: UnitDisplayType, useGrouping?: UseGroupingType}
+ * @psalm-type OptionsType = array{compactDisplay?: CompactDisplayType, currency?: CurrencyType, currencyDisplay?: CurrencyDisplayType, currencySign?: CurrencySignType, maximumFractionDigits?: FractionDigitsType, maximumSignificantDigits?: DigitsType, minimumFractionDigits?: FractionDigitsType, minimumIntegerDigits?: DigitsType, minimumSignificantDigits?: DigitsType, notation?: NotationType, numberingSystem?: NumeralType, roundingMode?: RoundingModeType, roundingPriority?: RoundingPriorityType, scale?: ScaleType, signDisplay?: SignDisplayType, style?: StyleType, trailingZeroDisplay?: TrailingZeroDisplayType, unit?: UnitType, unitDisplay?: UnitDisplayType, useGrouping?: UseGroupingType}
  */
 class NumberFormatOptions implements JsonSerializable
 {
@@ -74,6 +75,7 @@ class NumberFormatOptions implements JsonSerializable
     public const SIGN_DISPLAY_AUTO = 'auto';
     public const SIGN_DISPLAY_EXCEPT_ZERO = 'exceptZero';
     public const SIGN_DISPLAY_NEVER = 'never';
+    public const SIGN_DISPLAY_NEGATIVE = 'negative';
 
     public const COMPACT_DISPLAY_LONG = 'long';
     public const COMPACT_DISPLAY_SHORT = 'short';
@@ -81,6 +83,18 @@ class NumberFormatOptions implements JsonSerializable
     public const ROUNDING_PRIORITY_AUTO = 'auto';
     public const ROUNDING_PRIORITY_LESS_PRECISION = 'lessPrecision';
     public const ROUNDING_PRIORITY_MORE_PRECISION = 'morePrecision';
+
+    public const ROUNDING_MODE_CEIL = 'ceil';
+    public const ROUNDING_MODE_FLOOR = 'floor';
+    public const ROUNDING_MODE_EXPAND = 'expand';
+    public const ROUNDING_MODE_TRUNC = 'trunc';
+    public const ROUNDING_MODE_HALF_CEIL = 'halfCeil';
+    public const ROUNDING_MODE_HALF_FLOOR = 'halfFloor';
+    public const ROUNDING_MODE_HALF_EXPAND = 'halfExpand';
+    public const ROUNDING_MODE_HALF_TRUNC = 'halfTrunc';
+    public const ROUNDING_MODE_HALF_EVEN = 'halfEven';
+    public const ROUNDING_MODE_HALF_ODD = 'halfOdd';
+    public const ROUNDING_MODE_UNNECESSARY = 'unnecessary';
 
     public const TRAILING_ZERO_DISPLAY_AUTO = 'auto';
     public const TRAILING_ZERO_DISPLAY_STRIP_IF_INTEGER = 'stripIfInteger';
@@ -206,6 +220,11 @@ class NumberFormatOptions implements JsonSerializable
     public ?string $numberingSystem = null;
 
     /**
+     * @var RoundingModeType | null
+     */
+    public ?string $roundingMode = null;
+
+    /**
      * An indication declaring how to resolve conflicts between maximum fraction
      * digits and maximum significant digits.
      *
@@ -314,6 +333,7 @@ class NumberFormatOptions implements JsonSerializable
         $this->minimumSignificantDigits = $options['minimumSignificantDigits'] ?? null;
         $this->notation = $options['notation'] ?? null;
         $this->numberingSystem = $options['numberingSystem'] ?? null;
+        $this->roundingMode = $options['roundingMode'] ?? null;
         $this->roundingPriority = $options['roundingPriority'] ?? null;
         $this->scale = $options['scale'] ?? null;
         $this->signDisplay = $options['signDisplay'] ?? null;

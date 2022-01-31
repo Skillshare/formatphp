@@ -13,6 +13,7 @@ use FormatPHP\Test\TestCase;
 
 /**
  * @psalm-import-type OptionsType from NumberFormatOptions
+ * @psalm-import-type RoundingModeType from NumberFormatOptions
  */
 class NumberFormatTest extends TestCase
 {
@@ -92,6 +93,32 @@ class NumberFormatTest extends TestCase
 
         $this->assertSame($skeleton, $formatter->getSkeleton());
         $this->assertSame($expected, $formatter->format($number));
+    }
+
+    /**
+     * @param int | float $value
+     * @param array<string, string> $expected
+     *
+     * @dataProvider roundingModeProvider
+     */
+    public function testRoundingMode($value, array $expected): void
+    {
+        $locale = new Locale('en-US');
+
+        /**
+         * @var RoundingModeType $mode
+         */
+        foreach ($expected as $mode => $result) {
+            $formatOptions = new NumberFormatOptions([
+                'roundingMode' => $mode,
+                'maximumFractionDigits' => 0,
+                'signDisplay' => 'negative',
+            ]);
+
+            $formatter = new NumberFormat($locale, $formatOptions);
+
+            $this->assertSame($result, $formatter->format($value));
+        }
     }
 
     /**
@@ -737,6 +764,633 @@ class NumberFormatTest extends TestCase
                 ],
                 'expected' => '$1,235',
                 'skeleton' => 'currency/USD precision-integer',
+            ],
+        ];
+    }
+
+    /**
+     * These values are from the table presented here:
+     * https://unicode-org.github.io/icu/userguide/format_parse/numbers/rounding-modes.html#comparison-of-rounding-modes
+     *
+     * @return array<array{value: int | float, expected: array<string, string>}>
+     */
+    public function roundingModeProvider(): array
+    {
+        return [
+            [
+                'value' => -2,
+                'expected' => [
+                    'ceil' => '-2',
+                    'floor' => '-2',
+                    'trunc' => '-2',
+                    'expand' => '-2',
+                    'halfEven' => '-2',
+                    'halfOdd' => '-2',
+                    'halfCeil' => '-2',
+                    'halfFloor' => '-2',
+                    'halfTrunc' => '-2',
+                    'halfExpand' => '-2',
+                ],
+            ],
+            [
+                'value' => -1.9,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-2',
+                    'halfOdd' => '-2',
+                    'halfCeil' => '-2',
+                    'halfFloor' => '-2',
+                    'halfTrunc' => '-2',
+                    'halfExpand' => '-2',
+                ],
+            ],
+            [
+                'value' => -1.8,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-2',
+                    'halfOdd' => '-2',
+                    'halfCeil' => '-2',
+                    'halfFloor' => '-2',
+                    'halfTrunc' => '-2',
+                    'halfExpand' => '-2',
+                ],
+            ],
+            [
+                'value' => -1.7,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-2',
+                    'halfOdd' => '-2',
+                    'halfCeil' => '-2',
+                    'halfFloor' => '-2',
+                    'halfTrunc' => '-2',
+                    'halfExpand' => '-2',
+                ],
+            ],
+            [
+                'value' => -1.6,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-2',
+                    'halfOdd' => '-2',
+                    'halfCeil' => '-2',
+                    'halfFloor' => '-2',
+                    'halfTrunc' => '-2',
+                    'halfExpand' => '-2',
+                ],
+            ],
+            [
+                'value' => -1.5,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-2',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-2',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-2',
+                ],
+            ],
+            [
+                'value' => -1.4,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -1.3,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -1.2,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -1.1,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-2',
+                    'trunc' => '-1',
+                    'expand' => '-2',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -1,
+                'expected' => [
+                    'ceil' => '-1',
+                    'floor' => '-1',
+                    'trunc' => '-1',
+                    'expand' => '-1',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -0.9,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -0.8,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -0.7,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -0.6,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '-1',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '-1',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '-1',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -0.5,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '0',
+                    'halfOdd' => '-1',
+                    'halfCeil' => '0',
+                    'halfFloor' => '-1',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '-1',
+                ],
+            ],
+            [
+                'value' => -0.4,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => -0.3,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => -0.2,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => -0.1,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '-1',
+                    'trunc' => '0',
+                    'expand' => '-1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => 0,
+                'expected' => [
+                    'ceil' => '0',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '0',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => 0.1,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => 0.2,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => 0.3,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => 0.4,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '0',
+                    'halfOdd' => '0',
+                    'halfCeil' => '0',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '0',
+                ],
+            ],
+            [
+                'value' => 0.5,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '0',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '0',
+                    'halfTrunc' => '0',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 0.6,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 0.7,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 0.8,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 0.9,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '0',
+                    'trunc' => '0',
+                    'expand' => '1',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 1,
+                'expected' => [
+                    'ceil' => '1',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '1',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 1.1,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 1.2,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 1.3,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 1.4,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '1',
+                    'halfOdd' => '1',
+                    'halfCeil' => '1',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '1',
+                ],
+            ],
+            [
+                'value' => 1.5,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '2',
+                    'halfOdd' => '1',
+                    'halfCeil' => '2',
+                    'halfFloor' => '1',
+                    'halfTrunc' => '1',
+                    'halfExpand' => '2',
+                ],
+            ],
+            [
+                'value' => 1.6,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '2',
+                    'halfOdd' => '2',
+                    'halfCeil' => '2',
+                    'halfFloor' => '2',
+                    'halfTrunc' => '2',
+                    'halfExpand' => '2',
+                ],
+            ],
+            [
+                'value' => 1.7,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '2',
+                    'halfOdd' => '2',
+                    'halfCeil' => '2',
+                    'halfFloor' => '2',
+                    'halfTrunc' => '2',
+                    'halfExpand' => '2',
+                ],
+            ],
+            [
+                'value' => 1.8,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '2',
+                    'halfOdd' => '2',
+                    'halfCeil' => '2',
+                    'halfFloor' => '2',
+                    'halfTrunc' => '2',
+                    'halfExpand' => '2',
+                ],
+            ],
+            [
+                'value' => 1.9,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '1',
+                    'trunc' => '1',
+                    'expand' => '2',
+                    'halfEven' => '2',
+                    'halfOdd' => '2',
+                    'halfCeil' => '2',
+                    'halfFloor' => '2',
+                    'halfTrunc' => '2',
+                    'halfExpand' => '2',
+                ],
+            ],
+            [
+                'value' => 2,
+                'expected' => [
+                    'ceil' => '2',
+                    'floor' => '2',
+                    'trunc' => '2',
+                    'expand' => '2',
+                    'halfEven' => '2',
+                    'halfOdd' => '2',
+                    'halfCeil' => '2',
+                    'halfFloor' => '2',
+                    'halfTrunc' => '2',
+                    'halfExpand' => '2',
+                ],
             ],
         ];
     }

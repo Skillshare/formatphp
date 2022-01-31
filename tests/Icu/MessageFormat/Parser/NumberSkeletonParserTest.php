@@ -98,6 +98,21 @@ class NumberSkeletonParserTest extends TestCase
             ['group-on-aligned'],
             [',!'],
             ['group-thousands'],
+            ['rounding-mode-ceiling'],
+            ['rounding-mode-floor'],
+            ['rounding-mode-up'],
+            ['rounding-mode-down'],
+            ['rounding-mode-half-ceiling'],
+            ['rounding-mode-half-floor'],
+            ['rounding-mode-half-up'],
+            ['rounding-mode-half-down'],
+            ['rounding-mode-half-even'],
+            ['rounding-mode-half-odd'],
+            ['rounding-mode-unnecessary'],
+            ['sign-negative'],
+            ['+-'],
+            ['sign-accounting-negative'],
+            ['()-'],
         ];
     }
 }

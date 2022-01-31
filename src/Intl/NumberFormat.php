@@ -79,6 +79,7 @@ class NumberFormat implements NumberFormatInterface
     private const SYMBOLS_ACCOUNTING_SIGN_DISPLAY = [
         NumberFormatOptions::SIGN_DISPLAY_ALWAYS => 'sign-accounting-always',
         NumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO => 'sign-accounting-except-zero',
+        NumberFormatOptions::SIGN_DISPLAY_NEGATIVE => 'sign-accounting-negative',
     ];
 
     private const SYMBOLS_COMPACT_DISPLAY = [
@@ -102,6 +103,7 @@ class NumberFormat implements NumberFormatInterface
         NumberFormatOptions::SIGN_DISPLAY_ALWAYS => 'sign-always',
         NumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO => 'sign-except-zero',
         NumberFormatOptions::SIGN_DISPLAY_NEVER => 'sign-never',
+        NumberFormatOptions::SIGN_DISPLAY_NEGATIVE => 'sign-negative',
     ];
 
     private const SYMBOLS_UNIT_WIDTH_DISPLAY_TYPE = [
@@ -116,6 +118,20 @@ class NumberFormat implements NumberFormatInterface
         NumberFormatOptions::USE_GROUPING_MIN2 => 'group-min2',
         NumberFormatOptions::USE_GROUPING_THOUSANDS => 'group-thousands',
         NumberFormatOptions::USE_GROUPING_TRUE => 'group-on-aligned',
+    ];
+
+    private const SYMBOLS_ROUNDING_MODE = [
+        NumberFormatOptions::ROUNDING_MODE_CEIL => 'rounding-mode-ceiling',
+        NumberFormatOptions::ROUNDING_MODE_FLOOR => 'rounding-mode-floor',
+        NumberFormatOptions::ROUNDING_MODE_EXPAND => 'rounding-mode-up',
+        NumberFormatOptions::ROUNDING_MODE_TRUNC => 'rounding-mode-down',
+        NumberFormatOptions::ROUNDING_MODE_HALF_CEIL => 'rounding-mode-half-ceiling',
+        NumberFormatOptions::ROUNDING_MODE_HALF_FLOOR => 'rounding-mode-half-floor',
+        NumberFormatOptions::ROUNDING_MODE_HALF_EXPAND => 'rounding-mode-half-up',
+        NumberFormatOptions::ROUNDING_MODE_HALF_TRUNC => 'rounding-mode-half-down',
+        NumberFormatOptions::ROUNDING_MODE_HALF_EVEN => 'rounding-mode-half-even',
+        NumberFormatOptions::ROUNDING_MODE_HALF_ODD => 'rounding-mode-half-odd',
+        NumberFormatOptions::ROUNDING_MODE_UNNECESSARY => 'rounding-mode-unnecessary',
     ];
 
     private const SCI_ENG_NOTATION = [
@@ -198,6 +214,7 @@ class NumberFormat implements NumberFormatInterface
         $skeleton = $this->buildStyleSkeleton($skeleton, $options);
         $skeleton = $this->buildNotation($skeleton, $options);
         $skeleton = $this->buildUseGrouping($skeleton, $options);
+        $skeleton = $this->buildRoundingMode($skeleton, $options);
         $skeleton = $this->buildNumberingSystem($skeleton, $options);
         $skeleton = $this->buildDigits($skeleton, $options);
         $skeleton = $this->buildScale($skeleton, $options);
@@ -350,6 +367,18 @@ class NumberFormat implements NumberFormatInterface
     private function buildUseGrouping(array $skeleton, NumberFormatOptions $options): array
     {
         $skeleton[] = self::SYMBOLS_USE_GROUPING[$options->useGrouping] ?? '';
+
+        return $skeleton;
+    }
+
+    /**
+     * @param string[] $skeleton
+     *
+     * @return string[]
+     */
+    private function buildRoundingMode(array $skeleton, NumberFormatOptions $options): array
+    {
+        $skeleton[] = self::SYMBOLS_ROUNDING_MODE[$options->roundingMode] ?? '';
 
         return $skeleton;
     }

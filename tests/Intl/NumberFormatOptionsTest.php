@@ -122,6 +122,10 @@ class NumberFormatOptionsTest extends TestCase
                 'expectedValue' => 'never',
             ],
             [
+                'constantName' => "$class::SIGN_DISPLAY_NEGATIVE",
+                'expectedValue' => 'negative',
+            ],
+            [
                 'constantName' => "$class::STYLE_CURRENCY",
                 'expectedValue' => 'currency',
             ],
@@ -181,6 +185,50 @@ class NumberFormatOptionsTest extends TestCase
                 'constantName' => "$class::USE_GROUPING_TRUE",
                 'expectedValue' => 'true',
             ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_CEIL",
+                'expectedValue' => 'ceil',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_FLOOR",
+                'expectedValue' => 'floor',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_EXPAND",
+                'expectedValue' => 'expand',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_TRUNC",
+                'expectedValue' => 'trunc',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_HALF_CEIL",
+                'expectedValue' => 'halfCeil',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_HALF_FLOOR",
+                'expectedValue' => 'halfFloor',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_HALF_EXPAND",
+                'expectedValue' => 'halfExpand',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_HALF_TRUNC",
+                'expectedValue' => 'halfTrunc',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_HALF_EVEN",
+                'expectedValue' => 'halfEven',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_HALF_ODD",
+                'expectedValue' => 'halfOdd',
+            ],
+            [
+                'constantName' => "$class::ROUNDING_MODE_UNNECESSARY",
+                'expectedValue' => 'unnecessary',
+            ],
         ];
     }
 
@@ -202,6 +250,7 @@ class NumberFormatOptionsTest extends TestCase
             ['options' => ['minimumSignificantDigits' => 2]],
             ['options' => ['notation' => 'scientific']],
             ['options' => ['numberingSystem' => 'arab']],
+            ['options' => ['roundingMode' => 'expand']],
             ['options' => ['roundingPriority' => 'morePrecision']],
             ['options' => ['scale' => 100]],
             ['options' => ['signDisplay' => 'exceptZero']],
