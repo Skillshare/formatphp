@@ -7,14 +7,14 @@
         "defaultMessage": "You have {numPhotos, plural, =0 {no photos.} =1 {one photo.} other {# photos.} }",
         "description": "A description with multiple lines and extra whitespace."
     },
+    "Q+U0TW": {
+        "defaultMessage": "Welcome!"
+    },
     "Soex4s": {
         "defaultMessage": "This is a default message",
         "description": "A simple description of a fixture for testing purposes."
     },
     "xgMWoP": {
         "defaultMessage": "This is a default message"
-    },
-    "Q+U0TW": {
-        "defaultMessage": "Welcome!"
     }
 }

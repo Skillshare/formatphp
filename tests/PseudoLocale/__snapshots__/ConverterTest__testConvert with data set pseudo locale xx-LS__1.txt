@@ -5,11 +5,11 @@
     "how.many.pets": {
         "defaultMessage": "Last time I checked, {gender, select, male{<italicized>he</italicized> had} female{<italicized>she</italicized> had} other{<italicized>they</italicized> had}} {petCount, plural, =0{<bold>no</bold> pets} =1{<bold>a</bold> pet} other{<bold>#</bold> pets}}.SSSSSSSSSSSSSSSSSSSSSSSSS"
     },
-    "start.with.tag": {
-        "defaultMessage": "<foo>{argument}</foo>SSSSSSSSSSSSSSSSSSSSSSSSS"
-    },
     "start.with.argument": {
         "defaultMessage": "{argument}SSSSSSSSSSSSSSSSSSSSSSSSS"
+    },
+    "start.with.tag": {
+        "defaultMessage": "<foo>{argument}</foo>SSSSSSSSSSSSSSSSSSSSSSSSS"
     },
     "value.with.non-ascii.characters": {
         "defaultMessage": "We’d need to tëst søme non-áscii characters, too…SSSSSSSSSSSSSSSSSSSSSSSSS"

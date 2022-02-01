@@ -25,9 +25,9 @@ class FormatPHPWriterTest extends TestCase
 
         $this->assertSame(
             [
-                'foo' => ['defaultMessage' => ''],
                 'bar' => ['defaultMessage' => 'some message'],
                 'baz' => ['defaultMessage' => 'another message', 'description' => 'a description'],
+                'foo' => ['defaultMessage' => ''],
             ],
             $formatter($collection, $options),
         );

@@ -31,6 +31,9 @@ use FormatPHP\Format\WriterOptions;
 use function array_merge;
 use function ksort;
 
+use const SORT_FLAG_CASE;
+use const SORT_NATURAL;
+
 /**
  * Default formatter for FormatPHP
  *
@@ -95,6 +98,8 @@ class FormatPHPWriter implements WriterInterface
 
             $format[(string) $item->getId()] = $message;
         }
+
+        ksort($format, SORT_NATURAL | SORT_FLAG_CASE);
 
         return $format;
     }

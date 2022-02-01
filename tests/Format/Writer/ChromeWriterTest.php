@@ -25,9 +25,9 @@ class ChromeWriterTest extends TestCase
 
         $this->assertSame(
             [
-                'foo' => ['message' => ''],
                 'bar' => ['message' => 'some message'],
                 'baz' => ['description' => 'a description', 'message' => 'another message'],
+                'foo' => ['message' => ''],
             ],
             $formatter($collection, $options),
         );
