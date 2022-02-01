@@ -71,7 +71,16 @@ class MessageFormat implements MessageFormatInterface
             $pattern = $this->applyCallbacks($pattern, $values);
             $formatter = new PhpMessageFormatter((string) $this->locale->baseName(), $pattern);
 
-            return (string) $formatter->format($values);
+            $formattedMessage = $formatter->format($values);
+
+            if ($formattedMessage === false) {
+                throw new UnableToFormatMessageException(
+                    $formatter->getErrorMessage(),
+                    $formatter->getErrorCode(),
+                );
+            }
+
+            return $formattedMessage;
         } catch (Throwable $exception) {
             throw new UnableToFormatMessageException(
                 sprintf(

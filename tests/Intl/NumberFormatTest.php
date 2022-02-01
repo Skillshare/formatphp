@@ -79,6 +79,30 @@ class NumberFormatTest extends TestCase
         $formatter->format(100);
     }
 
+    public function testThrowsExceptionForIllegalArgumentError(): void
+    {
+        $formatter = new NumberFormat(new Locale('en-US'), new NumberFormatOptions([
+            'maximumFractionDigits' => 0,
+            'roundingMode' => 'unnecessary',
+        ]));
+
+        // We're not using expectException() because we want to actually
+        // inspect the exception object as part of this test.
+        try {
+            $formatter->format(1.5);
+        } catch (UnableToFormatNumberException $exception) {
+            $this->assertSame(
+                'Unable to format number "1.5" for locale "en-US"',
+                $exception->getMessage(),
+            );
+            $this->assertInstanceOf(UnableToFormatNumberException::class, $exception->getPrevious());
+            $this->assertSame(
+                'Call to ICU MessageFormat::format() has failed: U_FORMAT_INEXACT_ERROR',
+                $exception->getPrevious()->getMessage(),
+            );
+        }
+    }
+
     /**
      * @param int | float $number
      *

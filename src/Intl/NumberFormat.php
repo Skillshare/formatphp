@@ -192,6 +192,7 @@ class NumberFormat implements NumberFormatInterface
      * @param int | float $number
      *
      * @throws PhpIntlException
+     * @throws UnableToFormatNumberException
      */
     private function doFormat($number): string
     {
@@ -201,7 +202,16 @@ class NumberFormat implements NumberFormatInterface
         // so we will use the PHP `MessageFormatter` class, instead.
         $formatter = new PhpMessageFormatter($this->localeName, $pattern);
 
-        return (string) $formatter->format([$number]);
+        $formattedNumber = $formatter->format([$number]);
+
+        if ($formattedNumber === false) {
+            throw new UnableToFormatNumberException(
+                $formatter->getErrorMessage(),
+                $formatter->getErrorCode(),
+            );
+        }
+
+        return $formattedNumber;
     }
 
     /**
