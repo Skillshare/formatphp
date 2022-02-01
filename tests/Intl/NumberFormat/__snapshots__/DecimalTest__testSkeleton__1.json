@@ -1,0 +1,98 @@
+{
+    "en decimal signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "engineering .###"
+    },
+    "en decimal signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "engineering .###"
+    },
+    "en decimal signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "scientific .###"
+    },
+    "en decimal signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "scientific .###"
+    },
+    "en decimal signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "compact-long"
+    },
+    "en decimal signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "compact-short"
+    },
+    "en decimal signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": ""
+    },
+    "en decimal signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": ""
+    },
+    "en decimal signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "engineering\/sign-always .###"
+    },
+    "en decimal signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "engineering\/sign-always .###"
+    },
+    "en decimal signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "scientific\/sign-always .###"
+    },
+    "en decimal signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "scientific\/sign-always .###"
+    },
+    "en decimal signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "compact-long sign-always"
+    },
+    "en decimal signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "compact-short sign-always"
+    },
+    "en decimal signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "sign-always"
+    },
+    "en decimal signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "sign-always"
+    },
+    "en decimal signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "engineering\/sign-never .###"
+    },
+    "en decimal signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "engineering\/sign-never .###"
+    },
+    "en decimal signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "scientific\/sign-never .###"
+    },
+    "en decimal signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "scientific\/sign-never .###"
+    },
+    "en decimal signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "compact-long sign-never"
+    },
+    "en decimal signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "compact-short sign-never"
+    },
+    "en decimal signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "sign-never"
+    },
+    "en decimal signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "sign-never"
+    },
+    "en decimal signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "engineering\/sign-except-zero .###"
+    },
+    "en decimal signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "engineering\/sign-except-zero .###"
+    },
+    "en decimal signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "scientific\/sign-except-zero .###"
+    },
+    "en decimal signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "scientific\/sign-except-zero .###"
+    },
+    "en decimal signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "compact-long sign-except-zero"
+    },
+    "en decimal signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "compact-short sign-except-zero"
+    },
+    "en decimal signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "sign-except-zero"
+    },
+    "en decimal signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "sign-except-zero"
+    }
+}

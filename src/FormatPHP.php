@@ -28,6 +28,8 @@ use Exception as PhpException;
 use FormatPHP\Intl\DateTimeFormat;
 use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\MessageFormat;
+use FormatPHP\Intl\NumberFormat;
+use FormatPHP\Intl\NumberFormatOptions;
 use FormatPHP\Util\MessageCleaner;
 use FormatPHP\Util\MessageRetriever;
 
@@ -124,6 +126,35 @@ class FormatPHP implements FormatterInterface
         }
 
         return $this->formatDate($date, $options);
+    }
+
+    /**
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatNumberException
+     *
+     * @inheritdoc
+     */
+    public function formatNumber($number, ?NumberFormatOptions $options = null): string
+    {
+        $formatter = new NumberFormat($this->config->getLocale(), $options);
+
+        return $formatter->format($number);
+    }
+
+    /**
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatNumberException
+     *
+     * @inheritdoc
+     */
+    public function formatCurrency($value, string $currencyCode, ?NumberFormatOptions $options = null): string
+    {
+        $options = $options ?? new NumberFormatOptions();
+        $options->style = NumberFormatOptions::STYLE_CURRENCY;
+        $options->currency = $currencyCode;
+        $options->currencyDisplay = $options->currencyDisplay ?? NumberFormatOptions::CURRENCY_DISPLAY_NARROW_SYMBOL;
+
+        return $this->formatNumber($value, $options);
     }
 
     protected function getConfig(): ConfigInterface
