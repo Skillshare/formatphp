@@ -730,7 +730,7 @@ class NumberFormatTest extends TestCase
             ],
             [
                 'number' => 1234.0056,
-                'locale' => 'en',
+                'locale' => 'en-US',
                 'options' => [
                     'style' => 'currency',
                     'currency' => 'USD',
@@ -740,11 +740,11 @@ class NumberFormatTest extends TestCase
                     'trailingZeroDisplay' => 'auto',
                 ],
                 'expected' => '$1,230.00',
-                'skeleton' => 'currency/USD .00/@##',
+                'skeleton' => 'currency/USD unit-width-short .00/@##',
             ],
             [
                 'number' => 1234.0056,
-                'locale' => 'en',
+                'locale' => 'en-US',
                 'options' => [
                     'style' => 'currency',
                     'currency' => 'USD',
@@ -754,40 +754,71 @@ class NumberFormatTest extends TestCase
                     'trailingZeroDisplay' => 'stripIfInteger',
                 ],
                 'expected' => '$1,230',
-                'skeleton' => 'currency/USD .00/@##/w',
+                'skeleton' => 'currency/USD unit-width-short .00/@##/w',
             ],
             [
                 'number' => 1234.005,
-                'locale' => 'en',
+                'locale' => 'en-US',
                 'options' => [
                     'style' => 'currency',
                     'currency' => 'USD',
                     'trailingZeroDisplay' => 'auto',
                 ],
                 'expected' => '$1,234.00',
-                'skeleton' => 'currency/USD',
+                'skeleton' => 'currency/USD unit-width-short',
             ],
             [
                 'number' => 1234.005,
-                'locale' => 'en',
+                'locale' => 'en-US',
                 'options' => [
                     'style' => 'currency',
                     'currency' => 'USD',
                     'trailingZeroDisplay' => 'stripIfInteger',
                 ],
                 'expected' => '$1,234',
-                'skeleton' => 'currency/USD precision-currency-standard/w',
+                'skeleton' => 'currency/USD unit-width-short precision-currency-standard/w',
             ],
             [
                 'number' => 1234.567,
-                'locale' => 'en',
+                'locale' => 'en-US',
                 'options' => [
                     'style' => 'currency',
                     'currency' => 'USD',
                     'maximumFractionDigits' => 0,
                 ],
                 'expected' => '$1,235',
-                'skeleton' => 'currency/USD precision-integer',
+                'skeleton' => 'currency/USD unit-width-short precision-integer',
+            ],
+            [
+                'number' => 1234.567,
+                'locale' => 'en-US',
+                'options' => [
+                    'style' => 'currency',
+                    'currency' => 'EUR',
+                ],
+                'expected' => '€1,234.57',
+                'skeleton' => 'currency/EUR unit-width-short',
+            ],
+            [
+                'number' => 1234.567,
+                'locale' => 'en-GB',
+                'options' => [
+                    'style' => 'currency',
+                    'currency' => 'USD',
+                    'currencyDisplay' => 'narrowSymbol',
+                ],
+                'expected' => '$1,234.57',
+                'skeleton' => 'currency/USD unit-width-narrow',
+            ],
+            [
+                'number' => 1234.567,
+                'locale' => 'en-GB',
+                'options' => [
+                    'style' => 'currency',
+                    'currency' => 'USD',
+                ],
+                'expected' => 'US$1,234.57',
+                'skeleton' => 'currency/USD unit-width-short',
             ],
         ];
     }

@@ -267,7 +267,7 @@ class NumberFormat implements NumberFormatInterface
         }
 
         $skeleton[] = 'currency/' . $options->currency;
-        $skeleton[] = self::SYMBOLS_CURRENCY_DISPLAY[$options->currencyDisplay] ?? '';
+        $skeleton[] = self::SYMBOLS_CURRENCY_DISPLAY[$options->currencyDisplay] ?? 'unit-width-short';
 
         if ($options->currencySign === NumberFormatOptions::CURRENCY_SIGN_ACCOUNTING) {
             $skeleton[] = self::SYMBOLS_ACCOUNTING_SIGN_DISPLAY[$options->signDisplay] ?? 'sign-accounting';
