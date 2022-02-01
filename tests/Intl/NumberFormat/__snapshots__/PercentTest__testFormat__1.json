@@ -1,0 +1,2018 @@
+{
+  "en percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 million%"
+  },
+  "en percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "en percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "en percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "en percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "en percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "en percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "en percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "en percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 million%"
+  },
+  "en percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "en percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "en percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "en percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 million%"
+  },
+  "en percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "en percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "en percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "en percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 million%"
+  },
+  "en percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "en percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "en percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "en-GB percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 million%"
+  },
+  "en-GB percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "en-GB percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "en-GB percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "en-GB percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "en-GB percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "en-GB percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "en-GB percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "en-GB percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 million%"
+  },
+  "en-GB percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "en-GB percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "en-GB percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "en-GB percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 million%"
+  },
+  "en-GB percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "en-GB percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "en-GB percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 million%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "en-GB percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "da percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 million pct."
+  },
+  "da percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 mio. pct."
+  },
+  "da percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000 %"
+  },
+  "da percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000 %"
+  },
+  "da percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "da percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "da percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "da percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "da percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 million pct."
+  },
+  "da percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 mio. pct."
+  },
+  "da percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000 %"
+  },
+  "da percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000 %"
+  },
+  "da percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 million pct."
+  },
+  "da percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 mio. pct."
+  },
+  "da percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000 %"
+  },
+  "da percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000 %"
+  },
+  "da percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "da percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 million pct."
+  },
+  "da percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 mio. pct."
+  },
+  "da percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000 %"
+  },
+  "da percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000 %"
+  },
+  "de percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 Million %"
+  },
+  "de percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 Mio. %"
+  },
+  "de percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000 %"
+  },
+  "de percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000 %"
+  },
+  "de percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "de percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "de percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "de percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "de percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 Million %"
+  },
+  "de percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 Mio. %"
+  },
+  "de percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000 %"
+  },
+  "de percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000 %"
+  },
+  "de percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 Million %"
+  },
+  "de percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 Mio. %"
+  },
+  "de percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000 %"
+  },
+  "de percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000 %"
+  },
+  "de percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "de percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 Million %"
+  },
+  "de percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 Mio. %"
+  },
+  "de percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000 %"
+  },
+  "de percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000 %"
+  },
+  "es percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 millón %"
+  },
+  "es percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 M %"
+  },
+  "es percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000 %"
+  },
+  "es percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000 %"
+  },
+  "es percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "es percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "es percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "es percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "es percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 millón %"
+  },
+  "es percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 M %"
+  },
+  "es percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000 %"
+  },
+  "es percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000 %"
+  },
+  "es percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 millón %"
+  },
+  "es percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 M %"
+  },
+  "es percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000 %"
+  },
+  "es percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000 %"
+  },
+  "es percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "es percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 millón %"
+  },
+  "es percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 M %"
+  },
+  "es percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000 %"
+  },
+  "es percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000 %"
+  },
+  "fr percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 million %"
+  },
+  "fr percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 M %"
+  },
+  "fr percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1 000 000 %"
+  },
+  "fr percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1 000 000 %"
+  },
+  "fr percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "fr percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "fr percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "fr percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "fr percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 million %"
+  },
+  "fr percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 M %"
+  },
+  "fr percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1 000 000 %"
+  },
+  "fr percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1 000 000 %"
+  },
+  "fr percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 million %"
+  },
+  "fr percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 M %"
+  },
+  "fr percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1 000 000 %"
+  },
+  "fr percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1 000 000 %"
+  },
+  "fr percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "fr percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 million %"
+  },
+  "fr percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 M %"
+  },
+  "fr percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1 000 000 %"
+  },
+  "fr percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1 000 000 %"
+  },
+  "id percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 juta%"
+  },
+  "id percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 jt%"
+  },
+  "id percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "id percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "id percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "id percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "id percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "id percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "id percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 juta%"
+  },
+  "id percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 jt%"
+  },
+  "id percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "id percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "id percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 juta%"
+  },
+  "id percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 jt%"
+  },
+  "id percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "id percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "id percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "id percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 juta%"
+  },
+  "id percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 jt%"
+  },
+  "id percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "id percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "it percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 milione%"
+  },
+  "it percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 Mln%"
+  },
+  "it percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "it percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "it percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "it percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "it percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "it percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "it percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 milione%"
+  },
+  "it percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 Mln%"
+  },
+  "it percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "it percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "it percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 milione%"
+  },
+  "it percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 Mln%"
+  },
+  "it percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "it percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "it percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "it percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 milione%"
+  },
+  "it percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 Mln%"
+  },
+  "it percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "it percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "ja percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "100万%"
+  },
+  "ja percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "100万%"
+  },
+  "ja percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "ja percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "ja percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "ja percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "ja percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "ja percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "ja percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+100万%"
+  },
+  "ja percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+100万%"
+  },
+  "ja percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "ja percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "ja percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "100万%"
+  },
+  "ja percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "100万%"
+  },
+  "ja percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "ja percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "ja percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ja percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+100万%"
+  },
+  "ja percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+100万%"
+  },
+  "ja percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "ja percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "ko percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "100만%"
+  },
+  "ko percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "100만%"
+  },
+  "ko percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "ko percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "ko percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "ko percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "ko percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "ko percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "ko percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+100만%"
+  },
+  "ko percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+100만%"
+  },
+  "ko percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "ko percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "ko percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "100만%"
+  },
+  "ko percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "100만%"
+  },
+  "ko percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "ko percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "ko percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ko percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+100만%"
+  },
+  "ko percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+100만%"
+  },
+  "ko percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "ko percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "ms percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 juta%"
+  },
+  "ms percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1J%"
+  },
+  "ms percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "ms percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "ms percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "ms percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "ms percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "ms percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "ms percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 juta%"
+  },
+  "ms percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1J%"
+  },
+  "ms percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "ms percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "ms percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 juta%"
+  },
+  "ms percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1J%"
+  },
+  "ms percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "ms percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "ms percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "ms percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 juta%"
+  },
+  "ms percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1J%"
+  },
+  "ms percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "ms percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "nl percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 miljoen%"
+  },
+  "nl percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 mln.%"
+  },
+  "nl percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "nl percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "nl percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "nl percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "nl percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "nl percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "nl percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 miljoen%"
+  },
+  "nl percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 mln.%"
+  },
+  "nl percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "nl percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "nl percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 miljoen%"
+  },
+  "nl percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 mln.%"
+  },
+  "nl percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "nl percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "nl percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "nl percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 miljoen%"
+  },
+  "nl percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 mln.%"
+  },
+  "nl percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "nl percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "pl percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 milion%"
+  },
+  "pl percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 mln%"
+  },
+  "pl percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1 000 000%"
+  },
+  "pl percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1 000 000%"
+  },
+  "pl percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "pl percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "pl percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "pl percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "pl percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 milion%"
+  },
+  "pl percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 mln%"
+  },
+  "pl percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1 000 000%"
+  },
+  "pl percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1 000 000%"
+  },
+  "pl percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 milion%"
+  },
+  "pl percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 mln%"
+  },
+  "pl percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1 000 000%"
+  },
+  "pl percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1 000 000%"
+  },
+  "pl percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pl percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 milion%"
+  },
+  "pl percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 mln%"
+  },
+  "pl percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1 000 000%"
+  },
+  "pl percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1 000 000%"
+  },
+  "pt percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 milhão%"
+  },
+  "pt percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 mi%"
+  },
+  "pt percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "pt percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "pt percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "pt percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "pt percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "pt percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "pt percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 milhão%"
+  },
+  "pt percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 mi%"
+  },
+  "pt percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "pt percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "pt percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 milhão%"
+  },
+  "pt percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 mi%"
+  },
+  "pt percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1.000.000%"
+  },
+  "pt percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1.000.000%"
+  },
+  "pt percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "pt percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 milhão%"
+  },
+  "pt percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 mi%"
+  },
+  "pt percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1.000.000%"
+  },
+  "pt percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1.000.000%"
+  },
+  "ru percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 миллион %"
+  },
+  "ru percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 млн %"
+  },
+  "ru percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1 000 000 %"
+  },
+  "ru percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1 000 000 %"
+  },
+  "ru percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "ru percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "ru percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6 %"
+  },
+  "ru percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6 %"
+  },
+  "ru percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 миллион %"
+  },
+  "ru percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 млн %"
+  },
+  "ru percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1 000 000 %"
+  },
+  "ru percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1 000 000 %"
+  },
+  "ru percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 миллион %"
+  },
+  "ru percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 млн %"
+  },
+  "ru percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1 000 000 %"
+  },
+  "ru percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1 000 000 %"
+  },
+  "ru percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6 %"
+  },
+  "ru percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 миллион %"
+  },
+  "ru percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 млн %"
+  },
+  "ru percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1 000 000 %"
+  },
+  "ru percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1 000 000 %"
+  },
+  "sv percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 miljon %"
+  },
+  "sv percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 mn %"
+  },
+  "sv percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1 000 000 %"
+  },
+  "sv percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1 000 000 %"
+  },
+  "sv percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1×10^+6 %"
+  },
+  "sv percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1×10^+6 %"
+  },
+  "sv percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1×10^+6 %"
+  },
+  "sv percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1×10^+6 %"
+  },
+  "sv percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 miljon %"
+  },
+  "sv percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 mn %"
+  },
+  "sv percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1 000 000 %"
+  },
+  "sv percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1 000 000 %"
+  },
+  "sv percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 miljon %"
+  },
+  "sv percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 mn %"
+  },
+  "sv percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1 000 000 %"
+  },
+  "sv percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1 000 000 %"
+  },
+  "sv percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1×10^6 %"
+  },
+  "sv percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 miljon %"
+  },
+  "sv percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 mn %"
+  },
+  "sv percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1 000 000 %"
+  },
+  "sv percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1 000 000 %"
+  },
+  "th percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 ล้าน%"
+  },
+  "th percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "th percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "th percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "th percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "th percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "th percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "th percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "th percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 ล้าน%"
+  },
+  "th percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "th percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "th percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "th percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 ล้าน%"
+  },
+  "th percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "th percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "th percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "th percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "th percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 ล้าน%"
+  },
+  "th percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "th percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "th percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "tr percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "%1 milyon"
+  },
+  "tr percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "%1 Mn"
+  },
+  "tr percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "%1.000.000"
+  },
+  "tr percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "%1.000.000"
+  },
+  "tr percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "%1E+6"
+  },
+  "tr percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "%1E+6"
+  },
+  "tr percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "%1E+6"
+  },
+  "tr percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "%1E+6"
+  },
+  "tr percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "%+1 milyon"
+  },
+  "tr percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "%+1 Mn"
+  },
+  "tr percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+%1.000.000"
+  },
+  "tr percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+%1.000.000"
+  },
+  "tr percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "%1 milyon"
+  },
+  "tr percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "%1 Mn"
+  },
+  "tr percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "%1.000.000"
+  },
+  "tr percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "%1.000.000"
+  },
+  "tr percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "%1E6"
+  },
+  "tr percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "%+1 milyon"
+  },
+  "tr percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "%+1 Mn"
+  },
+  "tr percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+%1.000.000"
+  },
+  "tr percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+%1.000.000"
+  },
+  "uk percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 мільйон%"
+  },
+  "uk percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1 млн%"
+  },
+  "uk percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1 000 000%"
+  },
+  "uk percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1 000 000%"
+  },
+  "uk percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1Е+6%"
+  },
+  "uk percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1Е+6%"
+  },
+  "uk percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1Е+6%"
+  },
+  "uk percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1Е+6%"
+  },
+  "uk percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 мільйон%"
+  },
+  "uk percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1 млн%"
+  },
+  "uk percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1 000 000%"
+  },
+  "uk percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1 000 000%"
+  },
+  "uk percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 мільйон%"
+  },
+  "uk percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1 млн%"
+  },
+  "uk percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1 000 000%"
+  },
+  "uk percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1 000 000%"
+  },
+  "uk percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1Е6%"
+  },
+  "uk percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 мільйон%"
+  },
+  "uk percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1 млн%"
+  },
+  "uk percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1 000 000%"
+  },
+  "uk percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1 000 000%"
+  },
+  "zh percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "100万%"
+  },
+  "zh percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "100万%"
+  },
+  "zh percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "zh percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "zh percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "zh percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "zh percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "zh percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "zh percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+100万%"
+  },
+  "zh percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+100万%"
+  },
+  "zh percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "zh percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "zh percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "100万%"
+  },
+  "zh percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "100万%"
+  },
+  "zh percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "zh percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "zh percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "zh percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+100万%"
+  },
+  "zh percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+100万%"
+  },
+  "zh percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "zh percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "en-BS percent signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 million%"
+  },
+  "en-BS percent signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "en-BS percent signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "en-BS percent signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "en-BS percent signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "en-BS percent signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "en-BS percent signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+6%"
+  },
+  "en-BS percent signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+6%"
+  },
+  "en-BS percent signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 million%"
+  },
+  "en-BS percent signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "en-BS percent signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "en-BS percent signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  },
+  "en-BS percent signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 million%"
+  },
+  "en-BS percent signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1M%"
+  },
+  "en-BS percent signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,000,000%"
+  },
+  "en-BS percent signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,000,000%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E6%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 million%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1M%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,000,000%"
+  },
+  "en-BS percent signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,000,000%"
+  }
+}

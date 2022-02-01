@@ -1,0 +1,2306 @@
+{
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name engineering"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name scientific"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name compact-long"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name compact-short"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-short sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-narrow sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-iso-code sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-always"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero engineering"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero scientific"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero compact-long"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero compact-short"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero"
+    },
+    "en currency USD currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/USD unit-width-full-name sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name engineering"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name scientific"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-long"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name compact-short"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-short sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-narrow sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-iso-code sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-always"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero engineering"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero scientific"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero compact-long"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero compact-short"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero"
+    },
+    "en currency EUR currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/EUR unit-width-full-name sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name engineering"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name scientific"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-long"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name compact-short"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/standard currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/symbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-short sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/narrowSymbol signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-narrow sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/code signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-iso-code sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/auto notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/always notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-always"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/never notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/engineering compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero engineering"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/scientific compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero scientific"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero compact-long"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/compact compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero compact-short"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/long": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero"
+    },
+    "en currency CNY currencySign\/accounting currencyDisplay\/name signDisplay\/exceptZero notation\/standard compactDisplay\/short": {
+        "skeleton": "currency\/CNY unit-width-full-name sign-accounting-except-zero"
+    }
+}

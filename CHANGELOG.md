@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- Nothing.
+- Provide functionality for formatting numbers and currency through `Intl\NumberFormat`, as well as `FormatPHP::formatNumber()` and `FormatPHP::formatCurrency()` convenience methods.
+- Add `UnableToFormatNumberException` thrown when we're unable to format a number string.
 
 ### Changed
 

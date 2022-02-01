@@ -302,4 +302,28 @@ class MessageFormatTest extends TestCase
 
         $this->assertSame('Sometimes a <strong>tag</strong> might be self-closing', $formatted);
     }
+
+    public function testThrowsExceptionForIllegalArgumentError(): void
+    {
+        $message = 'Today is {value, date}.';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        // We're not using expectException() because we want to actually
+        // inspect the exception object as part of this test.
+        try {
+            $formatter->format($message, ['value' => 'not a valid date/time']);
+        } catch (UnableToFormatMessageException $exception) {
+            $this->assertSame(
+                'Unable to format message with pattern "Today is {value, date}." for locale "en-US"',
+                $exception->getMessage(),
+            );
+            $this->assertInstanceOf(UnableToFormatMessageException::class, $exception->getPrevious());
+            $this->assertSame(
+                "The argument for key 'value' cannot be used as a date or time: U_ILLEGAL_ARGUMENT_ERROR",
+                $exception->getPrevious()->getMessage(),
+            );
+        }
+    }
 }

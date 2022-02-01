@@ -1,0 +1,1826 @@
+{
+  "en decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 thousand"
+  },
+  "en decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "en decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "en decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "en decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "en decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "en decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "en decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "en decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 thousand"
+  },
+  "en decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "en decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "en decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "en decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 thousand"
+  },
+  "en decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "en decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "en decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "en decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 thousand"
+  },
+  "en decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "en decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "en decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "en-GB decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en-GB decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en-GB decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en-GB decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en-GB decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 thousand"
+  },
+  "en-GB decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "en-GB decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "en-GB decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "en-GB decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "en-GB decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "en-GB decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "en-GB decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "en-GB decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 thousand"
+  },
+  "en-GB decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "en-GB decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "en-GB decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "en-GB decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en-GB decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en-GB decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en-GB decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en-GB decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 thousand"
+  },
+  "en-GB decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "en-GB decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "en-GB decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 thousand"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "en-GB decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "da decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "da decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "da decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "da decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "da decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 tusind"
+  },
+  "da decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 t"
+  },
+  "da decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "da decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "da decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "da decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "da decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "da decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "da decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 tusind"
+  },
+  "da decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 t"
+  },
+  "da decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "da decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "da decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "da decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "da decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "da decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "da decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 tusind"
+  },
+  "da decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 t"
+  },
+  "da decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "da decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "da decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "da decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "da decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "da decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "da decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 tusind"
+  },
+  "da decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 t"
+  },
+  "da decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "da decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "de decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "de decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "de decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "de decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "de decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 Tausend"
+  },
+  "de decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10.000"
+  },
+  "de decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "de decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "de decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "de decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "de decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "de decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "de decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 Tausend"
+  },
+  "de decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "de decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "de decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "de decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "de decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "de decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "de decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "de decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 Tausend"
+  },
+  "de decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10.000"
+  },
+  "de decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "de decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "de decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "de decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "de decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "de decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "de decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 Tausend"
+  },
+  "de decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "de decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "de decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "es decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "es decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "es decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "es decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "es decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 mil"
+  },
+  "es decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 mil"
+  },
+  "es decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "es decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "es decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "es decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "es decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "es decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "es decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 mil"
+  },
+  "es decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 mil"
+  },
+  "es decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "es decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "es decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "es decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "es decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "es decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "es decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 mil"
+  },
+  "es decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 mil"
+  },
+  "es decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "es decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "es decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "es decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "es decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "es decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "es decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 mil"
+  },
+  "es decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 mil"
+  },
+  "es decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "es decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "fr decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "fr decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "fr decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "fr decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "fr decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 mille"
+  },
+  "fr decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 k"
+  },
+  "fr decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10 000"
+  },
+  "fr decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10 000"
+  },
+  "fr decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "fr decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "fr decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "fr decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "fr decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 mille"
+  },
+  "fr decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 k"
+  },
+  "fr decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10 000"
+  },
+  "fr decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10 000"
+  },
+  "fr decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "fr decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "fr decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "fr decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "fr decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 mille"
+  },
+  "fr decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 k"
+  },
+  "fr decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10 000"
+  },
+  "fr decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10 000"
+  },
+  "fr decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "fr decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "fr decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "fr decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "fr decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 mille"
+  },
+  "fr decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 k"
+  },
+  "fr decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10 000"
+  },
+  "fr decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10 000"
+  },
+  "id decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "id decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "id decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "id decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "id decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 ribu"
+  },
+  "id decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 rb"
+  },
+  "id decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "id decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "id decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "id decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "id decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "id decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "id decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 ribu"
+  },
+  "id decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 rb"
+  },
+  "id decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "id decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "id decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "id decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "id decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "id decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "id decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 ribu"
+  },
+  "id decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 rb"
+  },
+  "id decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "id decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "id decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "id decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "id decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "id decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "id decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 ribu"
+  },
+  "id decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 rb"
+  },
+  "id decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "id decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "it decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "it decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "it decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "it decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "it decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 mila"
+  },
+  "it decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10.000"
+  },
+  "it decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "it decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "it decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "it decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "it decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "it decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "it decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 mila"
+  },
+  "it decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "it decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "it decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "it decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "it decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "it decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "it decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "it decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 mila"
+  },
+  "it decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10.000"
+  },
+  "it decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "it decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "it decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "it decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "it decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "it decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "it decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 mila"
+  },
+  "it decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "it decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "it decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "ja decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ja decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ja decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ja decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ja decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1万"
+  },
+  "ja decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1万"
+  },
+  "ja decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "ja decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "ja decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "ja decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "ja decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "ja decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "ja decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1万"
+  },
+  "ja decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1万"
+  },
+  "ja decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "ja decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "ja decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ja decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ja decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ja decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ja decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1万"
+  },
+  "ja decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1万"
+  },
+  "ja decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "ja decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "ja decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ja decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ja decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ja decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ja decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1万"
+  },
+  "ja decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1万"
+  },
+  "ja decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "ja decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "ko decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ko decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ko decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ko decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ko decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1만"
+  },
+  "ko decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1만"
+  },
+  "ko decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "ko decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "ko decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "ko decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "ko decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "ko decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "ko decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1만"
+  },
+  "ko decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1만"
+  },
+  "ko decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "ko decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "ko decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ko decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ko decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ko decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ko decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1만"
+  },
+  "ko decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1만"
+  },
+  "ko decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "ko decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "ko decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ko decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ko decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ko decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ko decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1만"
+  },
+  "ko decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1만"
+  },
+  "ko decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "ko decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "ms decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ms decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ms decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ms decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ms decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 ribu"
+  },
+  "ms decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "ms decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "ms decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "ms decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "ms decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "ms decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "ms decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "ms decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 ribu"
+  },
+  "ms decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "ms decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "ms decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "ms decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ms decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ms decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ms decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ms decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 ribu"
+  },
+  "ms decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "ms decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "ms decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "ms decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ms decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ms decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ms decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ms decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 ribu"
+  },
+  "ms decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "ms decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "ms decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "nl decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "nl decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "nl decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "nl decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "nl decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 duizend"
+  },
+  "nl decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "nl decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "nl decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "nl decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "nl decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "nl decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "nl decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "nl decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 duizend"
+  },
+  "nl decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "nl decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "nl decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "nl decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "nl decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "nl decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "nl decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "nl decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 duizend"
+  },
+  "nl decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "nl decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "nl decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "nl decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "nl decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "nl decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "nl decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "nl decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 duizend"
+  },
+  "nl decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "nl decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "nl decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "pl decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "pl decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "pl decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "pl decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "pl decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 tysięcy"
+  },
+  "pl decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 tys."
+  },
+  "pl decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10 000"
+  },
+  "pl decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10 000"
+  },
+  "pl decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "pl decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "pl decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "pl decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "pl decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 tysięcy"
+  },
+  "pl decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 tys."
+  },
+  "pl decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10 000"
+  },
+  "pl decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10 000"
+  },
+  "pl decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "pl decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "pl decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "pl decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "pl decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 tysięcy"
+  },
+  "pl decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 tys."
+  },
+  "pl decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10 000"
+  },
+  "pl decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10 000"
+  },
+  "pl decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "pl decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "pl decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "pl decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "pl decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 tysięcy"
+  },
+  "pl decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 tys."
+  },
+  "pl decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10 000"
+  },
+  "pl decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10 000"
+  },
+  "pt decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "pt decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "pt decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "pt decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "pt decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 mil"
+  },
+  "pt decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 mil"
+  },
+  "pt decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "pt decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "pt decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "pt decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "pt decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "pt decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "pt decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 mil"
+  },
+  "pt decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 mil"
+  },
+  "pt decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "pt decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "pt decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "pt decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "pt decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "pt decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "pt decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 mil"
+  },
+  "pt decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 mil"
+  },
+  "pt decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "pt decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "pt decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "pt decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "pt decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "pt decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "pt decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 mil"
+  },
+  "pt decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 mil"
+  },
+  "pt decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "pt decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "ru decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ru decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ru decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ru decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ru decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 тысяч"
+  },
+  "ru decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 тыс."
+  },
+  "ru decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10 000"
+  },
+  "ru decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10 000"
+  },
+  "ru decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "ru decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "ru decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "ru decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "ru decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 тысяч"
+  },
+  "ru decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 тыс."
+  },
+  "ru decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10 000"
+  },
+  "ru decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10 000"
+  },
+  "ru decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ru decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ru decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ru decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ru decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 тысяч"
+  },
+  "ru decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 тыс."
+  },
+  "ru decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10 000"
+  },
+  "ru decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10 000"
+  },
+  "ru decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "ru decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "ru decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "ru decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "ru decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 тысяч"
+  },
+  "ru decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 тыс."
+  },
+  "ru decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10 000"
+  },
+  "ru decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10 000"
+  },
+  "th decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "th decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "th decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "th decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "th decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1 หมื่น"
+  },
+  "th decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "th decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "th decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "th decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "th decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "th decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "th decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "th decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1 หมื่น"
+  },
+  "th decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "th decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "th decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "th decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "th decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "th decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "th decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "th decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1 หมื่น"
+  },
+  "th decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "th decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "th decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "th decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "th decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "th decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "th decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "th decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1 หมื่น"
+  },
+  "th decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "th decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "th decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "tr decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "tr decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "tr decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "tr decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "tr decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 bin"
+  },
+  "tr decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10 B"
+  },
+  "tr decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "tr decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "tr decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "tr decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "tr decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "tr decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "tr decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 bin"
+  },
+  "tr decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10 B"
+  },
+  "tr decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "tr decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "tr decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "tr decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "tr decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "tr decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "tr decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 bin"
+  },
+  "tr decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10 B"
+  },
+  "tr decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10.000"
+  },
+  "tr decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10.000"
+  },
+  "tr decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "tr decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "tr decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "tr decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "tr decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 bin"
+  },
+  "tr decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10 B"
+  },
+  "tr decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10.000"
+  },
+  "tr decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10.000"
+  },
+  "zh decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "zh decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "zh decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "zh decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "zh decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1万"
+  },
+  "zh decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1万"
+  },
+  "zh decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "zh decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "zh decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "zh decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "zh decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "zh decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "zh decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1万"
+  },
+  "zh decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1万"
+  },
+  "zh decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "zh decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "zh decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "zh decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "zh decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "zh decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "zh decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1万"
+  },
+  "zh decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1万"
+  },
+  "zh decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "zh decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "zh decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "zh decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "zh decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "zh decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "zh decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1万"
+  },
+  "zh decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1万"
+  },
+  "zh decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "zh decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "en-BS decimal signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en-BS decimal signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en-BS decimal signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en-BS decimal signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en-BS decimal signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "10 thousand"
+  },
+  "en-BS decimal signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "en-BS decimal signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "en-BS decimal signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "en-BS decimal signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "10E+3"
+  },
+  "en-BS decimal signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "10E+3"
+  },
+  "en-BS decimal signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1E+4"
+  },
+  "en-BS decimal signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1E+4"
+  },
+  "en-BS decimal signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+10 thousand"
+  },
+  "en-BS decimal signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "en-BS decimal signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "en-BS decimal signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  },
+  "en-BS decimal signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en-BS decimal signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en-BS decimal signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en-BS decimal signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en-BS decimal signDisplay/never notation/compact compactDisplay/long": {
+    "result": "10 thousand"
+  },
+  "en-BS decimal signDisplay/never notation/compact compactDisplay/short": {
+    "result": "10K"
+  },
+  "en-BS decimal signDisplay/never notation/standard compactDisplay/long": {
+    "result": "10,000"
+  },
+  "en-BS decimal signDisplay/never notation/standard compactDisplay/short": {
+    "result": "10,000"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "10E3"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "10E3"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1E4"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1E4"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+10 thousand"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+10K"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+10,000"
+  },
+  "en-BS decimal signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+10,000"
+  }
+}

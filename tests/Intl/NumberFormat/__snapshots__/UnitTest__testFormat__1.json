@@ -1,0 +1,2882 @@
+{
+  "en unit acre unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 ac"
+  },
+  "en unit acre unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 ac"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 acres"
+  },
+  "en unit acre unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 acres"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousandac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2Kac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2Kac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousandac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2Kac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2Kac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567ac"
+  },
+  "en unit acre unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567ac"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 bit"
+  },
+  "en unit bit unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 bit"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 bits"
+  },
+  "en unit bit unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 bits"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousandbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2Kbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2Kbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousandbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2Kbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2Kbit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567bit"
+  },
+  "en unit bit unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567bit"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 byte"
+  },
+  "en unit byte unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 byte"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 bytes"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousandB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2KB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2KB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousandB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2KB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2KB"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567B"
+  },
+  "en unit byte unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567B"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 degrees Celsius"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567°C"
+  },
+  "en unit celsius unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567°C"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 cm"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 centimeters"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousandcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2Kcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2Kcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousandcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2Kcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2Kcm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567cm"
+  },
+  "en unit centimeter unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567cm"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 days"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousandd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2Kd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2Kd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousandd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2Kd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2Kd"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567d"
+  },
+  "en unit day unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567d"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 deg"
+  },
+  "en unit degree unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 deg"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 degrees"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567°"
+  },
+  "en unit degree unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567°F"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 degrees Fahrenheit"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567°"
+  },
+  "en unit fahrenheit unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567°"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 fluid ounces"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousandfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2Kfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2Kfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousandfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2Kfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousandfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2Kfl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567fl oz"
+  },
+  "en unit fluid-ounce unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567fl oz"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 ft"
+  },
+  "en unit foot unitDisplay/short signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 ft"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567 feet"
+  },
+  "en unit foot unitDisplay/long signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567 feet"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/long": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/engineering compactDisplay/short": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/long": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/scientific compactDisplay/short": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/long": {
+    "result": "1.2 thousand′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/compact compactDisplay/short": {
+    "result": "1.2K′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/long": {
+    "result": "1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/auto notation/standard compactDisplay/short": {
+    "result": "1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/long": {
+    "result": "1.235E+3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/engineering compactDisplay/short": {
+    "result": "1.235E+3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/long": {
+    "result": "1.235E+3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/scientific compactDisplay/short": {
+    "result": "1.235E+3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/compact compactDisplay/short": {
+    "result": "+1.2K′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/standard compactDisplay/long": {
+    "result": "+1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/always notation/standard compactDisplay/short": {
+    "result": "+1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/long": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/engineering compactDisplay/short": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/long": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/scientific compactDisplay/short": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/compact compactDisplay/long": {
+    "result": "1.2 thousand′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/compact compactDisplay/short": {
+    "result": "1.2K′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/standard compactDisplay/long": {
+    "result": "1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/never notation/standard compactDisplay/short": {
+    "result": "1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/long": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/engineering compactDisplay/short": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/long": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/scientific compactDisplay/short": {
+    "result": "1.235E3′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/long": {
+    "result": "+1.2 thousand′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/compact compactDisplay/short": {
+    "result": "+1.2K′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/long": {
+    "result": "+1,234.567′"
+  },
+  "en unit foot unitDisplay/narrow signDisplay/exceptZero notation/standard compactDisplay/short": {
+    "result": "+1,234.567′"
+  }
+}

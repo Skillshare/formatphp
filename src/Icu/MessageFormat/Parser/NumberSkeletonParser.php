@@ -27,6 +27,7 @@ use FormatPHP\Icu\MessageFormat\Parser;
 use FormatPHP\Icu\MessageFormat\Parser\Util\CodePointHelper;
 use FormatPHP\Intl\NumberFormatOptions as IntlNumberFormatOptions;
 
+use function array_key_exists;
 use function array_shift;
 use function assert;
 use function count;
@@ -47,6 +48,20 @@ class NumberSkeletonParser
     private const SIGNIFICANT_PRECISION_REGEX = '/^(@+)?(\+|#+)?[rs]?$/u';
     private const INTEGER_WIDTH_REGEX = '/(\*)(0+)|(#+)(0+)|(0+)/u';
     private const CONCISE_INTEGER_WIDTH_REGEX = '/^(0+)$/u';
+
+    private const ROUNDING_MODE_SYMBOLS = [
+        'rounding-mode-ceiling' => IntlNumberFormatOptions::ROUNDING_MODE_CEIL,
+        'rounding-mode-floor' => IntlNumberFormatOptions::ROUNDING_MODE_FLOOR,
+        'rounding-mode-down' => IntlNumberFormatOptions::ROUNDING_MODE_TRUNC,
+        'rounding-mode-up' => IntlNumberFormatOptions::ROUNDING_MODE_EXPAND,
+        'rounding-mode-half-even' => IntlNumberFormatOptions::ROUNDING_MODE_HALF_EVEN,
+        'rounding-mode-half-odd' => IntlNumberFormatOptions::ROUNDING_MODE_HALF_ODD,
+        'rounding-mode-half-ceiling' => IntlNumberFormatOptions::ROUNDING_MODE_HALF_CEIL,
+        'rounding-mode-half-floor' => IntlNumberFormatOptions::ROUNDING_MODE_HALF_FLOOR,
+        'rounding-mode-half-down' => IntlNumberFormatOptions::ROUNDING_MODE_HALF_TRUNC,
+        'rounding-mode-half-up' => IntlNumberFormatOptions::ROUNDING_MODE_HALF_EXPAND,
+        'rounding-mode-unnecessary' => IntlNumberFormatOptions::ROUNDING_MODE_UNNECESSARY,
+    ];
 
     /**
      * @throws Exception\InvalidArgumentException
@@ -130,7 +145,25 @@ class NumberSkeletonParser
                     continue 2;
                 case 'group-off':
                 case ',_':
-                    $options->useGrouping = false;
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_FALSE;
+
+                    continue 2;
+                case 'group-min2':
+                case ',?':
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_MIN2;
+
+                    continue 2;
+                case 'group-auto':
+                    $options->useGrouping = null;
+
+                    continue 2;
+                case 'group-on-aligned':
+                case ',!':
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_ALWAYS;
+
+                    continue 2;
+                case 'group-thousands':
+                    $options->useGrouping = IntlNumberFormatOptions::USE_GROUPING_THOUSANDS;
 
                     continue 2;
                 case 'precision-integer':
@@ -253,6 +286,7 @@ class NumberSkeletonParser
             }
 
             $this->parseSign($token->stem, $options);
+            $this->parseRoundingMode($token->stem, $options);
             $this->parseConciseScientificAndEngineeringStem($token->stem, $options);
         }
 
@@ -297,9 +331,20 @@ class NumberSkeletonParser
                 $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO;
 
                 break;
+            case 'sign-negative':
+            case '+-':
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_NEGATIVE;
+
+                break;
             case 'sign-accounting-except-zero':
             case '()?':
                 $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_EXCEPT_ZERO;
+                $numberFormatOptions->currencySign = IntlNumberFormatOptions::CURRENCY_SIGN_ACCOUNTING;
+
+                break;
+            case 'sign-accounting-negative':
+            case '()-':
+                $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_NEGATIVE;
                 $numberFormatOptions->currencySign = IntlNumberFormatOptions::CURRENCY_SIGN_ACCOUNTING;
 
                 break;
@@ -308,6 +353,13 @@ class NumberSkeletonParser
                 $numberFormatOptions->signDisplay = IntlNumberFormatOptions::SIGN_DISPLAY_NEVER;
 
                 break;
+        }
+    }
+
+    private function parseRoundingMode(string $option, Type\NumberFormatOptions $numberFormatOptions): void
+    {
+        if (array_key_exists($option, self::ROUNDING_MODE_SYMBOLS)) {
+            $numberFormatOptions->roundingMode = self::ROUNDING_MODE_SYMBOLS[$option];
         }
     }
 
