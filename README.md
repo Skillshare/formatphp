@@ -60,27 +60,170 @@ use FormatPHP\MessageCollection;
 
 // Translated messages in Spanish with matching IDs to what you declared.
 $messagesInSpanish = new MessageCollection([
-    new Message('hello', '¡Hola {name}! Hoy es {ts, date, ::yyyyMMdd}.'),
+    new Message('hello', '¡Hola {name}! Hoy es {today}.'),
 ]);
 
 $config = new Config(
     // Locale of the application (or of the user using the application).
-    locale: new Intl\Locale('es'),
+    new Intl\Locale('es-ES'),
 );
 
-$formatphp = new FormatPHP(
-    config: $config,
-    messages: $messagesInSpanish,
-);
+$formatphp = new FormatPHP($config, $messagesInSpanish);
 
 echo $formatphp->formatMessage([
     'id' => 'hello',
-    'defaultMessage' => 'Hello, {name}! Today is {ts, date, ::yyyyMMdd}.',
+    'defaultMessage' => 'Hello, {name}! Today is {today}.',
 ], [
     'name' => 'Arwen',
-    'ts' => time(),
-]);
+    'today' => $formatphp->formatDate(time()),
+]); // e.g., ¡Hola Arwen! Hoy es 31/1/22.
 ```
+
+### Formatting Numbers and Currency
+
+You may use the methods `formatNumber()` and `formatCurrency()` for format
+numbers and currency, according to the locale.
+
+```php
+use FormatPHP\Config;
+use FormatPHP\FormatPHP;
+use FormatPHP\Intl;
+
+$config = new Config(new Intl\Locale('es-ES'));
+$formatphp = new FormatPHP($config);
+
+$number = -12_345.678;
+
+echo $formatphp->formatNumber($number);          // e.g., "-12.345,678"
+echo $formatphp->formatCurrency($number, 'USD'); // e.g., "-12.345,68 $"
+```
+
+#### Using Intl\NumberFormatOptions with formatNumber() and formatCurrency()
+
+Fine-tune number and currency formatting with `Intl\NumberFormatOptions`.
+
+```php
+echo $formatphp->formatNumber($number, new Intl\NumberFormatOptions([
+    'style' => 'unit',
+    'unit' => 'meter',
+    'unitDisplay' => 'long',
+])); // e.g., "-12.345,678 metros"
+
+echo $formatphp->formatCurrency($number, 'USD', new Intl\NumberFormatOptions([
+    'currencySign' => 'accounting',
+    'currencyDisplay' => 'long',
+])); // e.g., "-12.345,68 US$"
+ ```
+
+`NumberFormatOptions` accepts the following options to specify the style and
+type of notation desired:
+
+* `notation`: The number formatting to use. Possible values include: `standard`,
+  `scientific`, `engineering`, and `compact`. The default is `standard`.
+* `style`: The number formatting style to use. Possible values include:
+  `decimal`, `currency`, `percent`, and `unit`. The default is `decimal` when
+  using `formatNumber()`. When using `formatCurrency()`, this value will always
+  be `currency` no matter what value is set on the `NumberFormatOptions` instance.
+
+All notations support the following properties to provide more granular control
+over the formatting of numbers:
+
+* `signDisplay`: Controls when to display the sign for the number. Defaults to
+  `auto`. Possible values include:
+  * `always`: Always display the sign.
+  * `auto`: Use the locale to determine when to display the sign.
+  * `exceptZero`: Display the sign for positive and negative numbers, but never
+    display the size for zero.
+  * `never`: Never display the sign.
+* `roundingMode`: Controls rounding rules for the number. The default is
+  `halfEven`. Possible values include:
+  * `ceil`: All values are rounded towards positive infinity (+∞).
+  * `floor`: All values are rounded towards negative infinity (-∞).
+  * `expand`: All values are rounded away from zero.
+  * `trunc`: All values are rounded towards zero.
+  * `halfCeil`: Values exactly on the 0.5 (half) mark are rounded towards
+    positive infinity (+∞).
+  * `halfFloor`: Values exactly on the 0.5 (half) mark are rounded towards
+    negative infinity (-∞).
+  * `halfExpand`: Values exactly on the 0.5 (half) mark are rounded away from zero.
+  * `halfTrunc`: Values exactly on the 0.5 (half) mark are rounded towards zero.
+  * `halfEven`: Values exactly on the 0.5 (half) mark are rounded to the nearest
+    even digit. This is often called Banker’s Rounding because it is, on average,
+    free of bias.
+  * `halfOdd`: Similar to `halfEven`, but rounds ties to the nearest odd number
+    instead of even number.
+  * `unnecessary`: This mode doesn't perform any rounding but will throw an
+    exception if the value cannot be represented exactly without rounding.
+* `useGrouping`: Controls display of grouping separators, such as thousand
+  separators or thousand/lakh/crore separators. The default is `auto`. Possible
+  values include:
+  * `always`: Always display grouping separators, even if the locale prefers otherwise.
+  * `auto`: Use the locale's preference for grouping separators.
+  * `false`: Do not display grouping separators. Please note this is a string
+    value and not a boolean `false` value.
+  * `min2`: Display grouping separators when there are at least two digits in a group.
+  * `true`: This is an alias for `always`. Please note this is a string value
+    and not a boolean `true` value.
+* `scale`: A scale by which to multiply the number before formatting it. For
+  example, a scale value of 100 will multiply the number by 100 first, then
+  apply other formatting options.
+* `minimumIntegerDigits`: Specifies the minimum number of integer digits to use.
+  The default is 1.
+* `minimumFractionDigits` and `maximumFractionDigits`: Specifies the minimum and
+  maximum number of fraction digits to use.
+* `minimumSignificantDigits` and `maximumSignificantDigits`: Specifies the
+  minimum and maximum number of significant digits to use.
+* `numberingSystem`: Specifies a [numbering system](https://cldr.unicode.org/translation/core-data/numbering-systems)
+  to use when representing numeric values. You may specify any [numbering system
+  defined within Unicode CLDR](https://github.com/unicode-org/cldr/blob/main/common/bcp47/number.xml)
+  and bundled in the ICU library version that is available on your platform.
+  However, numbering systems featuring algorithmic numbers do not yet work.
+  Possible values include (but are not limited to): `adlm`, `ahom`, `arab`,
+  `arabext`, `bali`, `beng`, `bhks`, `brah`, `cakm`, `cham`, `deva`, `fullwide`,
+  `gong`, `gonm`, `gujr`, `guru`, `hanidec`, `hmng`, `java`, `kali`, `khmr`,
+  `knda`, `lana`, `lanatham`, `laoo`, `latn`, `lepc`, `limb`, `mathbold`,
+  `mathdbl`, `mathmono`, `mathsanb`, `mathsans`, `mlym`, `modi`, `mong`, `mroo`,
+  `mtei`, `mymr`, `mymrshan`, `mymrtlng`, `newa`, `nkoo`, `olck`, `orya`, `osma`,
+ `rohg`, `saur`, `shrd`, `sind`, `sora`, `sund`, `takr`, `talu`, `tamldec`,
+  `telu`, `thai`, `tibt`, `tirh`, `vaii`, `wara`, and `wcho`.
+
+#### Formatting Fractions
+
+The following properties affect the formatting of fractional digits (e.g., when
+using `minimumFractionDigits` or `maximumFractionDigits`).
+
+* `trailingZeroDisplay`: Controls the display of trailing zeros when formatting
+  numbers. The default is `auto`.
+  * `auto`: Keep the trailing zeros according to the rules defined in
+    `minimumFractionDigits` and `maximumFractionDigits`.
+  * `stripIfInteger`: If the formatted number is a whole integer, do not display
+    trailing zeros.
+* `roundingPriority`: Specifies how to resolve conflicts between maximum fraction
+  digits and maximum significant digits. The default is `auto`.
+  * `auto`: The significant digits always win a conflict.
+  * `morePrecision`: The result with more precision wins the conflict.
+  * `lessPrecision`: The result with less precision wins the conflict.
+
+#### Formatting Currency
+
+When formatting currency, you may use the following properties.
+
+* `currencySign`: In accounting, many locales format negative currency values
+  using parentheses rather than the minus sign. You may enable this behavior by
+  setting this property to `accounting`. The default value is `standard`.
+* `currencyDisplay`: How to display the currency. Possible values include:
+  * `symbol`: Use a localized currency symbol when formatting the currency. This
+    is the default.
+  * `narrowSymbol`: Use a narrow format for the currency symbol. For example, in
+    some locales (e.g., en-GB), USD currency will default to display as "US$100."
+    When using `narrowSymbol`, it will display as "$100."
+  * `code`: Use the ISO currency code when formatting currency (e.g., "USD 100").
+  * `name`: Use a localized name for the currency (e.g., "100 US dollars").
+
+#### Compact Notation
+
+If `notation` is `compact`, then you may specify the `compactDisplay` property
+with the value `short` or `long`. The default is `short`.
 
 ### Formatting Dates and Times
 
@@ -92,13 +235,13 @@ use FormatPHP\Config;
 use FormatPHP\FormatPHP;
 use FormatPHP\Intl;
 
-$config = new Config(new Intl\Locale('es'));
+$config = new Config(new Intl\Locale('es-ES'));
 $formatphp = new FormatPHP($config);
 
 $date = new DateTimeImmutable();
 
-echo $formatphp->formatDate($date); // e.g. "21/1/22"
-echo $formatphp->formatTime($date); // e.g. "16:58"
+echo $formatphp->formatDate($date); // e.g., "31/1/22"
+echo $formatphp->formatTime($date); // e.g., "16:58"
 ```
 
 #### Using Intl\DateTimeFormatOptions with formatDate() and formatTime()
@@ -107,11 +250,12 @@ Fine-tune date and time formatting with `Intl\DateTimeFormatOptions`.
 
 ```php
 echo $formatphp->formatDate($date, new Intl\DateTimeFormatOptions([
-  'dateStyle' => 'medium',
-])); // e.g. "21 ene 2022"
+    'dateStyle' => 'medium',
+])); // e.g., "31 ene 2022"
+
 echo $formatphp->formatTime($date, new Intl\DateTimeFormatOptions([
-  'timeStyle' => 'long',
-])); // e.g. "16:58:31 UTC"
+    'timeStyle' => 'long',
+])); // e.g., "16:58:31 UTC"
 ```
 
 `DateTimeFormatOptions` accepts the following general options for formatting
@@ -193,15 +337,20 @@ be broken up into chunks. These are not HTML or XML tags, and attributes are
 not supported.
 
 ```php
-$formatphp->formatMessage([
+echo $formatphp->formatMessage([
     'id' => 'priceMessage',
     'defaultMessage' => <<<'EOD'
-        Our price is <boldThis>{price, number, ::currency/USD precision-integer}</boldThis>
-        with <link>{pct, number, ::percent} discount</link>
+        Our price is <boldThis>{price}</boldThis>
+        with <link>{discount} discount</link>
         EOD,
 ], [
-    'price' => 29.99,
-    'pct' => 2.5,
+    'price' => $formatphp->formatCurrency(29.99, 'USD', new Intl\NumberFormatOptions([
+        'maximumFractionDigits' => 0,
+    ])),
+    'discount' => $formatphp->formatNumber(.025, new Intl\NumberFormatOptions([
+        'style' => 'percent',
+        'minimumFractionDigits' => 1,
+    ])),
     'boldThis' => fn ($text) => "<strong>$text</strong>",
     'link' => fn ($text) => "<a href=\"/discounts/1234\">$text</a>",
 ]);
@@ -216,8 +365,9 @@ of tag names to rich text formatting functions, when configuring FormatPHP.
 
 ```php
 $config = new Config(
-    locale: new Intl\Locale('en-US'),
-    defaultRichTextElements: [
+    new Intl\Locale('en-US'),
+    null,
+    [
         'em' => fn ($text) => "<em class=\"myClass\">$text</em>",
         'strong' => fn ($text) => "<strong class=\"myClass\">$text</strong>",
     ],
@@ -249,9 +399,9 @@ use FormatPHP\MessageLoader;
 
 $messageLoader = new MessageLoader(
     // The path to your locale JSON files (i.e., en.json, es.json, etc.).
-    messagesDirectory: '/path/to/app/locales',
+    '/path/to/app/locales',
     // The configuration object created earlier.
-    config: $config,
+    $config,
 );
 
 $messagesInSpanish = $messageLoader->loadMessages();
@@ -264,7 +414,7 @@ contents:
 ```json
 {
   "hello": {
-    "defaultMessage": "Hello, {name}! Today is {ts, date, ::yyyyMMdd}."
+    "defaultMessage": "Hello, {name}! Today is {today}."
   }
 }
 ```
@@ -274,7 +424,7 @@ and an `es.json` file with these contents:
 ```json
 {
   "hello": {
-    "defaultMessage": "¡Hola {name}! Hoy es {ts, date, ::yyyyMMdd}."
+    "defaultMessage": "¡Hola {name}! Hoy es {today}."
   }
 }
 ```
@@ -380,7 +530,7 @@ particular TMS.
 | [SimpleLocalize](https://simplelocalize.io/docs/integrations/format-js-cli/)         | `simple`    |
 | [Smartling ICU JSON](https://help.smartling.com/hc/en-us/articles/360008000733-JSON) | `smartling` |
 
-Our default formatter is `formatphp`, which mirrors the output of default
+Our default formatter is `formatphp`, which mirrors the output of the default
 formatter for FormatJS.
 
 ### Custom Formatters
@@ -431,11 +581,11 @@ To use a custom reader with the message loader:
 ```php
 $messageLoader = new MessageLoader(
     // The path to your locale JSON files (i.e., en.json, es.json, etc.).
-    messagesDirectory: '/path/to/app/locales',
+    '/path/to/app/locales',
     // The configuration object created earlier.
-    config: $config,
+    $config,
     // Pass your custom reader through the formatReader parameter.
-    formatReader: MyCustomReader::class,
+    MyCustomReader::class,
 );
 ```
 
