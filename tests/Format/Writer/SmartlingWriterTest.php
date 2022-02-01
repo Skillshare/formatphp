@@ -36,9 +36,9 @@ class SmartlingWriterTest extends TestCase
                     ],
                     'variants_enabled' => true,
                 ],
-                'foo' => ['message' => ''],
                 'bar' => ['message' => 'some message'],
                 'baz' => ['description' => 'a description', 'message' => 'another message'],
+                'foo' => ['message' => ''],
             ],
             $formatter($collection, $options),
         );

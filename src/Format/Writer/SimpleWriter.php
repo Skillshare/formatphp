@@ -27,6 +27,11 @@ use FormatPHP\Format\Reader\SimpleReader;
 use FormatPHP\Format\WriterInterface;
 use FormatPHP\Format\WriterOptions;
 
+use function ksort;
+
+use const SORT_FLAG_CASE;
+use const SORT_NATURAL;
+
 /**
  * A simple formatter for FormatPHP, producing message key-value pairs
  *
@@ -51,6 +56,8 @@ class SimpleWriter implements WriterInterface
         foreach ($collection as $item) {
             $simple[(string) $item->getId()] = $item->getDefaultMessage();
         }
+
+        ksort($simple, SORT_NATURAL | SORT_FLAG_CASE);
 
         return $simple;
     }

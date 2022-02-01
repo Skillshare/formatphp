@@ -27,6 +27,11 @@ use FormatPHP\Format\Reader\ChromeReader;
 use FormatPHP\Format\WriterInterface;
 use FormatPHP\Format\WriterOptions;
 
+use function ksort;
+
+use const SORT_FLAG_CASE;
+use const SORT_NATURAL;
+
 /**
  * Chrome formatter for FormatPHP
  *
@@ -64,6 +69,8 @@ class ChromeWriter implements WriterInterface
 
             $format[(string) $item->getId()] = $message;
         }
+
+        ksort($format, SORT_NATURAL | SORT_FLAG_CASE);
 
         return $format;
     }
