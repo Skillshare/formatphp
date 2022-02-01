@@ -152,7 +152,6 @@ class FormatPHP implements FormatterInterface
         $options = $options ?? new NumberFormatOptions();
         $options->style = NumberFormatOptions::STYLE_CURRENCY;
         $options->currency = $currencyCode;
-        $options->currencyDisplay = $options->currencyDisplay ?? NumberFormatOptions::CURRENCY_DISPLAY_NARROW_SYMBOL;
 
         return $this->formatNumber($value, $options);
     }
