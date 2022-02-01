@@ -373,17 +373,17 @@ class FormatPHPTest extends TestCase
 
     public function testFormatCurrency(): void
     {
-        $locale = new Locale('en');
+        $locale = new Locale('en-GB');
         $config = new Config($locale);
         $messageCollection = new MessageCollection();
         $formatphp = new FormatPHP($config, $messageCollection);
 
-        $this->assertSame('$1,234.00', $formatphp->formatCurrency(1234, 'USD'));
+        $this->assertSame('US$1,234.00', $formatphp->formatCurrency(1234, 'USD'));
     }
 
     public function testFormatCurrencyWithOptions(): void
     {
-        $locale = new Locale('en');
+        $locale = new Locale('en-US');
         $config = new Config($locale);
         $messageCollection = new MessageCollection();
         $formatphp = new FormatPHP($config, $messageCollection);
