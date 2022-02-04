@@ -225,6 +225,31 @@ When formatting currency, you may use the following properties.
 If `notation` is `compact`, then you may specify the `compactDisplay` property
 with the value `short` or `long`. The default is `short`.
 
+#### Formatting Percentages
+
+According to [ECMA-402, section 15.1.6](https://tc39.es/ecma402/#sec-partitionnumberpattern)
+(specifically step 5.b.), if the style is "percent," then the number formatter
+must multiply the value by 100. This means the formatter expects percent values
+expressed as fractions of 100 (i.e., 0.25 for 25%, 0.055 for 5.5%, etc.).
+
+Since FormatJS also applies this rule to `::percent` number skeletons in
+formatted messages, FormatPHP does, as well.
+
+For example:
+
+```php
+echo $formatphp->formatMessage([
+    'id' => 'discountMessage',
+    'defaultMessage' => 'You get {discount, number, ::percent} off the retail price!',
+], [
+    'discount' => 0.25,
+]); // e.g., "You get 25% off the retail price!"
+
+echo $formatphp->formatNumber(0.25, new Intl\NumberFormatOptions([
+    'style' => 'percent',
+])); // e.g., "25%"
+```
+
 ### Formatting Dates and Times
 
 You may use the methods `formatDate()` and `formatTime()` to format dates and
@@ -341,16 +366,13 @@ echo $formatphp->formatMessage([
     'id' => 'priceMessage',
     'defaultMessage' => <<<'EOD'
         Our price is <boldThis>{price}</boldThis>
-        with <link>{discount} discount</link>
+        with <link>{discount, number, ::percent} discount</link>
         EOD,
 ], [
     'price' => $formatphp->formatCurrency(29.99, 'USD', new Intl\NumberFormatOptions([
         'maximumFractionDigits' => 0,
     ])),
-    'discount' => $formatphp->formatNumber(.025, new Intl\NumberFormatOptions([
-        'style' => 'percent',
-        'minimumFractionDigits' => 1,
-    ])),
+    'discount' => .025,
     'boldThis' => fn ($text) => "<strong>$text</strong>",
     'link' => fn ($text) => "<a href=\"/discounts/1234\">$text</a>",
 ]);
