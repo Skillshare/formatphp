@@ -182,6 +182,8 @@ class NumberFormat implements NumberFormatInterface
 
     /**
      * Returns the number skeleton generated from the options provided
+     *
+     * @internal
      */
     public function getSkeleton(): string
     {

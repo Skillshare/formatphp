@@ -27,7 +27,7 @@ use JsonSerializable;
 
 /**
  * @psalm-import-type NumeralType from NumberFormatOptions
- * @psalm-type CalendarType = "buddhist" | "chinese" | "coptic" | "dangi" | "ethioaa" | "ethiopia" | "ethiopic" | "gregory" | "hebrew" | "indian" | "islamic" | "islamic-civil" | "islamic-rgsa" | "islamic-tbla" | "islamic-umalqura" | "iso8601" | "japanese" | "persian" | "roc" | non-empty-string
+ * @psalm-type CalendarType = "buddhist" | "chinese" | "coptic" | "dangi" | "ethioaa" | "ethiopic" | "gregory" | "hebrew" | "indian" | "islamic" | "islamic-civil" | "islamic-rgsa" | "islamic-tbla" | "islamic-umalqura" | "iso8601" | "japanese" | "persian" | "roc" | non-empty-string
  * @psalm-type FractionDigitsType = 0 | 1 | 2 | 3
  * @psalm-type HourType = "h11" | "h12" | "h23" | "h24"
  * @psalm-type PeriodType = "narrow" | "short" | "long"

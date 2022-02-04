@@ -293,7 +293,7 @@ more granular formatting of dates and times:
 Additional options include:
 
 * `calendar`: The calendar system to use. Possible values include: `buddhist`,
-  `chinese`, `coptic`, `dangi`, `ethioaa`, `ethiopia`, `ethiopic`, `gregory`,
+  `chinese`, `coptic`, `dangi`, `ethioaa`, `ethiopic`, `gregory`,
   `hebrew`, `indian`, `islamic`, `islamic-civil`, `islamic-rgsa`, `islamic-tbla`,
   `islamic-umalqura`, `iso8601`, `japanese`, `persian`, or `roc`.
 * `dayPeriod`: The formatting style used for day periods like "in the morning",
@@ -311,7 +311,7 @@ Additional options include:
   `diak`, `ethi`, `finance`, `fullwide`, `geor`, `gong`, `gonm`, `grek`, `greklow`,
   `gujr`, `guru`, `hanidays`, `hanidec`, `hans`, `hansfin`, `hant`, `hantfin`,
   `hebr`, `hmnp`, `java`, `jpan`, `jpanfin`, `jpanyear`, `kali`, `khmr`, `knda`,
-  `lana`, `lanatham`, `laoo`, `lepc`, `limb`, `mlym`, `mong`, `mtei`, `mymr`,
+  `lana`, `lanatham`, `laoo`, `latn`, `lepc`, `limb`, `mlym`, `mong`, `mtei`, `mymr`,
   `mymrshan`, `native`, `nkoo`, `olck`, `orya`, `osma`, `rohg`, `roman`, `romanlow`,
   `saur`, `shrd`, `sora`, `sund`, `takr`, `talu`, `taml`, `tamldec`, `telu`,
   `thai`, `tibt`, `tnsa`, `traditional`, `vaii`, or `wcho`.

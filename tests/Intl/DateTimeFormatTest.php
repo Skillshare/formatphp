@@ -6,7 +6,6 @@ namespace FormatPHP\Test\Intl;
 
 use DateTimeImmutable;
 use FormatPHP\Exception\InvalidArgumentException;
-use FormatPHP\Exception\UnableToFormatDateTimeException;
 use FormatPHP\Intl\DateTimeFormat;
 use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\Locale;
@@ -47,7 +46,7 @@ class DateTimeFormatTest extends TestCase
      * @psalm-param OptionsType $options
      * @dataProvider formatProvider
      */
-    public function testFormat(array $options, string $ko, string $en): void
+    public function testFormat(array $options, string $ko, string $en, string $skeleton): void
     {
         $koLocale = new Locale('ko');
         $enLocale = new Locale('en');
@@ -60,23 +59,22 @@ class DateTimeFormatTest extends TestCase
         $this->assertSame($en, $enFormatter->format($date));
         $this->assertSame($ko, $koFormatter->format($date));
 
+        $this->assertSame($skeleton, $enFormatter->getSkeleton());
+        $this->assertSame($skeleton, $koFormatter->getSkeleton());
+
         // We change the default timezone within the SUT, so let's assert
         // that is changed back to the value we set in this test's setUp().
         $this->assertSame(self::TEST_TIMEZONE, date_default_timezone_get());
     }
 
-    public function testFormatThrowsException(): void
+    public function testUnknownTimeZoneThrowsException(): void
     {
-        $formatter = new DateTimeFormat(new Locale('en'), new DateTimeFormatOptions([
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unknown time zone "America/Foobar"');
+
+        new DateTimeFormat(new Locale('en'), new DateTimeFormatOptions([
             'timeZone' => 'America/Foobar',
         ]));
-
-        $this->expectException(UnableToFormatDateTimeException::class);
-        $this->expectExceptionMessage(
-            'Unable to format date "Fri, 07 Jan 2022 21:36:52 +0000" for locale "en"',
-        );
-
-        $formatter->format(new DateTimeImmutable('@' . 1641591412));
     }
 
     /**
@@ -140,10 +138,6 @@ class DateTimeFormatTest extends TestCase
         $enFormatter = new DateTimeFormat($enLocale, $formatOptions);
         $date = new DateTimeImmutable('@' . self::TS);
 
-        // This should be 22 instead of 10 (because of the "h23" hourCycle,
-        // but PHP's MessageFormatter (perhaps through extension of icu4c's
-        // u_formatMessage) always takes the locale's formatting into
-        // consideration and renders this without the 24-hour time.
         $this->assertSame(
             'Monday, June 15, 2020 at 10:48:20 PM Mountain Daylight Time',
             $enFormatter->format($date),
@@ -176,6 +170,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 4시 48분 20초 협정 세계시',
                 'en' => 'Tuesday, 6 16, 2020 Anno Domini, 4:48:20 AM Coordinated Universal Time',
+                'skeleton' => 'GGGGyyyyMdEEEEhmszzzz',
             ],
             [
                 'options' => [
@@ -193,6 +188,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 12시 48분 20초 GMT-4',
                 'en' => 'Tuesday, 6 16, 2020 Anno Domini, 12:48:20 AM EDT',
+                'skeleton' => 'GGGGyyyyMdEEEEhmsz',
             ],
             [
                 'options' => [
@@ -210,6 +206,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 12시 48분 20초 GMT-4',
                 'en' => 'Tuesday, 6 16, 2020 Anno Domini, 12:48:20 AM EDT',
+                'skeleton' => 'GGGGyyyyMddEEEEhmsz',
             ],
             [
                 'options' => [
@@ -226,6 +223,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 12시 48분 20초 GMT-4',
                 'en' => 'Tuesday, 6 16, 2020 Anno Domini, 12:48:20 AM EDT',
+                'skeleton' => 'GGGGyyyyMddEEEEhmsz',
             ],
             [
                 'options' => [
@@ -240,12 +238,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => '서기 2020년 6 15일 월요일 오후 9시 48분 20초 GMT-7',
                 'en' => 'Monday, 6 15, 2020 Anno Domini, 9:48:20 PM PDT',
+                'skeleton' => 'GGGGyyyyMddEEEEhhmsz',
             ],
             [
                 'options' => [
@@ -260,12 +255,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
                 'en' => 'Monday, June 15, 20 Anno Domini, 9:48:20 PM PDT',
+                'skeleton' => 'GGGGyyMMMMddEEEEhhmsz',
             ],
             [
                 'options' => [
@@ -280,12 +272,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
                 'en' => 'Monday, Jun 15, 20 Anno Domini, 9:48:20 PM PDT',
+                'skeleton' => 'GGGGyyMMMddEEEEhhmsz',
             ],
             [
                 'options' => [
@@ -300,12 +289,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
                 'en' => 'Monday, J 15, 20 Anno Domini, 9:48:20 PM PDT',
+                'skeleton' => 'GGGGyyMMMMMddEEEEhhmsz',
             ],
             [
                 'options' => [
@@ -320,12 +306,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => 'AD 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
                 'en' => 'Monday, J 15, 20 AD, 9:48:20 PM PDT',
+                'skeleton' => 'GyyMMMMMddEEEEhhmsz',
             ],
             [
                 'options' => [
@@ -340,12 +323,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => 'AD 20년 6월 15일 (월) 오후 9시 48분 20초 GMT-7',
                 'en' => 'M, J 15, 20 AD, 9:48:20 PM PDT',
+                'skeleton' => 'GyyMMMMMddEEEEEhhmsz',
             ],
             [
                 'options' => [
@@ -360,12 +340,9 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                     'timeZoneName' => 'short',
                 ],
-                // This should be 09 instead of 9, but PHP's MessageFormatter
-                // (perhaps through extension of icu4c's u_formatMessage) always
-                // takes the locale's formatting into consideration and renders
-                // this without the zero padding.
                 'ko' => 'AD 20년 6월 15일 (월) 오후 9시 48분 20초 GMT-7',
                 'en' => 'Mon, J 15, 20 AD, 9:48:20 PM PDT',
+                'skeleton' => 'GyyMMMMMddEhhmsz',
             ],
             [
                 'options' => [
@@ -374,6 +351,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '2020년 6월 15일 월요일',
                 'en' => 'Monday, June 15, 2020',
+                'skeleton' => 'EEEEMMMMdy',
             ],
             [
                 'options' => [
@@ -382,6 +360,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '2020년 6월 15일',
                 'en' => 'June 15, 2020',
+                'skeleton' => 'MMMMdy',
             ],
             [
                 'options' => [
@@ -390,6 +369,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '2020. 6. 15.',
                 'en' => 'Jun 15, 2020',
+                'skeleton' => 'MMMdy',
             ],
             [
                 'options' => [
@@ -398,6 +378,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '20. 6. 15.',
                 'en' => '6/15/20',
+                'skeleton' => 'Mdyy',
             ],
             [
                 'options' => [
@@ -406,6 +387,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '오후 9시 48분 20초 미 태평양 하계 표준시',
                 'en' => '9:48:20 PM Pacific Daylight Time',
+                'skeleton' => 'hmmssazzzz',
             ],
             [
                 'options' => [
@@ -414,6 +396,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '오후 9시 48분 20초 GMT-7',
                 'en' => '9:48:20 PM PDT',
+                'skeleton' => 'hmmssaz',
             ],
             [
                 'options' => [
@@ -422,6 +405,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '오후 9:48:20',
                 'en' => '9:48:20 PM',
+                'skeleton' => 'hmmssa',
             ],
             [
                 'options' => [
@@ -430,6 +414,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '오후 9:48',
                 'en' => '9:48 PM',
+                'skeleton' => 'hmma',
             ],
             [
                 'options' => [
@@ -439,6 +424,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '2020년 6월 15일 오후 9시 48분 20초 미 태평양 하계 표준시',
                 'en' => 'June 15, 2020 at 9:48:20 PM Pacific Daylight Time',
+                'skeleton' => 'MMMMdyhmmssazzzz',
             ],
             [
                 'options' => [
@@ -448,6 +434,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '2020. 6. 15. 오후 9시 48분 20초 GMT-7',
                 'en' => 'Jun 15, 2020, 9:48:20 PM PDT',
+                'skeleton' => 'MMMdyhmmssaz',
             ],
             [
                 'options' => [
@@ -457,6 +444,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '20. 6. 15. 오후 9:48:20',
                 'en' => '6/15/20, 9:48:20 PM',
+                'skeleton' => 'Mdyyhmmssa',
             ],
             [
                 'options' => [
@@ -466,6 +454,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '2020년 6월 15일 월요일 오후 9:48',
                 'en' => 'Monday, June 15, 2020 at 9:48 PM',
+                'skeleton' => 'EEEEMMMMdyhmma',
             ],
             [
                 'options' => [
@@ -474,8 +463,9 @@ class DateTimeFormatTest extends TestCase
                     'calendar' => 'buddhist',
                     'timeZone' => 'America/Denver',
                 ],
-                'ko' => 'AD 2020년 6월 15일 월요일 오후 10시 48분 20초 미 산지 하계 표준시',
-                'en' => 'Monday, June 15, 2020 AD at 10:48:20 PM Mountain Daylight Time',
+                'ko' => '불기 2563년 6월 15일 월요일 오후 10시 48분 20초 미 산지 하계 표준시',
+                'en' => 'Monday, June 15, 2563 BE at 10:48:20 PM Mountain Daylight Time',
+                'skeleton' => 'EEEEMMMMdyhmmssazzzz',
             ],
             [
                 'options' => [
@@ -486,6 +476,7 @@ class DateTimeFormatTest extends TestCase
                 ],
                 'ko' => '二千零二十년 六월 十五일 월요일 오후 十시 四十八분 二十초 미 산지 하계 표준시',
                 'en' => 'Monday, June 十五, 二千零二十 at 十:四十八:二十 PM Mountain Daylight Time',
+                'skeleton' => 'EEEEMMMMdyhmmssazzzz',
             ],
             [
                 'options' => [
@@ -494,12 +485,9 @@ class DateTimeFormatTest extends TestCase
                     'hourCycle' => 'h23',
                     'timeZone' => 'America/Denver',
                 ],
-                // This should be 22 instead of 10 (because of the "h23" hourCycle,
-                // but PHP's MessageFormatter (perhaps through extension of icu4c's
-                // u_formatMessage) always takes the locale's formatting into
-                // consideration and renders this without the 24-hour time.
                 'ko' => '2020년 6월 15일 월요일 오후 10시 48분 20초 미 산지 하계 표준시',
                 'en' => 'Monday, June 15, 2020 at 10:48:20 PM Mountain Daylight Time',
+                'skeleton' => 'EEEEMMMMdyhmmssazzzz',
             ],
         ];
     }
