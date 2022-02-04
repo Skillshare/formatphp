@@ -326,4 +326,56 @@ class MessageFormatTest extends TestCase
             );
         }
     }
+
+    public function testProcessesPercentagesAccordingToEcma402(): void
+    {
+        $message = 'Your discount is {discount, number, ::percent} off the retail value.';
+        $expected = 'Your discount is 25% off the retail value.';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $result = $formatter->format($message, ['discount' => 0.25]);
+
+        $this->assertSame($expected, $result);
+    }
+
+    public function testProcessesPercentagesAccordingToEcma402WithScaleAt100(): void
+    {
+        $message = 'Your discount is {discount, number, ::percent scale/100} off the retail value.';
+        $expected = 'Your discount is 2,500% off the retail value.';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $result = $formatter->format($message, ['discount' => 0.25]);
+
+        $this->assertSame($expected, $result);
+    }
+
+    public function testProcessesPercentagesAccordingToEcma402WithScaleAt1(): void
+    {
+        $message = 'Your discount is {discount, number, ::percent scale/1} off the retail value.';
+        $expected = 'Your discount is 25% off the retail value.';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $result = $formatter->format($message, ['discount' => 0.25]);
+
+        $this->assertSame($expected, $result);
+    }
+
+    public function testProcessesNumberWithoutStyle(): void
+    {
+        $message = 'Your discount is {discount, number} off the retail value.';
+        $expected = 'Your discount is 25 off the retail value.';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $result = $formatter->format($message, ['discount' => 25]);
+
+        $this->assertSame($expected, $result);
+    }
 }
