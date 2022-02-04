@@ -25,8 +25,10 @@ namespace FormatPHP\Intl;
 use DateTimeInterface as PhpDateTimeInterface;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\Exception\UnableToFormatDateTimeException;
+use IntlCalendar;
 use IntlDateFormatter as PhpIntlDateFormatter;
 use IntlException as PhpIntlException;
+use IntlTimeZone;
 use Locale as PhpLocale;
 use MessageFormatter as PhpMessageFormatter;
 use Throwable;
@@ -45,11 +47,10 @@ class DateTimeFormat implements DateTimeFormatInterface
     private const HOUR_PATTERN = '/(hh?|HH?|kk?|KK?)/';
 
     private const STYLE_MAP = [
-        'full' => PhpIntlDateFormatter::FULL,
-        'long' => PhpIntlDateFormatter::LONG,
-        'medium' => PhpIntlDateFormatter::MEDIUM,
-        'short' => PhpIntlDateFormatter::SHORT,
-        'none' => PhpIntlDateFormatter::NONE,
+        DateTimeFormatOptions::STYLE_FULL => PhpIntlDateFormatter::FULL,
+        DateTimeFormatOptions::STYLE_LONG => PhpIntlDateFormatter::LONG,
+        DateTimeFormatOptions::STYLE_MEDIUM => PhpIntlDateFormatter::MEDIUM,
+        DateTimeFormatOptions::STYLE_SHORT => PhpIntlDateFormatter::SHORT,
     ];
 
     /**
@@ -66,91 +67,106 @@ class DateTimeFormat implements DateTimeFormatInterface
         'second',
     ];
 
+    private const SYMBOLS_STYLE_DATE = [
+        DateTimeFormatOptions::STYLE_FULL => 'EEEEMMMMdy',
+        DateTimeFormatOptions::STYLE_LONG => 'MMMMdy',
+        DateTimeFormatOptions::STYLE_MEDIUM => 'MMMdy',
+        DateTimeFormatOptions::STYLE_SHORT => 'Mdyy',
+    ];
+
+    private const SYMBOLS_STYLE_TIME = [
+        DateTimeFormatOptions::STYLE_FULL => 'hmmssazzzz',
+        DateTimeFormatOptions::STYLE_LONG => 'hmmssaz',
+        DateTimeFormatOptions::STYLE_MEDIUM => 'hmmssa',
+        DateTimeFormatOptions::STYLE_SHORT => 'hmma',
+    ];
+
     private const SYMBOLS_ERA = [
-        'narrow' => 'GGGGG',
-        'short' => 'G',
-        'long' => 'GGGG',
+        DateTimeFormatOptions::PERIOD_NARROW => 'GGGGG',
+        DateTimeFormatOptions::PERIOD_SHORT => 'G',
+        DateTimeFormatOptions::PERIOD_LONG => 'GGGG',
     ];
 
     private const SYMBOLS_YEAR = [
-        'numeric' => 'yyyy',
-        '2-digit' => 'yy',
+        DateTimeFormatOptions::WIDTH_NUMERIC => 'yyyy',
+        DateTimeFormatOptions::WIDTH_2DIGIT => 'yy',
     ];
 
     private const SYMBOLS_MONTH = [
-        'numeric' => 'M',
-        '2-digit' => 'MM',
-        'short' => 'MMM',
-        'long' => 'MMMM',
-        'narrow' => 'MMMMM',
+        DateTimeFormatOptions::WIDTH_NUMERIC => 'M',
+        DateTimeFormatOptions::WIDTH_2DIGIT => 'MM',
+        DateTimeFormatOptions::PERIOD_SHORT => 'MMM',
+        DateTimeFormatOptions::PERIOD_LONG => 'MMMM',
+        DateTimeFormatOptions::PERIOD_NARROW => 'MMMMM',
     ];
 
     private const SYMBOLS_DAY = [
-        'numeric' => 'd',
-        '2-digit' => 'dd',
+        DateTimeFormatOptions::WIDTH_NUMERIC => 'd',
+        DateTimeFormatOptions::WIDTH_2DIGIT => 'dd',
     ];
 
     private const SYMBOLS_WEEKDAY = [
-        'narrow' => 'EEEEE',
-        'short' => 'E',
-        'long' => 'EEEE',
+        DateTimeFormatOptions::PERIOD_NARROW => 'EEEEE',
+        DateTimeFormatOptions::PERIOD_SHORT => 'E',
+        DateTimeFormatOptions::PERIOD_LONG => 'EEEE',
     ];
 
     private const SYMBOLS_HOUR = [
-        'h12' => [
-            'numeric' => 'h',
-            '2-digit' => 'hh',
+        DateTimeFormatOptions::HOUR_H12 => [
+            DateTimeFormatOptions::WIDTH_NUMERIC => 'h',
+            DateTimeFormatOptions::WIDTH_2DIGIT => 'hh',
         ],
-        'h23' => [
-            'numeric' => 'H',
-            '2-digit' => 'HH',
+        DateTimeFormatOptions::HOUR_H23 => [
+            DateTimeFormatOptions::WIDTH_NUMERIC => 'H',
+            DateTimeFormatOptions::WIDTH_2DIGIT => 'HH',
         ],
-        'h24' => [
-            'numeric' => 'k',
-            '2-digit' => 'kk',
+        DateTimeFormatOptions::HOUR_H24 => [
+            DateTimeFormatOptions::WIDTH_NUMERIC => 'k',
+            DateTimeFormatOptions::WIDTH_2DIGIT => 'kk',
         ],
-        'h11' => [
-            'numeric' => 'K',
-            '2-digit' => 'KK',
+        DateTimeFormatOptions::HOUR_H11 => [
+            DateTimeFormatOptions::WIDTH_NUMERIC => 'K',
+            DateTimeFormatOptions::WIDTH_2DIGIT => 'KK',
         ],
     ];
 
     private const SYMBOLS_MINUTE = [
-        'numeric' => 'm',
-        '2-digit' => 'mm',
+        DateTimeFormatOptions::WIDTH_NUMERIC => 'm',
+        DateTimeFormatOptions::WIDTH_2DIGIT => 'mm',
     ];
 
     private const SYMBOLS_SECOND = [
-        'numeric' => 's',
-        '2-digit' => 'ss',
+        DateTimeFormatOptions::WIDTH_NUMERIC => 's',
+        DateTimeFormatOptions::WIDTH_2DIGIT => 'ss',
     ];
 
     private const SYMBOLS_TIME_ZONE = [
-        'short' => 'z',
-        'long' => 'zzzz',
-        'shortOffset' => 'Z',
-        'longOffset' => 'ZZZZ',
-        'shortGeneric' => 'v',
-        'longGeneric' => 'vvvv',
+        DateTimeFormatOptions::TIME_ZONE_NAME_SHORT => 'z',
+        DateTimeFormatOptions::TIME_ZONE_NAME_LONG => 'zzzz',
+        DateTimeFormatOptions::TIME_ZONE_NAME_SHORT_OFFSET => 'Z',
+        DateTimeFormatOptions::TIME_ZONE_NAME_LONG_OFFSET => 'ZZZZ',
+        DateTimeFormatOptions::TIME_ZONE_NAME_SHORT_GENERIC => 'v',
+        DateTimeFormatOptions::TIME_ZONE_NAME_LONG_GENERIC => 'vvvv',
     ];
 
     private const HOUR_CYCLE_MAP = [
-        'h' => 'h12',
-        'hh' => 'h12',
-        'H' => 'h23',
-        'HH' => 'h23',
-        'k' => 'h24',
-        'kk' => 'h24',
-        'K' => 'h11',
-        'KK' => 'h11',
+        'h' => DateTimeFormatOptions::HOUR_H12,
+        'hh' => DateTimeFormatOptions::HOUR_H12,
+        'H' => DateTimeFormatOptions::HOUR_H23,
+        'HH' => DateTimeFormatOptions::HOUR_H23,
+        'k' => DateTimeFormatOptions::HOUR_H24,
+        'kk' => DateTimeFormatOptions::HOUR_H24,
+        'K' => DateTimeFormatOptions::HOUR_H11,
+        'KK' => DateTimeFormatOptions::HOUR_H11,
     ];
 
     private string $originalLocaleName;
     private string $localeName;
-    private int $dateType;
-    private int $timeType;
-    private ?string $pattern;
-    private ?string $timeZone;
+    private string $skeleton;
+    private ?string $dateStyle;
+    private ?string $timeStyle;
+    private IntlCalendar $intlCalendar;
+    private IntlTimeZone $intlTimeZone;
 
     /**
      * @throws InvalidArgumentException
@@ -165,11 +181,24 @@ class DateTimeFormat implements DateTimeFormatInterface
 
         $locale = $this->combineLocaleWithOptions($locale, $options);
 
+        // Store these options for later use.
+        $this->dateStyle = $options->dateStyle;
+        $this->timeStyle = $options->timeStyle;
+
+        $timeZoneId = $options->timeZone ?? date_default_timezone_get();
+        $this->intlTimeZone = IntlTimeZone::createTimeZone($timeZoneId);
+
+        if ($this->intlTimeZone->getID() === IntlTimeZone::getUnknown()->getID()) {
+            throw new InvalidArgumentException(sprintf('Unknown time zone "%s"', $timeZoneId));
+        }
+
+        $this->intlCalendar = IntlCalendar::createInstance(
+            $this->intlTimeZone,
+            $locale->toString(),
+        );
+
         $this->localeName = $locale->toString();
-        $this->dateType = $this->getDateStyleFallback($options);
-        $this->timeType = self::STYLE_MAP[$options->timeStyle] ?? PhpIntlDateFormatter::NONE;
-        $this->pattern = $this->buildPattern($options, $locale, $this->dateType, $this->timeType);
-        $this->timeZone = $options->timeZone;
+        $this->skeleton = $this->buildSkeleton($options, $locale);
     }
 
     /**
@@ -179,6 +208,7 @@ class DateTimeFormat implements DateTimeFormatInterface
     {
         try {
             return $this->doFormat($date);
+        // @codeCoverageIgnoreStart
         } catch (Throwable $exception) {
             throw new UnableToFormatDateTimeException(
                 sprintf(
@@ -190,33 +220,88 @@ class DateTimeFormat implements DateTimeFormatInterface
                 $exception,
             );
         }
+        // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     * Returns the date skeleton generated from the options provided
+     *
+     * @internal
+     */
+    public function getSkeleton(): string
+    {
+        return $this->skeleton;
     }
 
     /**
      * @throws PhpIntlException
+     * @throws UnableToFormatDateTimeException
      */
     private function doFormat(PhpDateTimeInterface $date): string
     {
-        if ($this->pattern === null) {
-            $formatter = new PhpIntlDateFormatter($this->localeName, $this->dateType, $this->timeType, $this->timeZone);
-
-            return (string) $formatter->format($date);
+        if ($this->dateStyle !== null || $this->timeStyle !== null) {
+            return $this->doFormatWithIntlDateFormatter($date);
         }
 
-        // This is a hack, since PHP's MessageFormatter, unlike its
-        // IntlDateFormatter, has no way to set the timezone it should use when
-        // formatting dates/times.
+        return $this->doFormatWithMessageFormatter($date);
+    }
+
+    /**
+     * @throws UnableToFormatDateTimeException
+     */
+    private function doFormatWithIntlDateFormatter(PhpDateTimeInterface $date): string
+    {
+        $formatter = new PhpIntlDateFormatter(
+            $this->localeName,
+            self::STYLE_MAP[$this->dateStyle] ?? PhpIntlDateFormatter::NONE,
+            self::STYLE_MAP[$this->timeStyle] ?? PhpIntlDateFormatter::NONE,
+            $this->intlTimeZone,
+            $this->intlCalendar,
+        );
+
+        $formattedDate = $formatter->format($date);
+
+        if ($formattedDate === false) {
+            // @codeCoverageIgnoreStart
+            // This statement may be unreachable with the current logic, but
+            // it remains in case there is an unknown condition that could
+            // cause this.
+            throw new UnableToFormatDateTimeException($formatter->getErrorMessage(), $formatter->getErrorCode());
+            // @codeCoverageIgnoreEnd
+        }
+
+        return $formattedDate;
+    }
+
+    /**
+     * @throws PhpIntlException
+     * @throws UnableToFormatDateTimeException
+     */
+    private function doFormatWithMessageFormatter(PhpDateTimeInterface $date): string
+    {
+        $pattern = "{0, date, ::$this->skeleton}";
+
+        // Change the time zone to accommodate formatting the date/time string.
         $defaultTZ = date_default_timezone_get();
-        date_default_timezone_set($this->timeZone ?? $defaultTZ);
+        date_default_timezone_set($this->intlTimeZone->getID());
 
         // PHP's `IntlDateFormatter::setPattern()` method leaves much to be desired,
         // so we will use the PHP `MessageFormatter` class, instead.
-        $formatter = new PhpMessageFormatter($this->localeName, $this->pattern);
+        $formatter = new PhpMessageFormatter($this->localeName, $pattern);
 
-        $formattedDate = (string) $formatter->format([$date]);
+        $formattedDate = $formatter->format([$date]);
 
-        // Restore the system timezone.
+        // Restore the system time zone.
         date_default_timezone_set($defaultTZ);
+
+        if ($formattedDate === false) {
+            // @codeCoverageIgnoreStart
+            // This statement may be unreachable with the current logic, but
+            // it remains in case there is an unknown condition that could
+            // cause this.
+            throw new UnableToFormatDateTimeException($formatter->getErrorMessage(), $formatter->getErrorCode());
+            // @codeCoverageIgnoreEnd
+        }
 
         return $formattedDate;
     }
@@ -252,27 +337,6 @@ class DateTimeFormat implements DateTimeFormatInterface
         return $this->withHourCycleFallback($locale, $options);
     }
 
-    /**
-     * If `dateStyle` is not set, this returns an appropriate fallback style,
-     * depending on whether other style properties are set
-     */
-    private function getDateStyleFallback(DateTimeFormatOptions $options): int
-    {
-        foreach (self::STYLE_PROPERTIES as $property) {
-            if ($options->{$property} !== null) {
-                return PhpIntlDateFormatter::NONE;
-            }
-        }
-
-        if ($options->timeStyle === null) {
-            // If everything else is `null`, then default to the "short" style,
-            // as is the practice in FormatJS.
-            return self::STYLE_MAP[$options->dateStyle] ?? PhpIntlDateFormatter::SHORT;
-        }
-
-        return self::STYLE_MAP[$options->dateStyle] ?? PhpIntlDateFormatter::NONE;
-    }
-
     private function withHourCycleFallback(LocaleInterface $locale, DateTimeFormatOptions $options): LocaleInterface
     {
         if ($options->hourCycle !== null) {
@@ -304,19 +368,13 @@ class DateTimeFormat implements DateTimeFormatInterface
         return $locale->withHourCycle(self::HOUR_CYCLE_MAP[$matches[1] ?? 'h']);
     }
 
-    private function buildPattern(
-        DateTimeFormatOptions $options,
-        LocaleInterface $locale,
-        int $dateType,
-        int $timeType
-    ): ?string {
-        if ($dateType !== PhpIntlDateFormatter::NONE || $timeType !== PhpIntlDateFormatter::NONE) {
-            return null;
-        }
-
+    private function buildSkeleton(DateTimeFormatOptions $options, LocaleInterface $locale): string
+    {
         $hourCycle = $locale->hourCycle() ?? '';
 
-        $pattern = self::SYMBOLS_ERA[$options->era] ?? '';
+        $pattern = self::SYMBOLS_STYLE_DATE[$options->dateStyle] ?? '';
+        $pattern .= self::SYMBOLS_STYLE_TIME[$options->timeStyle] ?? '';
+        $pattern .= self::SYMBOLS_ERA[$options->era] ?? '';
         $pattern .= self::SYMBOLS_YEAR[$options->year] ?? '';
         $pattern .= self::SYMBOLS_MONTH[$options->month] ?? '';
         $pattern .= self::SYMBOLS_DAY[$options->day] ?? '';
@@ -326,6 +384,12 @@ class DateTimeFormat implements DateTimeFormatInterface
         $pattern .= self::SYMBOLS_SECOND[$options->second] ?? '';
         $pattern .= self::SYMBOLS_TIME_ZONE[$options->timeZoneName] ?? '';
 
-        return "{0, date, ::$pattern}";
+        if ($pattern === '') {
+            // Use the "short" style as the default.
+            $pattern = self::SYMBOLS_STYLE_DATE[DateTimeFormatOptions::STYLE_SHORT];
+            $this->dateStyle = DateTimeFormatOptions::STYLE_SHORT;
+        }
+
+        return $pattern;
     }
 }
