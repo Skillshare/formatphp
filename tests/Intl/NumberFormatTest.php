@@ -103,6 +103,24 @@ class NumberFormatTest extends TestCase
         }
     }
 
+    public function testEvaluatedLocaleWithNoOptions(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new NumberFormat($locale);
+
+        $this->assertSame('en-US', $formatter->getEvaluatedLocale());
+    }
+
+    public function testEvaluatedLocaleWithOptions(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new NumberFormat($locale, new NumberFormatOptions([
+            'numberingSystem' => 'arab',
+        ]));
+
+        $this->assertSame('en-US-u-nu-arab', $formatter->getEvaluatedLocale());
+    }
+
     /**
      * @param int | float $number
      *

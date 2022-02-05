@@ -111,6 +111,12 @@ class DateTimeFormat implements DateTimeFormatInterface
         DateTimeFormatOptions::PERIOD_LONG => 'EEEE',
     ];
 
+    private const SYMBOLS_DAY_PERIOD = [
+        DateTimeFormatOptions::PERIOD_NARROW => 'bbbbb',
+        DateTimeFormatOptions::PERIOD_SHORT => 'b',
+        DateTimeFormatOptions::PERIOD_LONG => 'B',
+    ];
+
     private const SYMBOLS_HOUR = [
         DateTimeFormatOptions::HOUR_H12 => [
             DateTimeFormatOptions::WIDTH_NUMERIC => 'h',
@@ -234,6 +240,16 @@ class DateTimeFormat implements DateTimeFormatInterface
     }
 
     /**
+     * Returns the locale constructed from the date/time format options
+     *
+     * @internal
+     */
+    public function getEvaluatedLocale(): string
+    {
+        return $this->localeName;
+    }
+
+    /**
      * @throws PhpIntlException
      * @throws UnableToFormatDateTimeException
      */
@@ -339,23 +355,24 @@ class DateTimeFormat implements DateTimeFormatInterface
 
     private function withHourCycleFallback(LocaleInterface $locale, DateTimeFormatOptions $options): LocaleInterface
     {
+        // The `hour12` property overrides the `hourCycle` property.
+        if ($options->hour12 !== null) {
+            $options->hourCycle = $options->hour12 ? 'h12' : 'h23';
+        }
+
         if ($options->hourCycle !== null) {
             return $locale->withHourCycle($options->hourCycle);
         }
 
-        // The `hour12` property overrides the `hourCycle` property, in case
-        // both are present.
-        if ($options->hour12 !== null) {
-            return $locale->withHourCycle($options->hour12 ? 'h12' : 'h23');
-        }
-
         if ($locale->hourCycle() !== null) {
+            $options->hourCycle = $locale->hourCycle();
+
             return $locale;
         }
 
-        // If neither `hourCycle` nor `hour12` are set, we will use PHP's
-        // IntlDateFormatter class to determine the default hour cycle for
-        // the locale.
+        // If neither `hourCycle` nor `hour12` are set, and we can't find the
+        // hour cycle on the locale, we will use PHP's IntlDateFormatter class
+        // to determine the default hour cycle for the locale.
         $dateFormatter = new PhpIntlDateFormatter(
             $locale->toString(),
             PhpIntlDateFormatter::FULL,
@@ -383,6 +400,7 @@ class DateTimeFormat implements DateTimeFormatInterface
         $pattern .= self::SYMBOLS_MINUTE[$options->minute] ?? '';
         $pattern .= self::SYMBOLS_SECOND[$options->second] ?? '';
         $pattern .= self::SYMBOLS_TIME_ZONE[$options->timeZoneName] ?? '';
+        $pattern .= self::SYMBOLS_DAY_PERIOD[$options->dayPeriod] ?? '';
 
         if ($pattern === '') {
             // Use the "short" style as the default.

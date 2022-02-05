@@ -66,6 +66,9 @@ class DateTimeSkeletonParserTest extends TestCase
             ['cccccc'],
             ['KK'],
             ['k'],
+            ['hb'],
+            ['hB'],
+            ['hbbbbb'],
         ];
     }
 }
