@@ -191,6 +191,16 @@ class NumberFormat implements NumberFormatInterface
     }
 
     /**
+     * Returns the locale constructed from the date/time format options
+     *
+     * @internal
+     */
+    public function getEvaluatedLocale(): string
+    {
+        return $this->localeName;
+    }
+
+    /**
      * @param int | float $number
      *
      * @throws PhpIntlException

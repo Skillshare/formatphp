@@ -1,0 +1,5 @@
+{
+    "dayPeriod": "narrow",
+    "hourCycle": "h12",
+    "hour": "numeric"
+}

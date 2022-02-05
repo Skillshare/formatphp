@@ -325,7 +325,7 @@ Additional options include:
   "am", "noon", "n" etc. Values include: `narrow`, `short`, or `long`.
 * `fractionalSecondDigits`: The number of digits used to represent fractions of
   a second (any additional digits are truncated). Values may be: `0`, `1`, `2`,
-  or `3`.
+  or `3`. **This property is not yet implemented.**
 * `hour12`: If `true`, `hourCycle` will be `h12`, if `false`, `hourCycle` will
   be `h23`. This property overrides any value set by `hourCycle`.
 * `hourCycle`: The hour cycle to use. Values include: `h11`, `h12`, `h23`, and

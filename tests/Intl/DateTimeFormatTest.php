@@ -105,23 +105,60 @@ class DateTimeFormatTest extends TestCase
 
     public function testHour12OverridesHourCycle(): void
     {
-        $enLocale = new Locale('en');
+        $enLocale = new Locale('en-u-hc-h11');
+        $enLocale = $enLocale->withHourCycle('h23');
+
         $formatOptions = new DateTimeFormatOptions([
-            'dateStyle' => 'full',
-            'timeStyle' => 'full',
+            'hour' => '2-digit',
             // Specify both hourCycle and hour12 to show that hour12 overrides hourCycle.
-            'hourCycle' => 'h23',
             'hour12' => true,
+            'hourCycle' => 'h24',
+            'minute' => '2-digit',
+            'second' => '2-digit',
             'timeZone' => 'America/Denver',
         ]);
 
         $enFormatter = new DateTimeFormat($enLocale, $formatOptions);
         $date = new DateTimeImmutable('@' . self::TS);
 
-        $this->assertSame(
-            'Monday, June 15, 2020 at 10:48:20 PM Mountain Daylight Time',
-            $enFormatter->format($date),
-        );
+        $this->assertSame('10:48:20 PM', $enFormatter->format($date));
+
+        $this->assertSame('hhmmss', $enFormatter->getSkeleton());
+        $this->assertSame('en-u-hc-h12', $enFormatter->getEvaluatedLocale());
+    }
+
+    public function testEvaluatedLocaleWithNoOptions(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new DateTimeFormat($locale);
+
+        // We automatically look up the locale's preferred hour cycle and add it.
+        $this->assertSame('en-US-u-hc-h12', $formatter->getEvaluatedLocale());
+    }
+
+    public function testEvaluatedLocaleWithOptionsUsingHour12(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new DateTimeFormat($locale, new DateTimeFormatOptions([
+            'hour12' => false,
+            'hourCycle' => 'h12',
+            'calendar' => 'islamic',
+            'numberingSystem' => 'thai',
+        ]));
+
+        $this->assertSame('en-US-u-ca-islamic-nu-thai-hc-h23', $formatter->getEvaluatedLocale());
+    }
+
+    public function testEvaluatedLocaleWithOptionsUsingHourCycle(): void
+    {
+        $locale = new Locale('en-US');
+        $formatter = new DateTimeFormat($locale, new DateTimeFormatOptions([
+            'hourCycle' => 'h24',
+            'calendar' => 'coptic',
+            'numberingSystem' => 'mathmono',
+        ]));
+
+        $this->assertSame('en-US-u-ca-coptic-nu-mathmono-hc-h24', $formatter->getEvaluatedLocale());
     }
 
     public function testUseHourCycleFromLocale(): void
@@ -130,18 +167,19 @@ class DateTimeFormatTest extends TestCase
         $enLocale = $enLocale->withHourCycle('h23');
 
         $formatOptions = new DateTimeFormatOptions([
-            'dateStyle' => 'full',
-            'timeStyle' => 'full',
+            'hour' => '2-digit',
+            'minute' => '2-digit',
+            'second' => '2-digit',
             'timeZone' => 'America/Denver',
         ]);
 
         $enFormatter = new DateTimeFormat($enLocale, $formatOptions);
         $date = new DateTimeImmutable('@' . self::TS);
 
-        $this->assertSame(
-            'Monday, June 15, 2020 at 10:48:20 PM Mountain Daylight Time',
-            $enFormatter->format($date),
-        );
+        $this->assertSame('22:48:20', $enFormatter->format($date));
+
+        $this->assertSame('HHmmss', $enFormatter->getSkeleton());
+        $this->assertSame('en-u-hc-h23', $enFormatter->getEvaluatedLocale());
     }
 
     /**
@@ -488,6 +526,78 @@ class DateTimeFormatTest extends TestCase
                 'ko' => '2020년 6월 15일 월요일 오후 10시 48분 20초 미 산지 하계 표준시',
                 'en' => 'Monday, June 15, 2020 at 10:48:20 PM Mountain Daylight Time',
                 'skeleton' => 'EEEEMMMMdyhmmssazzzz',
+            ],
+            [
+                'options' => [
+                    'dayPeriod' => 'long',
+                    'hour' => 'numeric',
+                    'minute' => 'numeric',
+                    'second' => 'numeric',
+                    'timeZone' => 'America/Chicago',
+                ],
+                'ko' => '밤 11:48:20',
+                'en' => '11:48:20 at night',
+                'skeleton' => 'hmsB',
+            ],
+            [
+                'options' => [
+                    'dayPeriod' => 'short',
+                    'hour' => 'numeric',
+                    'minute' => 'numeric',
+                    'second' => 'numeric',
+                    'timeZone' => 'America/Chicago',
+                ],
+                'ko' => '오후 11:48:20',
+                'en' => '11:48:20 PM',
+                'skeleton' => 'hmsb',
+            ],
+            [
+                'options' => [
+                    'dayPeriod' => 'narrow',
+                    'hour' => 'numeric',
+                    'minute' => 'numeric',
+                    'second' => 'numeric',
+                    'timeZone' => 'America/Chicago',
+                ],
+                'ko' => 'PM 11:48:20',
+                'en' => '11:48:20 p',
+                'skeleton' => 'hmsbbbbb',
+            ],
+            [
+                'options' => [
+                    'dayPeriod' => 'long',
+                    'hour' => 'numeric',
+                    'minute' => 'numeric',
+                    'second' => 'numeric',
+                    'timeZone' => 'Asia/Kolkata',
+                ],
+                'ko' => '오전 10:18:20',
+                'en' => '10:18:20 in the morning',
+                'skeleton' => 'hmsB',
+            ],
+            [
+                'options' => [
+                    'dayPeriod' => 'short',
+                    'hour' => 'numeric',
+                    'minute' => 'numeric',
+                    'second' => 'numeric',
+                    'timeZone' => 'Asia/Kolkata',
+                ],
+                'ko' => '오전 10:18:20',
+                'en' => '10:18:20 AM',
+                'skeleton' => 'hmsb',
+            ],
+            [
+                'options' => [
+                    'dayPeriod' => 'narrow',
+                    'hour' => 'numeric',
+                    'minute' => 'numeric',
+                    'second' => 'numeric',
+                    'timeZone' => 'Asia/Kolkata',
+                ],
+                'ko' => 'AM 10:18:20',
+                'en' => '10:18:20 a',
+                'skeleton' => 'hmsbbbbb',
             ],
         ];
     }

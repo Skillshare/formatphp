@@ -144,11 +144,17 @@ class DateTimeSkeletonParser
 
                 break;
             case 'b': // am, pm, noon, midnight
-            case 'B': // flexible day periods
-                throw new Exception\InvalidSkeletonOption(
-                    '"b/B" (period) patterns are not supported, use "a" instead',
-                );
+                if ($length === 5) {
+                    $options->dayPeriod = IntlDateTimeFormatOptions::PERIOD_NARROW;
+                } else {
+                    $options->dayPeriod = IntlDateTimeFormatOptions::PERIOD_SHORT;
+                }
 
+                break;
+            case 'B': // flexible day periods
+                $options->dayPeriod = IntlDateTimeFormatOptions::PERIOD_LONG;
+
+                break;
             // Hour
             case 'h':
                 $options->hourCycle = IntlDateTimeFormatOptions::HOUR_H12;
