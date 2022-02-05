@@ -40,6 +40,7 @@ use function array_values;
 use function assert;
 use function is_callable;
 use function is_int;
+use function is_numeric;
 use function preg_match;
 use function sprintf;
 
@@ -68,7 +69,7 @@ class MessageFormat implements MessageFormatInterface
     public function format(string $pattern, array $values = []): string
     {
         try {
-            $pattern = $this->applyCallbacks($pattern, $values);
+            $pattern = $this->applyPreprocessing($pattern, $values);
             $formatter = new PhpMessageFormatter((string) $this->locale->baseName(), $pattern);
 
             $formattedMessage = $formatter->format($values);
@@ -107,21 +108,19 @@ class MessageFormat implements MessageFormatInterface
      * @throws UnableToFormatMessageException
      * @throws CollectionMismatchException
      */
-    private function applyCallbacks(string $pattern, array &$values = []): string
+    private function applyPreprocessing(string $pattern, array &$values = []): string
     {
         $callbacks = array_filter($values, fn ($value): bool => is_callable($value));
-
-        // If $values doesn't contain any callables, go ahead and return.
-        if (!$callbacks) {
-            return $pattern;
-        }
 
         // Remove the callbacks from the values, since we will use them below.
         foreach (array_keys($callbacks) as $key) {
             unset($values[$key]);
         }
 
-        $parser = new Parser($pattern);
+        $parserOptions = new Parser\Options();
+        $parserOptions->shouldParseSkeletons = true;
+
+        $parser = new Parser($pattern, $parserOptions);
         $parsed = $parser->parse();
 
         if ($parsed->err !== null) {
@@ -130,18 +129,20 @@ class MessageFormat implements MessageFormatInterface
 
         assert($parsed->val instanceof Parser\Type\ElementCollection);
 
-        return (new Printer())->printAst($this->processAstWithCallbacks($parsed->val, $callbacks));
+        return (new Printer())->printAst($this->processAst($parsed->val, $callbacks, $values));
     }
 
     /**
      * @param array<array-key, callable(string):string> $callbacks
+     * @param array<array-key, float | int | string | callable(string):string> $values
      *
      * @throws CollectionMismatchException
      * @throws UnableToFormatMessageException
      */
-    private function processAstWithCallbacks(
+    private function processAst(
         Parser\Type\ElementCollection $ast,
-        array $callbacks
+        array $callbacks,
+        array &$values
     ): Parser\Type\ElementCollection {
         $processedAst = new Parser\Type\ElementCollection();
 
@@ -152,14 +153,18 @@ class MessageFormat implements MessageFormatInterface
 
             if ($clone instanceof PluralElement || $clone instanceof SelectElement) {
                 foreach ($clone->options as $option) {
-                    $option->value = $this->processAstWithCallbacks($option->value, $callbacks);
+                    $option->value = $this->processAst($option->value, $callbacks, $values);
                 }
             }
 
             if ($clone instanceof Parser\Type\TagElement) {
-                $processedAst = $processedAst->merge($this->processTagElement($clone, $callbacks));
+                $processedAst = $processedAst->merge($this->processTagElement($clone, $callbacks, $values));
 
                 continue;
+            }
+
+            if ($clone instanceof Parser\Type\NumberElement) {
+                $clone = $this->processNumberElement($clone, $values);
             }
 
             if ($clone instanceof Parser\Type\LiteralElement) {
@@ -174,13 +179,15 @@ class MessageFormat implements MessageFormatInterface
 
     /**
      * @param array<array-key, callable(string):string> $callbacks
+     * @param array<array-key, float | int | string | callable(string):string> $values
      *
      * @throws CollectionMismatchException
      * @throws UnableToFormatMessageException
      */
     private function processTagElement(
         Parser\Type\TagElement $tagElement,
-        array $callbacks
+        array $callbacks,
+        array &$values
     ): Parser\Type\ElementCollection {
         if (!array_key_exists($tagElement->value, $callbacks)) {
             // We don't have a callback for this tag.
@@ -190,13 +197,72 @@ class MessageFormat implements MessageFormatInterface
         $result = ($callbacks[$tagElement->value])(self::CALLBACK_REPLACEMENT);
         if (preg_match(self::CALLBACK_RESULT_PATTERN, $result, $matches)) {
             $start = new Parser\Type\LiteralElement($matches[1], $tagElement->location);
-            $middle = $this->processAstWithCallbacks($tagElement->children, $callbacks);
+            $middle = $this->processAst($tagElement->children, $callbacks, $values);
             $end = new Parser\Type\LiteralElement($matches[2], $tagElement->location);
 
             return new Parser\Type\ElementCollection([$start, ...array_values($middle->toArray()), $end]);
         }
 
         return new Parser\Type\ElementCollection([new Parser\Type\LiteralElement($result, $tagElement->location)]);
+    }
+
+    /**
+     * Performs special processing for number elements
+     *
+     * If the parameter is a percent-style number, then we multiply the value
+     * by 100. This is in keeping with the ECMA-402 draft, which specifies the
+     * `Intl.NumberFormat` rules. When using `Intl.NumberFormat` to format
+     * percentages, the number must first be multiplied by 100 before any
+     * formatting occurs. See section 15.1.6 of ECMA-402, specifically step 5.b.
+     *
+     * ECMA-402, however, doesn't define an API for MessageFormat, so FormatJS
+     * implements this on their own, using `Intl.NumberFormat` to process any
+     * number parameters it encounters. As a result, all number parameters in
+     * ICU message syntax that specify the `::percent` stem (i.e.,
+     * "{0, number, ::percent}") have their values first multiplied by 100
+     * before formatting them.
+     *
+     * This may not be considered a bug in FormatJS, since it is adhering to the
+     * ECMA-402 specification. However, it does not follow the rules for
+     * percentages as programmed in icu4c (the underlying library PHP uses), so
+     * in order to match the expected output of FormatJS, we multiply percent
+     * values by 100 before formatting them.
+     *
+     * Oddly enough, PHP's `NumberFormatter` has the same rules, and it uses
+     * the underlying ICU implementation of the number formatter:
+     *
+     *     $nf = new NumberFormatter('en-US', NumberFormatter::PERCENT);
+     *     echo $nf->format(25); // Produces "2,500%"
+     *
+     * While:
+     *
+     *     $mf = new MessageFormatter('en-US', '{0, number, ::percent}');
+     *     echo $mf->format([25]); // Produces "25%"
+     *
+     * So, one could argue this is a bug in the ICU implementation of the
+     * percent number skeleton.
+     *
+     * @link https://tc39.es/ecma402/#sec-partitionnumberpattern
+     * @link https://formatjs.io/docs/core-concepts/icu-syntax/#number-type
+     *
+     * @param array<array-key, float | int | string | callable(string):string> $values
+     */
+    private function processNumberElement(
+        Parser\Type\NumberElement $numberElement,
+        array &$values
+    ): Parser\Type\NumberElement {
+        if (!$numberElement->style instanceof Parser\Type\NumberSkeleton) {
+            return $numberElement;
+        }
+
+        if ($numberElement->style->parsedOptions->style === NumberFormatOptions::STYLE_PERCENT) {
+            $key = $numberElement->value;
+            if (is_numeric($values[$key])) {
+                $values[$key] *= 100;
+            }
+        }
+
+        return $numberElement;
     }
 
     /**
