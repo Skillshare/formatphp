@@ -51,22 +51,33 @@ use FormatPHP\FormatPHP;
 use FormatPHP\Intl\DateTimeFormatOptions;
 use FormatPHP\Intl\Locale;
 
-$date = new DateTimeImmutable();
+$date = new DateTimeImmutable({{ export(dateProvided) }});
 $locale = new Locale({{ export(localeProvided) }});
 $formatphp = new FormatPHP(new Config($locale));
 
+{% if isTime %}
+$formattedTime = $formatphp-&gt;formatTime(
+    $date,
+    new DateTimeFormatOptions([
+        {%- for key, option in options|filter(v => v is not same as(null)) ~%}
+        '{{ key }}' =&gt; {{ export(option) }},
+        {%- endfor ~%}
+    ]),
+);
+{% else %}
 $formattedDate = $formatphp-&gt;formatDate(
     $date,
     new DateTimeFormatOptions([
         {%- for key, option in options|filter(v => v is not same as(null)) ~%}
-        '{{ key }}' => {{ export(option) }},
+        '{{ key }}' =&gt; {{ export(option) }},
         {%- endfor ~%}
     ]),
 );
+{% endif %}
 
-$formattedMessage = $formatphp->formatMessage([
+$formattedMessage = $formatphp-&gt;formatMessage([
     'id' => 'messageId',
-    'defaultMessage' => 'It is {{ pattern }}.',
+    'defaultMessage' =&gt; 'It is {{ pattern }}.',
 ], [
     'varName' => $date,
 ]);</code></pre>
@@ -83,10 +94,25 @@ $formattedMessage = $formatphp->formatMessage([
         <div class="row row-cols-1 g-4">
             <div class="col">
                 <div class="card">
-                    <h5 class="card-header">Locale</h5>
+                    <h5 class="card-header">Date &amp; Locale</h5>
                     <div class="card-body">
                         <p class="card-text"></p>
                         <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="date" class="col-form-label">Date</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="date" name="date" class="form-control" aria-describedby="dateHelp" value="{{ dateProvided }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="dateHelp" class="form-text">
+                                    Enter a date to format. It must be in a format that will pass PHP's
+                                    <a href="https://www.php.net/manual/en/datetime.construct.php" target="_blank">DateTime constructor</a>.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
                             <div class="col-1">
                                 <label for="locale" class="col-form-label">Locale</label>
                             </div>
@@ -359,7 +385,7 @@ $formattedMessage = $formatphp->formatMessage([
                                     If not selected, FormatPHP defaults to the locale preference or the
                                     value of "hour cycle," if provided. This property overrides the value
                                     set in "hour cycle."
-                                    <strong class="text-danger">This property does not work with <code>timeStyle</code>.</strong>
+                                    <em>This property does not work with <code>timeStyle</code>.</em>
                                 </span>
                             </div>
 
@@ -381,11 +407,8 @@ $formattedMessage = $formatphp->formatMessage([
                                 <span id="hourCycleHelp" class="form-text">
                                     The <code>hourCycle</code> property specifies how to display hours in time formats.
                                     The values <code>h11</code> and <code>h12</code> are for 12-hour clocks, and
-                                    <code>h23</code> and <code>h24</code> are for 24-hour clocks. When using
-                                    <code>h11</code> and <code>h23</code>, the clocks will start at zero (<code>0</code>),
-                                    while <code>h12</code> and <code>h24</code> clocks start at one (<code>1</code>).
-                                    <strong class="text-danger">This property does not work with <code>timeStyle</code>,
-                                    and <code>h11</code> and <code>h24</code> work only for applicable locales.</strong>
+                                    <code>h23</code> and <code>h24</code> are for 24-hour clocks.
+                                    <em>This property does not work with <code>timeStyle</code>.</em>
                                 </span>
                             </div>
 
