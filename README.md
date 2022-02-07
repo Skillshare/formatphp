@@ -133,7 +133,7 @@ over the formatting of numbers:
   * `always`: Always display the sign.
   * `auto`: Use the locale to determine when to display the sign.
   * `exceptZero`: Display the sign for positive and negative numbers, but never
-    display the size for zero.
+    display the sign for zero.
   * `never`: Never display the sign.
 * `roundingMode`: Controls rounding rules for the number. The default is
   `halfEven`. Possible values include:
@@ -208,6 +208,8 @@ using `minimumFractionDigits` or `maximumFractionDigits`).
 
 When formatting currency, you may use the following properties.
 
+* `currency`: An [ISO 4217 currency code](https://www.iso.org/iso-4217-currency-codes.html)
+  to use when formatting currency. For example, `USD`, `EUR`, or `CNY`.
 * `currencySign`: In accounting, many locales format negative currency values
   using parentheses rather than the minus sign. You may enable this behavior by
   setting this property to `accounting`. The default value is `standard`.
@@ -219,6 +221,22 @@ When formatting currency, you may use the following properties.
     When using `narrowSymbol`, it will display as "$100."
   * `code`: Use the ISO currency code when formatting currency (e.g., "USD 100").
   * `name`: Use a localized name for the currency (e.g., "100 US dollars").
+
+#### Formatting Units
+
+* `unit`: When formatting units, you must provide a core unit identifier as the `unit`
+  property. [UTS #35, Part 2, Section 6](https://unicode.org/reports/tr35/tr35-general.html#Unit_Elements)
+  defines core unit identifiers. You may use any unit defined in the
+  [CLDR data file](https://github.com/unicode-org/cldr/blob/main/common/validity/unit.xml).
+  You may use the following units in these concise forms (without the prefixes
+  defined in CLDR): `acre`, `bit`, `byte`, `celsius`, `centimeter`, `day`, `degree`,
+  `fahrenheit`, `fluid-ounce`, `foot`, `gallon`, `gigabit`, `gigabyte`, `gram`,
+  `hectare`, `hour`, `inch`, `kilobit`, `kilobyte`, `kilogram`, `kilometer`,
+  `liter`, `megabit`, `megabyte`, `meter`, `mile`, `mile-scandinavian`, `milliliter`,
+  `millimeter`, `millisecond`, `minute`, `month`, `ounce`, `percent`, `petabyte`,
+  `pound`, `second`, `stone`, `terabit`, `terabyte`, `week`, `yard`, or `year`.
+* `unitDisplay`: How to display the unit. Possible values include `short`, `long`,
+  and `narrow`. The default is `short`.
 
 #### Compact Notation
 

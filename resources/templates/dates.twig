@@ -1,0 +1,518 @@
+{% extends "layout.twig" %}
+
+{%- set pattern -%}
+    {{ '{' }}varName, date, ::{{ skeleton }}{{ '}' }}
+{%- endset -%}
+
+{% block content %}
+    <h1>Dates &amp; Times Skeleton Tool</h1>
+
+    <form method="get">
+
+        {% if exception %}
+            <div class="row row-cols-1 g-4">
+                <div class="col">
+                    <div class="card text-dark bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">An exception occurred!</h5>
+                            <p class="card-text">{{ exception.message }}</p>
+                            {% if exception.previous %}
+                                <p class="card-text">{{ exception.previous.message }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row row-cols-lg-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <h5 class="card-header">Date Skeleton</h5>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Evaluated Locale</dt>
+                            <dd><code>{{ localeEvaluated }}</code></dd>
+                            <dt>Skeleton</dt>
+                            <dd><code>{{ pattern }}</code></dd>
+                            <dt>Formatted Date</dt>
+                            <dd>{{ formattedDate }}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <h5 class="card-header">Sample Code</h5>
+                    <div class="card-body">
+                        <pre><code class="language-php">use FormatPHP\Config;
+use FormatPHP\FormatPHP;
+use FormatPHP\Intl\DateTimeFormatOptions;
+use FormatPHP\Intl\Locale;
+
+$date = new DateTimeImmutable({{ export(dateProvided) }});
+$locale = new Locale({{ export(localeProvided) }});
+$formatphp = new FormatPHP(new Config($locale));
+
+{% if isTime %}
+$formattedTime = $formatphp-&gt;formatTime(
+    $date,
+    new DateTimeFormatOptions([
+        {%- for key, option in options|filter(v => v is not same as(null)) ~%}
+        '{{ key }}' =&gt; {{ export(option) }},
+        {%- endfor ~%}
+    ]),
+);
+{% else %}
+$formattedDate = $formatphp-&gt;formatDate(
+    $date,
+    new DateTimeFormatOptions([
+        {%- for key, option in options|filter(v => v is not same as(null)) ~%}
+        '{{ key }}' =&gt; {{ export(option) }},
+        {%- endfor ~%}
+    ]),
+);
+{% endif %}
+
+$formattedMessage = $formatphp-&gt;formatMessage([
+    'id' => 'messageId',
+    'defaultMessage' =&gt; 'It is {{ pattern }}.',
+], [
+    'varName' => $date,
+]);</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="my-3">
+            <button type="submit" class="btn btn-primary">Generate Skeleton</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </p>
+
+        <div class="row row-cols-1 g-4">
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Date &amp; Locale</h5>
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="date" class="col-form-label">Date</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="date" name="date" class="form-control" aria-describedby="dateHelp" value="{{ dateProvided }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="dateHelp" class="form-text">
+                                    Enter a date to format. It must be in a format that will pass PHP's
+                                    <a href="https://www.php.net/manual/en/datetime.construct.php" target="_blank">DateTime constructor</a>.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="locale" class="col-form-label">Locale</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="locale" name="locale" class="form-control" aria-describedby="localeHelp" placeholder="en-US" value="{{ localeProvided }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="localeHelp" class="form-text">
+                                    An <a href="https://unicode-org.github.io/icu/userguide/locale/" target="_blank">ICU locale</a>
+                                    to test with.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">General Styles</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Date and time style control the general style of dates formatted
+                            according to the current locale. They may be used together, but
+                            they cannot be used with more granular formatting options (i.e.,
+                            era, year, month, day, weekday, day, hour, minute, or second).
+                        </p>
+
+                        <div class="row g-1 align-items-center">
+                            <div class="col-1">
+                                <label for="dateStyle" class="col-form-label">Date Style</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="dateStyle" name="dateStyle" class="form-select" aria-label="Date style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.dateStyle == 'full' ? 'selected' }}>full</option>
+                                    <option {{ params.dateStyle == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.dateStyle == 'medium' ? 'selected' }}>medium</option>
+                                    <option {{ params.dateStyle == 'short' ? 'selected' }}>short</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="timeStyle" class="col-form-label">Time Style</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="timeStyle" name="timeStyle" class="form-select" aria-label="Time style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.timeStyle == 'full' ? 'selected' }}>full</option>
+                                    <option {{ params.timeStyle == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.timeStyle == 'medium' ? 'selected' }}>medium</option>
+                                    <option {{ params.timeStyle == 'short' ? 'selected' }}>short</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="col card">
+                    <h5 class="card-header">Granular Styles</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            You may use the following options for more granular formatting
+                            of dates and times.
+                        </p>
+
+                        <div class="row g-1 align-items-center">
+                            <div class="col-1">
+                                <label for="era" class="col-form-label">Era</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="era" name="era" class="form-select" aria-label="Era style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.era == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.era == 'short' ? 'selected' }}>short</option>
+                                    <option {{ params.era == 'narrow' ? 'selected' }}>narrow</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="year" class="col-form-label">Year</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="year" name="year" class="form-select" aria-label="Year style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.year == 'numeric' ? 'selected' }}>numeric</option>
+                                    <option {{ params.year == '2-digit' ? 'selected' }}>2-digit</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="month" class="col-form-label">Month</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="month" name="month" class="form-select" aria-label="Month style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.month == 'numeric' ? 'selected' }}>numeric</option>
+                                    <option {{ params.month == '2-digit' ? 'selected' }}>2-digit</option>
+                                    <option {{ params.month == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.month == 'short' ? 'selected' }}>short</option>
+                                    <option {{ params.month == 'narrow' ? 'selected' }}>narrow</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="weekday" class="col-form-label">Weekday</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="weekday" name="weekday" class="form-select" aria-label="Weekday style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.weekday == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.weekday == 'short' ? 'selected' }}>short</option>
+                                    <option {{ params.weekday == 'narrow' ? 'selected' }}>narrow</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="day" class="col-form-label">Day</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="day" name="day" class="form-select" aria-label="Day style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.day == 'numeric' ? 'selected' }}>numeric</option>
+                                    <option {{ params.day == '2-digit' ? 'selected' }}>2-digit</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="hour" class="col-form-label">Hour</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="hour" name="hour" class="form-select" aria-label="Hour style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.hour == 'numeric' ? 'selected' }}>numeric</option>
+                                    <option {{ params.hour == '2-digit' ? 'selected' }}>2-digit</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="minute" class="col-form-label">Minute</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="minute" name="minute" class="form-select" aria-label="Minute style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.minute == 'numeric' ? 'selected' }}>numeric</option>
+                                    <option {{ params.minute == '2-digit' ? 'selected' }}>2-digit</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="second" class="col-form-label">Second</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="second" name="second" class="form-select" aria-label="Second style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.second == 'numeric' ? 'selected' }}>numeric</option>
+                                    <option {{ params.second == '2-digit' ? 'selected' }}>2-digit</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Other Styles</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Additional options you may use together with any of the above options.
+                        </p>
+
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="calendar" class="col-form-label">Calendar</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="calendar" name="calendar" class="form-control" aria-describedby="calendarHelp" placeholder="gregory" value="{{ params.calendar }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="calendarHelp" class="form-text">
+                                    The calendar system to use for the date if the locale or language tag
+                                    doesn't already indicate the calendar system. Possible values include:
+                                    <code>buddhist</code>, <code>chinese</code>, <code>coptic</code>, <code>dangi</code>,
+                                    <code>ethioaa</code>, <code>ethiopic</code>, <code>gregory</code>, <code>hebrew</code>,
+                                    <code>indian</code>, <code>islamic</code>, <code>islamic-civil</code>,
+                                    <code>islamic-rgsa</code>, <code>islamic-tbla</code>, <code>islamic-umalqura</code>,
+                                    <code>iso8601</code>, <code>japanese</code>, <code>persian</code>, or <code>roc</code>.
+                                    These values come from <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/calendar.xml" target="_blank">Unicode
+                                    CLDR data files</a>.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="dayPeriod" class="col-form-label">Day period</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="dayPeriod" name="dayPeriod" class="form-select" aria-label="Day period style selection" aria-describedby="dayPeriodHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.dayPeriod == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.dayPeriod == 'short' ? 'selected' }}>short</option>
+                                    <option {{ params.dayPeriod == 'narrow' ? 'selected' }}>narrow</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="dayPeriodHelp" class="form-text">
+                                    This is the formatting style used for day periods like
+                                    "in the morning", "am", "noon", "n" etc.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="fractionalSecondDigits" class="col-form-label">Fractional seconds</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="fractionalSecondDigits" name="fractionalSecondDigits" class="form-select" aria-label="Fractional seconds selection" aria-describedby="fractionalSecondDigitsHelp" disabled readonly>
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.fractionalSecondDigits is same as(0) ? 'selected' }}>0</option>
+                                    <option {{ params.fractionalSecondDigits == 1 ? 'selected' }}>1</option>
+                                    <option {{ params.fractionalSecondDigits == 2 ? 'selected' }}>2</option>
+                                    <option {{ params.fractionalSecondDigits == 3 ? 'selected' }}>3</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="fractionalSecondDigitsHelp" class="form-text">
+                                    <strong class="text-danger">This property is not yet implemented.</strong>
+                                    This is the number of digits used to represent fractions of a second.
+                                    Additional digits are truncated.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="hour12" class="col-form-label">12-hour?</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="hour12" name="hour12" class="form-select" aria-label="12-hour clock selection" aria-describedby="hour12Help">
+                                    <option value="">Nothing selected</option>
+                                    <option value="1" {{ params.hour12 is same as(true) ? 'selected' }}>true</option>
+                                    <option value="0" {{ params.hour12 is same as(false) ? 'selected' }}>false</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="hour12Help" class="form-text">
+                                    When <code>true</code>, this sets the hour cycle to <code>h12</code>.
+                                    When <code>false</code> the hour cycle is <code>h23</code>.
+                                    If not selected, FormatPHP defaults to the locale preference or the
+                                    value of "hour cycle," if provided. This property overrides the value
+                                    set in "hour cycle."
+                                    <em>This property does not work with <code>timeStyle</code>.</em>
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="hourCycle" class="col-form-label">Hour cycle</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="hourCycle" name="hourCycle" class="form-select" aria-label="Clock hour cycle selection" aria-describedby="hourCycleHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.hourCycle == 'h11' ? 'selected' }}>h11</option>
+                                    <option {{ params.hourCycle == 'h12' ? 'selected' }}>h12</option>
+                                    <option {{ params.hourCycle == 'h23' ? 'selected' }}>h23</option>
+                                    <option {{ params.hourCycle == 'h24' ? 'selected' }}>h24</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="hourCycleHelp" class="form-text">
+                                    The <code>hourCycle</code> property specifies how to display hours in time formats.
+                                    The values <code>h11</code> and <code>h12</code> are for 12-hour clocks, and
+                                    <code>h23</code> and <code>h24</code> are for 24-hour clocks.
+                                    <em>This property does not work with <code>timeStyle</code>.</em>
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="numberingSystem" class="col-form-label">Numerals</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="numberingSystem" name="numberingSystem" class="form-control" aria-describedby="numberingSystemHelp" placeholder="latn" value="{{ params.numberingSystem }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="hourCycleHelp" class="form-text">
+                                    The numbering system to use for the digits if the locale or language tag
+                                    doesn't already indicate the numbering system. Possible values include:
+                                    <code>adlm</code>, <code>ahom</code>, <code>arab</code>, <code>arabext</code>,
+                                    <code>bali</code>, <code>beng</code>, <code>bhks</code>, <code>brah</code>,
+                                    <code>cakm</code>, <code>cham</code>, <code>deva</code>, <code>fullwide</code>,
+                                    <code>gong</code>, <code>gonm</code>, <code>gujr</code>, <code>guru</code>,
+                                    <code>hanidec</code>, <code>hmng</code>, <code>java</code>, <code>kali</code>,
+                                    <code>khmr</code>, <code>knda</code>, <code>lana</code>, <code>lanatham</code>,
+                                    <code>laoo</code>, <code>latn</code>, <code>lepc</code>, <code>limb</code>,
+                                    <code>mathbold</code>, <code>mathdbl</code>, <code>mathmono</code>, <code>mathsanb</code>,
+                                    <code>mathsans</code>, <code>mlym</code>, <code>modi</code>, <code>mong</code>,
+                                    <code>mroo</code>, <code>mtei</code>, <code>mymr</code>, <code>mymrshan</code>,
+                                    <code>mymrtlng</code>, <code>newa</code>, <code>nkoo</code>, <code>olck</code>,
+                                    <code>orya</code>, <code>osma</code>, <code>rohg</code>, <code>saur</code>,
+                                    <code>shrd</code>, <code>sind</code>, <code>sora</code>, <code>sund</code>,
+                                    <code>takr</code>, <code>talu</code>, <code>tamldec</code>, <code>telu</code>,
+                                    <code>thai</code>, <code>tibt</code>, <code>tirh</code>, <code>vaii</code>,
+                                    <code>wara</code>, and <code>wcho</code>.
+                                    These values come from <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/number.xml" target="_blank">Unicode
+                                    CLDR data files</a>. Algorithmic numbering systems are not supported.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="timeZoneName" class="col-form-label">TZ style</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="timeZoneName" name="timeZoneName" class="form-select" aria-label="Time zone style selection" aria-describedby="timeZoneNameHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.timeZoneName == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.timeZoneName == 'longGeneric' ? 'selected' }}>longGeneric</option>
+                                    <option {{ params.timeZoneName == 'longOffset' ? 'selected' }}>longOffset</option>
+                                    <option {{ params.timeZoneName == 'short' ? 'selected' }}>short</option>
+                                    <option {{ params.timeZoneName == 'shortGeneric' ? 'selected' }}>shortGeneric</option>
+                                    <option {{ params.timeZoneName == 'shortOffset' ? 'selected' }}>shortOffset</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="timeZoneNameHelp" class="form-text">
+                                    This is an indicator for how to format the localized
+                                    representation of the time zone name.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="timeZone" class="col-form-label">Time Zone</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="timeZone" name="timeZone" class="form-control" aria-describedby="timeZoneHelp" placeholder="America/New_York" value="{{ params.timeZone }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="timeZoneHelp" class="form-text">
+                                    The time zone to use when formatting times. The default is the system's
+                                    default time zone (see <a href="https://www.php.net/date_default_timezone_set" target="_blank"><code>date_default_timezone_set()</code></a>).
+                                    You may use zone names from the <a href="https://www.iana.org/time-zones" target="_blank">IANA time zone database</a>,
+                                    such as <code>Asia/Shanghai</code>, <code>Asia/Kolkata</code>, <code>America/New_York</code>, etc.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="my-3">
+            <button type="submit" class="btn btn-primary">Generate Skeleton</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </p>
+
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const locale = Intl.DateTimeFormat().resolvedOptions().locale;
+            $('#locale').attr('placeholder', locale);
+            if ($('#locale').val() === '') {
+                $('#locale').val(locale);
+            }
+
+            $('#timeZone').attr('placeholder', timeZone);
+
+            // Capture clicks on the "reset" button and redirect to clear the
+            // query string parameters.
+            $('button[type=reset]').click(function () {
+                $(location).attr('href', '/skeleton/dates');
+            });
+        });
+    </script>
+{% endblock %}

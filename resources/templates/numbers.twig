@@ -1,0 +1,607 @@
+{% extends "layout.twig" %}
+
+{%- set pattern -%}
+    {{ '{' }}varName, number, ::{{ skeleton }}{{ '}' }}
+{%- endset -%}
+
+{% block content %}
+    <h1>Skeleton Tools: Numbers &amp; Currency</h1>
+
+    <form method="get">
+
+        {% if exception %}
+            <div class="row row-cols-1 g-4">
+                <div class="col">
+                    <div class="card text-dark bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">An exception occurred!</h5>
+                            <p class="card-text">{{ exception.message }}</p>
+                            {% if exception.previous %}
+                                <p class="card-text">{{ exception.previous.message }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row row-cols-lg-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <h5 class="card-header">Number Skeleton</h5>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Evaluated Locale</dt>
+                            <dd><code>{{ localeEvaluated }}</code></dd>
+                            <dt>Skeleton</dt>
+                            <dd><code>{{ pattern }}</code></dd>
+                            <dt>Formatted Number</dt>
+                            <dd>{{ formattedNumber }}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <h5 class="card-header">Sample Code</h5>
+                    <div class="card-body">
+                        <pre><code class="language-php">use FormatPHP\Config;
+use FormatPHP\FormatPHP;
+use FormatPHP\Intl\NumberFormatOptions;
+use FormatPHP\Intl\Locale;
+
+$number = {{ numberProvided }};
+$locale = new Locale({{ export(localeProvided) }});
+$formatphp = new FormatPHP(new Config($locale));
+
+{% if params.style == 'currency' %}
+$formattedNumber = $formatphp-&gt;formatCurrency(
+    $number,
+    {{ export(params.currency) }}
+    new NumberFormatOptions([
+        {%- for key, option in options|filter(v => v is not same as(null)) ~%}
+        '{{ key }}' =&gt; {{ export(option) }},
+        {%- endfor ~%}
+    ]),
+);
+{% else %}
+$formattedNumber = $formatphp-&gt;formatNumber(
+    $number,
+    new NumberFormatOptions([
+        {%- for key, option in options|filter(v => v is not same as(null)) ~%}
+        '{{ key }}' =&gt; {{ export(option) }},
+        {%- endfor ~%}
+    ]),
+);
+{% endif %}
+
+$formattedMessage = $formatphp-&gt;formatMessage([
+    'id' => 'messageId',
+    'defaultMessage' =&gt; 'It is {{ pattern }}.',
+], [
+    'varName' => $number,
+]);</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="my-3">
+            <button type="submit" class="btn btn-primary">Generate Skeleton</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </p>
+
+        <div class="row row-cols-1 g-4">
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Number &amp; Locale</h5>
+                    <div class="card-body">
+                        <p class="card-text"></p>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="number" class="col-form-label">Number</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="number" name="number" class="form-control" aria-describedby="numberHelp" value="{{ numberProvided }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="numberHelp" class="form-text">
+                                    Enter a decimal number to format. It must be in a format that will pass
+                                    PHP's <a href="https://www.php.net/is_numeric" target="_blank"><code>is_numeric()</code></a>
+                                    function.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="locale" class="col-form-label">Locale</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="locale" name="locale" class="form-control" aria-describedby="localeHelp" placeholder="en-US" value="{{ localeProvided }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="localeHelp" class="form-text">
+                                    An <a href="https://unicode-org.github.io/icu/userguide/locale/" target="_blank">ICU locale</a>
+                                    to test with.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Notation &amp; Style</h5>
+                    <div class="card-body">
+                        <div class="row g-1 align-items-center">
+                            <div class="col-1">
+                                <label for="notation" class="col-form-label">Notation</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="notation" name="notation" class="form-select" aria-label="Notation selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.notation == 'standard' ? 'selected' }}>standard</option>
+                                    <option {{ params.notation == 'scientific' ? 'selected' }}>scientific</option>
+                                    <option {{ params.notation == 'engineering' ? 'selected' }}>engineering</option>
+                                    <option {{ params.notation == 'compact' ? 'selected' }}>compact</option>
+                                </select>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="style" class="col-form-label">Style</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="style" name="style" class="form-select" aria-label="Style selection">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.style == 'decimal' ? 'selected' }}>decimal</option>
+                                    <option {{ params.style == 'currency' ? 'selected' }}>currency</option>
+                                    <option {{ params.style == 'percent' ? 'selected' }}>percent</option>
+                                    <option {{ params.style == 'unit' ? 'selected' }}>unit</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="col card">
+                    <h5 class="card-header">Granular Options</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            You may use the following options for more granular formatting of numbers.
+                        </p>
+
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="signDisplay" class="col-form-label">Sign Display</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="signDisplay" name="signDisplay" class="form-select" aria-label="Sign display selection" aria-describedby="signDisplayHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.signDisplay == 'always' ? 'selected' }}>always</option>
+                                    <option {{ params.signDisplay == 'auto' ? 'selected' }}>auto</option>
+                                    <option {{ params.signDisplay == 'exceptZero' ? 'selected' }}>exceptZero</option>
+                                    <option {{ params.signDisplay == 'never' ? 'selected' }}>never</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="signDisplayHelp" class="form-text">
+                                    Controls when to display the sign for the number. The default is <code>auto</code>, which
+                                    uses the locale's preference. Use <code>always</code> to always display the sign, even if
+                                    the locale prefers otherwise. Use <code>never</code> to never display the sign.
+                                    Use <code>exceptZero</code> to always display the sign for positive and negative numbers
+                                    but never for zero.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1 align-self-start">
+                                <label for="roundingMode" class="col-form-label">Rounding Mode</label>
+                            </div>
+                            <div class="col-5 align-self-start">
+                                <select id="roundingMode" name="roundingMode" class="form-select" aria-label="Rounding mode selection" aria-describedby="roundingModeHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.roundingMode == 'ceil' ? 'selected' }}>ceil</option>
+                                    <option {{ params.roundingMode == 'floor' ? 'selected' }}>floor</option>
+                                    <option {{ params.roundingMode == 'expand' ? 'selected' }}>expand</option>
+                                    <option {{ params.roundingMode == 'trunc' ? 'selected' }}>trunc</option>
+                                    <option {{ params.roundingMode == 'halfCeil' ? 'selected' }}>halfCeil</option>
+                                    <option {{ params.roundingMode == 'halfFloor' ? 'selected' }}>halfFloor</option>
+                                    <option {{ params.roundingMode == 'halfExpand' ? 'selected' }}>halfExpand</option>
+                                    <option {{ params.roundingMode == 'halfTrunc' ? 'selected' }}>halfTrunc</option>
+                                    <option {{ params.roundingMode == 'halfEven' ? 'selected' }}>halfEven</option>
+                                    <option {{ params.roundingMode == 'halfOdd' ? 'selected' }}>halfOdd</option>
+                                    <option {{ params.roundingMode == 'unnecessary' ? 'selected' }}>unnecessary</option>
+                                </select>
+                            </div>
+                            <div id="roundingModeHelp" class="col-6 form-text">
+                                <p>Controls rounding rules for the number. The default is <code>halfEven</code>.</p>
+                                <ul class="mb-0">
+                                    <li><code>ceil</code>: All values are rounded towards positive infinity (+∞).</li>
+                                    <li><code>floor</code>: All values are rounded towards negative infinity (-∞).</li>
+                                    <li><code>expand</code>: All values are rounded away from zero.</li>
+                                    <li><code>trunc</code>: All values are rounded towards zero.</li>
+                                    <li><code>halfCeil</code>: Values exactly on the 0.5 (half) mark are rounded towards positive infinity (+∞).</li>
+                                    <li><code>halfFloor</code>: Values exactly on the 0.5 (half) mark are rounded towards negative infinity (-∞).</li>
+                                    <li><code>halfExpand</code>: Values exactly on the 0.5 (half) mark are rounded away from zero.</li>
+                                    <li><code>halfTrunc</code>: Values exactly on the 0.5 (half) mark are rounded towards zero.</li>
+                                    <li><code>halfEven</code>: Values exactly on the 0.5 (half) mark are rounded to the nearest
+                                        even digit. This is often called Banker’s Rounding because it is, on average,
+                                        free of bias.</li>
+                                    <li><code>halfOdd</code>: Similar to <code>halfEven</code>, but rounds ties to the nearest odd number
+                                        instead of even number.</li>
+                                    <li><code>unnecessary</code>: This mode doesn't perform any rounding but will throw an
+                                        exception if the value cannot be represented exactly without rounding.</li>
+                                </ul>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="useGrouping" class="col-form-label">Use Grouping?</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="useGrouping" name="useGrouping" class="form-select" aria-label="Grouping separator selection" aria-describedby="useGroupingHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.useGrouping == 'always' ? 'selected' }}>always</option>
+                                    <option {{ params.useGrouping == 'auto' ? 'selected' }}>auto</option>
+                                    <option {{ params.useGrouping == 'false' ? 'selected' }}>false</option>
+                                    <option {{ params.useGrouping == 'min2' ? 'selected' }}>min2</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="useGroupingHelp" class="form-text">
+                                    Controls display of grouping separators, such as thousand separators or thousand/lakh/crore
+                                    separators. The default is <code>auto</code>, which uses the locale's preference.
+                                    Use <code>always</code> to always display grouping separators, even if the locale prefers
+                                    otherwise. Use <code>false</code> to never display grouping separators. Use <code>min2</code>
+                                    to display grouping separators when there are at least two digits in a group (displays
+                                    grouping less frequently than the default for the locale, e.g., if the number is
+                                    <code>1234</code>, and we specify grouping with <code>min2</code>, then the formatted
+                                    number is 1234 (en-US)).
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="scale" class="col-form-label">Scale</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="scale" name="scale" class="form-control" aria-describedby="scaleHelp" value="{{ params.scale }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="scaleHelp" class="form-text">
+                                    A scale by which to multiply the number before formatting it.
+                                    For example, a scale value of 100 will multiply the number by
+                                    100 first, then apply other formatting options.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="minimumIntegerDigits" class="col-form-label">Min Integer Digits</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="minimumIntegerDigits" name="minimumIntegerDigits" class="form-control" aria-describedby="minimumIntegerDigitsHelp" value="{{ params.minimumIntegerDigits }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="minimumIntegerDigitsHelp" class="form-text">
+                                    The minimum number of integer digits to display. For example, if the number
+                                    is <code>1234.56</code>, and we specify <code>6</code> for the minimum integer
+                                    digits, then the formatted number is 001,234.56 (en-US).
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="minimumFractionDigits" class="col-form-label">Min Fraction Digits</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="minimumFractionDigits" name="minimumFractionDigits" class="form-control" aria-describedby="minimumFractionDigitsHelp" value="{{ params.minimumFractionDigits }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="minimumFractionDigitsHelp" class="form-text">
+                                    The minimum number of fraction digits to display. For example, if the number
+                                    is <code>1234.5</code>, and we specify <code>2</code> for the minimum fraction
+                                    digits, then the formatted number is 1,234.50 (en-US).
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="maximumFractionDigits" class="col-form-label">Max Fraction Digits</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="maximumFractionDigits" name="maximumFractionDigits" class="form-control" aria-describedby="maximumFractionDigitsHelp" value="{{ params.maximumFractionDigits }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="maximumFractionDigitsHelp" class="form-text">
+                                    The maximum number of fraction digits to display. For example, if the number
+                                    is <code>1234.5678</code>, and we specify <code>2</code> for the maximum fraction
+                                    digits, then the formatted number is 1,234.57 (en-US).
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="minimumSignificantDigits" class="col-form-label">Min Significant Digits</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="minimumSignificantDigits" name="minimumSignificantDigits" class="form-control" aria-describedby="minimumSignificantDigitsHelp" value="{{ params.minimumSignificantDigits }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="minimumSignificantDigitsHelp" class="form-text">
+                                    The minimum number of significant digits to display. For example, if the number
+                                    is <code>1234</code>, and we specify <code>6</code> for the minimum significant
+                                    digits, then the formatted number is 1,234.00 (en-US).
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="maximumSignificantDigits" class="col-form-label">Max Significant Digits</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="maximumSignificantDigits" name="maximumSignificantDigits" class="form-control" aria-describedby="maximumSignificantDigitsHelp" value="{{ params.maximumSignificantDigits }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="maximumSignificantDigitsHelp" class="form-text">
+                                    The maximum number of significant digits to display. For example, if the number
+                                    is <code>1234</code>, and we specify <code>2</code> for the maximum significant
+                                    digits, then the formatted number is 1,200 (en-US).
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="numberingSystem" class="col-form-label">Numerals</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="numberingSystem" name="numberingSystem" class="form-control" aria-describedby="numberingSystemHelp" placeholder="latn" value="{{ params.numberingSystem }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="numberingSystemHelp" class="form-text">
+                                    The numbering system to use for the digits if the locale or language tag
+                                    doesn't already indicate the numbering system. Possible values include:
+                                    <code>adlm</code>, <code>ahom</code>, <code>arab</code>, <code>arabext</code>,
+                                    <code>bali</code>, <code>beng</code>, <code>bhks</code>, <code>brah</code>,
+                                    <code>cakm</code>, <code>cham</code>, <code>deva</code>, <code>fullwide</code>,
+                                    <code>gong</code>, <code>gonm</code>, <code>gujr</code>, <code>guru</code>,
+                                    <code>hanidec</code>, <code>hmng</code>, <code>java</code>, <code>kali</code>,
+                                    <code>khmr</code>, <code>knda</code>, <code>lana</code>, <code>lanatham</code>,
+                                    <code>laoo</code>, <code>latn</code>, <code>lepc</code>, <code>limb</code>,
+                                    <code>mathbold</code>, <code>mathdbl</code>, <code>mathmono</code>, <code>mathsanb</code>,
+                                    <code>mathsans</code>, <code>mlym</code>, <code>modi</code>, <code>mong</code>,
+                                    <code>mroo</code>, <code>mtei</code>, <code>mymr</code>, <code>mymrshan</code>,
+                                    <code>mymrtlng</code>, <code>newa</code>, <code>nkoo</code>, <code>olck</code>,
+                                    <code>orya</code>, <code>osma</code>, <code>rohg</code>, <code>saur</code>,
+                                    <code>shrd</code>, <code>sind</code>, <code>sora</code>, <code>sund</code>,
+                                    <code>takr</code>, <code>talu</code>, <code>tamldec</code>, <code>telu</code>,
+                                    <code>thai</code>, <code>tibt</code>, <code>tirh</code>, <code>vaii</code>,
+                                    <code>wara</code>, and <code>wcho</code>.
+                                    These values come from <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/number.xml" target="_blank">Unicode
+                                    CLDR data files</a>. Algorithmic numbering systems are not supported.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Fraction Options</h5>
+                    <div class="card-body">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="trailingZeroDisplay" class="col-form-label">Trailing Zero</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="trailingZeroDisplay" name="trailingZeroDisplay" class="form-select" aria-label="Trailing zero display selection" aria-describedby="trailingZeroDisplayHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.trailingZeroDisplay == 'auto' ? 'selected' }}>auto</option>
+                                    <option {{ params.trailingZeroDisplay == 'stripIfInteger' ? 'selected' }}>stripIfInteger</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="trailingZeroDisplayHelp" class="form-text">
+                                    Controls the display of trailing zeros when formatting numbers. The default,
+                                    <code>auto</code>, keeps the trailing zeros according to the rules defined
+                                    in <code>minimumFractionDigits</code> and <code>maximumFractionDigits</code>.
+                                    If using <code>stripIfInteger</code>, we will not display trailing zeros if
+                                    the formatted number is a whole integer.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="roundingPriority" class="col-form-label">Rounding Priority</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="roundingPriority" name="roundingPriority" class="form-select" aria-label="Rounding priority selection" aria-describedby="roundingPriorityHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.roundingPriority == 'auto' ? 'selected' }}>auto</option>
+                                    <option {{ params.roundingPriority == 'morePrecision' ? 'selected' }}>morePrecision</option>
+                                    <option {{ params.roundingPriority == 'lessPrecision' ? 'selected' }}>lessPrecision</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="roundingPriorityHelp" class="form-text">
+                                    Rounding priority specifies how to resolve conflicts between <code>maximumFractionDigits</code>
+                                    and <code>maximumSignificantDigits</code>. The two modes are <code>morePrecision</code>
+                                    and <code>lessPrecision</code>. The <code>morePrecision</code> mode, or <em>relaxed</em>
+                                    mode, relaxes one of the two constraints (fraction digits or significant digits) to
+                                    round the number to a higher level of precision. The <code>lessPrecision</code> mode,
+                                    or <em>strict</em> mode, enforces both constraints, rounding the number of a lower
+                                    level of precision. The default is <code>auto</code>, which always resolves the
+                                    conflict in favor of <code>maximumSignificantDigits</code>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Currency Options</h5>
+                    <div class="card-body">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="currency" class="col-form-label">Currency</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="currency" name="currency" class="form-control" aria-describedby="currencyHelp" placeholder="USD" value="{{ params.currency }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="currencyHelp" class="form-text">
+                                    If the <code>style</code> property is <code>currency</code>, you must provide a
+                                    valid <code>currency</code>. This is an <a href="https://www.iso.org/iso-4217-currency-codes.html" target="_blank">ISO 4217 currency code</a>
+                                    to use when formatting currency. For example, <code>USD</code>, <code>EUR</code>,
+                                    or <code>CNY</code>.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="currencySign" class="col-form-label">Currency Sign</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="currencySign" name="currencySign" class="form-select" aria-label="Currency sign selection" aria-describedby="currencySignHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.currencySign == 'standard' ? 'selected' }}>standard</option>
+                                    <option {{ params.currencySign == 'accounting' ? 'selected' }}>accounting</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="currencySignHelp" class="form-text">
+                                    In accounting, many locales format negative currency values using parentheses
+                                    rather than the minus symbol (<code>-</code>). You may enable this behavior by
+                                    setting this property to <code>accounting</code>. The default value is
+                                    <code>standard</code>.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="currencyDisplay" class="col-form-label">Currency Display</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="currencyDisplay" name="currencyDisplay" class="form-select" aria-label="Currency display selection" aria-describedby="currencyDisplayHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.currencyDisplay == 'symbol' ? 'selected' }}>symbol</option>
+                                    <option {{ params.currencyDisplay == 'narrowSymbol' ? 'selected' }}>narrowSymbol</option>
+                                    <option {{ params.currencyDisplay == 'code' ? 'selected' }}>code</option>
+                                    <option {{ params.currencyDisplay == 'name' ? 'selected' }}>name</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="currencyDisplayHelp" class="form-text">
+                                    How to display the currency. The default is <code>symbol</code>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">Unit Options</h5>
+                    <div class="card-body">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-1">
+                                <label for="unit" class="col-form-label">Unit</label>
+                            </div>
+                            <div class="col-5">
+                                <input type="text" id="unit" name="unit" class="form-control" aria-describedby="unitHelp" placeholder="kilometer" value="{{ params.unit }}">
+                            </div>
+                            <div class="col-6">
+                                <span id="unitHelp" class="form-text">
+                                    When formatting units, you must provide a core unit identifier as the <code>unit</code> property.
+                                    <a href="https://unicode.org/reports/tr35/tr35-general.html#Unit_Elements" target="_blank">UTS #35, Part 2, Section 6</a>
+                                    defines core unit identifiers. You may use any unit defined in the
+                                    <a href="https://github.com/unicode-org/cldr/blob/main/common/validity/unit.xml" target="_blank">CLDR data file</a>.
+                                    You may use the following units in these concise forms (without the prefixes
+                                    defined in CLDR): <code>acre</code>, <code>bit</code>, <code>byte</code>,
+                                    <code>celsius</code>, <code>centimeter</code>, <code>day</code>, <code>degree</code>,
+                                    <code>fahrenheit</code>, <code>fluid-ounce</code>, <code>foot</code>, <code>gallon</code>,
+                                    <code>gigabit</code>, <code>gigabyte</code>, <code>gram</code>, <code>hectare</code>,
+                                    <code>hour</code>, <code>inch</code>, <code>kilobit</code>, <code>kilobyte</code>,
+                                    <code>kilogram</code>, <code>kilometer</code>, <code>liter</code>, <code>megabit</code>,
+                                    <code>megabyte</code>, <code>meter</code>, <code>mile</code>, <code>mile-scandinavian</code>,
+                                    <code>milliliter</code>, <code>millimeter</code>, <code>millisecond</code>,
+                                    <code>minute</code>, <code>month</code>, <code>ounce</code>, <code>percent</code>,
+                                    <code>petabyte</code>, <code>pound</code>, <code>second</code>, <code>stone</code>,
+                                    <code>terabit</code>, <code>terabyte</code>, <code>week</code>, <code>yard</code>,
+                                    or <code>year</code>.
+                                </span>
+                            </div>
+
+                            <div class="w-100"></div>
+
+                            <div class="col-1">
+                                <label for="unitDisplay" class="col-form-label">Unit Display</label>
+                            </div>
+                            <div class="col-5">
+                                <select id="unitDisplay" name="unitDisplay" class="form-select" aria-label="Unit display selection" aria-describedby="unitDisplayHelp">
+                                    <option value="">Nothing selected</option>
+                                    <option {{ params.unitDisplay == 'short' ? 'selected' }}>short</option>
+                                    <option {{ params.unitDisplay == 'long' ? 'selected' }}>long</option>
+                                    <option {{ params.unitDisplay == 'narrow' ? 'selected' }}>narrow</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <span id="unitDisplayHelp" class="form-text">
+                                    How to display the unit. The default is <code>short</code>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="my-3">
+            <button type="submit" class="btn btn-primary">Generate Skeleton</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </p>
+
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const locale = Intl.DateTimeFormat().resolvedOptions().locale;
+            $('#locale').attr('placeholder', locale);
+            if ($('#locale').val() === '') {
+                $('#locale').val(locale);
+            }
+
+            $('#timeZone').attr('placeholder', timeZone);
+
+            // Capture clicks on the "reset" button and redirect to clear the
+            // query string parameters.
+            $('button[type=reset]').click(function () {
+                $(location).attr('href', '/skeleton/numbers');
+            });
+        });
+    </script>
+{% endblock %}
