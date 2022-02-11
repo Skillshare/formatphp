@@ -9,6 +9,7 @@ use FormatPHP\Config;
 use FormatPHP\Exception\InvalidArgumentException;
 use FormatPHP\FormatPHP;
 use FormatPHP\Intl\DateTimeFormatOptions;
+use FormatPHP\Intl\DisplayNamesOptions;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\NumberFormatOptions;
 use FormatPHP\Message;
@@ -17,6 +18,9 @@ use Locale as PhpLocale;
 
 use function date;
 
+/**
+ * @psalm-import-type OptionsType from DisplayNamesOptions
+ */
 class FormatPHPTest extends TestCase
 {
     public function testFormatMessage(): void
@@ -395,5 +399,64 @@ class FormatPHPTest extends TestCase
             'currencyDisplay' => 'code',
             'trailingZeroDisplay' => 'stripIfInteger',
         ])));
+    }
+
+    /**
+     * @psalm-param OptionsType $options
+     * @dataProvider formatDisplayNameProvider
+     */
+    public function testFormatDisplayName(string $value, array $options, ?string $expected): void
+    {
+        $locale = new Locale('en-US');
+        $config = new Config($locale);
+        $messageCollection = new MessageCollection();
+        $formatphp = new FormatPHP($config, $messageCollection);
+        $options = new DisplayNamesOptions($options);
+
+        $this->assertSame($expected, $formatphp->formatDisplayName($value, $options));
+    }
+
+    /**
+     * @psalm-return array<array{value: string, options: OptionsType, expected: string | null}>
+     */
+    public function formatDisplayNameProvider(): array
+    {
+        return [
+            [
+                'value' => 'US',
+                'options' => ['type' => 'region'],
+                'expected' => 'United States',
+            ],
+            [
+                'value' => 'zh-Hans-SG',
+                'options' => ['type' => 'language'],
+                'expected' => 'Chinese (Simplified, Singapore)',
+            ],
+            [
+                'value' => 'Deva',
+                'options' => ['type' => 'script'],
+                'expected' => 'Devanagari',
+            ],
+            [
+                'value' => 'CNY',
+                'options' => ['type' => 'currency'],
+                'expected' => 'Chinese yuan',
+            ],
+            [
+                'value' => 'UN',
+                'options' => ['type' => 'region'],
+                'expected' => 'United Nations',
+            ],
+            [
+                'value' => 'FOO',
+                'options' => ['type' => 'currency', 'fallback' => 'none'],
+                'expected' => null,
+            ],
+            [
+                'value' => '419',
+                'options' => ['type' => 'region'],
+                'expected' => 'Latin America',
+            ],
+        ];
     }
 }

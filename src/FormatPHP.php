@@ -27,6 +27,8 @@ use DateTimeInterface as PhpDateTimeInterface;
 use Exception as PhpException;
 use FormatPHP\Intl\DateTimeFormat;
 use FormatPHP\Intl\DateTimeFormatOptions;
+use FormatPHP\Intl\DisplayNames;
+use FormatPHP\Intl\DisplayNamesOptions;
 use FormatPHP\Intl\MessageFormat;
 use FormatPHP\Intl\NumberFormat;
 use FormatPHP\Intl\NumberFormatOptions;
@@ -154,6 +156,19 @@ class FormatPHP implements FormatterInterface
         $options->currency = $currencyCode;
 
         return $this->formatNumber($value, $options);
+    }
+
+    /**
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatDisplayNameException
+     *
+     * @inheritdoc
+     */
+    public function formatDisplayName(string $value, ?DisplayNamesOptions $options = null): ?string
+    {
+        $formatter = new DisplayNames($this->config->getLocale(), $options);
+
+        return $formatter->of($value);
     }
 
     protected function getConfig(): ConfigInterface
