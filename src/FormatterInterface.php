@@ -24,6 +24,7 @@ namespace FormatPHP;
 
 use DateTimeInterface as PhpDateTimeInterface;
 use FormatPHP\Intl\DateTimeFormatOptions;
+use FormatPHP\Intl\DisplayNamesOptions;
 use FormatPHP\Intl\NumberFormatOptions;
 
 /**
@@ -109,4 +110,15 @@ interface FormatterInterface
      * @throws Exception\UnableToFormatNumberException
      */
     public function formatCurrency($value, string $currencyCode, ?NumberFormatOptions $options = null): string;
+
+    /**
+     * Returns a translated, localized display string for the given code
+     *
+     * Additional options may be provided to configure how the display name
+     * should be formatted.
+     *
+     * @throws Exception\InvalidArgumentException
+     * @throws Exception\UnableToFormatDisplayNameException
+     */
+    public function formatDisplayName(string $value, ?DisplayNamesOptions $options = null): ?string;
 }

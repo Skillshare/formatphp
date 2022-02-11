@@ -81,8 +81,8 @@ echo $formatphp->formatMessage([
 
 ### Formatting Numbers and Currency
 
-You may use the methods `formatNumber()` and `formatCurrency()` for format
-numbers and currency, according to the locale.
+You may use the methods `formatNumber()` and `formatCurrency()` to format
+numbers and currency according to the locale.
 
 ```php
 use FormatPHP\Config;
@@ -365,6 +365,65 @@ Additional options include:
   (see [date_default_timezone_set()](https://www.php.net/date_default_timezone_set)).
   You may use the zone names of the [IANA time zone database](https://www.iana.org/time-zones),
   such as "Asia/Shanghai", "Asia/Kolkata", "America/New_York".
+
+### Formatting Display Names of Languages, Regions, Currency, and More
+
+You may use the method `formatDisplayName()` to format the display names of
+languages, regions, currency, and more. This returns a locale-appropriate,
+translated string for the type requested.
+
+```php
+use FormatPHP\Config;
+use FormatPHP\FormatPHP;
+use FormatPHP\Intl;
+
+$config = new Config(new Intl\Locale('en-US'));
+$formatphp = new FormatPHP($config);
+
+echo $formatphp->formatDisplayName('zh-Hans-SG', new Intl\DisplayNamesOptions([
+    'type' => 'language',
+])); // e.g., "Chinese (Simplified, Singapore)"
+
+echo $formatphp->formatDisplayName('Deva', new Intl\DisplayNamesOptions([
+    'type' => 'script',
+])); // e.g., "Devanagari"
+
+echo $formatphp->formatDisplayName('CNY', new Intl\DisplayNamesOptions([
+    'type' => 'currency',
+])); // e.g., "Chinese yuan"
+
+echo $formatphp->formatDisplayName('CNY', new Intl\DisplayNamesOptions([
+    'type' => 'currency',
+    'style' => 'narrow',
+])); // e.g., "¥"
+
+echo $formatphp->formatDisplayName('UN', new Intl\DisplayNamesOptions([
+    'type' => 'region',
+])); // e.g., "United Nations"
+```
+
+#### Using Intl\DisplayNamesOptions with formatDisplayName()
+
+When formatting display names, you must provide a `DisplayNamesOptions` instance
+with at least a `type` defined.
+
+* `type`: The type of data for which we wish to format a display name. This
+  currently supports `currency`, `language`, `region`, and `script`.  While
+  [ECMA-402](https://tc39.es/ecma402/#sec-intl-displaynames-constructor) defines
+  `calendar` and `dateTimeField` as additional types, these types are not
+  implemented in Node.js or in any browsers. In fact, if set, the
+  implementations throw exceptions, so this FormatPHP follows the same
+  pattern.
+* `fallback`: The fallback strategy to use. If we are unable to format a display
+  name, we will return the same code provided if `fallback` is set to `code.` If
+  `fallback` is `none`, then we return `null`. The default `fallback` is `code`.
+* `style`: The formatting style to use: `long`, `short`, or `narrow`. This
+  currently only affects the display name when `type` is `currency`, and the
+  default is `long`.
+* `languageDisplay`: This is a suggestion for displaying the language according
+  to the locale's dialect or standard representation. In JavaScript, this
+  defaults to `dialect`. For now, PHP supports only the `standard`
+  representation, so `dialect` has no effect.
 
 ### Rich Text Formatting (Use of Tags in Messages)
 

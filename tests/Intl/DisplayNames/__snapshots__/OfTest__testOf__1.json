@@ -1,0 +1,2432 @@
+{
+  "en-US style/long languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "US dollar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "euro",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "English (Latin, United States)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "English (United Kingdom)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "Portuguese (Brazil)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "United States",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "Brazil",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "Latin America",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "Latin",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "Arabic",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "US dollar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "euro",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "English (Latin, United States)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "English (United Kingdom)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "Portuguese (Brazil)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "United States",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "Brazil",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "Latin America",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "Latin",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "Arabic",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/long languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "$",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "€",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "English (Latin, United States)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "English (United Kingdom)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "Portuguese (Brazil)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "United States",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "Brazil",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "Latin America",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "Latin",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "Arabic",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "$",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "€",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "English (Latin, United States)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "English (United Kingdom)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "Portuguese (Brazil)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "United States",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "Brazil",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "Latin America",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "Latin",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "Arabic",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/narrow languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "USD",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "EUR",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "English (Latin, United States)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "English (United Kingdom)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "Portuguese (Brazil)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "United States",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "Brazil",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "Latin America",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "Latin",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "Arabic",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "USD",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "EUR",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "English (Latin, United States)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "English (United Kingdom)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "Portuguese (Brazil)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "United States",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "Brazil",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "Latin America",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "Latin",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "Arabic",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "en-US style/short languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "US-Dollar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "Euro",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "Englisch (Lateinisch, Vereinigte Staaten)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "Englisch (Vereinigtes Königreich)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "Portugiesisch (Brasilien)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "Vereinigte Staaten",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "Brasilien",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "Lateinamerika",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "Lateinisch",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "Arabisch",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "US-Dollar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "Euro",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "Englisch (Lateinisch, Vereinigte Staaten)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "Englisch (Vereinigtes Königreich)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "Portugiesisch (Brasilien)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "Vereinigte Staaten",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "Brasilien",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "Lateinamerika",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "Lateinisch",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "Arabisch",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/long languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "$",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "€",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "Englisch (Lateinisch, Vereinigte Staaten)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "Englisch (Vereinigtes Königreich)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "Portugiesisch (Brasilien)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "Vereinigte Staaten",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "Brasilien",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "Lateinamerika",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "Lateinisch",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "Arabisch",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "$",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "€",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "Englisch (Lateinisch, Vereinigte Staaten)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "Englisch (Vereinigtes Königreich)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "Portugiesisch (Brasilien)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "Vereinigte Staaten",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "Brasilien",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "Lateinamerika",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "Lateinisch",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "Arabisch",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/narrow languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "USD",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "EUR",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "Englisch (Lateinisch, Vereinigte Staaten)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "Englisch (Vereinigtes Königreich)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "Portugiesisch (Brasilien)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "Vereinigte Staaten",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "Brasilien",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "Lateinamerika",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "Lateinisch",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "Arabisch",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "USD",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "EUR",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "Englisch (Lateinisch, Vereinigte Staaten)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "Englisch (Vereinigtes Königreich)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "Portugiesisch (Brasilien)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "Vereinigte Staaten",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "Brasilien",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "Lateinamerika",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "Lateinisch",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "Arabisch",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "de-DE style/short languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "미국 달러",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "유로",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "영어(로마자, 미국)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "영어(영국)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "포르투갈어(브라질)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "미국",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "브라질",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "라틴 아메리카",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "로마자",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "아랍 문자",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "미국 달러",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "유로",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "영어(로마자, 미국)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "영어(영국)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "포르투갈어(브라질)",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "미국",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "브라질",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "라틴 아메리카",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "로마자",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "아랍 문자",
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/long languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "long",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "$",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "€",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "영어(로마자, 미국)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "영어(영국)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "포르투갈어(브라질)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "미국",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "브라질",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "라틴 아메리카",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "로마자",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "아랍 문자",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "$",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "€",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "영어(로마자, 미국)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "영어(영국)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "포르투갈어(브라질)",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "미국",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "브라질",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "라틴 아메리카",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "로마자",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "아랍 문자",
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/narrow languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "narrow",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/currency of(USD)": {
+    "result": "USD",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/currency of(EUR)": {
+    "result": "EUR",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/currency of(FOO)": {
+    "result": "FOO",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/language of(en-Latn-US)": {
+    "result": "영어(로마자, 미국)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/language of(en-GB)": {
+    "result": "영어(영국)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/language of(pt-BR)": {
+    "result": "포르투갈어(브라질)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/language of(foobar)": {
+    "result": "foobar",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/region of(US)": {
+    "result": "미국",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/region of(BR)": {
+    "result": "브라질",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/region of(419)": {
+    "result": "라틴 아메리카",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/region of(YY)": {
+    "result": "YY",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/region of(123)": {
+    "result": "123",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/script of(Latn)": {
+    "result": "로마자",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/script of(Arab)": {
+    "result": "아랍 문자",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/code type/script of(Foob)": {
+    "result": "Foob",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "code",
+      "type": "script"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/currency of(USD)": {
+    "result": "USD",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/currency of(EUR)": {
+    "result": "EUR",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/currency of(FOO)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "currency"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/language of(en-Latn-US)": {
+    "result": "영어(로마자, 미국)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/language of(en-GB)": {
+    "result": "영어(영국)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/language of(pt-BR)": {
+    "result": "포르투갈어(브라질)",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/language of(foobar)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "language"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/region of(US)": {
+    "result": "미국",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/region of(BR)": {
+    "result": "브라질",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/region of(419)": {
+    "result": "라틴 아메리카",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/region of(YY)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/region of(123)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "region"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/script of(Latn)": {
+    "result": "로마자",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/script of(Arab)": {
+    "result": "아랍 문자",
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  },
+  "ko-KR style/short languageDisplay/standard fallback/none type/script of(Foob)": {
+    "result": null,
+    "options": {
+      "style": "short",
+      "languageDisplay": "standard",
+      "fallback": "none",
+      "type": "script"
+    }
+  }
+}
