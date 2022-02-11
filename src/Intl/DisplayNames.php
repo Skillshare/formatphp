@@ -28,12 +28,12 @@ use FormatPHP\Icu\MessageFormat\Parser;
 use Locale as PhpLocale;
 use MessageFormatter;
 
+use function implode;
 use function in_array;
 use function mb_strtolower;
 use function preg_match;
+use function preg_match_all;
 use function sprintf;
-use function str_replace;
-use function trim;
 
 /**
  * Formats a locale-appropriate display name for properties of a given locale
@@ -187,7 +187,7 @@ class DisplayNames implements DisplayNamesInterface
 
         $formatter = new MessageFormatter($this->localeName, $pattern);
 
-        $result = trim(str_replace('1', '', (string) $formatter->format([1])), "\x20\xC2\xA0");
+        $result = $this->parseCurrencyFromMessage((string) $formatter->format([1]), $code);
 
         return [$result, $this->isCurrencyChanged($result, $code)];
     }
@@ -220,7 +220,7 @@ class DisplayNames implements DisplayNamesInterface
             sprintf(self::CURRENCY_FORMAT, $code, self::STYLE_CURRENCY_DEFAULT),
         );
 
-        $longResult = trim(str_replace('1', '', (string) $formatter->format([1])), "\x20\xC2\xA0");
+        $longResult = $this->parseCurrencyFromMessage((string) $formatter->format([1]), $code);
 
         return $this->isChanged($longResult, $result);
     }
@@ -232,5 +232,12 @@ class DisplayNames implements DisplayNamesInterface
     private function isChanged(string $result, string $code): bool
     {
         return mb_strtolower($result, Parser::ENCODING) !== mb_strtolower($code, Parser::ENCODING);
+    }
+
+    private function parseCurrencyFromMessage(string $message, string $code): string
+    {
+        preg_match_all('/[^0-9\s]+/u', $message, $matches);
+
+        return implode(' ', $matches[0]) ?: $code;
     }
 }

@@ -26,6 +26,10 @@ use FormatPHP\Icu\MessageFormat\Parser\Type\OptionSerializer;
 use JsonSerializable;
 
 /**
+ * Options for formatting display names
+ *
+ * @link https://tc39.es/ecma402/#sec-intl-displaynames-constructor
+ *
  * @psalm-type FallbackType = "code" | "none"
  * @psalm-type LanguageDisplayType = "dialect" | "standard"
  * @psalm-type StyleType = "long" | "narrow" | "short"
@@ -53,9 +57,53 @@ class DisplayNamesOptions implements JsonSerializable
     public const TYPE_REGION = 'region';
     public const TYPE_SCRIPT = 'script';
 
+    /**
+     * The fallback strategy to use
+     *
+     * If we are unable to format a display name, we will return the same code
+     * provided if `fallback` is set to "code." If `fallback` is "none," then
+     * we return `null`. The default `fallback` is "code."
+     *
+     * @var FallbackType | null
+     */
     public ?string $fallback;
+
+    /**
+     * A suggestion for displaying the language according to the locale's
+     * dialect or standard representation
+     *
+     * In JavaScript, this defaults to "dialect," and some implementations do
+     * not appear to honor "standard" at all, though this might be a result of
+     * the version of the ICU data files bundled with the implementation.
+     *
+     * For now, PHP supports only the "standard" representation, so "dialect"
+     * has no effect.
+     *
+     * @var LanguageDisplayType | null
+     */
     public ?string $languageDisplay;
+
+    /**
+     * The formatting style to use
+     *
+     * This currently only affects the display name when `type` is "currency."
+     *
+     * @var StyleType | null
+     */
     public ?string $style;
+
+    /**
+     * The type of data for which we wish to format a display name
+     *
+     * This currently supports "currency," "language," "region," and "script."
+     *
+     * While ECMA-402 defines "calendar" and "dateTimeField" as additional types,
+     * these types are not implemented in Node.js or in any browsers. In fact,
+     * if set, the implementations throw exceptions, so this implementation
+     * follows the same pattern.
+     *
+     * @var TypeType | null
+     */
     public ?string $type;
 
     /**

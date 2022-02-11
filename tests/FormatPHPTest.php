@@ -405,9 +405,9 @@ class FormatPHPTest extends TestCase
      * @psalm-param OptionsType $options
      * @dataProvider formatDisplayNameProvider
      */
-    public function testFormatDisplayName(string $value, array $options, ?string $expected): void
+    public function testFormatDisplayName(string $tag, string $value, array $options, ?string $expected): void
     {
-        $locale = new Locale('en-US');
+        $locale = new Locale($tag);
         $config = new Config($locale);
         $messageCollection = new MessageCollection();
         $formatphp = new FormatPHP($config, $messageCollection);
@@ -417,45 +417,130 @@ class FormatPHPTest extends TestCase
     }
 
     /**
-     * @psalm-return array<array{value: string, options: OptionsType, expected: string | null}>
+     * @psalm-return array<array{tag: string, value: string, options: OptionsType, expected: string | null}>
      */
     public function formatDisplayNameProvider(): array
     {
         return [
             [
+                'tag' => 'en-US',
                 'value' => 'US',
                 'options' => ['type' => 'region'],
                 'expected' => 'United States',
             ],
             [
+                'tag' => 'en-US',
                 'value' => 'zh-Hans-SG',
                 'options' => ['type' => 'language'],
                 'expected' => 'Chinese (Simplified, Singapore)',
             ],
             [
+                'tag' => 'en-US',
                 'value' => 'Deva',
                 'options' => ['type' => 'script'],
                 'expected' => 'Devanagari',
             ],
             [
+                'tag' => 'en-US',
                 'value' => 'CNY',
                 'options' => ['type' => 'currency'],
                 'expected' => 'Chinese yuan',
             ],
             [
+                'tag' => 'en-US',
+                'value' => 'CNY',
+                'options' => ['type' => 'currency', 'style' => 'short'],
+                'expected' => 'CNY',
+            ],
+            [
+                'tag' => 'en-US',
+                'value' => 'CNY',
+                'options' => ['type' => 'currency', 'style' => 'narrow'],
+                'expected' => '¥',
+            ],
+            [
+                'tag' => 'en-US',
                 'value' => 'UN',
                 'options' => ['type' => 'region'],
                 'expected' => 'United Nations',
             ],
             [
+                'tag' => 'en-US',
                 'value' => 'FOO',
                 'options' => ['type' => 'currency', 'fallback' => 'none'],
                 'expected' => null,
             ],
             [
+                'tag' => 'en-US',
+                'value' => 'FOO',
+                'options' => ['type' => 'currency'],
+                'expected' => 'FOO',
+            ],
+            [
+                'tag' => 'en-US',
                 'value' => '419',
                 'options' => ['type' => 'region'],
                 'expected' => 'Latin America',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'US',
+                'options' => ['type' => 'region'],
+                'expected' => 'アメリカ合衆国',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'zh-Hans-SG',
+                'options' => ['type' => 'language'],
+                'expected' => '中国語 (簡体字、シンガポール)',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'Deva',
+                'options' => ['type' => 'script'],
+                'expected' => 'デーバナーガリー文字',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'CNY',
+                'options' => ['type' => 'currency'],
+                'expected' => '中国人民元',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'CNY',
+                'options' => ['type' => 'currency', 'style' => 'short'],
+                'expected' => 'CNY',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'CNY',
+                'options' => ['type' => 'currency', 'style' => 'narrow'],
+                'expected' => '￥',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'UN',
+                'options' => ['type' => 'region'],
+                'expected' => '国際連合',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'FOO',
+                'options' => ['type' => 'currency', 'fallback' => 'none'],
+                'expected' => null,
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => 'FOO',
+                'options' => ['type' => 'currency'],
+                'expected' => 'FOO',
+            ],
+            [
+                'tag' => 'ja-JP',
+                'value' => '419',
+                'options' => ['type' => 'region'],
+                'expected' => 'ラテンアメリカ',
             ],
         ];
     }
