@@ -114,7 +114,7 @@ class Descriptor implements ExtendedDescriptorInterface
     }
 
     /**
-     * @return array{defaultMessage: string | null, description: string | null, id: string | null, file: string | null, start: int | null, end: int | null, line: int | null, meta: array<string, string>}
+     * @return array{defaultMessage: string | null, description: string | null, end: int | null, file: string | null, id: string | null, line: int | null, meta: array<string, string>, start: int | null}
      */
     public function toArray(): array
     {

@@ -142,7 +142,7 @@ class FormatHelper
     {
         if (class_exists($format) && is_a($format, $type, true)) {
             /** @psalm-suppress MixedMethodCall */
-            return new $format(); // @phpstan-ignore-line
+            return new $format();
         }
 
         $formatter = $this->fileSystemHelper->loadClosureFromScript($format);
