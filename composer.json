@@ -20,7 +20,6 @@
         "ext-intl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "mdwheele/zalgo": "^0.3.1",
         "myclabs/php-enum": "^1.8",
         "nikic/php-parser": "^4.13",
         "psr/log": "^1 || ^2",
@@ -30,13 +29,32 @@
         "webmozart/glob": "^4.4"
     },
     "require-dev": {
-        "ramsey/devtools": "^1.7",
-        "ramsey/devtools-lib": "1.3.0",
+        "captainhook/captainhook": "^5.10",
+        "captainhook/plugin-composer": "^5.3",
+        "ergebnis/composer-normalize": "^2.25",
+        "hamcrest/hamcrest-php": "^2.0",
+        "mdwheele/zalgo": "^0.3.1",
+        "mockery/mockery": "^1.5",
+        "php-parallel-lint/php-console-highlighter": "^1.0",
+        "php-parallel-lint/php-parallel-lint": "^1.3",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "~1.6.0",
+        "phpstan/phpstan-mockery": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.1",
+        "psalm/plugin-mockery": "^0.9.1",
+        "psalm/plugin-phpunit": "^0.16.1",
+        "ramsey/coding-standard": "^2.0.3",
+        "ramsey/conventional-commits": "^1.3",
+        "roave/security-advisories": "dev-latest",
         "slim/slim": "^4.9",
         "slim/twig-view": "^3.3",
         "spatie/phpunit-snapshot-assertions": "^4.2",
         "symfony/var-exporter": "^5.4",
-        "twig/twig": "^3.3"
+        "twig/twig": "^3.3",
+        "vimeo/psalm": "~4.23.0"
+    },
+    "suggest": {
+        "mdwheele/zalgo": "Zalgo commands you install mdwheele/zalgo for Zalgo pseudo-locale support!"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -55,13 +73,10 @@
     ],
     "config": {
         "allow-plugins": {
-            "composer/package-versions-deprecated": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
-            "captainhook/plugin-composer": true,
-            "ramsey/devtools": true,
-            "ramsey/composer-repl": true
+            "captainhook/plugin-composer": true
         },
         "sort-packages": true
     },
@@ -71,9 +86,46 @@
         },
         "ramsey/conventional-commits": {
             "configFile": "conventional-commits.json"
-        },
-        "ramsey/devtools": {
-            "command-prefix": "dev"
         }
+    },
+    "scripts": {
+        "dev:analyze": [
+            "@dev:analyze:phpstan",
+            "@dev:analyze:psalm"
+        ],
+        "dev:analyze:phpstan": "phpstan analyse --ansi",
+        "dev:analyze:psalm": "psalm",
+        "dev:build:clean": "git clean -fX build/",
+        "dev:lint": [
+            "@dev:lint:syntax",
+            "@dev:lint:style"
+        ],
+        "dev:lint:fix": "phpcbf",
+        "dev:lint:style": "phpcs --colors",
+        "dev:lint:syntax": "parallel-lint --colors src/ tests/",
+        "dev:test": [
+            "@dev:lint",
+            "@dev:analyze",
+            "@dev:test:unit"
+        ],
+        "dev:test:coverage:ci": "phpunit --colors=always --coverage-text --coverage-clover build/coverage/clover.xml --coverage-cobertura build/coverage/cobertura.xml --coverage-crap4j build/coverage/crap4j.xml --coverage-xml build/coverage/coverage-xml --log-junit build/junit.xml",
+        "dev:test:coverage:html": "phpunit --colors=always --coverage-html build/coverage/coverage-html/",
+        "dev:test:unit": "phpunit --colors=always",
+        "test": "@dev:test"
+    },
+    "scripts-descriptions": {
+        "dev:analyze": "Runs all static analysis checks.",
+        "dev:analyze:phpstan": "Runs the PHPStan static analyzer.",
+        "dev:analyze:psalm": "Runs the Psalm static analyzer.",
+        "dev:build:clean": "Cleans the build/ directory.",
+        "dev:lint": "Runs all linting checks.",
+        "dev:lint:fix": "Auto-fixes coding standards issues, if possible.",
+        "dev:lint:style": "Checks for coding standards issues.",
+        "dev:lint:syntax": "Checks for syntax errors.",
+        "dev:test": "Runs linting, static analysis, and unit tests.",
+        "dev:test:coverage:ci": "Runs unit tests and generates CI coverage reports.",
+        "dev:test:coverage:html": "Runs unit tests and generates HTML coverage report.",
+        "dev:test:unit": "Runs unit tests.",
+        "test": "Runs linting, static analysis, and unit tests."
     }
 }
