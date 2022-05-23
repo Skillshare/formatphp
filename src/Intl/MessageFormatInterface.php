@@ -71,9 +71,9 @@ interface MessageFormatInterface
      * );
      * ```
      *
-     * @param array<array-key, float | int | string | callable(string):string> $values
-     *
      * @throws UnableToFormatMessageException
+     *
+     * @psalm-param array<array-key, float | int | string | callable(string=):string> $values
      */
     public function format(string $pattern, array $values = []): string;
 }

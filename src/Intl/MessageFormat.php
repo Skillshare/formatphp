@@ -42,6 +42,7 @@ use function assert;
 use function is_callable;
 use function is_int;
 use function is_numeric;
+use function is_string;
 use function preg_match;
 use function sprintf;
 
@@ -97,8 +98,6 @@ class MessageFormat implements MessageFormatInterface
     }
 
     /**
-     * @param array<array-key, float | int | string | callable(string):string> $values
-     *
      * @throws Parser\Exception\IllegalParserUsageException
      * @throws Parser\Exception\InvalidArgumentException
      * @throws Parser\Exception\InvalidOffsetException
@@ -108,15 +107,26 @@ class MessageFormat implements MessageFormatInterface
      * @throws Parser\Exception\UnableToParseMessageException
      * @throws UnableToFormatMessageException
      * @throws CollectionMismatchException
+     *
+     * @psalm-param array<array-key, float | int | string | callable(string=):string> $values
      */
     private function applyPreprocessing(string $pattern, array &$values = []): string
     {
-        $callbacks = array_filter($values, fn ($value): bool => is_callable($value));
+        /** @var array<array-key, callable(string=):string> $callbacks */
+        $callbacks = array_filter($values, fn ($value): bool => !is_string($value) && is_callable($value));
 
         // Remove the callbacks from the values, since we will use them below.
         foreach (array_keys($callbacks) as $key) {
             unset($values[$key]);
         }
+
+        /**
+         * This is to satisfy static analysis. At this point, $values should
+         * not contain any callables.
+         *
+         * @var array<array-key, float | int | string> $valuesWithoutCallables
+         */
+        $valuesWithoutCallables = &$values;
 
         $parserOptions = new Parser\Options();
         $parserOptions->shouldParseSkeletons = true;
@@ -130,15 +140,16 @@ class MessageFormat implements MessageFormatInterface
 
         assert($parsed->val instanceof Parser\Type\ElementCollection);
 
-        return (new Printer())->printAst($this->processAst($parsed->val, $callbacks, $values));
+        return (new Printer())->printAst($this->processAst($parsed->val, $callbacks, $valuesWithoutCallables));
     }
 
     /**
-     * @param array<array-key, callable(string):string> $callbacks
-     * @param array<array-key, float | int | string | callable(string):string> $values
+     * @param array<array-key, float | int | string> $values
      *
      * @throws CollectionMismatchException
      * @throws UnableToFormatMessageException
+     *
+     * @psalm-param array<array-key, callable(string=):string> $callbacks
      */
     private function processAst(
         Parser\Type\ElementCollection $ast,
@@ -179,11 +190,12 @@ class MessageFormat implements MessageFormatInterface
     }
 
     /**
-     * @param array<array-key, callable(string):string> $callbacks
-     * @param array<array-key, float | int | string | callable(string):string> $values
+     * @param array<array-key, float | int | string> $values
      *
      * @throws CollectionMismatchException
      * @throws UnableToFormatMessageException
+     *
+     * @psalm-param array<array-key, callable(string=):string> $callbacks
      */
     private function processTagElement(
         Parser\Type\TagElement $tagElement,
@@ -246,7 +258,7 @@ class MessageFormat implements MessageFormatInterface
      * @link https://tc39.es/ecma402/#sec-partitionnumberpattern
      * @link https://formatjs.io/docs/core-concepts/icu-syntax/#number-type
      *
-     * @param array<array-key, float | int | string | callable(string):string> $values
+     * @param array<array-key, float | int | string> $values
      */
     private function processNumberElement(
         Parser\Type\NumberElement $numberElement,
@@ -267,10 +279,10 @@ class MessageFormat implements MessageFormatInterface
     }
 
     /**
-     * @param array<array-key, callable(string):string> $callbacks
-     *
      * @throws CollectionMismatchException
      * @throws UnableToFormatMessageException
+     *
+     * @psalm-param array<array-key, callable(string=):string> $callbacks
      */
     private function processLiteralElement(
         Parser\Type\LiteralElement $literalElement,

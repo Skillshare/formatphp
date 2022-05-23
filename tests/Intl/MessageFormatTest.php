@@ -378,4 +378,54 @@ class MessageFormatTest extends TestCase
 
         $this->assertSame($expected, $result);
     }
+
+    public function testArrayCallablesAndClosures(): void
+    {
+        $message = 'Hello, <firstName></firstName> <lastName></lastName>!';
+        $expected = 'Hello, Jane Doe!';
+
+        $user = new class {
+            public function getFirstName(): string
+            {
+                return 'Jane';
+            }
+
+            public function getLastName(): string
+            {
+                return 'Doe';
+            }
+        };
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $result = $formatter->format(
+            $message,
+            [
+                'firstName' => [$user, 'getFirstName'],
+                'lastName' => fn (): string => $user->getLastName(),
+            ],
+        );
+
+        $this->assertSame($expected, $result);
+    }
+
+    public function testStringsMustNotEvaluateAsCallables(): void
+    {
+        $message = 'Hello, {firstName} {lastName}!';
+        $expected = 'Hello, Ceil Floor!';
+
+        $locale = new Locale('en-US');
+        $formatter = new MessageFormat($locale);
+
+        $result = $formatter->format(
+            $message,
+            [
+                'firstName' => 'Ceil',
+                'lastName' => 'Floor',
+            ],
+        );
+
+        $this->assertSame($expected, $result);
+    }
 }
