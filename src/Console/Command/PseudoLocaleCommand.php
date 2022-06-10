@@ -61,7 +61,7 @@ class PseudoLocaleCommand extends AbstractCommand
                 'pseudo-locale',
                 InputArgument::REQUIRED,
                 'The pseudo-locale tag.' . PHP_EOL
-                    . 'One of: ' . implode(', ', PseudoLocale::LOCALES),
+                    . 'One of: ' . implode(', ', PseudoLocale::getSupportedPseudoLocales()),
             )
             ->addOption(
                 '--in-format',

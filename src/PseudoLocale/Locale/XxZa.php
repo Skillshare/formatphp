@@ -24,10 +24,12 @@ declare(strict_types=1);
 namespace FormatPHP\PseudoLocale\Locale;
 
 use FormatPHP\Icu\MessageFormat\Parser;
+use RuntimeException;
 use Zalgo\Mood;
 use Zalgo\Soul;
 use Zalgo\Zalgo;
 
+use function class_exists;
 use function preg_replace;
 
 /**
@@ -42,8 +44,19 @@ class XxZa extends AbstractLocale
 {
     private Zalgo $zalgo;
 
+    /**
+     * @throws RuntimeException
+     */
     public function __construct()
     {
+        // @codeCoverageIgnoreStart
+        if (!class_exists(Zalgo::class)) {
+            throw new RuntimeException(
+                'Zalgo commands you install mdwheele/zalgo for Zalgo pseudo-locale support!',
+            );
+        }
+        // @codeCoverageIgnoreEnd
+
         /** @var Mood $mood */
         $mood = Mood::soothed();
 

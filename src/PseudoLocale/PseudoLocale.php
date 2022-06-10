@@ -23,6 +23,10 @@ declare(strict_types=1);
 
 namespace FormatPHP\PseudoLocale;
 
+use Zalgo\Zalgo;
+
+use function class_exists;
+
 /**
  * Constant values for pseudo locales
  */
@@ -35,12 +39,23 @@ class PseudoLocale
     public const XX_LS = 'xx-LS';
     public const XX_ZA = 'xx-ZA';
 
-    public const LOCALES = [
-        self::EN_XA,
-        self::EN_XB,
-        self::XX_AC,
-        self::XX_HA,
-        self::XX_LS,
-        self::XX_ZA,
-    ];
+    /**
+     * @return string[]
+     */
+    public static function getSupportedPseudoLocales(): array
+    {
+        $supportedLocales = [
+            self::EN_XA,
+            self::EN_XB,
+            self::XX_AC,
+            self::XX_HA,
+            self::XX_LS,
+        ];
+
+        if (class_exists(Zalgo::class)) {
+            $supportedLocales[] = self::XX_ZA;
+        }
+
+        return $supportedLocales;
+    }
 }

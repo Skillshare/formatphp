@@ -40,8 +40,10 @@ use FormatPHP\PseudoLocale\Locale\XxZa;
 use FormatPHP\Util\FileSystemHelper;
 use FormatPHP\Util\FormatHelper;
 use Psr\Log\LoggerInterface;
+use Zalgo\Zalgo;
 
 use function array_change_key_case;
+use function class_exists;
 use function count;
 use function sprintf;
 use function strtolower;
@@ -54,15 +56,6 @@ use const CASE_LOWER;
  */
 class Converter
 {
-    private const LOCALES = [
-        PseudoLocale::EN_XA => EnXa::class,
-        PseudoLocale::EN_XB => EnXb::class,
-        PseudoLocale::XX_AC => XxAc::class,
-        PseudoLocale::XX_HA => XxHa::class,
-        PseudoLocale::XX_LS => XxLs::class,
-        PseudoLocale::XX_ZA => XxZa::class,
-    ];
-
     private ConverterOptions $options;
     private FileSystemHelper $fileSystemHelper;
     private FormatHelper $formatHelper;
@@ -114,7 +107,7 @@ class Converter
      */
     private function getPseudoLocale(string $pseudoLocale): PseudoLocaleInterface
     {
-        $locales = array_change_key_case(self::LOCALES, CASE_LOWER);
+        $locales = array_change_key_case($this->getSupportedPseudoLocaleClasses(), CASE_LOWER);
 
         /**
          * @var class-string<PseudoLocaleInterface> | null $localeClass
@@ -158,5 +151,25 @@ class Converter
                 ],
             );
         }
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function getSupportedPseudoLocaleClasses(): array
+    {
+        $supportedLocaleToClassMap = [
+            PseudoLocale::EN_XA => EnXa::class,
+            PseudoLocale::EN_XB => EnXb::class,
+            PseudoLocale::XX_AC => XxAc::class,
+            PseudoLocale::XX_HA => XxHa::class,
+            PseudoLocale::XX_LS => XxLs::class,
+        ];
+
+        if (class_exists(Zalgo::class)) {
+            $supportedLocaleToClassMap[PseudoLocale::XX_ZA] = XxZa::class;
+        }
+
+        return $supportedLocaleToClassMap;
     }
 }
