@@ -20,3 +20,6 @@
 /resources/                 export-ignore
 /SECURITY.md                export-ignore
 /tests/                     export-ignore
+
+*                           text=auto
+*.bat                       text eol=crlf
