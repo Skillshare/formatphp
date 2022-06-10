@@ -26,6 +26,7 @@
         "ramsey/collection": "^1.2",
         "symfony/console": "^5.3",
         "symfony/polyfill-php80": "^1.23",
+        "symfony/process": "^5 || ~6.0.0",
         "webmozart/glob": "^4.4"
     },
     "require-dev": {
