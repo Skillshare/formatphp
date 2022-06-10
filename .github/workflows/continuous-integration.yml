@@ -66,36 +66,33 @@ jobs:
         run: "composer dev:analyze:phpstan"
 
       - name: "Statically analyze code (Psalm)"
-        run: "composer dev:analyze:psalm"
-        # NOTE: Do not report to Shepherd until the repo is public.
-        #run: "composer dev:analyze:psalm -- --shepherd"
+        run: "composer dev:analyze:psalm -- --shepherd"
 
-  # NOTE: Repository must be public to enable security analysis on GitHub.
-  #security-analysis:
-  #  name: "Security analysis"
-  #  needs: ["coding-standards", "static-analysis"]
-  #  runs-on: "ubuntu-latest"
-  #  steps:
-  #    - name: "Checkout repository"
-  #      uses: "actions/checkout@v3.0.2"
-  #
-  #    - name: "Install PHP"
-  #      uses: "shivammathur/setup-php@2.19.1"
-  #      with:
-  #        php-version: "latest"
-  #        extensions: "intl-70.1"
-  #        coverage: "none"
-  #
-  #    - name: "Install dependencies (Composer)"
-  #      uses: "ramsey/composer-install@2.1.0"
-  #
-  #    - name: "Analyze security of code (Psalm)"
-  #      run: "./vendor/bin/psalm --taint-analysis --report=build/logs/psalm.sarif"
-  #
-  #    - name: "Upload security analysis results to GitHub"
-  #      uses: "github/codeql-action/upload-sarif@v1"
-  #      with:
-  #        sarif_file: "build/logs/psalm.sarif"
+  security-analysis:
+    name: "Security analysis"
+    needs: ["coding-standards", "static-analysis"]
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout repository"
+        uses: "actions/checkout@v3.0.2"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@2.19.1"
+        with:
+          php-version: "latest"
+          extensions: "intl-70.1"
+          coverage: "none"
+
+      - name: "Install dependencies (Composer)"
+        uses: "ramsey/composer-install@2.1.0"
+
+      - name: "Analyze security of code (Psalm)"
+        run: "./vendor/bin/psalm --taint-analysis --report=build/logs/psalm.sarif"
+
+      - name: "Upload security analysis results to GitHub"
+        uses: "github/codeql-action/upload-sarif@v1"
+        with:
+          sarif_file: "build/logs/psalm.sarif"
 
   code-coverage:
     name: "Code coverage"
@@ -119,17 +116,8 @@ jobs:
       - name: "Run unit tests and generate coverage report (PHPUnit)"
         run: "composer dev:test:coverage:ci"
 
-      - name: "Publish code coverage to CodeClimate"
-        uses: "paambaati/codeclimate-action@v3.0.0"
-        env:
-          CC_TEST_REPORTER_ID: "${{secrets.CC_TEST_REPORTER_ID}}"
-        with:
-          coverageLocations: |
-            ${{github.workspace}}/build/coverage/clover.xml:clover
-
-      # NOTE: Use Codecov only for public repositories.
-      #- name: "Publish coverage report to Codecov"
-      #  uses: "codecov/codecov-action@v3.0.0"
+      - name: "Publish coverage report to Codecov"
+        uses: "codecov/codecov-action@v3.0.0"
 
   unit-tests:
     name: "Unit tests"

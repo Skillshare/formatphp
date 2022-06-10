@@ -5,10 +5,13 @@
 <h1 align="center">FormatPHP</h1>
 
 <p align="center">
-    <a href="https://github.com/skillshare/formatphp"><img src="https://img.shields.io/badge/source-skillshare/formatphp-blue.svg" alt="Source Code"></a>
-    <a href="https://github.com/Skillshare/formatphp/actions/workflows/continuous-integration.yml"><img src="https://github.com/Skillshare/formatphp/actions/workflows/continuous-integration.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://codeclimate.com/repos/61787bb74596dc01a300042c/maintainability"><img src="https://api.codeclimate.com/v1/badges/ea0d6112b63107b0bd40/maintainability" /></a>
-    <a href="https://codeclimate.com/repos/61787bb74596dc01a300042c/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ea0d6112b63107b0bd40/test_coverage" /></a>
+    <a href="https://github.com/skillshare/formatphp"><img src="http://img.shields.io/badge/source-skillshare/formatphp-blue.svg?style=flat-square" alt="Source Code"></a>
+    <a href="https://packagist.org/packages/skillshare/formatphp"><img src="https://img.shields.io/packagist/v/skillshare/formatphp.svg?style=flat-square&label=release" alt="Download Package"></a>
+    <a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/skillshare/formatphp.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
+    <a href="https://github.com/skillshare/formatphp/blob/main/LICENSE"><img src="https://img.shields.io/packagist/l/skillshare/formatphp.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
+    <a href="https://github.com/skillshare/formatphp/actions/workflows/continuous-integration.yml"><img src="https://img.shields.io/github/workflow/status/skillshare/formatphp/build/main?style=flat-square&logo=github" alt="Build Status"></a>
+    <a href="https://codecov.io/gh/skillshare/formatphp"><img src="https://img.shields.io/codecov/c/gh/skillshare/formatphp?label=codecov&logo=codecov&style=flat-square" alt="Codecov Code Coverage"></a>
+    <a href="https://shepherd.dev/github/skillshare/formatphp"><img src="https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fskillshare%2Fformatphp%2Fcoverage" alt="Psalm Type Coverage"></a>
 </p>
 
 <p align="center">
