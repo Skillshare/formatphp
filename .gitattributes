@@ -1,9 +1,8 @@
-/.allowed-licenses          export-ignore
-/.circleci/                 export-ignore
 /.editorconfig              export-ignore
 /.gitattributes             export-ignore
 /.github/                   export-ignore
 /.gitignore                 export-ignore
+/.readthedocs.yml           export-ignore
 /build/                     export-ignore
 /captainhook.json           export-ignore
 /CHANGELOG.md               export-ignore
@@ -17,7 +16,6 @@
 /phpunit.xml.dist           export-ignore
 /psalm-baseline.xml         export-ignore
 /psalm.xml                  export-ignore
-/resources/                 export-ignore
 /SECURITY.md                export-ignore
 /tests/                     export-ignore
 
