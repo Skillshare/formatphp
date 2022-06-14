@@ -1,7 +1,7 @@
 {
     "name": "skillshare/formatphp",
     "description": "Internationalize PHP apps. This library provides an API to format dates, numbers, and strings, including pluralization and handling translations.",
-    "license": "Apache-2.0",
+    "license": "MIT",
     "type": "library",
     "keywords": [
         "intl",
