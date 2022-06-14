@@ -63,5 +63,4 @@ security issue in software that is maintained in this repository, please read
 
 The skillshare/formatphp library is copyright © [Skillshare, Inc.](https://www.skillshare.com)
 and licensed for use under the terms of the
-Apache License, Version 2.0 (Apache-2.0). Please see [LICENSE](LICENSE) and
-[NOTICE](NOTICE) for more information.
+MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
