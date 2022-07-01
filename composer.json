@@ -49,7 +49,7 @@
         "ramsey/conventional-commits": "^1.3",
         "roave/security-advisories": "dev-latest",
         "spatie/phpunit-snapshot-assertions": "^4.2",
-        "vimeo/psalm": "~4.23.0"
+        "vimeo/psalm": "~4.24.0"
     },
     "suggest": {
         "mdwheele/zalgo": "Zalgo commands you install mdwheele/zalgo for Zalgo pseudo-locale support!"
