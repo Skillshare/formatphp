@@ -9,6 +9,7 @@ use FormatPHP\ConfigInterface;
 use FormatPHP\Descriptor;
 use FormatPHP\DescriptorInterface;
 use FormatPHP\Exception\UnableToFormatMessageException;
+use FormatPHP\FormatterInterface;
 use FormatPHP\Icu\MessageFormat\Parser\Exception\UnableToParseMessageException;
 use FormatPHP\Intl\Locale;
 use FormatPHP\Intl\MessageFormat;
@@ -18,6 +19,9 @@ use FormatPHP\MessageInterface;
 use FormatPHP\Test\TestCase;
 use FormatPHP\Util\DescriptorIdBuilder;
 
+/**
+ * @psalm-import-type MessageValuesType from FormatterInterface
+ */
 class MessageFormatTest extends TestCase
 {
     use DescriptorIdBuilder;
@@ -182,14 +186,17 @@ class MessageFormatTest extends TestCase
         $locale = new Locale('en-US');
         $formatter = new MessageFormat($locale);
 
+        /** @var MessageValuesType $values */
+        $values = [
+            'name' => 'Samwise',
+            'profileLink' => fn (string $text): string => '<a href="https://example.com">' . $text . '</a>',
+            'boldface' => fn (string $text): string => "<strong>$text</strong>",
+            'italicized' => fn (string $text): string => "<em>$text</em>",
+        ];
+
         $formatted = $formatter->format(
             'Hi, <profileLink><boldface>{name}</boldface>, our <italicized>great friend</italicized></profileLink>!',
-            [
-                'name' => 'Samwise',
-                'profileLink' => fn ($text) => '<a href="https://example.com">' . $text . '</a>',
-                'boldface' => fn ($text) => "<strong>$text</strong>",
-                'italicized' => fn ($text) => "<em>$text</em>",
-            ],
+            $values,
         );
 
         $this->assertSame(
@@ -203,13 +210,16 @@ class MessageFormatTest extends TestCase
         $locale = new Locale('en-US');
         $formatter = new MessageFormat($locale);
 
+        /** @var MessageValuesType $values */
+        $values = [
+            'name' => 'Pippin',
+            'profileLink' => fn (string $text): string => '<a href="https://example.com">' . $text . '</a>',
+        ];
+
         $formatted = $formatter->format(
             'Hi, <profileLink><boldface>{name}</boldface>, <foo /> our '
                 . '<italicized>great friend</italicized></profileLink>!',
-            [
-                'name' => 'Pippin',
-                'profileLink' => fn ($text) => '<a href="https://example.com">' . $text . '</a>',
-            ],
+            $values,
         );
 
         $this->assertSame(
@@ -238,12 +248,15 @@ class MessageFormatTest extends TestCase
         $locale = new Locale('en-US');
         $formatter = new MessageFormat($locale);
 
-        $formatted = $formatter->format($message, [
+        /** @var MessageValuesType $values */
+        $values = [
             'gender' => 'female',
             'petCount' => 4,
-            'italicized' => fn ($text) => "<em>$text</em>",
-            'bold' => fn ($text) => "<strong>$text</strong>",
-        ]);
+            'italicized' => fn (string $text): string => "<em>$text</em>",
+            'bold' => fn (string $text): string => "<strong>$text</strong>",
+        ];
+
+        $formatted = $formatter->format($message, $values);
 
         $this->assertSame($expected, $formatted);
     }
@@ -255,13 +268,16 @@ class MessageFormatTest extends TestCase
         $locale = new Locale('en-US');
         $formatter = new MessageFormat($locale);
 
+        /** @var MessageValuesType $values */
+        $values = [
+            'name' => 'Bilbo',
+            'link' => fn (string $text): string => "<a>$text</a>",
+        ];
+
         // We're not using expectException() because we want to actually
         // inspect the exception object as part of this test.
         try {
-            $formatter->format($message, [
-                'name' => 'Bilbo',
-                'link' => fn ($text) => "<a>$text</a>",
-            ]);
+            $formatter->format($message, $values);
         } catch (UnableToFormatMessageException $exception) {
             $this->assertSame(
                 'Unable to format message with pattern "Hello, <link>{name}" for locale "en-US"',

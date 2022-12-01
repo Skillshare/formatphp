@@ -294,7 +294,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
-                'en' => 'Monday, June 15, 20 Anno Domini, 9:48:20 PM PDT',
+                'en' => 'Monday, June 15, 20 Anno Domini at 9:48:20 PM PDT',
                 'skeleton' => 'GGGGyyMMMMddEEEEhhmsz',
             ],
             [

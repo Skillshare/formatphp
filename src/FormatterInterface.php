@@ -31,7 +31,7 @@ use FormatPHP\Intl\NumberFormatOptions;
  * FormatPHP formatter methods
  *
  * @psalm-type MessageDescriptorType = array{id?: string, defaultMessage?: string, description?: string}
- * @psalm-type MessageValuesType = array<array-key, float | int | string | callable(string):string>
+ * @psalm-type MessageValuesType = array<array-key, float | int | string | callable(string=):string>
  * @psalm-type DateTimeType = PhpDateTimeInterface | string | int
  * @psalm-type NumberType = int | float
  */
