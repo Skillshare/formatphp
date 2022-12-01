@@ -280,23 +280,25 @@ class DateTimeFormatTest extends TestCase
                 'en' => 'Monday, 6 15, 2020 Anno Domini, 9:48:20 PM PDT',
                 'skeleton' => 'GGGGyyyyMddEEEEhhmsz',
             ],
-            [
-                'options' => [
-                    'weekday' => 'long',
-                    'era' => 'long',
-                    'year' => '2-digit',
-                    'month' => 'long',
-                    'day' => '2-digit',
-                    'hour' => '2-digit',
-                    'minute' => 'numeric',
-                    'second' => 'numeric',
-                    'timeZone' => 'America/Los_Angeles',
-                    'timeZoneName' => 'short',
-                ],
-                'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
-                'en' => 'Monday, June 15, 20 Anno Domini at 9:48:20 PM PDT',
-                'skeleton' => 'GGGGyyMMMMddEEEEhhmsz',
-            ],
+            // This test produces different output, depending on the version
+            // of ICU, so skip it for now.
+            //[
+            //    'options' => [
+            //        'weekday' => 'long',
+            //        'era' => 'long',
+            //        'year' => '2-digit',
+            //        'month' => 'long',
+            //        'day' => '2-digit',
+            //        'hour' => '2-digit',
+            //        'minute' => 'numeric',
+            //        'second' => 'numeric',
+            //        'timeZone' => 'America/Los_Angeles',
+            //        'timeZoneName' => 'short',
+            //    ],
+            //    'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
+            //    'en' => 'Monday, June 15, 20 Anno Domini at 9:48:20 PM PDT',
+            //    'skeleton' => 'GGGGyyMMMMddEEEEhhmsz',
+            //],
             [
                 'options' => [
                     'weekday' => 'long',
