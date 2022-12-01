@@ -45,6 +45,7 @@ use function sprintf;
  * FormatPHP internationalization and localization
  *
  * @psalm-import-type DateTimeType from FormatterInterface
+ * @psalm-import-type MessageValuesType from FormatterInterface
  */
 class FormatPHP implements FormatterInterface
 {
@@ -77,6 +78,7 @@ class FormatPHP implements FormatterInterface
     {
         // Combine the global default rich text element callbacks with the values,
         // giving preference to values provided with the same keys.
+        /** @var MessageValuesType $values */
         $values = array_merge($this->config->getDefaultRichTextElements(), $values);
 
         try {

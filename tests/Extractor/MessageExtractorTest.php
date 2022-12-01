@@ -454,6 +454,9 @@ class MessageExtractorTest extends TestCase
         ob_start();
         $extractor->process([__DIR__ . '/Parser/Descriptor/fixtures/*.php']);
         ob_end_clean();
+
+        // Perform assertion to avoid "risky" test warning.
+        $this->assertTrue(true);
     }
 
     public function testProcessWithNoResults(): void
