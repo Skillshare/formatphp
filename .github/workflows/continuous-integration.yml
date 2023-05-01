@@ -27,7 +27,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
-        uses: "actions/checkout@v3.0.2"
+        uses: "actions/checkout@v3.5.2"
 
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.21.2"
@@ -50,7 +50,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
-        uses: "actions/checkout@v3.0.2"
+        uses: "actions/checkout@v3.5.2"
 
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.21.2"
@@ -74,7 +74,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
-        uses: "actions/checkout@v3.0.2"
+        uses: "actions/checkout@v3.5.2"
 
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.21.2"
@@ -100,7 +100,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
-        uses: "actions/checkout@v3.0.2"
+        uses: "actions/checkout@v3.5.2"
 
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.21.2"
@@ -140,7 +140,7 @@ jobs:
 
     steps:
       - name: "Checkout repository"
-        uses: "actions/checkout@v3.0.2"
+        uses: "actions/checkout@v3.5.2"
 
       - name: "Install PHP"
         uses: "shivammathur/setup-php@2.21.2"
