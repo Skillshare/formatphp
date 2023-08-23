@@ -156,7 +156,7 @@ class FormatPHPTest extends TestCase
 
         // Mon, 25 Oct 2021 23:34:12 +0000
         $this->assertSame(
-            'Monday, October 25, 2021 at 11:34:12 PM UTC',
+            "Monday, October 25, 2021 at 11:34:12\xE2\x80\xAFPM UTC",
             $formatphp->formatDate(1635204852, new DateTimeFormatOptions([
                 'dateStyle' => 'full',
                 'timeStyle' => 'long',
@@ -217,7 +217,7 @@ class FormatPHPTest extends TestCase
         $formatphp = new FormatPHP($config, $messageCollection);
 
         $this->assertSame(
-            '11:34 PM',
+            "11:34\xE2\x80\xAFPM",
             $formatphp->formatTime('Mon, 25 Oct 2021 23:34:12 +0000'),
         );
     }
@@ -231,7 +231,7 @@ class FormatPHPTest extends TestCase
 
         // Mon, 25 Oct 2021 23:34:12 +0000
         $this->assertSame(
-            '11:34:12 PM',
+            "11:34:12\xE2\x80\xAFPM",
             $formatphp->formatTime(1635204852, new DateTimeFormatOptions([
                 'second' => 'numeric',
             ])),
@@ -247,7 +247,7 @@ class FormatPHPTest extends TestCase
 
         // Mon, 25 Oct 2021 23:34:12 +0000
         $this->assertSame(
-            '11:34:12 PM Coordinated Universal Time',
+            "11:34:12\xE2\x80\xAFPM Coordinated Universal Time",
             $formatphp->formatTime(1635204852, new DateTimeFormatOptions([
                 'timeStyle' => 'full',
             ])),
@@ -284,7 +284,7 @@ class FormatPHPTest extends TestCase
         $this->assertNull($options->hour);
         $this->assertNull($options->minute);
 
-        $this->assertSame('8:03 PM', $formatphp->formatTime($time, $options));
+        $this->assertSame("8:03\xE2\x80\xAFPM", $formatphp->formatTime($time, $options));
 
         // These should still be null after passing them to formatTime().
         $this->assertNull($options->hour);
@@ -304,7 +304,7 @@ class FormatPHPTest extends TestCase
             'minute' => '2-digit',
         ]);
 
-        $this->assertSame('8:03 PM', $formatphp->formatTime($time, $options));
+        $this->assertSame("8:03\xE2\x80\xAFPM", $formatphp->formatTime($time, $options));
 
         // These should not change after being passed to formatTime().
         $this->assertSame('2-digit', $options->hour);

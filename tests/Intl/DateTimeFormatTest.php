@@ -121,7 +121,7 @@ class DateTimeFormatTest extends TestCase
         $enFormatter = new DateTimeFormat($enLocale, $formatOptions);
         $date = new DateTimeImmutable('@' . self::TS);
 
-        $this->assertSame('10:48:20 PM', $enFormatter->format($date));
+        $this->assertSame("10:48:20\xE2\x80\xAFPM", $enFormatter->format($date));
 
         $this->assertSame('hhmmss', $enFormatter->getSkeleton());
         $this->assertSame('en-u-hc-h12', $enFormatter->getEvaluatedLocale());
@@ -207,7 +207,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'long',
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 4시 48분 20초 협정 세계시',
-                'en' => 'Tuesday, 6 16, 2020 Anno Domini, 4:48:20 AM Coordinated Universal Time',
+                'en' => "Tuesday, 6 16, 2020 Anno Domini, 4:48:20\xE2\x80\xAFAM Coordinated Universal Time",
                 'skeleton' => 'GGGGyyyyMdEEEEhmszzzz',
             ],
             [
@@ -225,7 +225,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 12시 48분 20초 GMT-4',
-                'en' => 'Tuesday, 6 16, 2020 Anno Domini, 12:48:20 AM EDT',
+                'en' => "Tuesday, 6 16, 2020 Anno Domini, 12:48:20\xE2\x80\xAFAM EDT",
                 'skeleton' => 'GGGGyyyyMdEEEEhmsz',
             ],
             [
@@ -243,7 +243,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 12시 48분 20초 GMT-4',
-                'en' => 'Tuesday, 6 16, 2020 Anno Domini, 12:48:20 AM EDT',
+                'en' => "Tuesday, 6 16, 2020 Anno Domini, 12:48:20\xE2\x80\xAFAM EDT",
                 'skeleton' => 'GGGGyyyyMddEEEEhmsz',
             ],
             [
@@ -260,7 +260,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 2020년 6 16일 화요일 오전 12시 48분 20초 GMT-4',
-                'en' => 'Tuesday, 6 16, 2020 Anno Domini, 12:48:20 AM EDT',
+                'en' => "Tuesday, 6 16, 2020 Anno Domini, 12:48:20\xE2\x80\xAFAM EDT",
                 'skeleton' => 'GGGGyyyyMddEEEEhmsz',
             ],
             [
@@ -277,7 +277,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 2020년 6 15일 월요일 오후 9시 48분 20초 GMT-7',
-                'en' => 'Monday, 6 15, 2020 Anno Domini, 9:48:20 PM PDT',
+                'en' => "Monday, 6 15, 2020 Anno Domini, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'GGGGyyyyMddEEEEhhmsz',
             ],
             // This test produces different output, depending on the version
@@ -313,7 +313,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
-                'en' => 'Monday, Jun 15, 20 Anno Domini, 9:48:20 PM PDT',
+                'en' => "Monday, Jun 15, 20 Anno Domini, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'GGGGyyMMMddEEEEhhmsz',
             ],
             [
@@ -330,7 +330,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => '서기 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
-                'en' => 'Monday, J 15, 20 Anno Domini, 9:48:20 PM PDT',
+                'en' => "Monday, J 15, 20 Anno Domini, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'GGGGyyMMMMMddEEEEhhmsz',
             ],
             [
@@ -347,7 +347,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => 'AD 20년 6월 15일 월요일 오후 9시 48분 20초 GMT-7',
-                'en' => 'Monday, J 15, 20 AD, 9:48:20 PM PDT',
+                'en' => "Monday, J 15, 20 AD, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'GyyMMMMMddEEEEhhmsz',
             ],
             [
@@ -364,7 +364,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => 'AD 20년 6월 15일 (월) 오후 9시 48분 20초 GMT-7',
-                'en' => 'M, J 15, 20 AD, 9:48:20 PM PDT',
+                'en' => "M, J 15, 20 AD, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'GyyMMMMMddEEEEEhhmsz',
             ],
             [
@@ -381,7 +381,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZoneName' => 'short',
                 ],
                 'ko' => 'AD 20년 6월 15일 (월) 오후 9시 48분 20초 GMT-7',
-                'en' => 'Mon, J 15, 20 AD, 9:48:20 PM PDT',
+                'en' => "Mon, J 15, 20 AD, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'GyyMMMMMddEhhmsz',
             ],
             [
@@ -426,7 +426,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '오후 9시 48분 20초 미 태평양 하계 표준시',
-                'en' => '9:48:20 PM Pacific Daylight Time',
+                'en' => "9:48:20\xE2\x80\xAFPM Pacific Daylight Time",
                 'skeleton' => 'hmmssazzzz',
             ],
             [
@@ -435,7 +435,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '오후 9시 48분 20초 GMT-7',
-                'en' => '9:48:20 PM PDT',
+                'en' => "9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'hmmssaz',
             ],
             [
@@ -444,7 +444,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '오후 9:48:20',
-                'en' => '9:48:20 PM',
+                'en' => "9:48:20\xE2\x80\xAFPM",
                 'skeleton' => 'hmmssa',
             ],
             [
@@ -453,7 +453,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '오후 9:48',
-                'en' => '9:48 PM',
+                'en' => "9:48\xE2\x80\xAFPM",
                 'skeleton' => 'hmma',
             ],
             [
@@ -463,7 +463,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '2020년 6월 15일 오후 9시 48분 20초 미 태평양 하계 표준시',
-                'en' => 'June 15, 2020 at 9:48:20 PM Pacific Daylight Time',
+                'en' => "June 15, 2020 at 9:48:20\xE2\x80\xAFPM Pacific Daylight Time",
                 'skeleton' => 'MMMMdyhmmssazzzz',
             ],
             [
@@ -473,7 +473,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '2020. 6. 15. 오후 9시 48분 20초 GMT-7',
-                'en' => 'Jun 15, 2020, 9:48:20 PM PDT',
+                'en' => "Jun 15, 2020, 9:48:20\xE2\x80\xAFPM PDT",
                 'skeleton' => 'MMMdyhmmssaz',
             ],
             [
@@ -483,7 +483,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '20. 6. 15. 오후 9:48:20',
-                'en' => '6/15/20, 9:48:20 PM',
+                'en' => "6/15/20, 9:48:20\xE2\x80\xAFPM",
                 'skeleton' => 'Mdyyhmmssa',
             ],
             [
@@ -493,7 +493,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Los_Angeles',
                 ],
                 'ko' => '2020년 6월 15일 월요일 오후 9:48',
-                'en' => 'Monday, June 15, 2020 at 9:48 PM',
+                'en' => "Monday, June 15, 2020 at 9:48\xE2\x80\xAFPM",
                 'skeleton' => 'EEEEMMMMdyhmma',
             ],
             [
@@ -504,7 +504,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Denver',
                 ],
                 'ko' => '불기 2563년 6월 15일 월요일 오후 10시 48분 20초 미 산지 하계 표준시',
-                'en' => 'Monday, June 15, 2563 BE at 10:48:20 PM Mountain Daylight Time',
+                'en' => "Monday, June 15, 2563 BE at 10:48:20\xE2\x80\xAFPM Mountain Daylight Time",
                 'skeleton' => 'EEEEMMMMdyhmmssazzzz',
             ],
             [
@@ -515,7 +515,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Denver',
                 ],
                 'ko' => '二千零二十년 六월 十五일 월요일 오후 十시 四十八분 二十초 미 산지 하계 표준시',
-                'en' => 'Monday, June 十五, 二千零二十 at 十:四十八:二十 PM Mountain Daylight Time',
+                'en' => "Monday, June 十五, 二千零二十 at 十:四十八:二十\xE2\x80\xAFPM Mountain Daylight Time",
                 'skeleton' => 'EEEEMMMMdyhmmssazzzz',
             ],
             [
@@ -526,7 +526,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Denver',
                 ],
                 'ko' => '2020년 6월 15일 월요일 오후 10시 48분 20초 미 산지 하계 표준시',
-                'en' => 'Monday, June 15, 2020 at 10:48:20 PM Mountain Daylight Time',
+                'en' => "Monday, June 15, 2020 at 10:48:20\xE2\x80\xAFPM Mountain Daylight Time",
                 'skeleton' => 'EEEEMMMMdyhmmssazzzz',
             ],
             [
@@ -550,7 +550,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Chicago',
                 ],
                 'ko' => '오후 11:48:20',
-                'en' => '11:48:20 PM',
+                'en' => "11:48:20\xE2\x80\xAFPM",
                 'skeleton' => 'hmsb',
             ],
             [
@@ -562,7 +562,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'America/Chicago',
                 ],
                 'ko' => 'PM 11:48:20',
-                'en' => '11:48:20 p',
+                'en' => "11:48:20\xE2\x80\xAFp",
                 'skeleton' => 'hmsbbbbb',
             ],
             [
@@ -586,7 +586,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'Asia/Kolkata',
                 ],
                 'ko' => '오전 10:18:20',
-                'en' => '10:18:20 AM',
+                'en' => "10:18:20\xE2\x80\xAFAM",
                 'skeleton' => 'hmsb',
             ],
             [
@@ -598,7 +598,7 @@ class DateTimeFormatTest extends TestCase
                     'timeZone' => 'Asia/Kolkata',
                 ],
                 'ko' => 'AM 10:18:20',
-                'en' => '10:18:20 a',
+                'en' => "10:18:20\xE2\x80\xAFa",
                 'skeleton' => 'hmsbbbbb',
             ],
         ];

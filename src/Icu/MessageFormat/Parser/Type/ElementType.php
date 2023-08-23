@@ -36,7 +36,6 @@ use MyCLabs\Enum\Enum;
  * @method static ElementType Plural()
  * @method static ElementType Pound()
  * @method static ElementType Tag()
- *
  * @psalm-immutable
  * @extends Enum<int>
  */
