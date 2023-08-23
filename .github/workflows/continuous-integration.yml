@@ -33,7 +33,7 @@ jobs:
         uses: "shivammathur/setup-php@2.21.2"
         with:
           php-version: "latest"
-          extensions: "intl-70.1"
+          extensions: "intl-73.2"
           coverage: "none"
 
       - name: "Install dependencies (Composer)"
@@ -56,7 +56,7 @@ jobs:
         uses: "shivammathur/setup-php@2.21.2"
         with:
           php-version: "latest"
-          extensions: "intl-70.1"
+          extensions: "intl-73.2"
           coverage: "none"
 
       - name: "Install dependencies (Composer)"
@@ -80,7 +80,7 @@ jobs:
         uses: "shivammathur/setup-php@2.21.2"
         with:
           php-version: "latest"
-          extensions: "intl-70.1"
+          extensions: "intl-73.2"
           coverage: "none"
 
       - name: "Install dependencies (Composer)"
@@ -106,7 +106,7 @@ jobs:
         uses: "shivammathur/setup-php@2.21.2"
         with:
           php-version: "latest"
-          extensions: "intl-70.1"
+          extensions: "intl-73.2"
           coverage: "pcov"
           ini-values: "memory_limit=-1"
 
@@ -149,7 +149,7 @@ jobs:
         uses: "shivammathur/setup-php@2.21.2"
         with:
           php-version: "${{ matrix.php-version }}"
-          extensions: "intl-70.1"
+          extensions: "intl-73.2"
           coverage: "none"
 
       - name: "Install dependencies (Composer)"
