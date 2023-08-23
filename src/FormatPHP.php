@@ -93,7 +93,7 @@ class FormatPHP implements FormatterInterface
         } catch (Exception\UnableToGenerateMessageIdException $exception) {
             throw new Exception\InvalidArgumentException(
                 'The message descriptor must have an ID or default message',
-                (int) $exception->getCode(),
+                $exception->getCode(),
                 $exception,
             );
         }

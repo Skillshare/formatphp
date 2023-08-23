@@ -139,6 +139,7 @@ class MessageFormat implements MessageFormatInterface
 
         assert($parsed->val instanceof Parser\Type\ElementCollection);
 
+        /** @psalm-suppress InvalidArgument */
         return (new Printer())->printAst($this->processAst($parsed->val, $callbacks, $valuesWithoutCallables));
     }
 
