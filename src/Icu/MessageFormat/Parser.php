@@ -408,10 +408,6 @@ class Parser
      * level of the pattern. The new behavior is otherwise compatible.
      *
      * @param ArgType $parentArgType
-     *
-     * @throws Exception\InvalidOffsetException
-     * @throws Exception\InvalidUtf8CodeBoundaryException
-     * @throws Exception\InvalidUtf8CodePointException
      */
     private function tryParseQuote(string $parentArgType): ?string
     {
