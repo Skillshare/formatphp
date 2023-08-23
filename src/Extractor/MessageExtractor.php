@@ -281,8 +281,14 @@ class MessageExtractor
         };
     }
 
+    /**
+     * @psalm-return Closure(DescriptorInterface):mixed
+     */
     private function flattenMessage(): Closure
     {
+        /**
+         * @var Closure(DescriptorInterface):mixed
+         */
         return function (Descriptor $descriptor): ?Descriptor {
             $message = $descriptor->getDefaultMessage();
             $messageFormatParser = new MessageFormatParser((string) $message);

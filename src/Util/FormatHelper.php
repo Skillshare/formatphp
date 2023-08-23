@@ -188,6 +188,7 @@ class FormatHelper
             ));
         }
 
+        /** @var ReaderCallableType */
         return $formatter;
     }
 
@@ -227,6 +228,7 @@ class FormatHelper
             ));
         }
 
+        /** @var WriterCallableType */
         return $formatter;
     }
 }

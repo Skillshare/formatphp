@@ -33,6 +33,7 @@ use Locale as PhpLocale;
 use MessageFormatter as PhpMessageFormatter;
 use Throwable;
 
+use function assert;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function is_int;
@@ -192,16 +193,17 @@ class DateTimeFormat implements DateTimeFormatInterface
         $this->timeStyle = $options->timeStyle;
 
         $timeZoneId = $options->timeZone ?? date_default_timezone_get();
-        $this->intlTimeZone = IntlTimeZone::createTimeZone($timeZoneId);
+        $intlTimeZone = IntlTimeZone::createTimeZone($timeZoneId);
+        assert($intlTimeZone instanceof IntlTimeZone);
+        $this->intlTimeZone = $intlTimeZone;
 
         if ($this->intlTimeZone->getID() === IntlTimeZone::getUnknown()->getID()) {
             throw new InvalidArgumentException(sprintf('Unknown time zone "%s"', $timeZoneId));
         }
 
-        $this->intlCalendar = IntlCalendar::createInstance(
-            $this->intlTimeZone,
-            $locale->toString(),
-        );
+        $intlCalendar = IntlCalendar::createInstance($this->intlTimeZone, $locale->toString());
+        assert($intlCalendar instanceof IntlCalendar);
+        $this->intlCalendar = $intlCalendar;
 
         $this->localeName = $locale->toString();
         $this->skeleton = $this->buildSkeleton($options, $locale);

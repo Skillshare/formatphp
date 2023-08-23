@@ -164,7 +164,7 @@ class FileSystemHelper
     public function writeJsonContents($file, $contents): void
     {
         try {
-            $encodedContents = (string) @json_encode($contents, self::JSON_ENCODE_FLAGS);
+            $encodedContents = @json_encode($contents, self::JSON_ENCODE_FLAGS);
         } catch (JsonException $exception) {
             throw new InvalidArgumentException('Unable to encode contents as JSON', 0, $exception);
         }

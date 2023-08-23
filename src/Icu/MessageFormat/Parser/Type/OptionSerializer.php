@@ -38,7 +38,6 @@ trait OptionSerializer
         $options = [];
 
         /**
-         * @var string $property
          * @var scalar | mixed[] | null $value
          */
         foreach (get_object_vars($this) as $property => $value) {
